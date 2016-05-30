@@ -9,7 +9,8 @@ angular.module('generic-client', ['ionic',
     'generic-client.services.transactions',
     'generic-client.filters'])
 
-    .constant('API', 'https://app.zapgo.co/api/1')
+    .constant('API', 'https://staging.zapgo.co/api/1')
+    .constant('DOMAIN', 'staging.zapgo.co')
     .constant('REFRESH_INTERVAL', 3000)
 
     .config(function ($httpProvider, $ionicConfigProvider, $compileProvider) {
