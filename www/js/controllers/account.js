@@ -42,6 +42,7 @@ angular.module('generic-client.controllers.account', [])
                 $ionicLoading.show({
                     template: 'Logging In...'
                 });
+                
                 User.login(user.email, user.password).then(function (res) {
                     $ionicLoading.hide();
                     $state.go('app.home');
