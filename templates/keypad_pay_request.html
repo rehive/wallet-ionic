@@ -1,0 +1,18 @@
+<ion-view view-title="{{ viewTitle }}">
+
+    <div ng-include src="'templates/keypad.html'"></div>
+
+    <!-- Footer bar hack to get layout right -->
+    <ion-footer-bar class="high-footer bar-dark">
+    </ion-footer-bar>
+
+    <div class="row">
+        <button class="col col-50 high-footer bar bar-footer bar-air" ng-click="request_from(keypadVar)">
+            <h1 class="title">Request</h1>
+        </button>
+        <button class="col col-50 col-offset-50 high-footer bar bar-footer bar-air" ng-click="pay_to(keypadVar)">
+            <h1 class="title">Pay</h1>
+        </button>
+    </div>
+
+</ion-view>

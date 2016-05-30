@@ -1,0 +1,22 @@
+<ion--view view-title="Cash Out">
+
+    <ion-content>
+
+        <div class="list">
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Amount</span>
+                <input ng-model="data.amount" type="number" placeholder="Amount you want to cash out">
+            </label>
+        </div>
+
+    </ion-content>
+
+    <!-- Footer bar hack to get layout right -->
+    <ion-footer-bar class="high-footer bar-dark">
+    </ion-footer-bar>
+
+    <button keyboard-attach class="high-footer bar bar-footer bar-air" ng-click="submit(data.amount)">
+        <h1 class="title">Next</h1>
+    </button>
+
+</ion--view>

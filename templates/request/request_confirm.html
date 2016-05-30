@@ -1,0 +1,28 @@
+<ion--view view-title="Confirm Request">
+    <ion-content class="padding">
+
+        <div class="row">
+            <div class="col text-center">
+                <h4>You are requesting R {{ amount }} from {{ from }}.</h4>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col text-center">
+                <p>Note: "{{ note }}"</p>
+            </div>
+        </div>
+
+
+    </ion-content>
+
+    <div class="row">
+        <a class="col col-50 high-footer bar bar-footer bar-cancel" menu-close href="#/app/dashboard">
+            <h1 class="title">Cancel</h1>
+        </a>
+        <button class="col col-50 col-offset-50 high-footer bar bar-footer bar-air" ng-click="submit(amount, note, from)">
+            <h1 class="title">Confirm</h1>
+        </button>
+    </div>
+
+</ion--view>

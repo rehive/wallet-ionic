@@ -1,0 +1,26 @@
+<ion-view view-title="{{ viewTitle }}">
+
+    <ion-content class="dashboard-home">
+        <div class="row">
+            <div class="col col-100 text-center">
+                <h2>R 500.00</h2>
+            </div>
+        </div>
+        <div ng-include src="'templates/transactions.html'"></div>
+    </ion-content>
+
+
+    <!-- Footer bar hack to get layout right -->
+    <ion-footer-bar class="high-footer bar-dark">
+    </ion-footer-bar>
+
+    <div class="row">
+        <a class="col col-50 high-footer bar bar-footer bar-air" href="#/app/request">
+            <h1 class="title">Request</h1>
+        </a>
+        <a class="col col-50 col-offset-50 high-footer bar bar-footer bar-air" href="#/app/pay">
+            <h1 class="title">Pay</h1>
+        </a>
+    </div>
+
+</ion-view>
