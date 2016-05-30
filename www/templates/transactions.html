@@ -1,0 +1,36 @@
+<ion-refresher pulling-text="pull to refresh" on-refresh="listRefresh()"></ion-refresher>
+
+<div class="list-transactions">
+    <div ng-repeat="item in items">
+        <div class="item item-avatar item-icon-left item-gray" ng-if="item.id%2==0">
+            <i class="icon ion-ios-circle-outline"></i>
+
+            <div class="align-left">
+                <h2>{{ item.description }}</h2>
+                <h4>Pizza at Jimmy's</h4>
+                <h5>{{ item.date }}</h5>
+            </div>
+            <div class="align-right">
+                <h3>
+                    R{{ item.currency }} {{ item.amount }}
+                </h3>
+            </div>
+        </div>
+
+        <div class="item item-avatar item-icon-left" ng-if="item.id%2==1">
+            <i class="icon ion-ios-circle-outline"></i>
+
+            <div class="align-left">
+                <h2>{{ item.description }}</h2>
+                <h4>Pizza at Jimmy's</h4>
+                <h5>{{ item.date }}</h5>
+            </div>
+            <div class="align-right">
+                <h3>
+                    R{{ item.currency }} {{ item.amount }}
+                </h3>
+            </div>
+        </div>
+
+    </div>
+</div>

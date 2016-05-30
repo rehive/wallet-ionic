@@ -1,0 +1,21 @@
+<ion--view view-title="Pin">
+
+    <ion-content>
+
+        <div class="list">
+
+            <div class="item item-divider">
+                Require pin/touch ID when
+            </div>
+
+            <ion-toggle ng-repeat="item in pinList"
+                        ng-model="item.checked"
+                        ng-checked="item.checked">
+                {{ item.text }}
+            </ion-toggle>
+
+        </div>
+
+    </ion-content>
+
+</ion--view>

@@ -1,0 +1,17 @@
+<ion--view view-title="Address">
+
+    <ion-content>
+
+        <div class="list">
+            <div ng-repeat="address in addresses">
+                <div class="item" ui-sref="app.add_address">
+                    {{ address.address }}
+                </div>
+            </div>
+            <a class="item" ui-sref="app.add_address">
+                Add another address
+            </a>
+        </div>
+    </ion-content>
+
+</ion--view>

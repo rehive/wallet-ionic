@@ -1,0 +1,42 @@
+<ion--view view-title="Personal details">
+
+    <ion-content>
+
+        <div class="list">
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Username</span>
+                <input ng-model="data.username" type="text" placeholder="Your username" value="{{ data.username }}">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">First name</span>
+                <input ng-model="data.first_name" type="text" placeholder="Your name" value="{{ data.name }}">
+
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Last name</span>
+                <input ng-model="data.last_name" type="text" placeholder="Your surname" value="{{ data.surname }}">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Nationality</span>
+                <input ng-model="data.nationality" type="text" placeholder="Your nationality"
+                       value="{{ data.nationality }}">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Passport/ID</span>
+                <input ng-model="data.passport_id" type="text" placeholder="Your passport/id number"
+                       value="{{ data.passport_id }}">
+            </label>
+        </div>
+
+    </ion-content>
+
+    <!-- Footer bar hack to get layout right -->
+    <ion-footer-bar class="high-footer bar-dark">
+    </ion-footer-bar>
+
+    <button keyboard-attach class="high-footer bar bar-footer bar-air" ng-click="submit(data.username,  data.first_name,
+        data.last_name, data.nationality, data.password_id)">
+        <h1 class="title">Submit</h1>
+    </button>
+
+</ion--view>

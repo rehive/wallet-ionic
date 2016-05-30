@@ -1,0 +1,58 @@
+<ion--view view-title="Address">
+
+    <ion-content>
+
+        <div class="list">
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Address line 1</span>
+                <input ng-model="data.address_1" type="text" placeholder="e.g. East building, 3rd floor."
+                       value="{{ data.address_1 }}">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Address line 2</span>
+                <input ng-model="data.address_2" type="text" placeholder="E.g. 14 Back rd."
+                       value="{{ data.address_2 }}">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Suburb</span>
+                <input ng-model="data.suburb" type="text" placeholder="Suburb." value="{{ data.suburb }}">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">City</span>
+                <input ng-model="data.city" type="text" placeholder="City." value="{{ data.city }}">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Country</span>
+                <input ng-model="data.country" type="text" placeholder="Country." value="{{ data.country }}">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">ZIP/Postal code</span>
+                <input ng-model="data.zip_code" type="text" placeholder="What is your ZIP code."
+                       value="{{ data.zip_code }}">
+            </label>
+
+            <div class="item item-divider">
+                Set default delivery address
+            </div>
+
+            <ion-toggle ng-repeat="address in addressList"
+                        ng-model="address.checked"
+                        ng-checked="address.checked">
+                {{ address.default }}
+            </ion-toggle>
+
+        </div>
+
+
+    </ion-content>
+
+    <!-- Footer bar hack to get layout right -->
+    <ion-footer-bar class="high-footer bar-dark">
+    </ion-footer-bar>
+
+    <button class="high-footer bar bar-footer bar-air" ng-click="submit(data.address_1, data.address_2,
+    data.suburb, data.city, data.country, data.zip_code)">
+        <h1 class="title">Submit</h1>
+    </button>
+
+</ion--view>

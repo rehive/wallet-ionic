@@ -1,0 +1,358 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+
+// Colors
+$air: #56C1ED;
+$graybg: #F6F6F6;
+
+// Color class
+.air {
+  color: $air;
+}
+
+.graybg {
+  background-color: $graybg;
+}
+
+.success {
+  color: #42D73C;
+}
+
+// Buttons
+.button.button-air {
+  border-color: transparent;
+  background-color: $air;
+  color: #fff;
+}
+
+.button.button-air:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.button.button-air.active, .button.button-air.activated {
+  background-color: darken($air, 15%);
+}
+
+.button.button-air.button-clear {
+  border-color: transparent;
+  background: none;
+  box-shadow: none;
+  color: $air;
+}
+
+.button.button-air.button-icon {
+  border-color: transparent;
+  background: none;
+}
+
+.button.button-air.button-outline {
+  border-color: $air;
+  background: transparent;
+  color: $air;
+}
+
+.button.button-air.button-outline.active, .button.button-air.button-outline.activated {
+  background-color: $air;
+  box-shadow: none;
+  color: #fff;
+}
+
+// Custom navbar
+.bar.bar-air {
+  border-color: darken($air, 0%);
+  background-color: $air;
+  background-image: none;
+  // background-image: linear-gradient(0deg, #6b46e5, #6b46e5 50%, transparent 50%);
+  color: #fff;
+  &.activated {
+    background-color: darken($air, 15);
+  }
+}
+
+.bar.bar-air .title {
+  color: #fff;
+
+}
+
+.bar.bar-air.bar-footer {
+  .title {
+    top: 5px; // Fix h1 title position
+  }
+}
+
+.bar-air .button {
+  border-color: transparent;
+  background-color: #886aea;
+  color: #fff;
+}
+
+.bar-air .button:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.bar-air .button.active, .bar-air .button.activated {
+  background-color: #6b46e5;
+}
+
+.bar-air .button.button-clear {
+  border-color: transparent;
+  background: none;
+  box-shadow: none;
+  color: #fff;
+  font-size: 17px;
+}
+
+.bar-air .button.button-icon {
+  border-color: transparent;
+  background: none;
+}
+
+// Dashboard
+.dashboard {
+  background-color: white;
+}
+
+.dashboard-home {
+  background-color: $air;
+  .row, .col-100, .col {
+    padding-top: 12px;
+    padding-bottom: 10px;
+  }
+  h2 {
+    font-size: 25px;
+    font-weight: 300;
+    color: white;
+  }
+}
+
+// Sidebar menu
+.app-side-menu {
+  background-color: $air;
+  color: white;
+}
+
+.app-side-menu-list {
+  position: relative;
+  top: 120px;
+  .item {
+    border: none;
+    background-color: transparent;
+    &:last-of-type {
+      a {
+        border: none;
+      }
+    }
+    a {
+      color: white;
+      background-color: transparent;
+      font-size: 1em;
+      padding-left: 0;
+      padding-bottom: 5px;
+      margin-left: 20px;
+      &.activated {
+        margin-left: 0;
+        padding-left: 20px;
+        background-color: $air;
+        border-color: darken($air, 10%);
+      }
+    }
+  }
+}
+
+// Taken from style.css
+.keypad {
+  height: 100% !important;
+  display: -webkit-box !important;
+  display: -moz-box !important;
+  display: -ms-flexbox !important;
+  display: -webkit-flex !important;
+  display: flex !important;
+  -webkit-box-direction: normal !important;
+  -moz-box-direction: normal !important;
+  -webkit-box-orient: vertical !important;
+  -moz-box-orient: vertical !important;
+  -webkit-flex-direction: column !important;
+  -ms-flex-direction: column !important;
+  flex-direction: column !important;
+}
+
+.row-keypad {
+  padding: 0px !important;
+  -webkit-box-flex: 0 !important;
+  -moz-box-flex: 0 !important;
+  -webkit-flex: 0 1 50% !important;
+  -ms-flex: 0 1 50% !important;
+  flex: 1 !important;
+}
+
+.keypadInput {
+  flex: 2 !important;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.col-keypad {
+  /*   background-color: white !important;
+       border: thin solid #387ef5;
+       color: #387ef5;*/
+  font-size: 23px;
+}
+
+.high-footer {
+  height: 55px !important;
+
+}
+
+.hide-lines {
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-bottom: 0px;
+}
+
+.center {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-content: stretch;
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.popup-buttons .button {
+  background-color: #444;
+  font-size: 20px;
+}
+
+.bar.bar-cancel {
+  border-color: #e42112;
+  background-color: #ef473a;
+  background-image: none;
+  color: #fff;
+}
+
+.bar.bar-cancel .title {
+  color: #fff;
+}
+
+.bar.bar-cancel.bar-footer .title {
+  top: 5px;
+}
+
+.align-left {
+  float: left;
+}
+
+.align-right {
+  float: right;
+}
+
+// List
+
+.list-transactions {
+  margin-bottom: 10px !important;
+  margin-top: 0 !important;
+  .icon {
+    font-size: 45px;
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+  .align-right {
+     padding-top: 14px;
+  }
+  h2 {
+    font-size: 14px;
+    font-weight: 200;
+    color: black;
+  }
+  h3 {
+    font-size: 20px;
+    font-weight: 200;
+    color: black;
+  }
+  h4 {
+    font-size: 11px;
+    font-weight: 400;
+    color: black;
+    padding-top: 2px;
+  }
+  h5 {
+    font-size: 11px;
+    font-weight: 400;
+    color:  darken($graybg, 50%);
+  }
+}
+
+.item-gray{
+    background: #eaeaea;
+}
+
+.button.button-icon.input-button {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  color: #bbb;
+}
+.item img {
+  height: 60px;
+  width: 60px;
+  float: left;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+.list .my-item.item {
+  left: 0;
+  right: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}

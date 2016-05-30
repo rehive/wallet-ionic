@@ -1,0 +1,25 @@
+<ion-view view-title="Login">
+    <ion-header-bar class="bar bar-header bar-air">
+        <h1 class="title">Login</h1>
+        <a class="button button-clear button-primary" href="#/app/dashboard">Cancel</a>
+    </ion-header-bar>
+    <ion-content class="padding graybg">
+        <div class="list card padding" style="margin-top: 0;">
+            <label class="item item-input">
+                <input type="email" ng-model="user.email" placeholder="Email">
+            </label>
+            <label class="item item-input">
+                <input type="password" ng-model="user.password" placeholder="Password">
+            </label>
+            <button ng-click="logIn(user)" class="button button-block button-air">
+                Log In
+            </button>
+        </div>
+        <div class="list" style="text-align:center">
+            <button ng-click="modal.show()"
+                    class="button button-small button-outline icon-left ion-person-add button-air">
+                Create New Account
+            </button>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,17 @@
+<ion--view view-title="Bank">
+
+    <ion-content>
+
+        <div class="list">
+            <div ng-repeat="account in accounts">
+                <div class="item">
+                    {{ account.account }}
+                </div>
+            </div>
+            <a class="item" ui-sref="app.add_bank_account">
+                Add another bank account
+            </a>
+        </div>
+    </ion-content>
+
+</ion--view>

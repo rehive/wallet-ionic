@@ -1,0 +1,22 @@
+<ion--view view-title="Amount">
+
+    <ion-content>
+
+        <div class="list">
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Code</span>
+                <input ng-model="data.promotion_code" type="text" placeholder="Type a promotion code">
+            </label>
+        </div>
+
+    </ion-content>
+
+    <!-- Footer bar hack to get layout right -->
+    <ion-footer-bar class="high-footer bar-dark">
+    </ion-footer-bar>
+
+    <button class="high-footer bar bar-footer bar-air" ng-click="submit(data.promotion_code)">
+        <h1 class="title">Next</h1>
+    </button>
+
+</ion--view>

@@ -1,0 +1,39 @@
+<ion--view view-title="Bank">
+
+    <ion-content>
+
+        <div class="list">
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Bank name</span>
+                <input ng-model="data.bank_name" type="text" placeholder="What is your bank's name?">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Branch name</span>
+                <input ng-model="data.branch_name" type="text" placeholder="What is your bank's branch name?">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Account number</span>
+                <input ng-model="data.account_number" type="number" placeholder="What is your account number?">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Account holder name</span>
+                <input ng-model="data.account_holder_name" type="text" placeholder="What is the account holder's name?">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Account type</span>
+                <input ng-model="data.account_type" type="text" placeholder="What is the account type?">
+            </label>
+        </div>
+
+    </ion-content>
+
+    <!-- Footer bar hack to get layout right -->
+    <ion-footer-bar class="high-footer bar-dark">
+    </ion-footer-bar>
+
+    <button class="high-footer bar bar-footer bar-air" ng-click="submit(data.bank_name, data.branch_name,
+        data.account_number, data.account_holder_name, data.account_type)">
+        <h1 class="title">Submit</h1>
+    </button>
+
+</ion--view>
