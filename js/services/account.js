@@ -17,10 +17,10 @@ angular.module('generic-client.services.account', [])
 
             // If a token was sent back, save it
             response: function (res) {
-                if (res.data.results) {
-                    if (res.config.url.indexOf(API) === 0 && res.data.results.token) {
-                        Auth.saveToken(res.data.results.token);
-                        Auth.saveUser(res.data.results.user_info);
+                if (res.data) {
+                    if (res.config.url.indexOf(API) === 0 && res.data.token) {
+                        Auth.saveToken(res.data.token);
+                        Auth.saveUser(res.data.user);
                     }
                 }
 
@@ -29,7 +29,6 @@ angular.module('generic-client.services.account', [])
             //Redirect to login if unauthorised
             responseError: function (res) {
                 if (res.status === 401 || res.status === 403) {
-                    console.log('unauthorized');
                     Auth.logout();
                     $location.path('/login');
                 }
@@ -52,19 +51,20 @@ angular.module('generic-client.services.account', [])
         };
 
         self.saveToken = function (token) {
-            $window.localStorage.jwtToken = token;
+            $window.localStorage.setItem('Hello', 'Bye');
+            $window.localStorage.setItem('jwtToken', token);
         };
 
         self.saveUser = function (user) {
-            $window.localStorage.user = JSON.stringify(user);
+            $window.localStorage.setItem('user', JSON.stringify(user));
         };
 
         self.getToken = function () {
-            return $window.localStorage.jwtToken;
+            return $window.localStorage.getItem('jwtToken');
         };
 
         self.getUser = function () {
-            return JSON.parse($window.localStorage.user);
+            return JSON.parse($window.localStorage.getItem('user'));
         };
 
         self.isAuthed = function () {
@@ -85,34 +85,34 @@ angular.module('generic-client.services.account', [])
         };
     })
 
-    .service('User', function ($http, API, Auth) {
+    .service('User', function ($http, API, DOMAIN, Auth) {
         'use strict';
         var self = this;
 
         // add authentication methods here
         self.register = function (first_name, email, password1, password2) {
-            return $http.post(API + '/register/', {
+            return $http.post(API + '/account/register/', {
                 first_name: first_name,
                 email: email,
+                domain: DOMAIN,
                 password1: password1,
                 password2: password2
-            })
-                .then(function (res) {
-                    Auth.saveToken(res.data.token);
-                    Auth.saveUser(res.data.results.user_info);
-                    return res;
-                });
+            }).then(function (res) {
+                Auth.saveToken(res.data.token);
+                Auth.saveUser(res.data.results.user_info);
+                return res;
+            });
         };
 
         self.login = function (email, password) {
-            return $http.post(API + '/login/', {
-                'email': email,
-                'password': password
+            return $http.post(API + '/account/login/', {
+                email: email,
+                domain: DOMAIN,
+                password: password
             })
         };
 
         self.partialUpdate = function (jsonUpdate) {
-            console.log(jsonUpdate);
             return $http.patch(API + '/user/', jsonUpdate)
         };
 

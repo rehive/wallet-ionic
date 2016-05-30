@@ -5,51 +5,56 @@ angular.module('generic-client.controllers.transactions', [])
         $rootScope.refreshData = function () {
             $ionicLoading.show({template: 'Loading...'});
             var getBalance = Balance.get();
+
             getBalance.success(
-                function (rawData) {
-                    console.log('DATA!');
-                    console.log(rawData);
+                function (response) {
                     $ionicLoading.hide();
-                    $scope.balance = rawData.results.balance;
-                    $scope.currencySymbol = rawData.results.currency.symbol;
+                    $scope.balance = response.data.results.balance;
+                    $scope.currencySymbol = response.data.results.currency.symbol;
                 }
             );
+
             getBalance.catch(function (error) {
-                console.log('caught');
-                console.log(error);
                 $ionicLoading.hide();
             });
+
             if ($window.localStorage.myTransactions) {
                 $ionicLoading.show({template: 'Loading...'});
                 $scope.items = JSON.parse($window.localStorage.myTransactions);
             }
 
             Transaction.query().success(
-                function (rawData) {
-                    console.log("raw data");
-                    console.log(JSON.stringify(rawData));
+                function (response) {
+
                     var items = [];
-                    console.log(rawData.results.length);
-                    for (var i = 0; i < rawData.results.length; i++) {
-                        var date = new Date(rawData.results[i].created_timestamp);
+
+                    for (var i = 0; i < response.data.results.length; i++) {
+                        var date = new Date(response.data.results[i].meta.created_timestamp);
                         var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-                        var amount = rawData.results[i].amount
+
+                        var amount = response.data.results[i].amount
                         var amount_round = Math.round(amount * 100) / 100;
+
                         items[i] = {
-                            'description': rawData.results[i].description,
-                            'currency': rawData.results[i].currency.symbol,
-                            'amount': amount_round.toFixed(2),
                             'id': i,
-                            'date': date.getDate() + '  ' + months[date.getMonth()]
+                            'type': response.data.results[i].tx_type,
+                            'code': response.data.results[i].tx_code,
+                            'note': response.data.results[i].note,
+                            'status': response.data.results[i].status,
+                            'counterparty': response.data.results[i].counterparty,
+                            'amount': amount_round.toFixed(2),
+                            'fee': response.data.results[i].fee,
+                            'balance': response.data.results[i].balance,
+                            'account': response.data.results[i].account,
+                            'date': date.getDate() + ' ' + months[date.getMonth()]
                         };
-                        items[i].receive = (items[i].description == 'Loan' || items[i].description == 'Received');
+
+                        //items[i].receive = (items[i].description == 'Loan' || items[i].description == 'Received');
                     }
+
                     $scope.items = items;
-                    $window.localStorage.myTransactions = JSON.stringify(items);
-                    $scope.nextUrl = rawData.next;
-                    console.log(items);
-                    console.log('URL');
-                    console.log($scope.nextUrl);
+                    $window.localStorage.setItem('myTransactions', JSON.stringify(items));
+                    $scope.nextUrl = response.data.next;
                 });
         };
 
@@ -57,15 +62,16 @@ angular.module('generic-client.controllers.transactions', [])
             if ($scope.nextUrl && viewedUrls.indexOf($scope.nextUrl) < 0) {
                 viewedUrls.push($scope.nextUrl);
                 $http.get($scope.nextUrl).success(
-                    function (rawData) {
-                        for (var i = 0; i < rawData.results.length; i++) {
+                    function (response) {
+                        for (var i = 0; i < response.data.results.length; i++) {
                             $scope.items.push({
-                                'txType': rawData.results[i].tx_type,
-                                'description': rawData.results[i].description,
-                                'amount': rawData.results[i].amount
+                                'txType': response.data.results[i].tx_type,
+                                'description': response.data.results[i].description,
+                                'amount': response.data.results[i].amount
                             });
                         }
-                        $scope.nextUrl = rawData.next;
+
+                        $scope.nextUrl = response.data.next;
                     }
                 );
             }
@@ -73,22 +79,18 @@ angular.module('generic-client.controllers.transactions', [])
         };
 
         $scope.$on('$ionicView.afterEnter', function () {
-            console.log('ENTER');
             $rootScope.refreshData();
         });
 
         $scope.pay_to = function (amount) {
-            console.log(amount);
             $state.go('app.pay', {
                 amount: amount
             });
         };
 
         $scope.request_from = function (amount) {
-            console.log(amount);
             $state.go('app.request', {
                 amount: amount
             });
         };
-
     });
