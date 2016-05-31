@@ -19,9 +19,9 @@ angular.module('generic-client.controllers.account', [])
 
                 User.register(user.first_name, user.email, user.password1, user.password2)
                     .then(function (res) {
-                        console.log(res.status);
                         if (res.status === 201) {
-                            $ionicPopup.alert({title: 'User created successfully!'});
+                            $ionicLoading.hide();
+                            $state.go('app.home');                         
                         } else {
                             $ionicPopup.alert({title: "Error", template: res.message});
                         }
@@ -33,7 +33,7 @@ angular.module('generic-client.controllers.account', [])
                         $ionicLoading.hide();
                     });
             } else {
-                $ionicPopup.alert({title: 'Please fill all details'});
+                $ionicPopup.alert({title: 'Please fill in all details'});
             }
         };
 
