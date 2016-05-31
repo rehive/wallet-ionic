@@ -91,7 +91,7 @@ angular.module('generic-client.services.account', [])
 
         // add authentication methods here
         self.register = function (first_name, email, password1, password2) {
-            return $http.post(API + '/account/registration/', {
+            return $http.post(API + '/accounts/register/', {
                 first_name: first_name,
                 email: email,
                 domain: DOMAIN,
@@ -105,7 +105,7 @@ angular.module('generic-client.services.account', [])
         };
 
         self.login = function (email, password) {
-            return $http.post(API + '/account/login/', {
+            return $http.post(API + '/accounts/login/', {
                 email: email,
                 domain: DOMAIN,
                 password: password
