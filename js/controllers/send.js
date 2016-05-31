@@ -48,7 +48,7 @@ angular.module('generic-client.controllers.send', [])
         };
     })
 
-    .controller('SendConfirmCtrl', function ($scope, $state, $stateParams, $ionicLoading, Transaction) {
+    .controller('SendConfirmCtrl', function ($scope, $state, $stateParams, $ionicLoading, Transaction, $ionicPopup) {
         'use strict';
         $scope.data = {};
         $scope.amount = $stateParams.amount;
@@ -56,13 +56,26 @@ angular.module('generic-client.controllers.send', [])
         $scope.to = $stateParams.to;
 
         $scope.submit = function (amount, note, to) {
-            Transaction.create(amount, note, to).success(
-                $state.go('app.send_success', {
-                    amount: amount,
-                    note: note,
-                    to: to
-                })
-            );
+            $ionicLoading.show({
+                template: 'Logging In...'
+            });
+
+            Transaction.create(amount, note, to).then(function (res) {
+                if (res.status === 201) {
+                    $ionicLoading.hide();
+                    $state.go('app.send_success', {
+                        amount: amount,
+                        note: note,
+                        to: to
+                    });                    
+                } else {
+                    $ionicLoading.hide();
+                    $ionicPopup.alert({title: "Error", template: res.data.message});
+                }
+            }).catch(function (error) {
+                $ionicPopup.alert({title: 'Authentication failed', template: error.message});
+                $ionicLoading.hide();
+            });          
         };
     })
 
