@@ -4,10 +4,21 @@ angular.module('generic-client', ['ionic',
     'generic-client.controllers',
     'generic-client.controllers.account',
     'generic-client.controllers.transactions',
+    'generic-client.controllers.send',
+    'generic-client.controllers.cash_in',
+    'generic-client.controllers.cash_out',
+    'generic-client.controllers.receive',
+    'generic-client.controllers.promotions',
+    'generic-client.controllers.request',
+    'generic-client.controllers.fica',
+    'generic-client.controllers.settings',
+    'generic-client.controllers.notifications',
+    'generic-client.controllers.help',
     'generic-client.services',
     'generic-client.services.account',
     'generic-client.services.transactions',
-    'generic-client.filters'])
+    'generic-client.services.contacts',
+    'generic-client.filters.contacts'])
 
     .constant('API', 'https://staging.zapgo.co/api/1')
     .constant('DOMAIN', 'staging.zapgo.co')
@@ -33,7 +44,6 @@ angular.module('generic-client', ['ionic',
 
             }
             if (window.StatusBar) {
-                // org.apache.cordova.statusbar required
                 StatusBar.styleDefault();
                 StatusBar.overlaysWebView(true);
                 StatusBar.show();
@@ -47,67 +57,60 @@ angular.module('generic-client', ['ionic',
     })
 
     .config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
-        //$httpProvider.interceptors.push('authInterceptor');
         $stateProvider
 
+            // Account
             .state('login', {
                 url: '/login',
-                templateUrl: 'templates/login.html',
+                templateUrl: 'templates/account/login.html',
                 controller: 'LoginCtrl'
             })
 
-            .state('app', {
-                url: '/app',
-                abstract: true,
-                templateUrl: 'templates/menu.html',
-                controller: 'AppCtrl'
-            })
-
             .state('loading', {
-                url: '/loading',
-                templateUrl: 'templates/loading.html',
+                url: '/loading', 
+                templateUrl: 'templates/elements/loading.html',
                 params: {
                     amount: null
                 }
             })
 
+            // App
+            .state('app', {
+                url: '/app',
+                abstract: true,
+                templateUrl: 'templates/elements/menu.html',
+                controller: 'AppCtrl'
+            })
+
+            // Home
             .state('app.home', {
                 url: '/home',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/home.html',
+                        templateUrl: 'templates/home/index.html',
                         controller: 'TransactionsCtrl'
                     }
                 }
             })
 
+            // Transactions
             .state('app.transactions', {
                 url: '/transactions',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/transactions.html',
+                        templateUrl: 'templates/transactions/index.html',
                         controller: 'TransactionsCtrl'
                     }
                 }
             })
 
-            .state('app.keypad', {
-                url: '/keypad',
+            // Send
+            .state('app.send', {
+                url: '/send',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/keypad_pay_request.html',
-                        controller: 'KeypadCtrl'
-                    }
-                }
-            })
-
-
-            .state('app.pay', {
-                url: '/pay',
-                views: {
-                    'menuContent': {
-                        templateUrl: 'templates/pay/pay.html',
-                        controller: 'PayCtrl'
+                        templateUrl: 'templates/send/index.html',
+                        controller: 'SendCtrl'
                     }
                 },
                 params: {
@@ -116,13 +119,27 @@ angular.module('generic-client', ['ionic',
                 }
             })
 
-
-            .state('app.pay_to', {
-                url: '/pay_to',
+            .state('app.send_to', {
+                url: '/send_to',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/pay/pay_to.html',
-                        controller: 'PayToCtrl'
+                        templateUrl: 'templates/send/to.html',
+                        controller: 'SendToCtrl'
+                    }
+                },
+                params: {
+                    amount: null,
+                    note: null,
+                    to: null
+                }
+            })            
+
+            .state('app.send_confirm', {
+                url: '/send_confirm',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/send/confirm.html',
+                        controller: 'SendConfirmCtrl'
                     }
                 },
                 params: {
@@ -132,13 +149,12 @@ angular.module('generic-client', ['ionic',
                 }
             })
 
-
-            .state('app.pay_confirm', {
-                url: '/pay_confirm',
+            .state('app.send_success', {
+                url: '/send_success',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/pay/pay_confirm.html',
-                        controller: 'PayConfirmCtrl'
+                        templateUrl: 'templates/send/success.html',
+                        controller: 'SendSuccessCtrl'
                     }
                 },
                 params: {
@@ -148,28 +164,127 @@ angular.module('generic-client', ['ionic',
                 }
             })
 
-
-            .state('app.pay_success', {
-                url: '/pay_success',
+            // Cash Out
+            .state('app.cash_out', {
+                url: '/cash_out',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/pay/pay_success.html',
-                        controller: 'PaySuccessCtrl'
+                        templateUrl: 'templates/cash_out/index.html',
+                        controller: 'CashOutCtrl'
+                    }
+                },
+                params: {
+                    amount: null
+                }
+            })
+
+            .state('app.cash_out_to', {
+                url: '/cash_out_to',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/cash_out/to.html',
+                        controller: 'CashOutToCtrl'
                     }
                 },
                 params: {
                     amount: null,
-                    note: null,
                     to: null
                 }
             })
 
+            .state('app.cash_out_confirm', {
+                url: '/cash_out_confirm',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/cash_out/confirm.html',
+                        controller: 'CashOutConfirmCtrl'
+                    }
+                },
+                params: {
+                    amount: null,
+                    to: null
+                }
+            })
 
+            .state('app.cash_out_success', {
+                url: '/cash_out_success',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/cash_out/success.html',
+                        controller: 'CashOutSuccessCtrl'
+                    }
+                },
+                params: {
+                    amount: null,
+                    to: null
+                }
+            })            
+
+            // Cash In
+            .state('app.cash_in', {
+                url: '/cash_in',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/cash_in/index.html',
+                        controller: 'CashInCtrl'
+                    }
+                }
+            })
+
+            // Receive
+            .state('app.receive', {
+                url: '/receive',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/receive/index.html',
+                        controller: 'ReceiveCtrl'
+                    }
+                }
+            })
+
+            // Promotion   
+            .state('app.promotion_code', {
+                url: '/promotion_code',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/promotions/code.html',
+                        controller: 'PromotionCodeCtrl'
+                    }
+                }
+            })
+
+            .state('app.promotion_redeem', {
+                url: '/promotion_redeem',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/promotions/redeem.html',
+                        controller: 'PromotionRedeemCtrl'
+                    }
+                },
+                params: {
+                    promotion_code: null
+                }
+            })
+
+            .state('app.promotion_success', {
+                url: '/promotion_success',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/promotions/success.html',
+                        controller: 'PromotionSuccessCtrl'
+                    }
+                },
+                params: {
+                    promotion_code: null
+                }
+            })
+
+            // Request
             .state('app.request', {
                 url: '/request',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/request/request.html',
+                        templateUrl: 'templates/request/index.html',
                         controller: 'RequestCtrl'
                     }
                 },
@@ -179,12 +294,11 @@ angular.module('generic-client', ['ionic',
                 }
             })
 
-
             .state('app.request_from', {
                 url: '/request_from',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/request/request_from.html',
+                        templateUrl: 'templates/request/from.html',
                         controller: 'RequestFromCtrl'
                     }
                 },
@@ -195,12 +309,11 @@ angular.module('generic-client', ['ionic',
                 }
             })
 
-
             .state('app.request_confirm', {
                 url: '/request_confirm',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/request/request_confirm.html',
+                        templateUrl: 'templates/request/confirm.html',
                         controller: 'RequestConfirmCtrl'
                     }
                 },
@@ -211,12 +324,11 @@ angular.module('generic-client', ['ionic',
                 }
             })
 
-
             .state('app.request_success', {
                 url: '/request_success',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/request/request_success.html',
+                        templateUrl: 'templates/request/success.html',
                         controller: 'RequestSuccessCtrl'
                     }
                 },
@@ -227,104 +339,11 @@ angular.module('generic-client', ['ionic',
                 }
             })
 
-
-            .state('app.cash_in', {
-                url: '/cash_in',
-                views: {
-                    'menuContent': {
-                        templateUrl: 'templates/cash_in.html',
-                        controller: 'FundCtrl'
-                    }
-                }
-            })
-
-
-            .state('app.cash_out', {
-                url: '/cash_out',
-                views: {
-                    'menuContent': {
-                        templateUrl: 'templates/cash_out/cash_out.html',
-                        controller: 'CashOutCtrl'
-                    }
-                },
-                params: {
-                    amount: null
-                }
-            })
-
-
-            .state('app.cash_out_to', {
-                url: '/cash_out_to',
-                views: {
-                    'menuContent': {
-                        templateUrl: 'templates/cash_out/cash_out_to.html',
-                        controller: 'CashOutToCtrl'
-                    }
-                },
-                params: {
-                    amount: null,
-                    to: null
-                }
-            })
-
-
-            .state('app.cash_out_confirm', {
-                url: '/cash_out_confirm',
-                views: {
-                    'menuContent': {
-                        templateUrl: 'templates/cash_out/cash_out_confirm.html',
-                        controller: 'CashOutConfirmCtrl'
-                    }
-                },
-                params: {
-                    amount: null,
-                    to: null
-                }
-            })
-
-
-            .state('app.cash_out_success', {
-                url: '/cash_out_success',
-                views: {
-                    'menuContent': {
-                        templateUrl: 'templates/cash_out/cash_out_success.html',
-                        controller: 'CashOutSuccessCtrl'
-                    }
-                },
-                params: {
-                    amount: null,
-                    to: null
-                }
-            })
-
-
-            .state('app.receive', {
-                url: '/receive',
-                views: {
-                    'menuContent': {
-                        templateUrl: 'templates/receive.html',
-                        controller: 'ReceiveCtrl'
-                    }
-                }
-            })
-
-
-            .state('app.help', {
-                url: '/coming_soon',
-                views: {
-                    'menuContent': {
-                        templateUrl: 'templates/help.html',
-                        controller: 'HelpCtrl'
-                    }
-                }
-            })
-
-
-            .state('app.fica', {
+           .state('app.fica', {
                 url: '/fica',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/fica/fica_requirements.html',
+                        templateUrl: 'templates/fica/requirements.html',
                         controller: 'FicaRequirementsCtrl'
                     }
                 },
@@ -333,12 +352,11 @@ angular.module('generic-client', ['ionic',
                 }
             })
 
-
             .state('app.fica_id', {
                 url: '/fica_id',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/fica/fica_instructions_id.html',
+                        templateUrl: 'templates/fica/instructions_id.html',
                         controller: 'FicaIdCtrl'
                     }
                 },
@@ -347,12 +365,11 @@ angular.module('generic-client', ['ionic',
                 }
             })
 
-
             .state('app.fica_id_selfie', {
                 url: '/fica_id_selfie',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/fica/fica_instructions_id_selfie.html',
+                        templateUrl: 'templates/fica/instructions_id_selfie.html',
                         controller: 'FicaIdSelfieCtrl'
                     }
                 },
@@ -361,12 +378,11 @@ angular.module('generic-client', ['ionic',
                 }
             })
 
-
             .state('app.fica_proof_of_address', {
                 url: '/fica_proof_of_address',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/fica/fica_instructions_proof_of_address.html',
+                        templateUrl: 'templates/fica/instructions_proof_of_address.html',
                         controller: 'FicaProofOfAddressCtrl'
                     }
                 },
@@ -375,12 +391,11 @@ angular.module('generic-client', ['ionic',
                 }
             })
 
-
             .state('app.fica_camera_upload', {
                 url: '/fica_proof_of_address',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/fica/fica_camera_upload.html',
+                        templateUrl: 'templates/fica/camera_upload.html',
                         controller: 'FicaCameraUploadCtrl'
                     }
                 },
@@ -390,67 +405,38 @@ angular.module('generic-client', ['ionic',
                 }
             })
 
+            // Help
+            .state('app.help', {
+                url: '/coming_soon',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/help/index.html',
+                        controller: 'HelpCtrl'
+                    }
+                }
+            })
 
+            // Notifications
             .state('app.notifications', {
                 url: '/notifications',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/notifications.html',
+                        templateUrl: 'templates/notifications/index.html',
                         controller: 'NotificationsCtrl'
                     }
                 }
             })
 
-
-            .state('app.promotion_code', {
-                url: '/promotion_code',
-                views: {
-                    'menuContent': {
-                        templateUrl: 'templates/promotion/promotion_code.html',
-                        controller: 'PromotionCodeCtrl'
-                    }
-                }
-            })
-
-
-            .state('app.promotion_redeem', {
-                url: '/promotion_redeem',
-                views: {
-                    'menuContent': {
-                        templateUrl: 'templates/promotion/promotion_redeem.html',
-                        controller: 'PromotionRedeemCtrl'
-                    }
-                },
-                params: {
-                    promotion_code: null
-                }
-            })
-
-
-            .state('app.promotion_success', {
-                url: '/promotion_success',
-                views: {
-                    'menuContent': {
-                        templateUrl: 'templates/promotion/promotion_success.html',
-                        controller: 'PromotionSuccessCtrl'
-                    }
-                },
-                params: {
-                    promotion_code: null
-                }
-            })
-
-
+            // Settings
             .state('app.settings', {
                 url: '/settings',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/settings/settings.html',
+                        templateUrl: 'templates/settings/index.html',
                         controller: 'SettingsCtrl'
                     }
                 }
             })
-
 
             .state('app.personal_details', {
                 url: '/personal_details',
@@ -470,7 +456,6 @@ angular.module('generic-client', ['ionic',
                 }
             })
 
-
             .state('app.email_address', {
                 url: '/email_address',
                 views: {
@@ -483,7 +468,6 @@ angular.module('generic-client', ['ionic',
                     email_address: null
                 }
             })
-
 
             .state('app.mobile_number', {
                 url: '/mobile_number',
@@ -498,7 +482,6 @@ angular.module('generic-client', ['ionic',
                 }
             })
 
-
             .state('app.list_addresses', {
                 url: '/list_addresses',
                 views: {
@@ -508,7 +491,6 @@ angular.module('generic-client', ['ionic',
                     }
                 }
             })
-
 
             .state('app.add_address', {
                 url: '/add_address',
@@ -520,7 +502,6 @@ angular.module('generic-client', ['ionic',
                 }
             })
 
-
             .state('app.list_bank_accounts', {
                 url: '/list_bank_accounts',
                 views: {
@@ -530,7 +511,6 @@ angular.module('generic-client', ['ionic',
                     }
                 }
             })
-
 
             .state('app.add_bank_account', {
                 url: '/add_bank_account',
@@ -542,7 +522,6 @@ angular.module('generic-client', ['ionic',
                 }
             })
 
-
             .state('app.security', {
                 url: '/security',
                 views: {
@@ -552,7 +531,6 @@ angular.module('generic-client', ['ionic',
                     }
                 }
             })
-
 
             .state('app.reset_password', {
                 url: '/reset_password',
@@ -564,7 +542,6 @@ angular.module('generic-client', ['ionic',
                 }
             })
 
-
             .state('app.two_factor', {
                 url: '/two_factor',
                 views: {
@@ -574,7 +551,6 @@ angular.module('generic-client', ['ionic',
                     }
                 }
             })
-
 
             .state('app.pin', {
                 url: '/pin',

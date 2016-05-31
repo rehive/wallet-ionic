@@ -1,7 +1,8 @@
 angular.module('generic-client.controllers.transactions', [])
 
-    .controller('TransactionsCtrl', function ($scope, $ionicModal, $state, $http, $window, Transaction, Balance, $ionicLoading, $rootScope) {
+    .controller('TransactionsCtrl', function ($scope, $state, $http, $window, $ionicModal, $ionicLoading, Transaction, Balance) {
         'use strict';
+
         $scope.refreshData = function () {
             var getBalance = Balance.get();
 
@@ -16,7 +17,7 @@ angular.module('generic-client.controllers.transactions', [])
             
             });
 
-            Transaction.query().success(
+            Transaction.list().success(
                 function (res) {
                     var items = [];
 
@@ -59,16 +60,4 @@ angular.module('generic-client.controllers.transactions', [])
 
             $scope.refreshData();
         });
-
-        $scope.pay_to = function (amount) {
-            $state.go('app.pay', {
-                amount: amount
-            });
-        };
-
-        $scope.request_from = function (amount) {
-            $state.go('app.request', {
-                amount: amount
-            });
-        };
     });
