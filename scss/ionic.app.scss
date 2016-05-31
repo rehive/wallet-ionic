@@ -151,6 +151,9 @@ $graybg: #F6F6F6;
 .app-side-menu {
   background-color: $air;
   color: white;
+  .item {
+    cursor: pointer;
+  }
 }
 
 .app-side-menu-list {
@@ -220,9 +223,6 @@ $graybg: #F6F6F6;
 }
 
 .col-keypad {
-  /*   background-color: white !important;
-       border: thin solid #387ef5;
-       color: #387ef5;*/
   font-size: 23px;
 }
 
