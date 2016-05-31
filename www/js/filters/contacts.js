@@ -1,4 +1,4 @@
-angular.module('generic-client.filters', [])
+angular.module('generic-client.filters.contacts', [])
 
     .filter('searchContacts', function () {
         return function (items, query) {

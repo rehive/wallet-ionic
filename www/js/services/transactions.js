@@ -13,7 +13,7 @@ angular.module('generic-client.services.transactions', [])
         'use strict';
         var self = this;
 
-        self.query = function () {
+        self.list = function () {
             return $http.get(API + '/transactions/');
         };
 
@@ -21,11 +21,11 @@ angular.module('generic-client.services.transactions', [])
             return $http.get(API + '/transactions/' + txId + '/');
         };
 
-        self.create = function (type, amount, currency) {
-            return $http.post(API + '/transactions/', {
-                'tx_type': type,
-                'amount': amount,
-                'currency': currency
+        self.create = function (amount, note, to) {
+            return $http.post(API + '/transactions/send/', {
+                amount: amount,
+                note: note,
+                to: ''
             });
-        }
+        };
     });

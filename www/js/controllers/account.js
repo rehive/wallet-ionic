@@ -1,11 +1,9 @@
-/*global angular, console, window, alert, ionic */
 angular.module('generic-client.controllers.account', [])
 
     .controller('LoginCtrl', function ($scope, $ionicModal, $state, $ionicLoading, $rootScope, User, $ionicPopup) {
-        //console.log('Login Controller Initialized');
         'use strict';
 
-        $ionicModal.fromTemplateUrl('templates/signup.html', {
+        $ionicModal.fromTemplateUrl('templates/account/signup.html', {
             scope: $scope
         }).then(function (modal) {
             $scope.modal = modal;
