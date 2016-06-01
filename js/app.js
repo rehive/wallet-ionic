@@ -1,6 +1,7 @@
 // Ionic Starter App
 angular.module('generic-client', ['ionic',
     'intlpnIonic',
+    'ngMessages',
     'generic-client.controllers',
     'generic-client.controllers.account',
     'generic-client.controllers.transactions',

@@ -2,17 +2,20 @@ angular.module('generic-client.controllers.send', [])
 
     .controller('SendCtrl', function ($scope, $state) {
         'use strict';
+
         $scope.data = {};
 
-        $scope.submit = function (amount, note) {
-            $state.go('app.send_to', {
-                amount: $scope.data.amount,
-                note: $scope.data.note
-            });
+        $scope.submit = function (form) {
+            if (form.$valid) {
+                $state.go('app.send_to', {
+                    amount: form.amount.$viewValue,
+                    note: form.note.$viewValue
+                });
+            }
         };
     })
 
-    .controller('SendToCtrl', function ($scope, $state, $stateParams, ContactsService) {
+    .controller('SendToCtrl', function ($scope, $state, $stateParams, $ionicPopup, ContactsService) {
         'use strict';
         $scope.data = {};
         $scope.amount = $stateParams.amount;
@@ -40,11 +43,15 @@ angular.module('generic-client.controllers.send', [])
         };
 
         $scope.submit = function (amount, note, to) {
-            $state.go('app.send_confirm', {
-                amount: amount,
-                note: note,
-                to: $scope.data.to
-            });
+            if (amount && note && to) {
+                $state.go('app.send_confirm', {
+                    amount: amount,
+                    note: note,
+                    to: $scope.data.to
+                });
+            } else {
+                $ionicPopup.alert({title: "Error", template: 'Please insert all required data'});
+            }
         };
     })
 
