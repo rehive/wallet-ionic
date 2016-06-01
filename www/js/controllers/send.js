@@ -42,15 +42,13 @@ angular.module('generic-client.controllers.send', [])
             $scope.data.to = "";
         };
 
-        $scope.submit = function (amount, note, to) {
-            if (amount && note && to) {
+        $scope.submit = function (form) {
+            if (form.$valid) {
                 $state.go('app.send_confirm', {
-                    amount: amount,
-                    note: note,
-                    to: $scope.data.to
+                    amount: $scope.amount,
+                    note: $scope.note,
+                    to: form.to.$viewValue
                 });
-            } else {
-                $ionicPopup.alert({title: "Error", template: 'Please insert all required data'});
             }
         };
     })

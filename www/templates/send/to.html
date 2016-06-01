@@ -1,38 +1,45 @@
 <ion--view view-title="To" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
            xmlns="http://www.w3.org/1999/html">
+    <div ng-controller="SendToCtrl" >
+        <form name="sendToForm" novalidate>
+            <ion-content>
+                <div class="item item-input item-stacked-label">
+                    <span class="input-label">Send money to</span>
+                    <input name="to" type="search" ng-model="data.to" required
+                           ng-keyup="getValue()"
+                           placeholder="Enter name, email, mobile">
+                    </input>
 
-    <ion-content>
-        <div class="item item-input item-stacked-label">
-            <span class="input-label">Send money to</span>
-            <input type="search" ng-model="data.to"
-                   ng-keyup="getValue()"
-                   placeholder="Enter name, email, mobile">
-            </input>
+                    <div ng-messages="sendToForm.to.$error" role="alert">
+                        <div ng-message="required" class="form-error">Please enter a recipient.</div>
+                    </div>
 
-            <button class="button button-icon ion-android-close input-button"
-                    ng-if="data.to.length"
-                    ng-click="clearSearch()">
+                    <button class="button button-icon ion-android-close input-button"
+                            ng-if="data.to.length"
+                            ng-click="clearSearch()">
+                    </button>
+                </div>
+                <div class="list profile-photo profile-photo-contacts">
+                    <a class="item item-thumbnail-left" ng-repeat="contact in contacts"
+                       ng-click="selectTo(contact.emails[0].value || contact.phones[0].value);">
+                        <img src="{{ contact.photos[0].value }}" ng-if="contact.photos.length > 0">
+
+                        <h2>{{ contact.displayName }}</h2>
+                        <h2>{{ contact.name.formatted }}</h2>
+
+                        <p ng-if="contact.emails.length > 0">{{ contact.emails[0].value }}</p>
+                        <p ng-if="contact.phones.length > 0">{{ contact.phones[0].value }}</p>
+                    </a>
+                </div>
+            </ion-content>
+
+            <!-- Footer bar hack to get layout right -->
+            <ion-footer-bar class="high-footer bar-dark">
+            </ion-footer-bar>
+
+            <button keyboard-attach class="high-footer bar bar-footer bar-air" ng-click="submit(sendToForm)">
+                <h1 class="title">Next</h1>
             </button>
-        </div>
-        <div class="list profile-photo profile-photo-contacts">
-            <a class="item item-thumbnail-left" ng-repeat="contact in contacts"
-               ng-click="selectTo(contact.emails[0].value || contact.phones[0].value);">
-                <img src="{{ contact.photos[0].value }}" ng-if="contact.photos.length > 0">
-
-                <h2>{{ contact.displayName }}</h2>
-                <h2>{{ contact.name.formatted }}</h2>
-
-                <p ng-if="contact.emails.length > 0">{{ contact.emails[0].value }}</p>
-                <p ng-if="contact.phones.length > 0">{{ contact.phones[0].value }}</p>
-            </a>
-        </div>
-    </ion-content>
-
-    <!-- Footer bar hack to get layout right -->
-    <ion-footer-bar class="high-footer bar-dark">
-    </ion-footer-bar>
-
-    <button keyboard-attach class="high-footer bar bar-footer bar-air" ng-click="submit(amount, note, data.to)">
-        <h1 class="title">Next</h1>
-    </button>
+        </form>
+    </div>
 </ion--view>
