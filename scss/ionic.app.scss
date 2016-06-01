@@ -83,7 +83,6 @@ $graybg: #F6F6F6;
   border-color: darken($air, 0%);
   background-color: $air;
   background-image: none;
-  // background-image: linear-gradient(0deg, #6b46e5, #6b46e5 50%, transparent 50%);
   color: #fff;
   &.activated {
     background-color: darken($air, 15);
@@ -97,7 +96,7 @@ $graybg: #F6F6F6;
 
 .bar.bar-air.bar-footer {
   .title {
-    top: 5px; // Fix h1 title position
+    top: 5px;
   }
 }
 
@@ -184,46 +183,12 @@ $graybg: #F6F6F6;
   }
 }
 
-// Taken from style.css
-.keypad {
-  height: 100% !important;
-  display: -webkit-box !important;
-  display: -moz-box !important;
-  display: -ms-flexbox !important;
-  display: -webkit-flex !important;
-  display: flex !important;
-  -webkit-box-direction: normal !important;
-  -moz-box-direction: normal !important;
-  -webkit-box-orient: vertical !important;
-  -moz-box-orient: vertical !important;
-  -webkit-flex-direction: column !important;
-  -ms-flex-direction: column !important;
-  flex-direction: column !important;
-}
-
-.row-keypad {
-  padding: 0px !important;
-  -webkit-box-flex: 0 !important;
-  -moz-box-flex: 0 !important;
-  -webkit-flex: 0 1 50% !important;
-  -ms-flex: 0 1 50% !important;
-  flex: 1 !important;
-}
-
-.keypadInput {
-  flex: 2 !important;
-}
-
 .align-left {
   text-align: left;
 }
 
 .no-margin {
   margin: 0;
-}
-
-.col-keypad {
-  font-size: 23px;
 }
 
 .high-footer {
@@ -343,6 +308,7 @@ $graybg: #F6F6F6;
   top: 15px;
   color: #bbb;
 }
+
 .item img {
   height: 60px;
   width: 60px;
@@ -350,9 +316,27 @@ $graybg: #F6F6F6;
   margin-right: 10px;
   border-radius: 50%;
 }
+
 .list .my-item.item {
   left: 0;
   right: 0;
   padding-top: 0;
   padding-bottom: 0;
+}
+
+// Errors
+.form-errors {
+  margin: 5px 0
+}
+
+.form-error {
+  padding: 6px 0 6px 0px;
+  font-size: 12px;
+  color: red;
+  border-top: 2px solid #dd2c00;
+  margin-right: 15px;
+}
+
+input.ng-invalid, input.ng-dirty {
+  box-shadow: none;
 }

@@ -1,22 +1,31 @@
 <ion--view view-title="Amount">
-    <ion-content>
-        <div class="list">
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">Amount</span>
-                <input ng-model="data.amount" type="number" placeholder="Amount you want to pay">
-            </label>
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">Note</span>
-                <input ng-model="data.note" type="text" placeholder="Add a short note">
-            </label>        
-        </div>
-    </ion-content>
+    <div ng-controller="SendCtrl" >
+        <form name="sendForm" novalidate>
+            <ion-content>   
+                <div class="list">
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Amount</span>
+                        <input name="amount" ng-model="data.amount" type="number" placeholder="Amount you want to pay" required>
+                        <div ng-messages="sendForm.amount.$error" role="alert">
+                            <div ng-message="required" class="form-error">Please enter an amount.</div>
+                            <div ng-message="number" class="form-error">Please enter valid number.</div>
+                        </div>
+                    </label>
+                 
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Note</span>
+                        <input name="note" ng-model="data.note" type="text" placeholder="Add a short note">
+                    </label>             
+                </div>              
+            </ion-content>
 
-    <!-- Footer bar hack to get layout right -->
-    <ion-footer-bar class="high-footer bar-dark">
-    </ion-footer-bar>
+            <!-- Footer bar hack to get layout right -->
+            <ion-footer-bar class="high-footer bar-dark">
+            </ion-footer-bar>
 
-    <button keyboard-attach class="high-footer bar bar-footer bar-air" ng-click="submit(data.amount, data.note)">
-        <h1 class="title">Next</h1>
-    </button>
+            <button keyboard-attach class="high-footer bar bar-footer bar-air" ng-click="submit(sendForm)" linked="clickMe">
+                <h1 class="title">Next</h1>
+            </button>
+        </form>    
+    </div>  
 </ion--view>

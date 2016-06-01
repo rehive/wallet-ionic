@@ -9849,40 +9849,11 @@ a.button {
         background-color: #56C1ED;
         border-color: #28b0e8; }
 
-.keypad {
-  height: 100% !important;
-  display: -webkit-box !important;
-  display: -moz-box !important;
-  display: -ms-flexbox !important;
-  display: -webkit-flex !important;
-  display: flex !important;
-  -webkit-box-direction: normal !important;
-  -moz-box-direction: normal !important;
-  -webkit-box-orient: vertical !important;
-  -moz-box-orient: vertical !important;
-  -webkit-flex-direction: column !important;
-  -ms-flex-direction: column !important;
-  flex-direction: column !important; }
-
-.row-keypad {
-  padding: 0px !important;
-  -webkit-box-flex: 0 !important;
-  -moz-box-flex: 0 !important;
-  -webkit-flex: 0 1 50% !important;
-  -ms-flex: 0 1 50% !important;
-  flex: 1 !important; }
-
-.keypadInput {
-  flex: 2 !important; }
-
 .align-left {
   text-align: left; }
 
 .no-margin {
   margin: 0; }
-
-.col-keypad {
-  font-size: 23px; }
 
 .high-footer {
   height: 55px !important; }
@@ -9993,3 +9964,16 @@ a.button {
   right: 0;
   padding-top: 0;
   padding-bottom: 0; }
+
+.form-errors {
+  margin: 5px 0; }
+
+.form-error {
+  padding: 6px 0 6px 0px;
+  font-size: 12px;
+  color: red;
+  border-top: 2px solid #dd2c00;
+  margin-right: 15px; }
+
+input.ng-invalid, input.ng-dirty {
+  box-shadow: none; }
