@@ -12,7 +12,7 @@ angular.module('generic-client.controllers.request', [])
                     note: form.note.$viewValue
                 });
             }
-        };        
+        };
     })
 
     .controller('RequestFromCtrl', function ($scope, $state, $stateParams, ContactsService) {
@@ -76,7 +76,7 @@ angular.module('generic-client.controllers.request', [])
             //             amount: amount,
             //             note: note,
             //             from: from
-            //         });                  
+            //         });
             //     } else {
             //         $ionicLoading.hide();
             //         $ionicPopup.alert({title: "Error", template: res.data.message});
@@ -84,8 +84,8 @@ angular.module('generic-client.controllers.request', [])
             // }).catch(function (error) {
             //     $ionicPopup.alert({title: 'Authentication failed', template: error.message});
             //     $ionicLoading.hide();
-            // });          
-        };        
+            // });
+        };
     })
 
     .controller('RequestSuccessCtrl', function ($scope, $state, $stateParams) {
