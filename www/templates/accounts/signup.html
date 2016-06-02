@@ -1,5 +1,5 @@
 <ion-modal-view>
-    <ion-header-bar class="bar bar-header bar-air">
+    <ion-header-bar class="bar bar-header">
         <h1 class="title">Create New Account</h1>
         <button class="button button-clear button-primary" ng-click="modal.hide()">Cancel</button>
     </ion-header-bar>
@@ -36,7 +36,7 @@
                         <div ng-message="required" class="form-error">Please confirm your password.</div>
                     </div>                         
                 </label>
-                <button class="button button-full button-air" ng-click="registerUser(signupForm)">Create</button>
+                <button class="button button-full" ng-click="registerUser(signupForm)">Create</button>
             </div>
         </form>    
     </ion-content>   
