@@ -92,5 +92,6 @@ angular.module('generic-client.controllers.request', [])
         'use strict';
         $scope.data = {};
         $scope.amount = $stateParams.amount;
+        $scope.note = $stateParams.note;
         $scope.from = $stateParams.from;
     });
