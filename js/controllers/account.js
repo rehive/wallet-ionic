@@ -9,13 +9,13 @@ angular.module('generic-client.controllers.account', [])
             $scope.modal = modal;
         });
 
-        $scope.registerUser = function (user) {
-            if (user && user.first_name && user.email && user.password1 && user.password2) {
+        $scope.registerUser = function (form) {
+            if (form.$valid) {
                 $ionicLoading.show({
                     template: 'Signing Up...'
                 });
 
-                User.register(user.first_name, user.email, user.password1, user.password2)
+                User.register(form.first_name.$viewValue, form.email.$viewValue, form.password1.$viewValue, form.password2.$viewValue)
                     .then(function (res) {
                         if (res.status === 201) {
                             $ionicLoading.hide();
@@ -30,26 +30,27 @@ angular.module('generic-client.controllers.account', [])
                         $ionicPopup.alert({title: "Error", template: error});
                         $ionicLoading.hide();
                     });
-            } else {
-                $ionicPopup.alert({title: 'Please fill in all details'});
             }
         };
 
-        $scope.logIn = function (user) {
-            if (user && user.email && user.password) {
+        $scope.logIn = function (form) {
+            if (form.$valid) {
                 $ionicLoading.show({
                     template: 'Logging In...'
                 });
                 
-                User.login(user.email, user.password).then(function (res) {
+                User.login(form.email.$viewValue, form.password.$viewValue).then(function (res) {
                     $ionicLoading.hide();
-                    $state.go('app.home');
+
+                    if (res.status === 200) {              
+                        $state.go('app.home');                      
+                    } else {
+                        $ionicPopup.alert({title: "Error", template: res.data.message});
+                    }
                 }).catch(function (error) {
-                    $ionicPopup.alert({title: 'Authentication failed', template: error.message});
+                    $ionicPopup.alert({title: 'Authentication failed', template: error.data.message});
                     $ionicLoading.hide();
                 });
-            } else {
-                $ionicPopup.alert({title: 'Please enter both email and password'});
             }
         };
     });
