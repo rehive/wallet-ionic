@@ -14,7 +14,7 @@
                         <div ng-message="required" class="form-error">Please enter a recipient.</div>
                     </div>
 
-                    <button class="button button-icon ion-android-close input-button"
+                    <button class="button button-icon ion-android-close search-button"
                             ng-if="data.to.length"
                             ng-click="clearSearch()">
                     </button>
@@ -37,7 +37,7 @@
             <ion-footer-bar class="high-footer bar-dark">
             </ion-footer-bar>
 
-            <button keyboard-attach class="high-footer bar bar-footer bar-air" ng-click="submit(sendToForm)">
+            <button keyboard-attach class="high-footer bar bar-footer" ng-click="submit(sendToForm)">
                 <h1 class="title">Next</h1>
             </button>
         </form>

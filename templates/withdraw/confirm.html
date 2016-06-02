@@ -1,0 +1,21 @@
+<ion--view view-title="Confirm Withdrawal">
+    <ion-content class="padding">
+
+        <div class="row">
+            <div class="col text-center">
+                <h4>You are about to withdraw R {{ amount }} to {{ to }}.</h4>
+            </div>
+        </div>
+
+    </ion-content>
+
+    <div class="row">
+        <a class="col col-50 bar bar-footer high-footer cancel" menu-close href="#/app/dashboard">
+            <h1 class="title">Cancel</h1>
+        </a>
+        <button class="col col-50 col-offset-50 bar bar-footer high-footer" ng-click="submit(amount, to)">
+            <h1 class="title">Confirm</h1>
+        </button>
+    </div>
+
+</ion--view>

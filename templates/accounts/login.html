@@ -1,7 +1,6 @@
 <ion-view view-title="Login">
-    <ion-header-bar class="bar bar-header bar-air">
+    <ion-header-bar class="bar bar-header">
         <h1 class="title">Login</h1>
-        <a class="button button-clear button-primary" href="#/app/dashboard">Cancel</a>
     </ion-header-bar>    
 
     <div ng-controller="LoginCtrl" >
@@ -23,14 +22,14 @@
                             <div ng-message="required" class="form-error">Please enter a password.</div>
                         </div>                   
                     </label>
-                    <button ng-click="logIn(loginForm)" class="button button-block button-air">
+                    <button ng-click="logIn(loginForm)" class="button button-block">
                         Log In
                     </button>
                 </div>
             </form>       
             <div class="list text-center">
                 <button ng-click="modal.show()" 
-                        class="button button-small button-outline icon-left ion-person-add button-air">
+                        class="button button-small button-outline icon-left ion-person-add">
                     Create New Account
                 </button>
             </div>
