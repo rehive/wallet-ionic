@@ -1,45 +1,47 @@
-angular.module('generic-client.controllers.cash_out', [])
+angular.module('generic-client.controllers.withdraw', [])
 
-   .controller('CashOutCtrl', function ($scope, $state) {
+   .controller('WithdrawCtrl', function ($scope, $state) {
         'use strict';
         $scope.data = {};
 
-        $scope.submit = function (amount) {
-            $state.go('app.cash_out_to', {
-                amount: $scope.data.amount
-            });
+        $scope.submit = function (form) {
+            if (form.$valid) {
+                $state.go('app.withdraw_to', {
+                    amount: form.amount.$viewValue
+                });
+            }
         };
     })
 
-    .controller('CashOutToCtrl', function ($scope, $state, $stateParams) {
+    .controller('WithdrawToCtrl', function ($scope, $state, $stateParams) {
         'use strict';
         $scope.data = {};
         $scope.data.to = "FNB 543645"
         $scope.amount = $stateParams.amount;
 
         $scope.submit = function (amount, to) {
-            $state.go('app.cash_out_confirm', {
+            $state.go('app.withdraw_confirm', {
                 amount: amount,
                 to: $scope.data.to
             });
         };
     })
 
-    .controller('CashOutConfirmCtrl', function ($scope, $state, $stateParams) {
+    .controller('WithdrawConfirmCtrl', function ($scope, $state, $stateParams) {
         'use strict';
         $scope.data = {};
         $scope.amount = $stateParams.amount;
         $scope.to = $stateParams.to;
 
         $scope.submit = function (amount, to) {
-            $state.go('app.cash_out_success', {
+            $state.go('app.withdraw_success', {
                 amount: amount,
                 to: to
             });
         };
     })
 
-    .controller('CashOutSuccessCtrl', function ($scope, $state, $stateParams) {
+    .controller('WithdrawSuccessCtrl', function ($scope, $state, $stateParams) {
         'use strict';
         $scope.data = {};
         $scope.amount = $stateParams.amount;

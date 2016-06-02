@@ -1,5 +1,5 @@
 /*global Firebase, console, angular */
-angular.module('generic-client.services.account', [])
+angular.module('generic-client.services.accounts', [])
 
     .factory('authInterceptor', function (API, Auth, $location) {
         'use strict';
