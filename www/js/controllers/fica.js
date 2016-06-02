@@ -25,7 +25,6 @@ angular.module('generic-client.controllers.fica', [])
                 type: $scope.data.type
             });
         };
-
     })
 
     .controller('FicaProofOfAddressCtrl', function ($scope, $state) {
@@ -37,7 +36,6 @@ angular.module('generic-client.controllers.fica', [])
                 type: $scope.data.type
             });
         };
-
     })
 
     .controller('FicaCameraUploadCtrl', function ($scope, $state) {

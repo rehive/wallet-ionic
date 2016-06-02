@@ -80,7 +80,7 @@ angular.module('generic-client.controllers.send', [])
             }).catch(function (error) {
                 $ionicPopup.alert({title: 'Authentication failed', template: error.message});
                 $ionicLoading.hide();
-            });          
+            });
         };
     })
 
