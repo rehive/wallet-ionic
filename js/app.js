@@ -3,11 +3,11 @@ angular.module('generic-client', ['ionic',
     'intlpnIonic',
     'ngMessages',
     'generic-client.controllers',
-    'generic-client.controllers.account',
+    'generic-client.controllers.accounts',
     'generic-client.controllers.transactions',
     'generic-client.controllers.send',
-    'generic-client.controllers.cash_in',
-    'generic-client.controllers.cash_out',
+    'generic-client.controllers.deposit',
+    'generic-client.controllers.withdraw',
     'generic-client.controllers.receive',
     'generic-client.controllers.promotions',
     'generic-client.controllers.request',
@@ -16,7 +16,7 @@ angular.module('generic-client', ['ionic',
     'generic-client.controllers.notifications',
     'generic-client.controllers.help',
     'generic-client.services',
-    'generic-client.services.account',
+    'generic-client.services.accounts',
     'generic-client.services.transactions',
     'generic-client.services.contacts',
     'generic-client.filters.contacts'])
@@ -60,10 +60,10 @@ angular.module('generic-client', ['ionic',
     .config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
         $stateProvider
 
-            // Account
+            // Accounts
             .state('login', {
                 url: '/login',
-                templateUrl: 'templates/account/login.html',
+                templateUrl: 'templates/accounts/login.html',
                 controller: 'LoginCtrl'
             })
 
@@ -165,13 +165,13 @@ angular.module('generic-client', ['ionic',
                 }
             })
 
-            // Cash Out
-            .state('app.cash_out', {
-                url: '/cash_out',
+            // Withdraw
+            .state('app.withdraw', {
+                url: '/withdraw',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/cash_out/index.html',
-                        controller: 'CashOutCtrl'
+                        templateUrl: 'templates/withdraw/index.html',
+                        controller: 'WithdrawCtrl'
                     }
                 },
                 params: {
@@ -179,12 +179,12 @@ angular.module('generic-client', ['ionic',
                 }
             })
 
-            .state('app.cash_out_to', {
-                url: '/cash_out_to',
+            .state('app.withdraw_to', {
+                url: '/withdraw_to',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/cash_out/to.html',
-                        controller: 'CashOutToCtrl'
+                        templateUrl: 'templates/withdraw/to.html',
+                        controller: 'WithdrawToCtrl'
                     }
                 },
                 params: {
@@ -193,12 +193,12 @@ angular.module('generic-client', ['ionic',
                 }
             })
 
-            .state('app.cash_out_confirm', {
-                url: '/cash_out_confirm',
+            .state('app.withdraw_confirm', {
+                url: '/withdraw_confirm',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/cash_out/confirm.html',
-                        controller: 'CashOutConfirmCtrl'
+                        templateUrl: 'templates/withdraw/confirm.html',
+                        controller: 'WithdrawConfirmCtrl'
                     }
                 },
                 params: {
@@ -207,12 +207,12 @@ angular.module('generic-client', ['ionic',
                 }
             })
 
-            .state('app.cash_out_success', {
-                url: '/cash_out_success',
+            .state('app.withdraw_success', {
+                url: '/withdraw_success',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/cash_out/success.html',
-                        controller: 'CashOutSuccessCtrl'
+                        templateUrl: 'templates/withdraw/success.html',
+                        controller: 'WithdrawSuccessCtrl'
                     }
                 },
                 params: {
@@ -221,13 +221,13 @@ angular.module('generic-client', ['ionic',
                 }
             })            
 
-            // Cash In
-            .state('app.cash_in', {
-                url: '/cash_in',
+            // Deposit
+            .state('app.deposit', {
+                url: '/deposit',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/cash_in/index.html',
-                        controller: 'CashInCtrl'
+                        templateUrl: 'templates/deposit/index.html',
+                        controller: 'DepositCtrl'
                     }
                 }
             })
