@@ -3,21 +3,41 @@
         <h1 class="title">Create New Account</h1>
         <button class="button button-clear button-primary" ng-click="modal.hide()">Cancel</button>
     </ion-header-bar>
+    
     <ion-content class="padding">
-        <div class="list">
-            <label class="item item-input">
-                <input ng-model="user.email" type="email" placeholder="Email Address">
-            </label>
-            <label class="item item-input">
-                <input ng-model="user.first_name" type="text" placeholder="First Name">
-            </label>
-            <label class="item item-input">
-                <input ng-model="user.password1" type="password" placeholder="Password">
-            </label>
-            <label class="item item-input">
-                <input ng-model="user.password2" type="password" placeholder="Retype Password">
-            </label>
-            <button class="button button-full button-air" ng-click="registerUser(user)">Create</button>
-        </div>
-    </ion-content>
+        <form name="signupForm" novalidate>
+            <div class="list">
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Email</span>
+                    <input ng-model="user.email" type="email" name="email" placeholder="Email Address" required>
+                    <div ng-messages="signupForm.email.$error" role="alert">
+                        <div ng-message="required" class="form-error">Please enter an email address.</div>
+                        <div ng-message="email" class="form-error">Please enter a valid email address.</div>
+                    </div>                        
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">First name</span>
+                    <input ng-model="user.first_name" type="text" name="first_name" placeholder="First Name" required>
+                    <div ng-messages="signupForm.first_name.$error" role="alert">
+                        <div ng-message="required" class="form-error">Please enter a first name.</div>
+                    </div>                        
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Password</span>
+                    <input ng-model="user.password1" type="password" name="password1" placeholder="Password" required>
+                    <div ng-messages="signupForm.password1.$error" role="alert">
+                        <div ng-message="required" class="form-error">Please enter a password.</div>
+                    </div>                         
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Confirm password</span>
+                    <input ng-model="user.password2" type="password" name="password2" placeholder="Retype Password" required>
+                    <div ng-messages="signupForm.password2.$error" role="alert">
+                        <div ng-message="required" class="form-error">Please confirm your password.</div>
+                    </div>                         
+                </label>
+                <button class="button button-full button-air" ng-click="registerUser(signupForm)">Create</button>
+            </div>
+        </form>    
+    </ion-content>   
 </ion-modal-view>

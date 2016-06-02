@@ -337,6 +337,15 @@ $graybg: #F6F6F6;
   margin-right: 15px;
 }
 
+input.ng-pristine ~ div .form-error {
+  color: $air;
+  border-top: 2px solid $air;
+}
+
+input.ng-invalid, input.ng-dirty {
+  box-shadow: none;
+}
+
 input.ng-invalid, input.ng-dirty {
   box-shadow: none;
 }

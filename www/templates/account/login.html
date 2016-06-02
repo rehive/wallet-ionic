@@ -2,24 +2,38 @@
     <ion-header-bar class="bar bar-header bar-air">
         <h1 class="title">Login</h1>
         <a class="button button-clear button-primary" href="#/app/dashboard">Cancel</a>
-    </ion-header-bar>
-    <ion-content class="padding graybg">
-        <div class="list card padding" style="margin-top: 0;">
-            <label class="item item-input">
-                <input type="email" ng-model="user.email" placeholder="Email">
-            </label>
-            <label class="item item-input">
-                <input type="password" ng-model="user.password" placeholder="Password">
-            </label>
-            <button ng-click="logIn(user)" class="button button-block button-air">
-                Log In
-            </button>
-        </div>
-        <div class="list" style="text-align:center">
-            <button ng-click="modal.show()"
-                    class="button button-small button-outline icon-left ion-person-add button-air">
-                Create New Account
-            </button>
-        </div>
-    </ion-content>
+    </ion-header-bar>    
+
+    <div ng-controller="LoginCtrl" >
+        <ion-content class="padding graybg">
+            <form name="loginForm" novalidate>
+                <div class="list card padding">
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Email</span>
+                        <input type="email" name="email" ng-model="user.email" placeholder="Email" required>
+                        <div ng-messages="loginForm.email.$error" role="alert">
+                            <div ng-message="required" class="form-error">Please enter an email address.</div>
+                            <div ng-message="email" class="form-error">Please enter a valid email address.</div>
+                        </div>                
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Password</span>
+                        <input type="password" name="password" ng-model="user.password" placeholder="Password" required>
+                        <div ng-messages="loginForm.password.$error" role="alert">
+                            <div ng-message="required" class="form-error">Please enter a password.</div>
+                        </div>                   
+                    </label>
+                    <button ng-click="logIn(loginForm)" class="button button-block button-air">
+                        Log In
+                    </button>
+                </div>
+            </form>       
+            <div class="list text-center">
+                <button ng-click="modal.show()" 
+                        class="button button-small button-outline icon-left ion-person-add button-air">
+                    Create New Account
+                </button>
+            </div>
+        </ion-content>
+    </div>    
 </ion-view>
