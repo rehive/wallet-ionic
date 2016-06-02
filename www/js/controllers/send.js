@@ -15,7 +15,7 @@ angular.module('generic-client.controllers.send', [])
         };
     })
 
-    .controller('SendToCtrl', function ($scope, $state, $stateParams, $ionicPopup, ContactsService) {
+    .controller('SendToCtrl', function ($scope, $state, $stateParams, ContactsService) {
         'use strict';
         $scope.data = {};
         $scope.amount = $stateParams.amount;
