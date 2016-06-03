@@ -9865,31 +9865,31 @@ a.button {
 .list-transactions {
   margin-bottom: 10px !important;
   margin-top: 0 !important; }
-  .list-transactions .item .icon {
+  .list-transactions .block:nth-child(odd) .item {
+    background: #F6F6F6; }
+  .list-transactions .block .item .icon {
     font-size: 45px;
     padding-left: 3px;
     padding-right: 3px; }
-  .list-transactions .item .align-right {
+  .list-transactions .block .item .align-right {
     padding-top: 14px; }
-  .list-transactions .item h2 {
+  .list-transactions .block .item h2 {
     font-size: 14px;
     font-weight: 200;
     color: #000; }
-  .list-transactions .item h3 {
+  .list-transactions .block .item h3 {
     font-size: 20px;
     font-weight: 200;
     color: #000; }
-  .list-transactions .item h4 {
+  .list-transactions .block .item h4 {
     font-size: 11px;
     font-weight: 400;
     color: #000;
     padding-top: 2px; }
-  .list-transactions .item h5 {
+  .list-transactions .block .item h5 {
     font-size: 11px;
     font-weight: 400;
     color: #dddddd; }
-  .list-transactions .item.item-alt {
-    background: #F6F6F6; }
 
 .form-error {
   padding: 6px 0 6px 0px;

@@ -2,6 +2,7 @@ angular.module('generic-client.controllers.transactions', [])
 
     .controller('TransactionsCtrl', function ($scope, $state, $http, $window, $ionicModal, $ionicLoading, Transaction, Balance) {
         'use strict';
+        $scope.noMoreItemsAvailable = false;
 
         $scope.refreshData = function () {
             var getBalance = Balance.get();
@@ -35,17 +36,21 @@ angular.module('generic-client.controllers.transactions', [])
             );
         };
 
-        $scope.loadNext = function () {
-            if ($scope.nextUrl && viewedUrls.indexOf($scope.nextUrl) < 0) {
-                viewedUrls.push($scope.nextUrl);
+        $scope.loadMore = function () {
+            if ($scope.nextUrl) {
+
+                //viewedUrls.push($scope.nextUrl);
+
                 $http.get($scope.nextUrl).success(
                     function (res) {
+                        var items = []
+
                         for (var i = 0; i < res.data.results.length; i++) {
                             res.data.results[i].id = i;
                             res.data.results[i].amount = parseFloat(res.data.results[i].amount).toFixed(2);
-                            items.push(res.data.results[i]);
+                            $scope.items.push(res.data.results[i]);
                         }
-
+                        
                         $scope.nextUrl = res.data.next;
                     }
                 );
