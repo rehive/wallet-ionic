@@ -2,7 +2,6 @@ angular.module('generic-client.controllers.transactions', [])
 
     .controller('TransactionsCtrl', function ($scope, $state, $http, $window, $ionicModal, $ionicLoading, Transaction, Balance) {
         'use strict';
-        $scope.noMoreItemsAvailable = false;
 
         $scope.refreshData = function () {
             var getBalance = Balance.get();
@@ -38,9 +37,6 @@ angular.module('generic-client.controllers.transactions', [])
 
         $scope.loadMore = function () {
             if ($scope.nextUrl) {
-
-                //viewedUrls.push($scope.nextUrl);
-
                 $http.get($scope.nextUrl).success(
                     function (res) {
                         var items = []
@@ -50,7 +46,7 @@ angular.module('generic-client.controllers.transactions', [])
                             res.data.results[i].amount = parseFloat(res.data.results[i].amount).toFixed(2);
                             $scope.items.push(res.data.results[i]);
                         }
-                        
+
                         $scope.nextUrl = res.data.next;
                     }
                 );
