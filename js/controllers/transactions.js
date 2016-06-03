@@ -8,7 +8,8 @@ angular.module('generic-client.controllers.transactions', [])
 
             getBalance.success(
                 function (res) {
-                    $scope.balance = res.data.balance;
+                    $scope.balance = parseFloat(res.data.balance).toFixed(2);;
+                    $scope.currency = res.data.currency;
                 }
             );
 
