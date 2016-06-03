@@ -30,8 +30,8 @@ $primary: #56C1ED; //Default: #56C1ED;
 // Color of fonts/icons within primary color
 $secondary: #fff; //Default: #fff;
 
-// Content Background
-//$tertiary: #ffe6ff; //Default: #fff;
+// List item differentiation
+$tertiary: #F6F6F6; //Default: #fff;
 
 // Notification colors
 $notify: #56C1ED; //Default: #56C1ED;
@@ -40,7 +40,6 @@ $cancel: #dd2c00; //Default: #dd2c00;
 $warning: #dd2c00; //Default: #dd2c00;
 
 // General colors
-$gray: #F6F6F6;
 $black: #000;
 
 //------------------------------------------
@@ -238,44 +237,48 @@ $black: #000;
   margin-bottom: 10px !important;
   margin-top: 0 !important;
 
-  .item {
-    .icon {
-      font-size: 45px;
-      padding-left: 3px;
-      padding-right: 3px;
+  .block {
+    &:nth-child(odd) {
+      .item {
+        background: $tertiary;
+      } 
     }
 
-    .align-right {
-       padding-top: 14px;
-    }
+    .item {
+      .icon {
+        font-size: 45px;
+        padding-left: 3px;
+        padding-right: 3px;
+      }
 
-    h2 {
-      font-size: 14px;
-      font-weight: 200;
-      color: $black;
-    }
+      .align-right {
+         padding-top: 14px;
+      }
 
-    h3 {
-      font-size: 20px;
-      font-weight: 200;
-      color: $black;
-    }
+      h2 {
+        font-size: 14px;
+        font-weight: 200;
+        color: $black;
+      }
 
-    h4 {
-      font-size: 11px;
-      font-weight: 400;
-      color: $black;
-      padding-top: 2px;
-    }
+      h3 {
+        font-size: 20px;
+        font-weight: 200;
+        color: $black;
+      }
 
-    h5 {
-      font-size: 11px;
-      font-weight: 400;
-      color: darken($gray, 10%);
-    }
+      h4 {
+        font-size: 11px;
+        font-weight: 400;
+        color: $black;
+        padding-top: 2px;
+      }
 
-    &.item-alt {
-      background: $gray;
+      h5 {
+        font-size: 11px;
+        font-weight: 400;
+        color: darken($tertiary, 10%);
+      }
     }
   }
 }

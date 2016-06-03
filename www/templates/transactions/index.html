@@ -1,24 +1,8 @@
 <ion-refresher pulling-text="pull to refresh" on-refresh="refreshData()"></ion-refresher>
 
 <div class="list-transactions">
-    <div ng-repeat="item in items">
-        <div class="item item-avatar item-icon-left item-alt" ng-if="item.id%2==0">
-            <i class="icon ion-ios-circle-outline"></i>
-
-            <div class="align-left">
-                <h2>{{ item.note }}</h2>
-                <h4>{{ item.tx_type }}</h4>
-                <h5>{{ item.meta.created_timestamp | date:'d MMM yyyy' }}</h5>
-            </div>
-
-            <div class="align-right">
-                <h3>
-                    {{ item.currency.symbol }} {{ item.amount }}
-                </h3>
-            </div>
-        </div>
-
-        <div class="item item-avatar item-icon-left" ng-if="item.id%2==1">
+    <div ng-repeat="item in items" class="block">
+        <div class="item item-avatar item-icon-left">
             <i class="icon ion-ios-circle-outline"></i>
 
             <div class="align-left">
@@ -35,3 +19,5 @@
         </div>
     </div>
 </div>
+
+<ion-infinite-scroll ng-if="!noMoreItemsAvailable" on-infinite="loadMore()" distance="5%"></ion-infinite-scroll>
