@@ -22,15 +22,28 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "www/lib/ionic/scss/ionic";
 
 // Colors
-$primary: #56C1ED;
-$red: #dd2c00;
+//------------------------------------------
+
+// Main Color for elements
+$primary: #56C1ED; //Default: #56C1ED;
+
+// Color of fonts/icons within primary color
+$secondary: #fff; //Default: #fff;
+
+// Content Background
+//$tertiary: #ffe6ff; //Default: #fff;
+
+// Notification colors
+$notify: #56C1ED; //Default: #56C1ED;
+$error: #dd2c00; //Default: #dd2c00;
+$cancel: #dd2c00; //Default: #dd2c00;
+$warning: #dd2c00; //Default: #dd2c00;
+
+// General colors
 $gray: #F6F6F6;
-$white: #fff;
 $black: #000;
 
-.graybg {
-  background-color: $gray;
-}
+//------------------------------------------
 
 // Utility classes
 .align-left {
@@ -81,27 +94,33 @@ $black: #000;
 .button {
   border-color: transparent;
   background-color: $primary;
-  color: $white;
+  color: $secondary;
 
   &:hover {
-    color: $white;
+    color: $secondary;
     text-decoration: none;
   }
 
   &.active, &.activated {
-    background-color: darken($primary, 15%);
+    background-color: darken($primary, 5%);
   }
 
-  &.button-clear {
+  &.button-clear, &.button-icon {
     border-color: transparent;
     background: none;
     box-shadow: none;
     color: $primary;
   }
 
-  &.button-icon {
-    border-color: transparent;
-    background: none;
+  &.button-positive {
+    border-color: $primary;
+    background: $primary;
+    color: $secondary;
+
+    &.active, &.activated {
+      background-color: darken($primary, 5%);
+      box-shadow: none;
+    }
   }
 
   &.button-outline {
@@ -112,7 +131,7 @@ $black: #000;
     &.active, &.activated {
       background-color: $primary;
       box-shadow: none;
-      color: $white;     
+      color: $secondary;     
     }
   }
 
@@ -120,7 +139,7 @@ $black: #000;
     position: absolute;
     right: 20px;
     top: 15px;
-    color: darken($primary, 15%);
+    color: darken($primary, 5%);
   }
 }
 
@@ -129,41 +148,41 @@ $black: #000;
   border-color: darken($primary, 0%);
   background-color: $primary;
   background-image: none;
-  color: $white;
+  color: $secondary;
  
   &.activated {
-    background-color: darken($primary, 15%);
+    background-color: darken($primary, 5%);
   }
 
   .title {
-    color: $white;
+    color: $secondary;
   }
 
   &.cancel {
-    border-color: $red;
-    background-color: $red;
+    border-color: $cancel;
+    background-color: $cancel;
     background-image: none;
-    color: $white;
+    color: $secondary;
 
     .title {
-      color: $white;
+      color: $secondary;
     }
   }
 
   .button {
     border-color: transparent;
-    background-color: darken($primary, 15%);
-    color: $white;
+    background-color: darken($primary, 5%);
+    color: $secondary;
 
     &.active, &.button.activated {
-      background-color: darken($primary, 15%);
+      background-color: darken($primary, 5%);
     }
 
     &.button-clear {
       border-color: transparent;
       background: none;
       box-shadow: none;
-      color: $white;
+      color: $secondary;
       font-size: 17px;
     }
 
@@ -173,7 +192,7 @@ $black: #000;
     }
 
     &:hover {
-      color: $white;
+      color: $secondary;
       text-decoration: none;
     }    
   }
@@ -183,7 +202,7 @@ $black: #000;
 // Menu
 .app-side-menu {
   background-color: $primary;
-  color: $white;
+  color: $secondary;
 
   .item {
     cursor: pointer;
@@ -202,7 +221,7 @@ $black: #000;
     }
 
     a {
-      color: $white;
+      color: $secondary;
       background-color: $primary;
       padding: 15px;
 
@@ -212,11 +231,6 @@ $black: #000;
       }
     }
   }
-}
-
-// Footer
-.high-footer {
-  height: 50px !important;
 }
 
 // List
@@ -257,7 +271,7 @@ $black: #000;
     h5 {
       font-size: 11px;
       font-weight: 400;
-      color: darken($gray, 50%);
+      color: darken($gray, 10%);
     }
 
     &.item-alt {
@@ -269,14 +283,14 @@ $black: #000;
 .form-error {
   padding: 6px 0 6px 0px;
   font-size: 12px;
-  color: $red;
-  border-top: 2px solid $red;
+  color: $error;
+  border-top: 2px solid $error;
   margin-right: 15px;
 }
 
 input.ng-pristine ~ div .form-error {
-  color: $primary;
-  border-top: 2px solid $primary;
+  color: $notify;
+  border-top: 2px solid $notify;
 }
 
 input.ng-invalid, input.ng-dirty {

@@ -22,7 +22,7 @@ angular.module('generic-client', ['ionic',
     'generic-client.filters.contacts'])
 
     .constant('API', 'https://staging.zapgo.co/api/1')
-    .constant('DOMAIN', 'staging.zapgo.co')
+    .constant('COMPANY', 'test_company_1')
     .constant('REFRESH_INTERVAL', 3000)
 
     .config(function ($httpProvider, $ionicConfigProvider, $compileProvider) {

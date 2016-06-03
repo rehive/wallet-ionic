@@ -85,7 +85,7 @@ angular.module('generic-client.services.accounts', [])
         };
     })
 
-    .service('User', function ($http, API, DOMAIN, Auth) {
+    .service('User', function ($http, API, COMPANY, Auth) {
         'use strict';
         var self = this;
 
@@ -94,7 +94,7 @@ angular.module('generic-client.services.accounts', [])
             return $http.post(API + '/accounts/register/', {
                 first_name: first_name,
                 email: email,
-                domain: DOMAIN,
+                company_id: COMPANY,
                 password1: password1,
                 password2: password2
             }).then(function (res) {
@@ -107,7 +107,7 @@ angular.module('generic-client.services.accounts', [])
         self.login = function (email, password) {
             return $http.post(API + '/accounts/login/', {
                 email: email,
-                domain: DOMAIN,
+                company_id: COMPANY,
                 password: password
             })
         };

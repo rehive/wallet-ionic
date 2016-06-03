@@ -9731,9 +9731,6 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
-.graybg {
-  background-color: #F6F6F6; }
-
 .align-left {
   text-align: left;
   float: left; }
@@ -9782,15 +9779,19 @@ a.button {
     color: #fff;
     text-decoration: none; }
   .button.active, .button.activated {
-    background-color: #18a5df; }
-  .button.button-clear {
+    background-color: #3fb9eb; }
+  .button.button-clear, .button.button-icon {
     border-color: transparent;
     background: none;
     box-shadow: none;
     color: #56C1ED; }
-  .button.button-icon {
-    border-color: transparent;
-    background: none; }
+  .button.button-positive {
+    border-color: #56C1ED;
+    background: #56C1ED;
+    color: #fff; }
+    .button.button-positive.active, .button.button-positive.activated {
+      background-color: #3fb9eb;
+      box-shadow: none; }
   .button.button-outline {
     border-color: #56C1ED;
     background: transparent;
@@ -9803,7 +9804,7 @@ a.button {
     position: absolute;
     right: 20px;
     top: 15px;
-    color: #18a5df; }
+    color: #3fb9eb; }
 
 .bar {
   border-color: #56c1ed;
@@ -9811,7 +9812,7 @@ a.button {
   background-image: none;
   color: #fff; }
   .bar.activated {
-    background-color: #18a5df; }
+    background-color: #3fb9eb; }
   .bar .title {
     color: #fff; }
   .bar.cancel {
@@ -9823,10 +9824,10 @@ a.button {
       color: #fff; }
   .bar .button {
     border-color: transparent;
-    background-color: #18a5df;
+    background-color: #3fb9eb;
     color: #fff; }
     .bar .button.active, .bar .button.button.activated {
-      background-color: #18a5df; }
+      background-color: #3fb9eb; }
     .bar .button.button-clear {
       border-color: transparent;
       background: none;
@@ -9861,9 +9862,6 @@ a.button {
         background-color: #56C1ED;
         border-color: #3fb9eb; }
 
-.high-footer {
-  height: 50px !important; }
-
 .list-transactions {
   margin-bottom: 10px !important;
   margin-top: 0 !important; }
@@ -9889,7 +9887,7 @@ a.button {
   .list-transactions .item h5 {
     font-size: 11px;
     font-weight: 400;
-    color: #777777; }
+    color: #dddddd; }
   .list-transactions .item.item-alt {
     background: #F6F6F6; }
 
