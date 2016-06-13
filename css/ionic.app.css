@@ -9907,3 +9907,19 @@ input.ng-invalid, input.ng-dirty {
 
 input.ng-invalid, input.ng-dirty {
   box-shadow: none; }
+
+.dashboard-home {
+  background-color: #56C1ED; }
+  .dashboard-home .row, .dashboard-home .col-100, .dashboard-home .col {
+    padding-top: 12px;
+    padding-bottom: 10px; }
+  .dashboard-home h2 {
+    font-size: 25px;
+    font-weight: 300;
+    color: white; }
+
+.high-footer {
+  height: 55px !important; }
+
+.bar.bar-footer .title {
+  top: 5px; }
