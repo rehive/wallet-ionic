@@ -25,19 +25,26 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 //------------------------------------------
 
 // Main Color for elements
-$primary: #56C1ED; //Default: #56C1ED;
+$primary: #56C1ED;
+//Default: #56C1ED;
 
 // Color of fonts/icons within primary color
-$secondary: #fff; //Default: #fff;
+$secondary: #fff;
+//Default: #fff;
 
 // List item differentiation
-$tertiary: #F6F6F6; //Default: #fff;
+$tertiary: #F6F6F6;
+//Default: #fff;
 
 // Notification colors
-$notify: #56C1ED; //Default: #56C1ED;
-$error: #dd2c00; //Default: #dd2c00;
-$cancel: #dd2c00; //Default: #dd2c00;
-$warning: #dd2c00; //Default: #dd2c00;
+$notify: #56C1ED;
+//Default: #56C1ED;
+$error: #dd2c00;
+//Default: #dd2c00;
+$cancel: #dd2c00;
+//Default: #dd2c00;
+$warning: #dd2c00;
+//Default: #dd2c00;
 
 // General colors
 $black: #000;
@@ -130,7 +137,7 @@ $black: #000;
     &.active, &.activated {
       background-color: $primary;
       box-shadow: none;
-      color: $secondary;     
+      color: $secondary;
     }
   }
 
@@ -148,7 +155,7 @@ $black: #000;
   background-color: $primary;
   background-image: none;
   color: $secondary;
- 
+
   &.activated {
     background-color: darken($primary, 5%);
   }
@@ -193,10 +200,9 @@ $black: #000;
     &:hover {
       color: $secondary;
       text-decoration: none;
-    }    
+    }
   }
 }
-
 
 // Menu
 .app-side-menu {
@@ -241,7 +247,7 @@ $black: #000;
     &:nth-child(odd) {
       .item {
         background: $tertiary;
-      } 
+      }
     }
 
     .item {
@@ -252,7 +258,7 @@ $black: #000;
       }
 
       .align-right {
-         padding-top: 14px;
+        padding-top: 14px;
       }
 
       h2 {
@@ -302,4 +308,27 @@ input.ng-invalid, input.ng-dirty {
 
 input.ng-invalid, input.ng-dirty {
   box-shadow: none;
+}
+
+// Home
+.dashboard-home {
+  background-color: $primary;
+  .row, .col-100, .col {
+    padding-top: 12px;
+    padding-bottom: 10px;
+  }
+  h2 {
+    font-size: 25px;
+    font-weight: 300;
+    color: white;
+  }
+}
+
+// Footer
+.high-footer {
+  height: 55px !important;
+}
+
+.bar.bar-footer .title {
+  top: 5px;
 }
