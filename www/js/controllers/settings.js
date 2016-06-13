@@ -5,18 +5,41 @@ angular.module('generic-client.controllers.settings', [])
         $scope.data = {};
     })
 
-    .controller('PersonalDetailsCtrl', function ($scope, $ionicModal, $state) {
+    .controller('PersonalDetailsCtrl', function ($scope, $ionicPopup, $ionicModal, $state, $ionicLoading, PersonalDetails) {
         'use strict';
-        $scope.data = {"username": "@helgie", "name": "Helghardt"};
 
-        $scope.submit = function (name, surname) {
-            $state.go('app.settings', {
-                profile_picture: $scope.data.profile_picture,
-                name: $scope.data.name,
-                surname: $scope.data.surname,
-                nationality: $scope.data.nationality,
-                passport_id: $scope.data.passport_id
+        var getPersonalDetails = PersonalDetails.get();
+
+        getPersonalDetails.success(
+            function (res) {
+                $scope.data = {"first_name": res.first_name, "last_name": res.last_name, "email_address": res.email, "nationality": res.nationality};
+            }
+        );
+
+        getPersonalDetails.catch(function (error) {
+
+        });
+
+        $scope.submit = function (form) {
+            $ionicLoading.show({
+                template: 'Saving Info...'
             });
+
+            if (form.$valid) {
+
+                PersonalDetails.create(form.first_name.$viewValue, form.last_name.$viewValue, form.email_address.$viewValue, form.nationality.$viewValue).then(function (res) {
+
+                    if (res.status === 200) {
+                        $ionicLoading.hide();
+                    } else {
+                        $ionicLoading.hide();
+                        $ionicPopup.alert({title: "Error", template: res.data.message});
+                    }
+                }).catch(function (error) {
+                    $ionicPopup.alert({title: 'Authentication failed', template: error.message});
+                    $ionicLoading.hide();
+                });
+            }
         };
     })
 

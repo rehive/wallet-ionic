@@ -19,9 +19,11 @@ angular.module('generic-client', ['ionic',
     'generic-client.services.accounts',
     'generic-client.services.transactions',
     'generic-client.services.contacts',
+    'generic-client.services.settings',
     'generic-client.filters.contacts'])
 
-    .constant('API', 'https://staging.zapgo.co/api/1')
+    //.constant('API', 'https://staging.zapgo.co/api/1')
+    .constant('API', 'http://localhost:2468/api/1')
     .constant('COMPANY', 'test_company_1')
     .constant('REFRESH_INTERVAL', 3000)
 
@@ -68,7 +70,7 @@ angular.module('generic-client', ['ionic',
             })
 
             .state('loading', {
-                url: '/loading', 
+                url: '/loading',
                 templateUrl: 'templates/elements/loading.html',
                 params: {
                     amount: null
@@ -133,7 +135,7 @@ angular.module('generic-client', ['ionic',
                     note: null,
                     to: null
                 }
-            })            
+            })
 
             .state('app.send_confirm', {
                 url: '/send_confirm',
@@ -219,7 +221,7 @@ angular.module('generic-client', ['ionic',
                     amount: null,
                     to: null
                 }
-            })            
+            })
 
             // Deposit
             .state('app.deposit', {
@@ -340,7 +342,7 @@ angular.module('generic-client', ['ionic',
                 }
             })
 
-           .state('app.fica', {
+            .state('app.fica', {
                 url: '/fica',
                 views: {
                     'menuContent': {
@@ -448,12 +450,8 @@ angular.module('generic-client', ['ionic',
                     }
                 },
                 params: {
-                    profile_picture: null,
-                    username: null,
-                    name: null,
-                    surname: null,
-                    nationality: null,
-                    passport_id: null
+                    first_name: null,
+                    last_name: null,
                 }
             })
 
