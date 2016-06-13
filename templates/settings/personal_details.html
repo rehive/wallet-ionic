@@ -1,42 +1,38 @@
 <ion--view view-title="Personal details">
+    <div ng-controller="PersonalDetailsCtrl">
+        <form name="personalDetailsForm" novalidate>
+            <ion-content>
+                <div class="list">
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">First name</span>
+                        <input ng-model="data.first_name" name="first_name" type="text" placeholder="Your name" value="{{ data.first_name }}">
 
-    <ion-content>
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Last name</span>
+                        <input ng-model="data.last_name" name="last_name" type="text" placeholder="Your surname"
+                               value="{{ data.last_name }}">
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Email</span>
+                        <input ng-model="data.email_address" name="email_address" type="text" placeholder="Your email" value="{{ data.email_address }}">
 
-        <div class="list">
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">Username</span>
-                <input ng-model="data.username" type="text" placeholder="Your username" value="{{ data.username }}">
-            </label>
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">First name</span>
-                <input ng-model="data.first_name" type="text" placeholder="Your name" value="{{ data.name }}">
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Nationality</span>
+                        <input ng-model="data.nationality" name="nationality" type="text" placeholder="Your nationality" value="{{ data.nationality }}">
 
-            </label>
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">Last name</span>
-                <input ng-model="data.last_name" type="text" placeholder="Your surname" value="{{ data.surname }}">
-            </label>
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">Nationality</span>
-                <input ng-model="data.nationality" type="text" placeholder="Your nationality"
-                       value="{{ data.nationality }}">
-            </label>
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">Passport/ID</span>
-                <input ng-model="data.passport_id" type="text" placeholder="Your passport/id number"
-                       value="{{ data.passport_id }}">
-            </label>
-        </div>
+                    </label>
+                </div>
+            </ion-content>
 
-    </ion-content>
+            <!-- Footer bar hack to get layout right -->
+            <ion-footer-bar class="high-footer bar-dark">
+            </ion-footer-bar>
 
-    <!-- Footer bar hack to get layout right -->
-    <ion-footer-bar class="high-footer bar-dark">
-    </ion-footer-bar>
-
-    <button keyboard-attach class="high-footer bar bar-footer" ng-click="submit(data.username,  data.first_name,
-        data.last_name, data.nationality, data.password_id)">
-        <h1 class="title">Submit</h1>
-    </button>
-
+            <button keyboard-attach class="high-footer bar bar-footer" ng-click="submit(personalDetailsForm)" linked="clickMe">
+                <h1 class="title">Save</h1>
+            </button>
+        </form>
+    </div>
 </ion--view>
