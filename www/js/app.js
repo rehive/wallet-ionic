@@ -23,7 +23,7 @@ angular.module('generic-client', ['ionic',
     'generic-client.filters.contacts'])
 
     //.constant('API', 'https://staging.zapgo.co/api/1')
-    .constant('API', 'http://localhost:2468/api/1')
+    .constant('API', 'https://staging.zapgo.co/api/1')
     .constant('COMPANY', 'test_company_1')
     .constant('REFRESH_INTERVAL', 3000)
 
@@ -245,7 +245,7 @@ angular.module('generic-client', ['ionic',
                 }
             })
 
-            // Promotion   
+            // Promotion
             .state('app.promotion_code', {
                 url: '/promotion_code',
                 views: {
