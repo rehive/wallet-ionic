@@ -8,17 +8,25 @@ angular.module('generic-client.controllers.settings', [])
     .controller('PersonalDetailsCtrl', function ($scope, $ionicPopup, $ionicModal, $state, $ionicLoading, PersonalDetails) {
         'use strict';
 
-        var getPersonalDetails = PersonalDetails.get();
+        $scope.refreshData = function () {
+            var getPersonalDetails = PersonalDetails.get();
 
-        getPersonalDetails.success(
-            function (res) {
-                $scope.data = {"first_name": res.first_name, "last_name": res.last_name, "email_address": res.email, "nationality": res.nationality};
-            }
-        );
+            getPersonalDetails.success(
+                function (res) {
+                    $scope.data = {
+                        "first_name": res.first_name,
+                        "last_name": res.last_name,
+                        "email_address": res.email,
+                        "id_number": res.id_number,
+                        "nationality": res.nationality
+                    };
+                }
+            );
 
-        getPersonalDetails.catch(function (error) {
+            getPersonalDetails.catch(function (error) {
 
-        });
+            });
+        };
 
         $scope.submit = function (form) {
             $ionicLoading.show({
@@ -27,20 +35,27 @@ angular.module('generic-client.controllers.settings', [])
 
             if (form.$valid) {
 
-                PersonalDetails.create(form.first_name.$viewValue, form.last_name.$viewValue, form.email_address.$viewValue, form.nationality.$viewValue).then(function (res) {
+                PersonalDetails.create(form.first_name.$viewValue,
+                    form.last_name.$viewValue,
+                    form.email_address.$viewValue,
+                    form.id_number.$viewValue,
+                    form.nationality.$viewValue).then(function (res) {
 
-                    if (res.status === 200) {
+                        if (res.status === 200) {
+                            $ionicLoading.hide();
+                        } else {
+                            $ionicLoading.hide();
+                            $ionicPopup.alert({title: "Error", template: res.message});
+                        }
+                    }).catch(function (error) {
+                        $ionicPopup.alert({title: 'Authentication failed', template: error.message});
                         $ionicLoading.hide();
-                    } else {
-                        $ionicLoading.hide();
-                        $ionicPopup.alert({title: "Error", template: res.data.message});
-                    }
-                }).catch(function (error) {
-                    $ionicPopup.alert({title: 'Authentication failed', template: error.message});
-                    $ionicLoading.hide();
-                });
+                    });
+
+                $scope.refreshData();
             }
         };
+        $scope.refreshData();
     })
 
     .controller('MobileNumberCtrl', function ($scope, $state) {
@@ -65,23 +80,59 @@ angular.module('generic-client.controllers.settings', [])
         };
     })
 
-    .controller('ListAddressesCtrl', function ($scope, $state) {
+    .controller('AddressCtrl', function ($scope, $ionicPopup, $ionicModal, $state, $ionicLoading, Address) {
         'use strict';
-        $scope.data = {};
-        var addresses = [{"address": "14 High Hill"}, {"address": "66 Albert Rd"}]
-        $scope.addresses = addresses
-    })
 
-    .controller('AddAddressCtrl', function ($scope, $state) {
-        'use strict';
-        $scope.data = {};
-        $scope.addressList = [
-            {default: "Default", checked: false},
-        ];
+        $scope.refreshData = function () {
+            var getAddress = Address.get();
 
-        $scope.submit = function () {
-            $state.go('app.list_addresses', {});
+            getAddress.success(
+                function (res) {
+                    $scope.data = {
+                        "line_1": res.line_1,
+                        "line_2": res.line_2,
+                        "city": res.city,
+                        "state_province": res.state_province,
+                        "country": res.country,
+                        "code": res.postal_code
+                    };
+                }
+            );
+
+            getAddress.catch(function (error) {
+
+            });
         };
+
+        $scope.submit = function (form) {
+            $ionicLoading.show({
+                template: 'Saving Address...'
+            });
+
+            if (form.$valid) {
+
+                Address.create(form.line_1.$viewValue,
+                    form.line_2.$viewValue,
+                    form.city.$viewValue,
+                    form.state_province.$viewValue,
+                    form.country.$viewValue,
+                    form.code.$viewValue).then(function (res) {
+
+                        if (res.status === 200) {
+                            $ionicLoading.hide();
+                        } else {
+                            $ionicLoading.hide();
+                            $ionicPopup.alert({title: "Error", template: res.message});
+                        }
+                    }).catch(function (error) {
+                        $ionicPopup.alert({title: 'Authentication failed', template: error.message});
+                        $ionicLoading.hide();
+                    });
+
+                $scope.refreshData();
+            }
+        };
+        $scope.refreshData();
     })
 
     .controller('ListBankAccountsCtrl', function ($scope, $state) {

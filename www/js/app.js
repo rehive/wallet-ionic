@@ -481,22 +481,12 @@ angular.module('generic-client', ['ionic',
                 }
             })
 
-            .state('app.list_addresses', {
-                url: '/list_addresses',
-                views: {
-                    'menuContent': {
-                        templateUrl: 'templates/settings/list_addresses.html',
-                        controller: 'ListAddressesCtrl'
-                    }
-                }
-            })
-
             .state('app.add_address', {
                 url: '/add_address',
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/settings/add_address.html',
-                        controller: 'AddAddressCtrl'
+                        controller: 'AddressCtrl'
                     }
                 }
             })
