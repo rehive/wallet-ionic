@@ -62,7 +62,7 @@ angular.module('generic-client.controllers.send', [])
 
         $scope.submit = function (amount, note, to) {
             $ionicLoading.show({
-                template: 'Logging In...'
+                template: 'Sending...'
             });
 
             Transaction.create(amount, note, to).then(function (res) {
@@ -72,7 +72,7 @@ angular.module('generic-client.controllers.send', [])
                         amount: amount,
                         note: note,
                         to: to
-                    });                    
+                    });
                 } else {
                     $ionicLoading.hide();
                     $ionicPopup.alert({title: "Error", template: res.data.message});
