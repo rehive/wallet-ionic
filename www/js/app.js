@@ -22,8 +22,8 @@ angular.module('generic-client', ['ionic',
     'generic-client.services.settings',
     'generic-client.filters.contacts'])
 
+    .constant('API', 'http://localhost:2468/api/1')
     //.constant('API', 'https://staging.zapgo.co/api/1')
-    .constant('API', 'https://staging.zapgo.co/api/1')
     .constant('COMPANY', 'test_company_1')
     .constant('REFRESH_INTERVAL', 3000)
 
