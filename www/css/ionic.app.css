@@ -9842,7 +9842,7 @@ a.button {
       text-decoration: none; }
 
 .app-side-menu {
-  background-color: #5EA5CF;
+  background-color: #2070A0;
   color: #fff; }
   .app-side-menu .item {
     cursor: pointer; }
@@ -9850,17 +9850,17 @@ a.button {
 .app-side-menu-list {
   position: relative; }
   .app-side-menu-list .item {
-    border-color: #4a9ac9;
-    background-color: #5EA5CF; }
+    border-color: transparent;
+    background-color: #2070A0; }
     .app-side-menu-list .item:last-of-type {
       border-bottom: none; }
     .app-side-menu-list .item a {
       color: #fff;
-      background-color: #5EA5CF;
+      background-color: #2070A0;
       padding: 15px; }
       .app-side-menu-list .item a.activated {
-        background-color: #5EA5CF;
-        border-color: #4a9ac9; }
+        background-color: #2070A0;
+        border-color: transparent; }
 
 .list-transactions {
   margin-bottom: 10px !important;

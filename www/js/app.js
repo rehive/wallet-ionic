@@ -496,7 +496,7 @@ angular.module('generic-client', ['ionic',
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/settings/list_bank_accounts.html',
-                        controller: 'ListBankAccountsCtrl'
+                        controller: 'BankAccountsCtrl'
                     }
                 }
             })
@@ -506,7 +506,7 @@ angular.module('generic-client', ['ionic',
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/settings/add_bank_account.html',
-                        controller: 'AddBankAccountCtrl'
+                        controller: 'BankAccountsCtrl'
                     }
                 }
             })

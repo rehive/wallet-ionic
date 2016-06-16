@@ -36,6 +36,9 @@ $secondary: #fff;
 $tertiary: #F6F6F6;
 //Default: #fff;
 
+// Side bar
+$sidebar: #2070A0;
+
 // Notification colors
 $notify: #5EA5CF;
 //Default: #56C1ED;
@@ -206,7 +209,7 @@ $black: #000;
 
 // Menu
 .app-side-menu {
-  background-color: $primary;
+  background-color: $sidebar;
   color: $secondary;
 
   .item {
@@ -218,8 +221,8 @@ $black: #000;
   position: relative;
 
   .item {
-    border-color: darken($primary, 5%);
-    background-color: $primary;
+    border-color: transparent;
+    background-color: $sidebar;
 
     &:last-of-type {
       border-bottom: none;
@@ -227,12 +230,12 @@ $black: #000;
 
     a {
       color: $secondary;
-      background-color: $primary;
+      background-color: $sidebar;
       padding: 15px;
 
       &.activated {
-        background-color: $primary;
-        border-color: darken($primary, 5%);
+        background-color: $sidebar;
+        border-color: transparent;
       }
     }
   }

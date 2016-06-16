@@ -40,4 +40,32 @@ angular.module('generic-client.services.settings', [])
                 postal_code: code
             });
         };
+    })
+
+    .service('BankAccount', function ($http, API) {
+        'use strict';
+        var self = this;
+
+        self.list = function () {
+            console.log($http.get(API + '/accounts/user_bank_account/'));
+            return $http.get(API + '/accounts/user_bank_account/');
+        };
+
+        self.get = function (accId) {
+            return $http.get(API + '/accounts/user_bank_account/1/' );
+        };
+
+        self.create = function (name, number, type, bank_name, branch_code, swift, iban, bic) {
+
+            return $http.post(API + '/accounts/user_bank_account/', {
+                name: name,
+                number: number,
+                type: type,
+                bank_name: bank_name,
+                branch_code: branch_code,
+                swift: swift,
+                iban: iban,
+                bic: bic
+            });
+        };
     });

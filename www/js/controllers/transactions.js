@@ -39,7 +39,7 @@ angular.module('generic-client.controllers.transactions', [])
             if ($scope.nextUrl) {
                 $http.get($scope.nextUrl).success(
                     function (res) {
-                        var items = []
+                        var items = [];
 
                         for (var i = 0; i < res.data.results.length; i++) {
                             res.data.results[i].id = i;

@@ -1,39 +1,59 @@
-<ion--view view-title="Bank">
 
-    <ion-content>
+<ion--view view-title="Add Bank Account">
+    <div ng-controller="BankAccountsCtrl">
+        <form name="BankAccountForm" novalidate>
+            <ion-content>
+                <div class="list">
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Account holder</span>
+                        <input ng-model="data.name" name="name" type="text"
+                               placeholder="What is the account holder's name?">
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Account number</span>
+                        <input ng-model="data.number" name="number" type="text"
+                               placeholder="What is your account number?">
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Account type</span>
+                        <input ng-model="data.type" name="type" type="text" placeholder="What is the account type?">
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Bank name</span>
+                        <input ng-model="data.bank_name" name="bank_name" type="text"
+                               placeholder="What is your bank's name?">
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Branch code</span>
+                        <input ng-model="data.branch_code" name="branch_code" type="text"
+                               placeholder="What is your bank's branch code?">
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">SWIFT code</span>
+                        <input ng-model="data.swift" name="swift" type="text"
+                               placeholder="What is your bank's SWIFT code?">
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">IBAN</span>
+                        <input ng-model="data.iban" name="iban" type="text"
+                               placeholder="What is your bank's IBAN number?">
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">BIC</span>
+                        <input ng-model="data.bic" name="bic" type="text" placeholder="What is your bank's BIC code?">
+                    </label>
 
-        <div class="list">
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">Bank name</span>
-                <input ng-model="data.bank_name" type="text" placeholder="What is your bank's name?">
-            </label>
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">Branch name</span>
-                <input ng-model="data.branch_name" type="text" placeholder="What is your bank's branch name?">
-            </label>
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">Account number</span>
-                <input ng-model="data.account_number" type="number" placeholder="What is your account number?">
-            </label>
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">Account holder name</span>
-                <input ng-model="data.account_holder_name" type="text" placeholder="What is the account holder's name?">
-            </label>
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">Account type</span>
-                <input ng-model="data.account_type" type="text" placeholder="What is the account type?">
-            </label>
-        </div>
+                </div>
+            </ion-content>
 
-    </ion-content>
+            <!-- Footer bar hack to get layout right -->
+            <ion-footer-bar class="high-footer bar-dark">
+            </ion-footer-bar>
 
-    <!-- Footer bar hack to get layout right -->
-    <ion-footer-bar class="high-footer bar-dark">
-    </ion-footer-bar>
-
-    <button class="high-footer bar bar-footer" ng-click="submit(data.bank_name, data.branch_name,
-        data.account_number, data.account_holder_name, data.account_type)">
-        <h1 class="title">Submit</h1>
-    </button>
-
+            <button keyboard-attach class="high-footer bar bar-footer" ng-click="submit(BankAccountForm)"
+                    linked="clickMe">
+                <h1 class="title">Save</h1>
+            </button>
+        </form>
+    </div>
 </ion--view>
