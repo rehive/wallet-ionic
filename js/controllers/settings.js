@@ -135,11 +135,82 @@ angular.module('generic-client.controllers.settings', [])
         $scope.refreshData();
     })
 
-    .controller('ListBankAccountsCtrl', function ($scope, $state) {
+    .controller('BankAccountsCtrl', function ($scope, $window, $ionicPopup, $ionicModal, $state, $ionicLoading, BankAccount) {
         'use strict';
-        $scope.data = {};
-        var accounts = [{"account": "FNB 543645"}, {"account": "Standard 654654"}]
-        $scope.accounts = accounts
+
+        $scope.listData = function () {
+            BankAccount.list().success(
+                function (res) {
+                    var items = [];
+
+                    for (var i = 0; i < res.length; i++) {
+                        items.push(res[i]);
+                        console.log(res[i])
+                    }
+
+                    $scope.items = items;
+                    $window.localStorage.setItem('myBankAccounts', JSON.stringify(items));
+                    $scope.$broadcast('scroll.refreshComplete');
+                }
+            );
+        };
+
+        $scope.getData = function () {
+            var getBankAccount = BankAccount.get(1);
+
+            getBankAccount.success(
+                function (res) {
+                    $scope.data = {
+                        "name": res.name,
+                        "number": res.number,
+                        "type": res.type,
+                        "bank_name": res.bank_name,
+                        "branch_code": res.branch_code,
+                        "swift": res.swift,
+                        "iban": res.iban,
+                        "bic": res.bic
+                    };
+                }
+            );
+
+            getBankAccount.catch(function (error) {
+
+            });
+        };
+
+        $scope.submit = function (form) {
+            $ionicLoading.show({
+                template: 'Adding Bank Account...'
+            });
+
+            if (form.$valid) {
+
+                BankAccount.create(form.name.$viewValue,
+                    form.number.$viewValue,
+                    form.type.$viewValue,
+                    form.bank_name.$viewValue,
+                    form.branch_code.$viewValue,
+                    form.swift.$viewValue,
+                    form.iban.$viewValue,
+                    form.bic.$viewValue).then(function (res) {
+
+                        if (res.status === 200) {
+                            $ionicLoading.hide();
+                        } else {
+                            $ionicLoading.hide();
+                            $ionicPopup.alert({title: "Error", template: res.message});
+                        }
+                    }).catch(function (error) {
+                        $ionicPopup.alert({title: 'Authentication failed', template: error.message});
+                        $ionicLoading.hide();
+                    });
+
+                $scope.getData();
+            }
+        };
+
+        $scope.getData();
+        $scope.listData();
     })
 
     .controller('AddBankAccountCtrl', function ($scope, $state) {
