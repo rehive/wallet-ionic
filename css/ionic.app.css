@@ -9913,9 +9913,9 @@ input.ng-invalid, input.ng-dirty {
   .dashboard-home .row, .dashboard-home .col-100, .dashboard-home .col {
     padding-top: 12px;
     padding-bottom: 10px; }
-  .dashboard-home h2 {
+  .dashboard-home h1 {
     font-size: 30px;
-    font-weight: 500;
+    font-weight: 300;
     color: white; }
 
 .high-footer {
