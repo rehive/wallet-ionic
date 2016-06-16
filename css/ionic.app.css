@@ -9773,46 +9773,46 @@ a.button {
 
 .button {
   border-color: transparent;
-  background-color: #5EA5CF;
+  background-color: #3D8AB8;
   color: #fff; }
   .button:hover {
     color: #fff;
     text-decoration: none; }
   .button.active, .button.activated {
-    background-color: #4a9ac9; }
+    background-color: #377ca5; }
   .button.button-clear, .button.button-icon {
     border-color: transparent;
     background: none;
     box-shadow: none;
-    color: #5EA5CF; }
+    color: #3D8AB8; }
   .button.button-positive {
-    border-color: #5EA5CF;
-    background: #5EA5CF;
+    border-color: #3D8AB8;
+    background: #3D8AB8;
     color: #fff; }
     .button.button-positive.active, .button.button-positive.activated {
-      background-color: #4a9ac9;
+      background-color: #377ca5;
       box-shadow: none; }
   .button.button-outline {
-    border-color: #5EA5CF;
+    border-color: #3D8AB8;
     background: transparent;
-    color: #5EA5CF; }
+    color: #3D8AB8; }
     .button.button-outline.active, .button.button-outline.activated {
-      background-color: #5EA5CF;
+      background-color: #3D8AB8;
       box-shadow: none;
       color: #fff; }
   .button.search-button {
     position: absolute;
     right: 20px;
     top: 15px;
-    color: #4a9ac9; }
+    color: #377ca5; }
 
 .bar {
-  border-color: #5ea5cf;
-  background-color: #5EA5CF;
+  border-color: #3d8ab8;
+  background-color: #3D8AB8;
   background-image: none;
   color: #fff; }
   .bar.activated {
-    background-color: #4a9ac9; }
+    background-color: #377ca5; }
   .bar .title {
     color: #fff; }
   .bar.cancel {
@@ -9824,10 +9824,10 @@ a.button {
       color: #fff; }
   .bar .button {
     border-color: transparent;
-    background-color: #4a9ac9;
+    background-color: #377ca5;
     color: #fff; }
     .bar .button.active, .bar .button.button.activated {
-      background-color: #4a9ac9; }
+      background-color: #377ca5; }
     .bar .button.button-clear {
       border-color: transparent;
       background: none;
@@ -9909,7 +9909,7 @@ input.ng-invalid, input.ng-dirty {
   box-shadow: none; }
 
 .dashboard-home {
-  background-color: #5EA5CF; }
+  background-color: #3D8AB8; }
   .dashboard-home .row, .dashboard-home .col-100, .dashboard-home .col {
     padding-top: 12px;
     padding-bottom: 10px; }
