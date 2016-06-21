@@ -1,22 +1,21 @@
-<ion--view view-title="Bank Accounts">
+<ion--view view-title="Bitcoin Addresses">
     <ion-content>
         <ion-refresher pulling-text="pull to refresh" on-refresh="refreshData()"></ion-refresher>
         <div class="list-transactions">
             <div class="block">
                 <div ng-repeat="item in items">
-                    <a ui-sref="app.edit_bank_account({accId: item.id})">
+                    <a ui-sref="app.edit_bitcoin_withdrawal_account({accId: item.id})">
                         <div class="item item-avatar item-icon-left">
                             <i class="icon ion-ios-circle-outline"></i>
 
                             <div class="align-left">
-                                {{ item.bank_name }}
-                                <h4>{{ item.number }}</h4>
+                                {{ item.address }}
                             </div>
                         </div>
                     </a>
                 </div>
-                <a class="item" ui-sref="app.add_bank_account">
-                    Add another bank account
+                <a class="item" ui-sref="app.add_bitcoin_withdrawal_account">
+                    Add another bitcoin address
                 </a>
             </div>
         </div>

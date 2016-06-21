@@ -14,11 +14,11 @@ angular.module('generic-client.controllers.settings', [])
             getPersonalDetails.success(
                 function (res) {
                     $scope.data = {
-                        "first_name": res.first_name,
-                        "last_name": res.last_name,
-                        "email_address": res.email,
-                        "id_number": res.id_number,
-                        "nationality": res.nationality
+                        "first_name": res.data.first_name,
+                        "last_name": res.data.last_name,
+                        "email_address": res.data.email,
+                        "id_number": res.data.id_number,
+                        "nationality": res.data.nationality
                     };
                 }
             );
@@ -52,7 +52,7 @@ angular.module('generic-client.controllers.settings', [])
                         $ionicLoading.hide();
                     });
 
-                $scope.refreshData();
+                $state.go('app.list_bank_accounts', {});
             }
         };
         $scope.refreshData();
@@ -89,12 +89,12 @@ angular.module('generic-client.controllers.settings', [])
             getAddress.success(
                 function (res) {
                     $scope.data = {
-                        "line_1": res.line_1,
-                        "line_2": res.line_2,
-                        "city": res.city,
-                        "state_province": res.state_province,
-                        "country": res.country,
-                        "code": res.postal_code
+                        "line_1": res.data.line_1,
+                        "line_2": res.data.line_2,
+                        "city": res.data.city,
+                        "state_province": res.data.state_province,
+                        "country": res.data.country,
+                        "code": res.data.postal_code
                     };
                 }
             );
@@ -135,17 +135,19 @@ angular.module('generic-client.controllers.settings', [])
         $scope.refreshData();
     })
 
-    .controller('BankAccountsCtrl', function ($scope, $window, $ionicPopup, $ionicModal, $state, $ionicLoading, BankAccount) {
+    .controller('BankAccountCtrl', function ($scope, $window, $ionicPopup, $ionicModal, $state, $stateParams, $ionicLoading, BankAccount) {
         'use strict';
+
+        var accId = $stateParams['accId'];
 
         $scope.listData = function () {
             BankAccount.list().success(
                 function (res) {
                     var items = [];
 
-                    for (var i = 0; i < res.length; i++) {
-                        items.push(res[i]);
-                        console.log(res[i])
+                    for (var i = 0; i < res.data.length; i++) {
+                        items.push(res.data[i]);
+                        console.log(res.data[i])
                     }
 
                     $scope.items = items;
@@ -155,20 +157,21 @@ angular.module('generic-client.controllers.settings', [])
             );
         };
 
-        $scope.getData = function () {
-            var getBankAccount = BankAccount.get(1);
+        $scope.getData = function (accId) {
+            var getBankAccount = BankAccount.get(accId);
 
             getBankAccount.success(
                 function (res) {
                     $scope.data = {
-                        "name": res.name,
-                        "number": res.number,
-                        "type": res.type,
-                        "bank_name": res.bank_name,
-                        "branch_code": res.branch_code,
-                        "swift": res.swift,
-                        "iban": res.iban,
-                        "bic": res.bic
+                        "id": res.data.id,
+                        "name": res.data.name,
+                        "number": res.data.number,
+                        "type": res.data.type,
+                        "bank_name": res.data.bank_name,
+                        "branch_code": res.data.branch_code,
+                        "swift": res.data.swift,
+                        "iban": res.data.iban,
+                        "bic": res.data.bic
                     };
                 }
             );
@@ -178,21 +181,122 @@ angular.module('generic-client.controllers.settings', [])
             });
         };
 
+        if (accId) {
+            $scope.getData(accId);
+        }
+
         $scope.submit = function (form) {
             $ionicLoading.show({
                 template: 'Adding Bank Account...'
             });
 
-            if (form.$valid) {
+            if (accId) {
+                if (form.$valid) {
 
-                BankAccount.create(form.name.$viewValue,
-                    form.number.$viewValue,
-                    form.type.$viewValue,
-                    form.bank_name.$viewValue,
-                    form.branch_code.$viewValue,
-                    form.swift.$viewValue,
-                    form.iban.$viewValue,
-                    form.bic.$viewValue).then(function (res) {
+                    BankAccount.update(accId,
+                        form.name.$viewValue,
+                        form.number.$viewValue,
+                        form.type.$viewValue,
+                        form.bank_name.$viewValue,
+                        form.branch_code.$viewValue,
+                        form.swift.$viewValue,
+                        form.iban.$viewValue,
+                        form.bic.$viewValue).then(function (res) {
+
+                            if (res.status === 200) {
+                                $ionicLoading.hide();
+                            } else {
+                                $ionicLoading.hide();
+                                $ionicPopup.alert({title: "Error", template: res.message});
+                            }
+                        }).catch(function (error) {
+                            $ionicPopup.alert({title: 'Authentication failed', template: error.message});
+                            $ionicLoading.hide();
+                        });
+                    $state.go('app.list_bank_accounts', {});
+                }
+            }
+            else {
+                if (form.$valid) {
+
+                    BankAccount.create(form.name.$viewValue,
+                        form.number.$viewValue,
+                        form.type.$viewValue,
+                        form.bank_name.$viewValue,
+                        form.branch_code.$viewValue,
+                        form.swift.$viewValue,
+                        form.iban.$viewValue,
+                        form.bic.$viewValue).then(function (res) {
+
+                            if (res.status === 201) {
+                                $ionicLoading.hide();
+                            } else {
+                                $ionicLoading.hide();
+                                $ionicPopup.alert({title: "Error", template: res.message});
+                            }
+                        }).catch(function (error) {
+                            $ionicPopup.alert({title: 'Authentication failed', template: error.message});
+                            $ionicLoading.hide();
+                        });
+                    $state.go('app.list_bank_accounts', {});
+                }
+            }
+        };
+        $scope.listData();
+    })
+
+    .controller('BitcoinWithdrawalAccountCtrl', function ($scope, $window, $ionicPopup, $ionicModal, $state, $stateParams, $ionicLoading, BitcoinWithdrawalAccount) {
+        'use strict';
+
+        var accId = $stateParams['accId'];
+
+        $scope.listData = function () {
+            BitcoinWithdrawalAccount.list().success(
+                function (res) {
+                    var items = [];
+
+                    for (var i = 0; i < res.length; i++) {
+                        items.push(res[i]);
+                        console.log(res[i])
+                    }
+
+                    $scope.items = items;
+                    $window.localStorage.setItem('myBitcoinWithdrawalAccounts', JSON.stringify(items));
+                    $scope.$broadcast('scroll.refreshComplete');
+                }
+            );
+        };
+
+        $scope.getData = function (accId) {
+            var getBitcoinWithdrawalAccount = BitcoinWithdrawalAccount.get(accId);
+
+            getBitcoinWithdrawalAccount.success(
+                function (res) {
+                    $scope.data = {
+                        "id": res.data.id,
+                        "address": res.data.address
+                    };
+                }
+            );
+
+            getBitcoinWithdrawalAccount.catch(function (error) {
+
+            });
+        };
+
+        if (accId) {
+            $scope.getData(accId);
+        }
+
+        $scope.submit = function (form) {
+            $ionicLoading.show({
+                template: 'Adding Bitcoin Address...'
+            });
+
+            if (accId) {
+                if (form.$valid) {
+
+                    BitcoinWithdrawalAccount.update(accId, form.address.$viewValue).then(function (res) {
 
                         if (res.status === 200) {
                             $ionicLoading.hide();
@@ -204,22 +308,29 @@ angular.module('generic-client.controllers.settings', [])
                         $ionicPopup.alert({title: 'Authentication failed', template: error.message});
                         $ionicLoading.hide();
                     });
-
-                $scope.getData();
+                }
             }
-        };
+            else {
+                if (form.$valid) {
 
-        $scope.getData();
+                    BitcoinWithdrawalAccount.create(form.address.$viewValue).then(function (res) {
+
+                        if (res.status === 201) {
+                            $ionicLoading.hide();
+                        } else {
+                            $ionicLoading.hide();
+                            $ionicPopup.alert({title: "Error", template: res.message});
+                        }
+                    }).catch(function (error) {
+                        $ionicPopup.alert({title: 'Authentication failed', template: error.message});
+                        $ionicLoading.hide();
+                    });
+
+                }
+            }
+            $state.go('app.list_bitcoin_withdrawal_accounts', {});
+        };
         $scope.listData();
-    })
-
-    .controller('AddBankAccountCtrl', function ($scope, $state) {
-        'use strict';
-        $scope.data = {};
-
-        $scope.submit = function (bank_name, branch_name, account_number, account_holder_name, account_type) {
-            $state.go('app.list_bank_accounts', {});
-        };
     })
 
     .controller('SecurityCtrl', function ($scope) {

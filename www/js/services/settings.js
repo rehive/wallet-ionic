@@ -52,7 +52,21 @@ angular.module('generic-client.services.settings', [])
         };
 
         self.get = function (accId) {
-            return $http.get(API + '/accounts/user_bank_account/1/' );
+            return $http.get(API + '/accounts/user_bank_account/' + accId + '/');
+        };
+
+        self.update = function (accId, name, number, type, bank_name, branch_code, swift, iban, bic) {
+
+            return $http.put(API + '/accounts/user_bank_account/' + accId + '/', {
+                name: name,
+                number: number,
+                type: type,
+                bank_name: bank_name,
+                branch_code: branch_code,
+                swift: swift,
+                iban: iban,
+                bic: bic
+            });
         };
 
         self.create = function (name, number, type, bank_name, branch_code, swift, iban, bic) {
@@ -68,4 +82,34 @@ angular.module('generic-client.services.settings', [])
                 bic: bic
             });
         };
+    })
+
+
+    .service('BitcoinWithdrawalAccount', function ($http, API) {
+        'use strict';
+        var self = this;
+
+        self.list = function () {
+            console.log($http.get(API + '/accounts/bitcoin_withdrawal_account/'));
+            return $http.get(API + '/accounts/bitcoin_withdrawal_account/');
+        };
+
+        self.get = function (accId) {
+            return $http.get(API + '/accounts/bitcoin_withdrawal_account/' + accId + '/');
+        };
+
+        self.update = function (accId, address) {
+
+            return $http.put(API + '/accounts/bitcoin_withdrawal_account/' + accId + '/', {
+                address: address
+            });
+        };
+
+        self.create = function (address) {
+
+            return $http.post(API + '/accounts/bitcoin_withdrawal_account/', {
+                address: address
+            });
+        };
     });
+;

@@ -1,18 +1,18 @@
 <ion--view view-title="Withdraw To">
-    <div ng-controller="WithdrawCtrl" >
-        <form name="withdrawToForm" novalidate>
+    <div ng-controller="WithdrawToCtrl">
+        <form name="WithdrawToForm" novalidate>
             <ion-content>
-                <h4 class="list-header">Select withdrawal account</h4>
 
                 <div class="list">
-                    <div class="item" ng-click="submit(amount, data.to)">
-                        {{ data.to }}
+                    <div ng-repeat="item in items">
+                        <a class="item item-icon-right" ng-click="submit(amount, '{{ item.account }}')">
+                            <h3>{{ item.title }}</h3>
+                            <i class="icon ion-ios-arrow-right"></i>
+                        </a>
                     </div>
-                    <a class="item" href="#">
-                        Add another bank account
-                    </a>
                 </div>
-            </ion-content>        
+
+            </ion-content>
         </form>
     </div>
 </ion--view>
