@@ -1,0 +1,26 @@
+
+<ion--view view-title="Add Bitcoin Address">
+    <div ng-controller="BitcoinWithdrawalAccountCtrl">
+        <form name="BitcoinWithdrawalAccountForm" novalidate>
+            <ion-content>
+                <div class="list">
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Bitcoin withdrawal address</span>
+                        <input ng-model="data.address" name="address" type="text"
+                               placeholder="e.g. 1L7m9D8gCS4DMCdzB8Sd9kk9X9yxG4nKUT">
+                    </label>
+
+                </div>
+            </ion-content>
+
+            <!-- Footer bar hack to get layout right -->
+            <ion-footer-bar class="high-footer bar-dark">
+            </ion-footer-bar>
+
+            <button keyboard-attach class="high-footer bar bar-footer" ng-click="submit(BitcoinWithdrawalAccountForm)"
+                    linked="clickMe">
+                <h1 class="title">Save</h1>
+            </button>
+        </form>
+    </div>
+</ion--view>

@@ -22,8 +22,8 @@ angular.module('generic-client', ['ionic',
     'generic-client.services.settings',
     'generic-client.filters.contacts'])
 
-    //.constant('API', 'http://localhost:2468/api/1')
-    .constant('API', 'https://staging.zapgo.co/api/1')
+    .constant('API', 'http://localhost:2468/api/1')
+    //.constant('API', 'https://staging.zapgo.co/api/1')
     .constant('COMPANY', 'test_company_1')
     .constant('REFRESH_INTERVAL', 3000)
 
@@ -191,6 +191,36 @@ angular.module('generic-client', ['ionic',
                 },
                 params: {
                     amount: null,
+                    account: null
+                }
+            })
+
+            .state('app.withdraw_to_bitcoin_account', {
+                url: '/withdraw_to_bitcoin',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/withdraw/to_bitcoin_account.html',
+                        controller: 'WithdrawToCtrl'
+                    }
+                },
+                params: {
+                    amount: null,
+                    account: null,
+                    to: null
+                }
+            })
+
+            .state('app.withdraw_to_bank_account', {
+                url: '/withdraw_to_bank_account',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/withdraw/to_bank_account.html',
+                        controller: 'WithdrawToCtrl'
+                    }
+                },
+                params: {
+                    amount: null,
+                    account: null,
                     to: null
                 }
             })
@@ -496,7 +526,7 @@ angular.module('generic-client', ['ionic',
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/settings/list_bank_accounts.html',
-                        controller: 'BankAccountsCtrl'
+                        controller: 'BankAccountCtrl'
                     }
                 }
             })
@@ -506,10 +536,54 @@ angular.module('generic-client', ['ionic',
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/settings/add_bank_account.html',
-                        controller: 'BankAccountsCtrl'
+                        controller: 'BankAccountCtrl'
                     }
                 }
             })
+
+
+            .state('app.edit_bank_account', {
+                url: '/edit_bank_account/:accId',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/settings/add_bank_account.html',
+                        controller: 'BankAccountCtrl'
+                    }
+                }
+            })
+
+
+            .state('app.list_bitcoin_withdrawal_accounts', {
+                url: '/list_bitcoin_withdrawal_accounts',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/settings/list_bitcoin_withdrawal_accounts.html',
+                        controller: 'BitcoinWithdrawalAccountCtrl'
+                    }
+                }
+            })
+
+            .state('app.add_bitcoin_withdrawal_account', {
+                url: '/add_bitcoin_withdrawal_account',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/settings/add_bitcoin_withdrawal_account.html',
+                        controller: 'BitcoinWithdrawalAccountCtrl'
+                    }
+                }
+            })
+
+
+            .state('app.edit_bitcoin_withdrawal_account', {
+                url: '/edit_bitcoin_withdrawal_account/:accId',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/settings/add_bitcoin_withdrawal_account.html',
+                        controller: 'BitcoinWithdrawalAccountCtrl'
+                    }
+                }
+            })
+
 
             .state('app.security', {
                 url: '/security',
