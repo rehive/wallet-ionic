@@ -52,7 +52,7 @@ angular.module('generic-client.controllers.settings', [])
                         $ionicLoading.hide();
                     });
 
-                $state.go('app.list_bank_accounts', {});
+                $state.go('app.personal_details', {});
             }
         };
         $scope.refreshData();
