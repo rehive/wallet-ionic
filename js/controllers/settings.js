@@ -255,9 +255,9 @@ angular.module('generic-client.controllers.settings', [])
                 function (res) {
                     var items = [];
 
-                    for (var i = 0; i < res.length; i++) {
-                        items.push(res[i]);
-                        console.log(res[i])
+                    for (var i = 0; i < res.data.length; i++) {
+                        items.push(res.data[i]);
+                        console.log(res.data[i])
                     }
 
                     $scope.items = items;

@@ -28,4 +28,20 @@ angular.module('generic-client.services.transactions', [])
                 recipient: to
             });
         };
+    })
+
+
+    .service('Withdrawal', function ($http, API) {
+        'use strict';
+        var self = this;
+
+        self.create = function (amount, withdrawal_reference) {
+            return $http.post(API + '/transactions/withdraw/', {
+                amount: amount,
+                currency: '',
+                account: '',
+                note: '',
+                withdrawal_reference: withdrawal_reference
+            });
+        };
     });

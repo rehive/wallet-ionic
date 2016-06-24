@@ -5,7 +5,7 @@
 
                 <div class="list">
                     <div ng-repeat="item in items">
-                        <a class="item item-icon-right" ng-click="submit(amount, '{{ item.account }}')">
+                        <a class="item item-icon-right" ng-click="submit('{{ item.accType }}')">
                             <h3>{{ item.title }}</h3>
                             <i class="icon ion-ios-arrow-right"></i>
                         </a>
