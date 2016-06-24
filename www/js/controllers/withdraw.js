@@ -1,41 +1,26 @@
 angular.module('generic-client.controllers.withdraw', [])
 
-    .controller('WithdrawCtrl', function ($scope, $state) {
+    .controller('WithdrawToCtrl', function ($scope, $state, $window, $ionicHistory, $stateParams, BitcoinWithdrawalAccount) {
         'use strict';
+        $scope.items = [{'title': 'Bank account', 'accType': 'bank_account'},
+            {'title': 'Bitcoin address', 'accType': 'bitcoin_account'}];
         $scope.data = {};
+        $scope.accType = $stateParams.accType;
 
+        if ($stateParams['account']) {
+            $ionicHistory.goBack(-2);
+            $state.go('app.withdraw_amount', {account: $stateParams['account']});
+        }
 
-        $scope.submit = function (form) {
-            if (form.$valid) {
-                $state.go('app.withdraw_to', {
-                    amount: form.amount.$viewValue
-                });
-            }
-        };
-    })
-
-    .controller('WithdrawToCtrl', function ($scope, $state, $window, $stateParams, BitcoinWithdrawalAccount) {
-        'use strict';
-        $scope.items = [{'title': 'Bank account', 'account': 'bank_account'},
-            {'title': 'Bitcoin address', 'account': 'bitcoin_account'}];
-        $scope.data = {};
-        $scope.amount = $stateParams.amount;
-        $scope.account = $stateParams.account;
-
-        console.log($scope.account);
-
-        if ($scope.account == 'bitcoin_account') {
+        if ($scope.accType == 'bitcoin_account') {
 
             $scope.listData = function () {
                 BitcoinWithdrawalAccount.list().success(
                     function (res) {
                         var items = [];
-
                         for (var i = 0; i < res.data.length; i++) {
                             items.push(res.data[i]);
-                            console.log(res.data[i])
                         }
-
                         $scope.items = items;
                         $window.localStorage.setItem('myBitcoinWithdrawalAccounts', JSON.stringify(items));
                         $scope.$broadcast('scroll.refreshComplete');
@@ -46,36 +31,63 @@ angular.module('generic-client.controllers.withdraw', [])
             $scope.listData();
         }
 
-        $scope.submit = function (amount, account) {
+        $scope.submit = function (accType) {
 
             var withdraw_dict = {
-                amount: amount,
-                account: account
+                accType: accType
             };
-
-            var next = 'app.withdraw_to_bitcoin_account';
-
-            if (account == 'bank_account') {
+            var next = 'app.withdraw_to';
+            if (accType == 'bank_account') {
                 next = 'app.withdraw_to_bank_account';
             }
-            else if (account == 'bitcoin_account') {
+            else if (accType == 'bitcoin_account') {
                 next = 'app.withdraw_to_bitcoin_account';
             }
-
             $state.go(next, withdraw_dict);
+        };
+
+    })
+
+    .controller('WithdrawAmountCtrl', function ($scope, $state, $stateParams) {
+        'use strict';
+        $scope.data = {};
+        $scope.account = $stateParams.account;
+
+        $scope.submit = function (form) {
+            if (form.$valid) {
+                $state.go('app.withdraw_confirm', {
+                    amount: form.amount.$viewValue,
+                    account: $scope.account
+                });
+            }
         };
     })
 
-    .controller('WithdrawConfirmCtrl', function ($scope, $state, $stateParams) {
+    .controller('WithdrawConfirmCtrl', function ($scope, $state, $stateParams, $ionicLoading, $ionicPopup, Withdrawal) {
         'use strict';
         $scope.data = {};
         $scope.amount = $stateParams.amount;
-        $scope.to = $stateParams.to;
+        $scope.account = $stateParams.account;
 
-        $scope.submit = function (amount, to) {
-            $state.go('app.withdraw_success', {
-                amount: amount,
-                to: to
+        $scope.submit = function (amount, account) {
+            $ionicLoading.show({
+                template: 'Processing...'
+            });
+
+            Withdrawal.create(amount, account).then(function (res) {
+                if (res.status === 201) {
+                    $ionicLoading.hide();
+                    $state.go('app.withdraw_success', {
+                        amount: amount,
+                        withdrawal_reference: account
+                    });
+                } else {
+                    $ionicLoading.hide();
+                    $ionicPopup.alert({title: "Error", template: res.data.message});
+                }
+            }).catch(function (error) {
+                $ionicPopup.alert({title: 'Authentication failed', template: error.message});
+                $ionicLoading.hide();
             });
         };
     })
@@ -84,5 +96,4 @@ angular.module('generic-client.controllers.withdraw', [])
         'use strict';
         $scope.data = {};
         $scope.amount = $stateParams.amount;
-        $scope.to = $stateParams.to;
     });

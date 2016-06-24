@@ -168,19 +168,6 @@ angular.module('generic-client', ['ionic',
             })
 
             // Withdraw
-            .state('app.withdraw', {
-                url: '/withdraw',
-                views: {
-                    'menuContent': {
-                        templateUrl: 'templates/withdraw/index.html',
-                        controller: 'WithdrawCtrl'
-                    }
-                },
-                params: {
-                    amount: null
-                }
-            })
-
             .state('app.withdraw_to', {
                 url: '/withdraw_to',
                 views: {
@@ -190,13 +177,12 @@ angular.module('generic-client', ['ionic',
                     }
                 },
                 params: {
-                    amount: null,
-                    account: null
+                    accType: null
                 }
             })
 
             .state('app.withdraw_to_bitcoin_account', {
-                url: '/withdraw_to_bitcoin',
+                url: '/withdraw_to_bitcoin_account/:account',
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/withdraw/to_bitcoin_account.html',
@@ -204,9 +190,8 @@ angular.module('generic-client', ['ionic',
                     }
                 },
                 params: {
-                    amount: null,
                     account: null,
-                    to: null
+                    accType: null
                 }
             })
 
@@ -219,9 +204,22 @@ angular.module('generic-client', ['ionic',
                     }
                 },
                 params: {
-                    amount: null,
                     account: null,
-                    to: null
+                    accType: null
+                }
+            })
+
+            .state('app.withdraw_amount', {
+                url: '/withdraw_amount',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/withdraw/amount.html',
+                        controller: 'WithdrawAmountCtrl'
+                    }
+                },
+                params: {
+                    amount: null,
+                    account: null
                 }
             })
 
@@ -235,7 +233,7 @@ angular.module('generic-client', ['ionic',
                 },
                 params: {
                     amount: null,
-                    to: null
+                    account: null
                 }
             })
 
@@ -249,7 +247,7 @@ angular.module('generic-client', ['ionic',
                 },
                 params: {
                     amount: null,
-                    to: null
+                    account: null
                 }
             })
 

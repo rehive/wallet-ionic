@@ -38,7 +38,6 @@ $tertiary: #F6F6F6;
 
 // Side bar
 $sidebar: #2070A0;
-$background: #F6F6F6;
 
 // Notification colors
 $notify: #5EA5CF;
@@ -250,12 +249,15 @@ $black: #000;
   .block {
     &:nth-child(odd) {
       .item {
-        background: $tertiary;
+        background: transparent;
       }
     }
 
     .item {
+      border-color: transparent;
+
       .icon {
+        color: white;
         font-size: 45px;
         padding-left: 3px;
         padding-right: 3px;
@@ -267,27 +269,27 @@ $black: #000;
 
       h2 {
         font-size: 14px;
-        font-weight: 200;
-        color: $black;
+        font-weight: 400;
+        color: white;
       }
 
       h3 {
         font-size: 20px;
-        font-weight: 200;
-        color: $black;
+        font-weight: 400;
+        color: white;
       }
 
       h4 {
         font-size: 11px;
-        font-weight: 400;
-        color: darken($tertiary, 50%);
+        font-weight: 700;
+        color: darken($tertiary, 10%);
         padding-top: 2px;
       }
 
       h5 {
         font-size: 11px;
         font-weight: 400;
-        color: darken($tertiary, 50%);
+        color: darken($tertiary, 10%);
       }
     }
   }
@@ -349,9 +351,17 @@ input.ng-invalid, input.ng-dirty {
   }
 }
 
+.dashboard-btn .title {
+  top: 5px;
+  font-weight: 400;
+  height: 55px !important;
+}
+
 .dashboard-tx {
-  height: 100%;
-  background-color: $background;
+  height: 1000px;
+  background-image: url(../img/bg.jpg);
+  background-size: 50%;
+  background-repeat: repeat;
 }
 
 // Containers
