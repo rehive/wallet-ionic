@@ -111,5 +111,15 @@ angular.module('generic-client.services.settings', [])
                 address: address
             });
         };
+    })
+
+
+    .service('TokenInfo', function ($http, API) {
+        'use strict';
+        var self = this;
+
+        self.get = function () {
+            return $http.get(API + '/accounts/token_info/');
+        };
+
     });
-;

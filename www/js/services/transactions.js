@@ -44,4 +44,14 @@ angular.module('generic-client.services.transactions', [])
                 withdrawal_reference: withdrawal_reference
             });
         };
+    })
+
+
+    .service('DepositDetails', function ($http, API) {
+        'use strict';
+        var self = this;
+
+        self.get = function () {
+            return $http.get(API + '/transactions/deposit_details/');
+        };
     });
