@@ -1,9 +1,64 @@
 <ion--view view-title="Deposit">
+
     <ion-content class="top padding">
+
         <div class="row text-center">
             <div class="col col-100">
                 <h4>Follow instructions to fund your wallet.</h4>
-                <p>Your unique payment reference is HXBOWU.</p>
+
+                <p>Before using this wallet you need to fund you account by trasnferring the {{ token.currency.code }}
+                    amount using your unique allocated reference. It might take a couple of days to clear into our
+                    accounts, at which time your balance will be updated automatically. You will be notified when your
+                    deposit is processed.
+                </p>
+
+                <p>Your unique payment reference is:
+                    <br>
+                    <br>
+                    <br>
+                    <b style="font-size: 20px;">{{ deposit_reference }}</b></p>
+                    <br>
+
+                <p><b>It is very important to use this reference when making the bank transfer.</b></p>
+            </div>
+
+        </div>
+
+        <div ng-repeat="item in items" style="font-size: 12px;">
+            <div class="row">
+                <div class="col" style="font-size: 16px;"><b>{{ item.bank_account.bank_name }}</b></div>
+            </div>
+            <div class="row">
+                <div class="col">Account Holder</div>
+                <div class="col">{{ item.bank_account.name }}</div>
+            </div>
+            <div class="row">
+                <div class="col">Account Number</div>
+                <div class="col">{{ item.bank_account.number }}</div>
+            </div>
+            <div class="row">
+                <div class="col">Account Type</div>
+                <div class="col">{{ item.bank_account.type }}</div>
+            </div>
+            <div class="row">
+                <div class="col">Bank Code</div>
+                <div class="col">{{ item.bank_account.bank_code }}</div>
+            </div>
+            <div class="row">
+                <div class="col">Branch Code</div>
+                <div class="col">{{ item.bank_account.branch_code }}</div>
+            </div>
+            <div class="row">
+                <div class="col">Swift Code</div>
+                <div class="col">{{ item.bank_account.swift }}</div>
+            </div>
+            <div class="row">
+                <div class="col">IBAN Number</div>
+                <div class="col">{{ item.bank_account.iban }}</div>
+            </div>
+            <div class="row">
+                <div class="col">BIC Number</div>
+                <div class="col">{{ item.bank_account.bic }}</div>
             </div>
         </div>
     </ion-content>
