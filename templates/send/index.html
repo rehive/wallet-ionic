@@ -14,7 +14,10 @@
                  
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">Note</span>
-                        <input name="note" ng-model="data.note" type="text" placeholder="Add a short note">
+                        <input name="note" ng-model="data.note" type="text" placeholder="Add a short note" required>
+                        <div ng-messages="sendForm.note.$error" role="alert">
+                            <div ng-message="required" class="form-error">Please add a short note.</div>
+                        </div>
                     </label>             
                 </div>              
             </ion-content>

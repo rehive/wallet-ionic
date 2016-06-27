@@ -1,6 +1,6 @@
 angular.module('generic-client.controllers.withdraw', [])
 
-    .controller('WithdrawToCtrl', function ($scope, $state, $window, $ionicHistory, $stateParams, BitcoinWithdrawalAccount) {
+    .controller('WithdrawToCtrl', function ($scope, $state, $window, $ionicHistory, $stateParams, BitcoinWithdrawalAccount, BankAccount) {
         'use strict';
         $scope.items = [{'title': 'Bank account', 'accType': 'bank_account'},
             {'title': 'Bitcoin address', 'accType': 'bitcoin_account'}];
@@ -23,6 +23,24 @@ angular.module('generic-client.controllers.withdraw', [])
                         }
                         $scope.items = items;
                         $window.localStorage.setItem('myBitcoinWithdrawalAccounts', JSON.stringify(items));
+                        $scope.$broadcast('scroll.refreshComplete');
+                    }
+                );
+
+            };
+            $scope.listData();
+        }
+        else if ($scope.accType == 'bank_account') {
+
+            $scope.listData = function () {
+                BankAccount.list().success(
+                    function (res) {
+                        var items = [];
+                        for (var i = 0; i < res.data.length; i++) {
+                            items.push(res.data[i]);
+                        }
+                        $scope.items = items;
+                        $window.localStorage.setItem('myBankAccounts', JSON.stringify(items));
                         $scope.$broadcast('scroll.refreshComplete');
                     }
                 );
