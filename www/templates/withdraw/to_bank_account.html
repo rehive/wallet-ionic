@@ -1,19 +1,23 @@
 <ion--view view-title="Select Account">
-    <div ng-controller="WithdrawCtrl">
-        <form name="withdrawToForm" novalidate>
-            <ion-content>
-
-                <div class="list">
-                    <a class="item item-icon-right" ui-sref="app.withdraw_bank_account">
-                        <h3>Bank account</h3>
-                        <i class="icon ion-ios-arrow-right"></i>
-                    </a>
-                    <a class="item item-icon-right" ui-sref="app.withdraw_bitcoin_account">
-                        <h3>Bitcoin account</h3>
-                        <i class="icon ion-ios-arrow-right"></i>
+    <ion-content>
+        <ion-refresher pulling-text="pull to refresh" on-refresh="refreshData()"></ion-refresher>
+        <div class="list-transactions">
+            <div class="block">
+                <div ng-repeat="item in items">
+                    <a ui-sref="app.withdraw_to_bank_account({account: item.code})">
+                        <div class="item item-avatar item-icon-left">
+                            <i class="icon ion-ios-circle-outline"></i>
+                            <div class="align-left">
+                                {{ item.bank_name }} {{ item.number }}
+                            </div>
+                        </div>
                     </a>
                 </div>
-            </ion-content>
-        </form>
-    </div>
+                <a class="item" ui-sref="app.add_bank_account">
+                    Add another bank account
+                </a>
+            </div>
+        </div>
+    </ion-content>
+    <ion-infinite-scroll on-infinite="loadMore()" distance="5%"></ion-infinite-scroll>
 </ion--view>

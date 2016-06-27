@@ -5,7 +5,8 @@
                 <div class="list">
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">First name</span>
-                        <input ng-model="data.first_name" name="first_name" type="text" placeholder="Your name" value="{{ data.first_name }}">
+                        <input ng-model="data.first_name" name="first_name" type="text" placeholder="Your name"
+                               value="{{ data.first_name }}">
 
                     </label>
                     <label class="item item-input item-stacked-label">
@@ -15,15 +16,20 @@
                     </label>
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">Email</span>
-                        <input ng-model="data.email_address" name="email_address" type="text" placeholder="Your email" value="{{ data.email_address }}">
+                        <input ng-model="data.email_address" name="email_address" type="text" placeholder="Your email"
+                               value="{{ data.email_address }}">
                     </label>
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">Identity Number</span>
-                        <input ng-model="data.id_number" name="id_number" type="text" placeholder="Your nationality" value="{{ data.id_number }}">
+                        <input ng-model="data.id_number" name="id_number" type="text" placeholder="Your nationality"
+                               value="{{ data.id_number }}">
                     </label>
-                    <label class="item item-input item-stacked-label">
+                    <label class="item item-input item-select">
                         <span class="input-label">Nationality</span>
-                        <input ng-model="data.nationality" name="nationality" type="text" placeholder="Your nationality" value="{{ data.nationality }}">
+                        <select ng-model="data.nationality" name="nationality">
+                            <option selected>{{ data.nationality }}</option>
+                            <option ng-repeat="country in countries">{{ country.name }}</option>
+                        </select>
                     </label>
                 </div>
             </ion-content>
@@ -32,7 +38,8 @@
             <ion-footer-bar class="high-footer bar-dark">
             </ion-footer-bar>
 
-            <button keyboard-attach class="high-footer bar bar-footer" ng-click="submit(personalDetailsForm)" linked="clickMe">
+            <button keyboard-attach class="high-footer bar bar-footer" ng-click="submit(personalDetailsForm)"
+                    linked="clickMe">
                 <h1 class="title">Save</h1>
             </button>
         </form>

@@ -21,6 +21,16 @@ angular.module('generic-client.services.settings', [])
         };
     })
 
+
+    .service('Countries', function () {
+        'use strict';
+        var self = this;
+
+        self.list = function () {
+            return [{code:'ZA', name:"South Africa"}]
+        };
+    })
+
     .service('Address', function ($http, API) {
         'use strict';
         var self = this;
