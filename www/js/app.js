@@ -24,7 +24,7 @@ angular.module('generic-client', ['ionic',
 
     //.constant('API', 'http://localhost:2468/api/1')
     .constant('API', 'https://rehive.com/api/1')
-    .constant('COMPANY', 'test_company_1')
+    .constant('COMPANY', 'digicash_test')
     .constant('REFRESH_INTERVAL', 3000)
 
     .config(function ($httpProvider, $ionicConfigProvider, $compileProvider) {
