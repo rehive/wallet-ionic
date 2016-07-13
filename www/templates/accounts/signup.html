@@ -5,7 +5,7 @@
     </ion-header-bar>
     
     <ion-content class="padding">
-        <form name="signupForm" novalidate>
+        <form name="signupForm" method="post" novalidate>
             <div class="list">
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">Email</span>
@@ -20,6 +20,13 @@
                     <input ng-model="user.first_name" type="text" name="first_name" placeholder="First Name" required>
                     <div ng-messages="signupForm.first_name.$error" role="alert">
                         <div ng-message="required" class="form-error">Please enter a first name.</div>
+                    </div>                        
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Company</span>
+                    <input ng-model="user.company_id" type="text" name="company_id" placeholder="Company ID" required>
+                    <div ng-messages="signupForm.company_id.$error" role="alert">
+                        <div ng-message="required" class="form-error">Please enter a Company ID.</div>
                     </div>                        
                 </label>
                 <label class="item item-input item-stacked-label">
