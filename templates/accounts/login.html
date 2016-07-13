@@ -5,7 +5,7 @@
 
     <div ng-controller="LoginCtrl" >
         <ion-content class="padding dashboard">
-            <form name="loginForm" novalidate>
+            <form name="loginForm" method="post" novalidate>
                 <div class="list card padding">
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">Email</span>
@@ -15,6 +15,13 @@
                             <div ng-message="email" class="form-error">Please enter a valid email address.</div>
                         </div>                
                     </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Company</span>
+                        <input type="text" name="company_id" ng-model="user.company_id" placeholder="Company ID" required>
+                        <div ng-messages="loginForm.company_id.$error" role="alert">
+                            <div ng-message="required" class="form-error">Please enter a company ID.</div>
+                        </div>                   
+                    </label>                    
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">Password</span>
                         <input type="password" name="password" ng-model="user.password" placeholder="Password" required>
