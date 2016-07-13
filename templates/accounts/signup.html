@@ -23,6 +23,13 @@
                     </div>                        
                 </label>
                 <label class="item item-input item-stacked-label">
+                    <span class="input-label">Company</span>
+                    <input ng-model="user.company_id" type="text" name="company_id" placeholder="Company ID" required>
+                    <div ng-messages="signupForm.company_id.$error" role="alert">
+                        <div ng-message="required" class="form-error">Please enter a Company ID.</div>
+                    </div>                        
+                </label>
+                <label class="item item-input item-stacked-label">
                     <span class="input-label">Password</span>
                     <input ng-model="user.password1" type="password" name="password1" placeholder="Password" required>
                     <div ng-messages="signupForm.password1.$error" role="alert">

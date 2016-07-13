@@ -85,16 +85,16 @@ angular.module('generic-client.services.accounts', [])
         };
     })
 
-    .service('User', function ($http, API, COMPANY, Auth) {
+    .service('User', function ($http, API, Auth) {
         'use strict';
         var self = this;
 
         // add authentication methods here
-        self.register = function (first_name, email, password1, password2) {
+        self.register = function (first_name, email, company_id, password1, password2) {
             return $http.post(API + '/accounts/register/', {
                 first_name: first_name,
                 email: email,
-                company_id: COMPANY,
+                company_id: company_id,
                 password1: password1,
                 password2: password2
             }).then(function (res) {
@@ -104,10 +104,10 @@ angular.module('generic-client.services.accounts', [])
             });
         };
 
-        self.login = function (email, password) {
+        self.login = function (email, company_id, password) {
             return $http.post(API + '/accounts/login/', {
                 email: email,
-                company_id: COMPANY,
+                company_id: company_id,
                 password: password
             })
         };
