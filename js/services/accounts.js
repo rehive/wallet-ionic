@@ -51,7 +51,6 @@ angular.module('generic-client.services.accounts', [])
         };
 
         self.saveToken = function (token) {
-            $window.localStorage.setItem('Hello', 'Bye');
             $window.localStorage.setItem('jwtToken', token);
         };
 
