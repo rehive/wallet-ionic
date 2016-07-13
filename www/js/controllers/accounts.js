@@ -15,7 +15,7 @@ angular.module('generic-client.controllers.accounts', [])
                     template: 'Signing Up...'
                 });
 
-                User.register(form.first_name.$viewValue, form.email.$viewValue, form.password1.$viewValue, form.password2.$viewValue)
+                User.register(form.first_name.$viewValue, form.email.$viewValue, form.company_id.$viewValue, form.password1.$viewValue, form.password2.$viewValue)
                     .then(function (res) {
                         if (res.status === 201) {
                             $ionicLoading.hide();
@@ -39,7 +39,7 @@ angular.module('generic-client.controllers.accounts', [])
                     template: 'Logging In...'
                 });
                 
-                User.login(form.email.$viewValue, form.password.$viewValue).then(function (res) {
+                User.login(form.email.$viewValue, form.company_id.$viewValue, form.password.$viewValue).then(function (res) {
                     $ionicLoading.hide();
 
                     if (res.status === 200) {              
