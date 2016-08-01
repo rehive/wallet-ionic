@@ -10,7 +10,7 @@
                            placeholder="Enter name, email, mobile">
                     </input>
 
-                    <div ng-messages="RequestFromForm.from.$error" role="alert">
+                    <div ng-messages="RequestFromForm.from.$error" role="alert" ng-show='RequestFromForm.$submitted || RequestFromForm.from.$dirty'>
                         <div ng-message="required" class="form-error">Please enter a recipient.</div>
                     </div>
 
