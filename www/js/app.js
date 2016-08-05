@@ -22,7 +22,7 @@ angular.module('generic-client', ['ionic',
     'generic-client.services.settings',
     'generic-client.filters.contacts'])
 
-    //.constant('API', 'http://localhost:2468/api/1')
+    //.constant('API', 'http://localhost:8080/api/1')
     .constant('API', 'https://rehive.com/api/1')
     .constant('REFRESH_INTERVAL', 3000)
 

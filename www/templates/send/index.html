@@ -1,25 +1,22 @@
 <ion--view view-title="Amount">
     <div ng-controller="SendCtrl" >
         <form name="sendForm" method="post" novalidate>
-            <ion-content>   
+            <ion-content>
                 <div class="list">
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">Amount</span>
                         <input name="amount" ng-model="data.amount" type="number" placeholder="Amount you want to pay" required>
-                        <div ng-messages="sendForm.amount.$error" role="alert">
+                        <div ng-messages="sendForm.amount.$error" role="alert" ng-show='sendForm.$submitted || sendForm.amount.$dirty'>
                             <div ng-message="required" class="form-error">Please enter an amount.</div>
                             <div ng-message="number" class="form-error">Please enter valid number.</div>
                         </div>
                     </label>
-                 
+
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">Note</span>
                         <input name="note" ng-model="data.note" type="text" placeholder="Add a short note" required>
-                        <div ng-messages="sendForm.note.$error" role="alert">
-                            <div ng-message="required" class="form-error">Please add a short note.</div>
-                        </div>
-                    </label>             
-                </div>              
+                    </label>
+                </div>
             </ion-content>
 
             <!-- Footer bar hack to get layout right -->
@@ -30,5 +27,5 @@
                 <h1 class="title">Next</h1>
             </button>
         </form>
-    </div>  
+    </div>
 </ion--view>

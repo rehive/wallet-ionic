@@ -8,7 +8,7 @@ angular.module('generic-client.controllers.deposit', [])
             getDepositDetails.success(
                 function (res) {
                     $scope.items = res.data;
-                    $scope.deposit_reference = res.data[0].deposit_reference;
+                    $scope.reference = res.data[0].reference;
                 }
             );
 
