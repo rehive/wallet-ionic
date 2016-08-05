@@ -54,4 +54,20 @@ angular.module('generic-client.services.transactions', [])
         self.get = function () {
             return $http.get(API + '/transactions/deposit_details/');
         };
+    })
+
+
+    .service('Conversions', function ($window) {
+        'use strict';
+        var self = this;
+        var currency = JSON.parse($window.localStorage.myCurrency);
+        console.log(currency);
+
+        self.from_cents = function (amount) {
+            return parseFloat(amount/Math.pow(10, currency.divisibility)).toFixed(currency.divisibility);
+        };
+        
+        self.to_cents = function (amount) {
+            return parseFloat(amount*Math.pow(10, currency.divisibility)).toFixed(currency.divisibility);
+        };
     });

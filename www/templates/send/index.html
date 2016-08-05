@@ -15,6 +15,9 @@
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">Note</span>
                         <input name="note" ng-model="data.note" type="text" placeholder="Add a short note" required>
+                        <div ng-messages="sendForm.note.$error" role="alert" ng-show='sendForm.$submitted || sendForm.note.$dirty'>
+                            <div ng-message="required" class="form-error">Please enter a short note.</div>
+                        </div>
                     </label>
                 </div>
             </ion-content>

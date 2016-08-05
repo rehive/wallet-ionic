@@ -1,6 +1,6 @@
 angular.module('generic-client.controllers.transactions', [])
 
-    .controller('TransactionsCtrl', function ($scope, $state, $http, $window, $ionicModal, $ionicLoading, Transaction, Balance) {
+    .controller('TransactionsCtrl', function ($scope, $state, $http, $window, $ionicModal, $ionicLoading, Transaction, Balance, Conversions) {
         'use strict';
 
         $scope.refreshData = function () {
@@ -8,7 +8,8 @@ angular.module('generic-client.controllers.transactions', [])
 
             getBalance.success(
                 function (res) {
-                    $scope.balance = parseFloat(res.data.balance).toFixed(2);;
+                    $window.localStorage.setItem('myCurrency', JSON.stringify(res.data.currency));
+                    $scope.balance = Conversions.from_cents(res.data.balance);
                     $scope.currency = res.data.currency;
                 }
             );
@@ -23,7 +24,7 @@ angular.module('generic-client.controllers.transactions', [])
 
                     for (var i = 0; i < res.data.results.length; i++) {
                         res.data.results[i].id = i;
-                        res.data.results[i].amount = parseFloat(res.data.results[i].amount).toFixed(2);
+                        res.data.results[i].amount = Conversions.from_cents(res.data.results[i].amount);
                         items.push(res.data.results[i]);
                     }
 
@@ -39,11 +40,10 @@ angular.module('generic-client.controllers.transactions', [])
             if ($scope.nextUrl) {
                 $http.get($scope.nextUrl).success(
                     function (res) {
-                        var items = [];
 
                         for (var i = 0; i < res.data.results.length; i++) {
                             res.data.results[i].id = i;
-                            res.data.results[i].amount = parseFloat(res.data.results[i].amount).toFixed(2);
+                            res.data.results[i].amount = Conversions.from_cents(res.data.results[i].amount);
                             $scope.items.push(res.data.results[i]);
                         }
 
