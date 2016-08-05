@@ -53,7 +53,7 @@ angular.module('generic-client.controllers.send', [])
         };
     })
 
-    .controller('SendConfirmCtrl', function ($scope, $state, $stateParams, $ionicLoading, Transaction, $ionicPopup) {
+    .controller('SendConfirmCtrl', function ($scope, $state, $stateParams, $ionicLoading, Transaction, $ionicPopup, Conversions) {
         'use strict';
         $scope.data = {};
         $scope.amount = $stateParams.amount;
@@ -65,7 +65,7 @@ angular.module('generic-client.controllers.send', [])
                 template: 'Sending...'
             });
 
-            Transaction.create(amount, note, to).then(function (res) {
+            Transaction.create(Conversions.to_cents(amount), note, to).then(function (res) {
                 if (res.status === 201) {
                     $ionicLoading.hide();
                     $state.go('app.send_success', {
@@ -86,6 +86,7 @@ angular.module('generic-client.controllers.send', [])
 
     .controller('SendSuccessCtrl', function ($scope, $state, $stateParams) {
         'use strict';
+
         $scope.data = {};
         $scope.amount = $stateParams.amount;
         $scope.note = $stateParams.note;

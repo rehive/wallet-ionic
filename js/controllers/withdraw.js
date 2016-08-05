@@ -81,7 +81,7 @@ angular.module('generic-client.controllers.withdraw', [])
         };
     })
 
-    .controller('WithdrawConfirmCtrl', function ($scope, $state, $stateParams, $ionicLoading, $ionicPopup, Withdrawal) {
+    .controller('WithdrawConfirmCtrl', function ($scope, $state, $stateParams, $ionicLoading, $ionicPopup, Withdrawal, Conversions) {
         'use strict';
         $scope.data = {};
         $scope.amount = $stateParams.amount;
@@ -92,7 +92,7 @@ angular.module('generic-client.controllers.withdraw', [])
                 template: 'Processing...'
             });
 
-            Withdrawal.create(amount, account).then(function (res) {
+            Withdrawal.create(Conversions.to_cents(amount), account).then(function (res) {
                 if (res.status === 201) {
                     $ionicLoading.hide();
                     $state.go('app.withdraw_success', {
