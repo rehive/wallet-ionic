@@ -97,7 +97,7 @@ angular.module('generic-client.controllers.withdraw', [])
                     $ionicLoading.hide();
                     $state.go('app.withdraw_success', {
                         amount: amount,
-                        withdrawal_reference: account
+                        reference: account
                     });
                 } else {
                     $ionicLoading.hide();
