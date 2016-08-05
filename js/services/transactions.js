@@ -66,7 +66,7 @@ angular.module('generic-client.services.transactions', [])
         self.from_cents = function (amount) {
             return parseFloat(amount/Math.pow(10, currency.divisibility)).toFixed(currency.divisibility);
         };
-        
+
         self.to_cents = function (amount) {
             return parseFloat(amount*Math.pow(10, currency.divisibility)).toFixed(currency.divisibility);
         };
