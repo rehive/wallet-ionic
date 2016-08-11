@@ -1,6 +1,6 @@
 angular.module('generic-client.controllers.accounttokens', [])
 
-    .controller('AccountTokensCtrl', function ($scope, $window, $ionicPopup, $ionicModal, $state, $stateParams, $ionicLoading, AccountTokens) {
+    .controller('AccountTokensCtrl', function ($scope, $window, $ionicPopup, $ionicModal, $state, $stateParams, $ionicLoading, AccountTokens, Conversions) {
         'use strict';
 
         $scope.listData = function () {
@@ -9,6 +9,7 @@ angular.module('generic-client.controllers.accounttokens', [])
                     var items = [];
 
                     for (var i = 0; i < res.data.length; i++) {
+                        res.data[i].balance = Conversions.from_cents(res.data[i].balance);
                         items.push(res.data[i]);
                         console.log(res.data[i])
                     }
