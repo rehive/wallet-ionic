@@ -1,22 +1,31 @@
 <ion-view view-title="">
 
-    <ion-content class="dashboard-home">
-
-        <div class="row">
-            <div class="col text-center">
-                <span class="span1">
-                    <h2>{{ currency.symbol }}</h2>
-                </span>
-                <span class="span2">
-                    <h1> {{ balance }}</h1>
-                </span>
-            </div>
+    <div class="row" style="position: fixed;">
+        <div class="col text-center">
+            <span class="span1">
+                <h2>{{ currency.symbol }}</h2>
+            </span>
+            <span class="span2">
+                <h1> {{ balance }}</h1>
+            </span>
         </div>
+    </div>
 
+    <div class="dashboard-balance">
+        <div class="col text-center">
+            <span class="span1">
+                <h2>{{ currency.symbol }}</h2>
+            </span>
+            <span class="span2">
+                <h1> {{ balance }}</h1>
+            </span>
+        </div>
+    </div>
+
+    <ion-content class="dashboard-home">
         <div class="dashboard-tx">
             <div ng-include src="'templates/transactions/index.html'"></div>
         </div>
-
     </ion-content>
 
     <!-- Footer bar hack to get layout right -->
