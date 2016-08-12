@@ -32,7 +32,7 @@ angular.module('generic-client.controllers.accounttokens', [])
             AccountTokens.set(account_reference, account_currency).then(function (res) {
                 if (res.status === 200) {
                     $ionicLoading.hide();
-                    $ionicPopup.alert({title: 'Switched Account', template: "You have successfully switched accounts!"});
+                    $scope.listData();
                 } else {
                     $ionicLoading.hide();
                     $ionicPopup.alert({title: "Error", template: res.message});

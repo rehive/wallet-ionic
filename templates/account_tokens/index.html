@@ -9,12 +9,15 @@
 
                         <div class="align-left">
                             <h3>{{ item.currency.symbol }} {{ item.currency.code }} {{ item.account.name }}</h3>
-                            <p>{{ item.currency.symbol }} {{ item.balance }}</p>
+                            <p>{{ item.currency.symbol }} {{ item.balance }} {{item.status}}</p>
                         </div>
 
                         <div class="align-right">
-                            <button class="button" keyboard-attach ng-click="setToken(item.account.reference, item.currency.code)" linked="clickMe">
-                                Switch
+                            <button class="button" ng-if="item.status=='inactive'" keyboard-attach ng-click="setToken(item.account.reference, item.currency.code)" linked="clickMe">
+                                Activate
+                            </button>
+                            <button class="button button-balanced" ng-if="item.status=='active'" disabled>
+                                Active
                             </button>
                         </div>
 
