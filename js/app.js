@@ -605,12 +605,12 @@ angular.module('generic-client', ['ionic',
                 }
             })
 
-            .state('app.reset_password', {
-                url: '/reset_password',
+            .state('app.change_password', {
+                url: '/change_password',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/settings/reset_password.html',
-                        controller: 'ResetPasswordCtrl'
+                        templateUrl: 'templates/settings/change_password.html',
+                        controller: 'ChangePasswordCtrl'
                     }
                 }
             })
