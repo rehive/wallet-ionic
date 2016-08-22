@@ -42,21 +42,19 @@ angular.module('generic-client.controllers.accounts', [])
 
                 User.register(form.first_name.$viewValue, form.email.$viewValue, form.company_id.$viewValue, form.password1.$viewValue, form.password2.$viewValue)
                     .then(function (res) {
-                        if (res.status === 201) {
-                            $ionicLoading.hide();
-                            $state.go('app.home');
-                        } else {
-                            console.log(res)
-                            console.log(res.data.message)
-                            $ionicPopup.alert({title: "Error", template: res.data.message});
-                        }
+                    if (res.status === 201) {
+                        $ionicLoading.hide();
+                        $state.go('app.home');
+                    } else {
+                        $ionicPopup.alert({title: "Error", template: res.data.message});
+                    }
 
-                        $ionicLoading.hide();
-                        $scope.CloseModalSignup();
-                    }).catch(function (error) {
-                        $ionicPopup.alert({title: "Error", template: error});
-                        $ionicLoading.hide();
-                    });
+                    $ionicLoading.hide();
+                    $scope.CloseModalSignup();
+                }).catch(function (error) {
+                    $ionicPopup.alert({title: "Error", template: error});
+                    $ionicLoading.hide();
+                });
             }
         };
 
