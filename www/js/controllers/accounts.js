@@ -46,7 +46,9 @@ angular.module('generic-client.controllers.accounts', [])
                             $ionicLoading.hide();
                             $state.go('app.home');
                         } else {
-                            $ionicPopup.alert({title: "Error", template: res.message});
+                            console.log(res)
+                            console.log(res.data.message)
+                            $ionicPopup.alert({title: "Error", template: res.data.message});
                         }
 
                         $ionicLoading.hide();
