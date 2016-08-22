@@ -358,9 +358,32 @@ angular.module('generic-client.controllers.settings', [])
         $scope.data = {};
     })
 
-    .controller('ResetPasswordCtrl', function ($scope) {
+    .controller('ChangePasswordCtrl', function ($scope, $ionicPopup, $ionicModal, $state, $ionicLoading, Password) {
         'use strict';
-        $scope.data = {};
+
+        $scope.submit = function (form) {
+            if (form.$valid) {
+                $ionicLoading.show({
+                    template: 'Saving Password...'
+                });
+                Password.update(form.old_password.$viewValue,
+                    form.new_password.$viewValue,
+                    form.confirm_password.$viewValue).then(function (res) {
+
+                    if (res.status === 200) {
+                        $ionicLoading.hide();
+                        $ionicPopup.alert({title: "Password Changes", template: "Password was successfully changed."});
+                        $state.go('app.security', {});
+                    } else {
+                        $ionicLoading.hide();
+                        $ionicPopup.alert({title: "Error", template: "Invalid password."});
+                    }
+                }).catch(function (error) {
+                    $ionicPopup.alert({title: 'Authentication failed', template: error.message});
+                    $ionicLoading.hide();
+                });
+            }
+        };
     })
 
     .controller('TwoFactorCtrl', function ($scope) {
@@ -373,7 +396,7 @@ angular.module('generic-client.controllers.settings', [])
         $scope.pinList = [
             {text: "Opening app", checked: true},
             {text: "Sending or requesting money", checked: true},
-            {text: "Reset password", checked: true},
+            {text: "Change password", checked: true},
             {text: "Deposting or withdrawing", checked: true}
         ];
     });
