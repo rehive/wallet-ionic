@@ -111,6 +111,13 @@ angular.module('generic-client.services.accounts', [])
             })
         };
 
+        self.resetPassword = function (email, company_id) {
+            return $http.post(API + '/accounts/password/reset/', {
+                email: email,
+                company_id: company_id
+            })
+        };
+
         self.partialUpdate = function (jsonUpdate) {
             return $http.patch(API + '/user/', jsonUpdate)
         };
