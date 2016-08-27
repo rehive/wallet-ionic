@@ -9909,28 +9909,38 @@ input.ng-invalid, input.ng-dirty {
   box-shadow: none; }
 
 .dashboard-home {
-  background-color: #3D8AB8; }
-  .dashboard-home .row, .dashboard-home .col {
-    height: 100px !important;
-    padding-top: 8px;
-    padding-bottom: 0; }
-  .dashboard-home .span1 {
-    display: inline-block;
-    vertical-align: top; }
-  .dashboard-home .span2 {
-    display: inline-block;
-    vertical-align: top;
-    margin-top: -8px; }
-  .dashboard-home h1 {
+  background-color: #3D8AB8;
+  margin-top: 100px !important; }
+
+.dashboard-balance {
+  margin-top: 44px;
+  height: 100px !important;
+  width: 100%;
+  padding-top: 8px;
+  padding-bottom: 0;
+  background-color: #3D8AB8;
+  position: absolute;
+  text-align: center; }
+  .dashboard-balance h1 {
     font-size: 40px;
     font-weight: 700;
     color: white;
     display: inline; }
-  .dashboard-home h2 {
+  .dashboard-balance h2 {
     font-size: 20px;
     font-weight: 300;
     color: white;
     display: inline; }
+  .dashboard-balance .span1 {
+    display: inline-block;
+    vertical-align: top; }
+  .dashboard-balance .span2 {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: -8px; }
+
+.platform-webview.platform-ios.platform-cordova .dashboard-balance {
+  margin-top: 63px; }
 
 .dashboard-tx {
   height: 1000px;

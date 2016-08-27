@@ -15,11 +15,13 @@ angular.module('generic-client', ['ionic',
     'generic-client.controllers.settings',
     'generic-client.controllers.notifications',
     'generic-client.controllers.help',
+    'generic-client.controllers.accounttokens',
     'generic-client.services',
     'generic-client.services.accounts',
     'generic-client.services.transactions',
     'generic-client.services.contacts',
     'generic-client.services.settings',
+    'generic-client.services.accounttokens',
     'generic-client.filters.contacts'])
 
     //.constant('API', 'http://localhost:2468/api/1')
@@ -268,6 +270,17 @@ angular.module('generic-client', ['ionic',
                     'menuContent': {
                         templateUrl: 'templates/receive/index.html',
                         controller: 'ReceiveCtrl'
+                    }
+                }
+            })
+
+            // Accounts
+            .state('app.account_tokens', {
+                url: '/account_tokens',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/account_tokens/index.html',
+                        controller: 'AccountTokensCtrl'
                     }
                 }
             })
@@ -592,12 +605,12 @@ angular.module('generic-client', ['ionic',
                 }
             })
 
-            .state('app.reset_password', {
-                url: '/reset_password',
+            .state('app.change_password', {
+                url: '/change_password',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/settings/reset_password.html',
-                        controller: 'ResetPasswordCtrl'
+                        templateUrl: 'templates/settings/change_password.html',
+                        controller: 'ChangePasswordCtrl'
                     }
                 }
             })

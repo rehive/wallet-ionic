@@ -319,23 +319,18 @@ input.ng-invalid, input.ng-dirty {
 // Home
 .dashboard-home {
   background-color: $primary;
+  margin-top: 160px!important;
+}
 
-  .row, .col {
-    height: 100px !important;
-    padding-top: 8px;
-    padding-bottom: 0;
-  }
-
-  .span1 {
-    display: inline-block;
-    vertical-align: top;
-  }
-
-  .span2 {
-    display: inline-block;
-    vertical-align: top;
-    margin-top: -8px;
-  }
+.dashboard-balance {
+  margin-top:44px;
+  height: 160px !important;
+  width:100%;
+  padding-top: 8px;
+  padding-bottom: 0;
+  background-color: $primary;
+  position:absolute;
+  text-align:center;
 
   h1 {
     font-size: 40px;
@@ -349,6 +344,21 @@ input.ng-invalid, input.ng-dirty {
     color: white;
     display: inline;
   }
+
+  .span1 {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .span2 {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: -8px;
+  }
+}
+
+.platform-webview.platform-ios.platform-cordova .dashboard-balance {
+  margin-top:63px;
 }
 
 .dashboard-btn .title {

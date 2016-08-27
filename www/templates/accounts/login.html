@@ -5,8 +5,8 @@
 
     <div ng-controller="LoginCtrl" >
         <ion-content class="padding dashboard">
-            <form name="loginForm" method="post" novalidate>
-                <div class="list card padding">
+            <div class="list card padding">
+                <form name="loginForm" method="post" novalidate>
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">Email</span>
                         <input type="email" name="email" ng-model="user.email" placeholder="Email" required>
@@ -32,14 +32,20 @@
                     <button ng-click="logIn(loginForm)" class="button button-block">
                         Log In
                     </button>
-                </div>
-            </form>
+                </form>
+                <button ng-click="ShowModalForgot()"
+                        class="button button-clear button-block">
+                    <small>Forgot password?</small>
+                </button>
+            </div>
+
             <div class="list text-center">
-                <button ng-click="modal.show()"
+                <button ng-click="ShowModalSignup()"
                         class="button button-small button-outline icon-left ion-person-add">
                     Create New Account
                 </button>
             </div>
+
         </ion-content>
     </div>
 </ion-view>

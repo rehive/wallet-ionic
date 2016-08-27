@@ -1,0 +1,30 @@
+<ion--view view-title="Account Tokens" ng-controller="AccountTokensCtrl">
+    <ion-content>
+        <ion-refresher pulling-text="pull to refresh" on-refresh="refreshData()"></ion-refresher>
+        <div class="list-transactions" >
+            <div class="block">
+                <div ng-repeat="item in items">
+                    <div class="item item-avatar item-icon-left">
+                        <i class="icon ion-ios-circle-outline"></i>
+
+                        <div class="align-left">
+                            <h3>{{ item.currency.symbol }} {{ item.currency.code }} {{ item.account.name }}</h3>
+                            <p>{{ item.currency.symbol }} {{ item.balance }} {{item.status}}</p>
+                        </div>
+
+                        <div class="align-right">
+                            <button class="button" ng-if="item.status=='inactive'" keyboard-attach ng-click="setToken(item.account.reference, item.currency.code)" linked="clickMe">
+                                Activate
+                            </button>
+                            <button class="button button-balanced" ng-if="item.status=='active'" disabled>
+                                Active
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+    <ion-infinite-scroll on-infinite="loadMore()" distance="5%"></ion-infinite-scroll>
+</ion--view>

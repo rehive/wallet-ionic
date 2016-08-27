@@ -1,0 +1,29 @@
+<ion-modal-view>
+    <ion-header-bar class="bar bar-header">
+        <h1 class="title">Change Password</h1>
+        <button class="button button-clear button-primary" ng-click="CloseModalForgot()">Cancel</button>
+    </ion-header-bar>
+
+    <ion-content class="padding">
+        <form name="forgotForm" method="post" novalidate>
+            <div class="list">
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Email</span>
+                    <input ng-model="user.email" type="email" name="email" placeholder="Email Address" required>
+                    <div ng-messages="forgotForm.email.$error" role="alert" ng-show='forgotForm.$submitted || forgotForm.email.$dirty'>
+                        <div ng-message="required" class="form-error">Please enter an email address.</div>
+                        <div ng-message="email" class="form-error">Please enter a valid email address.</div>
+                    </div>
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Company</span>
+                    <input ng-model="user.company_id" type="text" name="company_id" placeholder="Company ID" required>
+                    <div ng-messages="forgotForm.company_id.$error" role="alert" ng-show='forgotForm.$submitted || forgotForm.company_id.$dirty'>
+                        <div ng-message="required" class="form-error">Please enter a Company ID.</div>
+                    </div>
+                </label>
+                <button class="button button-full" ng-click="resetPassword(forgotForm)">Reset Email</button>
+            </div>
+        </form>
+    </ion-content>
+</ion-modal-view>

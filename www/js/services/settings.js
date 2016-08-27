@@ -132,4 +132,18 @@ angular.module('generic-client.services.settings', [])
             return $http.get(API + '/accounts/token_info/');
         };
 
+    })
+
+
+    .service('Password', function ($http, API) {
+        'use strict';
+        var self = this;
+
+        self.update = function (old_password, new_password, confirm_password) {
+            return $http.post(API + '/accounts/password/change/', {
+                old_password: old_password,
+                new_password1: new_password,
+                new_password2: confirm_password
+            });
+        };
     });
