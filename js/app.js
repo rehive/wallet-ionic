@@ -15,6 +15,7 @@ angular.module('generic-client', ['ionic',
     'generic-client.controllers.settings',
     'generic-client.controllers.notifications',
     'generic-client.controllers.help',
+    'generic-client.controllers.about',
     'generic-client.controllers.accounttokens',
     'generic-client.services',
     'generic-client.services.accounts',
@@ -447,6 +448,18 @@ angular.module('generic-client', ['ionic',
                     file: null
                 }
             })
+
+            // About
+            .state('app.about', {
+                url: '/about',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/about/index.html',
+                        controller: 'AboutCtrl'
+                    }
+                }
+            })
+
 
             // Help
             .state('app.help', {
