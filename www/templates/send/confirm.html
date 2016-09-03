@@ -2,19 +2,13 @@
     <ion-content class="padding">
         <div class="row">
             <div class="col text-center">
-                <h4>You are sending R {{ amount }} to {{ to }}.</h4>
+                <h4>You are sending {{ currency.symbol }} {{ amount }} to {{ to }}.</h4>
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" ng-if="note">
             <div class="col text-center">
-                <p>Note: "{{ note }}"</p>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col text-center">
-                <p>*Warning: The transaction can not be reversed if details are incorrect.</p>
+                <p>Note: {{ note }}</p>
             </div>
         </div>
     </ion-content>
