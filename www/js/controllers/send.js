@@ -1,15 +1,18 @@
 angular.module('generic-client.controllers.send', [])
 
-    .controller('SendCtrl', function ($scope, $state) {
+    .controller('SendCtrl', function ($scope, $state, $window) {
         'use strict';
 
         $scope.data = {};
+        $scope.currency = JSON.parse($window.localStorage.getItem('myCurrency'));
+        console.log($scope.currency);
 
         $scope.submit = function (form) {
             if (form.$valid) {
                 $state.go('app.send_to', {
                     amount: form.amount.$viewValue,
-                    note: form.note.$viewValue
+                    note: form.note.$viewValue,
+                    currency: $scope.currency
                 });
             }
         };
@@ -20,6 +23,9 @@ angular.module('generic-client.controllers.send', [])
         $scope.data = {};
         $scope.amount = $stateParams.amount;
         $scope.note = $stateParams.note;
+        $scope.currency = $stateParams.currency;
+
+        console.log($scope.currency);
 
         function onSuccess(contacts) {
             $scope.contacts = ContactsService.format(contacts)
@@ -47,7 +53,8 @@ angular.module('generic-client.controllers.send', [])
                 $state.go('app.send_confirm', {
                     amount: $scope.amount,
                     note: $scope.note,
-                    to: form.to.$viewValue
+                    to: form.to.$viewValue,
+                    currency: $scope.currency
                 });
             }
         };
@@ -59,6 +66,11 @@ angular.module('generic-client.controllers.send', [])
         $scope.amount = $stateParams.amount;
         $scope.note = $stateParams.note;
         $scope.to = $stateParams.to;
+        $scope.currency = $stateParams.currency;
+
+        if ($scope.note === null) {
+          $scope.note = ''
+        }
 
         $scope.submit = function (amount, note, to) {
             $ionicLoading.show({
@@ -71,7 +83,8 @@ angular.module('generic-client.controllers.send', [])
                     $state.go('app.send_success', {
                         amount: amount,
                         note: note,
-                        to: to
+                        to: to,
+                        currency: $scope.currency.code
                     });
                 } else {
                     $ionicLoading.hide();
