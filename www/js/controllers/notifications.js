@@ -17,4 +17,4 @@ angular.module('generic-client.controllers.notifications', [])
                 "notification": "Go to the website for more information."
             }
         ]
-    })
+    });
