@@ -1,13 +1,9 @@
-<ion--view view-title="Confirm Withdrawal">
-    <ion-content class="padding">
-
-        <div class="row">
-            <div class="col text-center">
-                <h4>You are about to withdraw R {{ amount }} to {{ account }}.</h4>
-            </div>
+<ion-view view-title="">
+    <div class="custom-header">
+        <div class="col text-center">
+            <h2>You are about to withdraw {{ currency.symbol }} {{ amount }}.</h2>
         </div>
-
-    </ion-content>
+    </div>
 
     <div class="row">
         <a class="col col-50 bar bar-footer high-footer cancel" menu-close href="#/app/dashboard">
@@ -18,4 +14,4 @@
         </button>
     </div>
 
-</ion--view>
+</ion-view>

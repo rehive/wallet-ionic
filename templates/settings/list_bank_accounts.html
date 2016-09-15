@@ -1,7 +1,7 @@
 <ion--view view-title="Bank Accounts">
-    <ion-content>
+    <ion-content class="container-body">
         <ion-refresher pulling-text="pull to refresh" on-refresh="refreshData()"></ion-refresher>
-        <div class="list-transactions">
+        <div class="list-default">
             <div class="block">
                 <div ng-repeat="item in items">
                     <a ui-sref="app.edit_bank_account({accId: item.id})">

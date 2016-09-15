@@ -1,64 +1,59 @@
-<ion--view view-title="Deposit">
+<ion-view view-title="Deposit">
 
-    <ion-content class="top padding">
-
-        <div class="row text-center">
-            <div class="col col-100">
-                <h4>Follow instructions to fund your wallet.</h4>
-
-                <p>Before using this wallet you need to fund you account by transferring the {{ token.currency.code }}
-                    amount using your unique allocated reference. It might take a couple of days for the payment to
-                    clear into our accounts, at which time your balance will be updated automatically.
-                    You will be notified via email when your deposit has been processed.
-                </p>
-
-                <p>Your unique payment reference is:
-                    <br>
-                    <br>
-                    <b>{{ reference }}</b></p>
-                    <br>
-
-                <p><b>It is very important to use this reference when making the bank transfer.</b></p>
+    <ion-content class="container-body">
+        <div class="container-default-background text-center">
+            <div class="row">
+                <div class="col col-100 ">
+                    <div class="row">
+                        <p>Fund your account by transferring <b>{{ token.currency.code }}</b> to the unique reference
+                            number below.
+                        </p>
+                    </div>
+                </div>
             </div>
-
         </div>
-
-        <div ng-repeat="item in items" style="font-size: 12px;">
-            <div class="row">
-                <div class="col" style="font-size: 16px;"><b>{{ item.bank_account.bank_name }}</b></div>
-            </div>
-            <div class="row">
-                <div class="col">Account Holder</div>
-                <div class="col">{{ item.bank_account.name }}</div>
-            </div>
-            <div class="row">
-                <div class="col">Account Number</div>
-                <div class="col">{{ item.bank_account.number }}</div>
-            </div>
-            <div class="row">
-                <div class="col">Account Type</div>
-                <div class="col">{{ item.bank_account.type }}</div>
-            </div>
-            <div class="row">
-                <div class="col">Bank Code</div>
-                <div class="col">{{ item.bank_account.bank_code }}</div>
-            </div>
-            <div class="row">
-                <div class="col">Branch Code</div>
-                <div class="col">{{ item.bank_account.branch_code }}</div>
-            </div>
-            <div class="row">
-                <div class="col">Swift Code</div>
-                <div class="col">{{ item.bank_account.swift }}</div>
-            </div>
-            <div class="row">
-                <div class="col">IBAN Number</div>
-                <div class="col">{{ item.bank_account.iban }}</div>
-            </div>
-            <div class="row">
-                <div class="col">BIC Number</div>
-                <div class="col">{{ item.bank_account.bic }}</div>
+        <div class="container-deposit-reference text-center">
+            <h4 class="capital-letter">{{ reference }}</h4>
+        </div>
+        <div class="container-default">
+            <div ng-repeat="item in items" style="font-size: 12px;">
+                <div class="row">
+                    <div class="col" ng-if="item.bank_account.bank_name"><b>Bank</b></div>
+                    <div class="col text-right">{{ item.bank_account.bank_name }}</div>
+                </div>
+                <div class="row">
+                    <div class="col" ng-if="item.bank_account.name"><b>Account Holder</b></div>
+                    <div class="col text-right">{{ item.bank_account.name }}</div>
+                </div>
+                <div class="row">
+                    <div class="col" ng-if="item.bank_account.number"><b>Account Number</b></div>
+                    <div class="col text-right">{{ item.bank_account.number }}</div>
+                </div>
+                <div class="row">
+                    <div class="col" ng-if="item.bank_account.type"><b>Account Type</b></div>
+                    <div class="col text-right">{{ item.bank_account.type }}</div>
+                </div>
+                <div class="row">
+                    <div class="col" ng-if="item.bank_account.bank_code"><b>Bank Code</b></div>
+                    <div class="col text-right">{{ item.bank_account.bank_code }}</div>
+                </div>
+                <div class="row">
+                    <div class="col" ng-if="item.bank_account.branch_code"><b>Branch Code</b></div>
+                    <div class="col text-right">{{ item.bank_account.branch_code }}</div>
+                </div>
+                <div class="row">
+                    <div class="col" ng-if="item.bank_account.swift"><b>Swift Code</b></div>
+                    <div class="col text-right">{{ item.bank_account.swift }}</div>
+                </div>
+                <div class="row">
+                    <div class="col" ng-if="item.bank_account.iban"><b>IBAN Number</b></div>
+                    <div class="col text-right">{{ item.bank_account.iban }}</div>
+                </div>
+                <div class="row">
+                    <div class="col" ng-if="item.bank_account.bic"><b>BIC Number</b></div>
+                    <div class="col text-right">{{ item.bank_account.bic }}</div>
+                </div>
             </div>
         </div>
     </ion-content>
-</ion--view>
+</ion-view>

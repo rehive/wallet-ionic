@@ -5,7 +5,6 @@ angular.module('generic-client.controllers.send', [])
 
         $scope.data = {};
         $scope.currency = JSON.parse($window.localStorage.getItem('myCurrency'));
-        console.log($scope.currency);
 
         $scope.submit = function (form) {
             if (form.$valid) {
@@ -24,8 +23,6 @@ angular.module('generic-client.controllers.send', [])
         $scope.amount = $stateParams.amount;
         $scope.note = $stateParams.note;
         $scope.currency = $stateParams.currency;
-
-        console.log($scope.currency);
 
         function onSuccess(contacts) {
             $scope.contacts = ContactsService.format(contacts)
@@ -69,7 +66,7 @@ angular.module('generic-client.controllers.send', [])
         $scope.currency = $stateParams.currency;
 
         if ($scope.note === null) {
-          $scope.note = ''
+            $scope.note = ''
         }
 
         $scope.submit = function (amount, note, to) {

@@ -136,6 +136,10 @@ angular.module('generic-client.services.accounts', [])
         self.getCurrent = function () {
             return Auth.getUser();
         };
+
+        self.getInfo = function () {
+        	return $http.get(API + '/accounts/users/', {});
+        }
     })
 
     .service('CompanyDetails', function ($http, API, Auth) {

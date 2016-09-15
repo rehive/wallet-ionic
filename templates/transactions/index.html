@@ -1,5 +1,5 @@
 <div ng-if="items.length == 0">
-    <div class="card-container">
+    <div class="container-card">
         <div class="card">
             <div class="item item-body">
                 <h2>Welcome to Rehive</h2>
@@ -14,7 +14,7 @@
 
     <ion-refresher on-refresh="refreshData()" spinner="none" on-pulling="none" pulling-icon="none"></ion-refresher>
 
-    <div class="list-transactions">
+    <div class="list-default">
         <div class="block">
             <div ng-repeat="item in items">
                 <div class="item item-avatar item-icon-left">

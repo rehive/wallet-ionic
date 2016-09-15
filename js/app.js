@@ -16,13 +16,13 @@ angular.module('generic-client', ['ionic',
     'generic-client.controllers.notifications',
     'generic-client.controllers.help',
     'generic-client.controllers.about',
-    'generic-client.controllers.accounttokens',
+    'generic-client.controllers.currency_accounts',
     'generic-client.services',
     'generic-client.services.accounts',
     'generic-client.services.transactions',
     'generic-client.services.contacts',
     'generic-client.services.settings',
-    'generic-client.services.accounttokens',
+    'generic-client.services.currency_accounts',
     'generic-client.filters.contacts'])
 
     //.constant('API', 'http://localhost:2468/api/1')
@@ -279,12 +279,12 @@ angular.module('generic-client', ['ionic',
             })
 
             // Accounts
-            .state('app.account_tokens', {
-                url: '/account_tokens',
+            .state('app.currency_accounts', {
+                url: '/currency_accounts',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/account_tokens/index.html',
-                        controller: 'AccountTokensCtrl'
+                        templateUrl: 'templates/currency_accounts/index.html',
+                        controller: 'CurrencyAccountsCtrl'
                     }
                 }
             })

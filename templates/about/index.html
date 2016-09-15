@@ -1,12 +1,28 @@
-<ion--view view-title="About">
-    <ion-content class="top padding">
+<ion-view view-title="About">
+    <ion-content class="container-body">
+        <div class="container-default-background">
+            <div class="row">
+                <div class="col col-100 ">
+                    <div class="row ">
+                        <h3>{{ companyDetails.name }}</h3>
+                    </div>
+                    <div class="row">
+                        <p>{{ companyDetails.description }} <a href="{{ companyDetails.website }}"
+                                                               target="_blank">(link)</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
         <div class="row text-center">
             <div class="col col-100">
-                <img ng-show="companyDetails.logo" ng-src="{{ companyDetails.logo }}" onError="angular.element(this).scope().companyDetails.logo = false"/>
-                <h2>{{ companyDetails.name }}</h2>
-                <h4>{{ companyDetails.description }}</h4>
-                <a href="{{ companyDetails.website }}" target="_blank">{{ companyDetails.name }}</h5>
+
+                <div class="company-logo">
+                    <img ng-show="companyDetails.logo" ng-src="{{ companyDetails.logo }}"
+                         onError="angular.element(this).scope().companyDetails.logo = false"/>
+                </div>
             </div>
         </div>
     </ion-content>
-</ion--view>
+</ion-view>

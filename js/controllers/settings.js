@@ -28,7 +28,8 @@ angular.module('generic-client.controllers.settings', [])
                         "last_name": res.data.last_name,
                         "email_address": res.data.email,
                         "id_number": res.data.id_number,
-                        "nationality": nationality
+                        "nationality": nationality,
+                        "metadata": res.data.metadata
                     };
 
                     $scope.countries = Countries.list();
@@ -394,10 +395,7 @@ angular.module('generic-client.controllers.settings', [])
     .controller('PinCtrl', function ($scope) {
         'use strict';
         $scope.pinList = [
-            {text: "Opening app", checked: true},
-            {text: "Sending or requesting money", checked: true},
-            {text: "Change password", checked: true},
-            {text: "Deposting or withdrawing", checked: true}
+            {text: "Coming soon", checked: true},
         ];
     });
 

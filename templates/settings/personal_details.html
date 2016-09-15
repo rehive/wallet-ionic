@@ -1,7 +1,7 @@
 <ion--view view-title="Personal details">
     <div ng-controller="PersonalDetailsCtrl">
         <form name="personalDetailsForm" method="post" novalidate>
-            <ion-content>
+            <ion-content class="container-body">
                 <div class="list">
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">First name</span>
@@ -31,6 +31,7 @@
                             <option ng-repeat="country in countries">{{ country.name }}</option>
                         </select>
                     </label>
+                    <input ng-model="data.metadata" name="metadata" type="text" hidden value="{{ data.metadata }}">
                 </div>
             </ion-content>
 

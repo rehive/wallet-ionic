@@ -1,14 +1,15 @@
 <ion--view view-title="Select Account">
-    <ion-content>
+    <ion-content class="container-body">
         <ion-refresher pulling-text="pull to refresh" on-refresh="refreshData()"></ion-refresher>
-        <div class="list-transactions">
+        <div class="list-default">
             <div class="block">
                 <div ng-repeat="item in items">
                     <a ui-sref="app.withdraw_to_bank_account({account: item.code})">
                         <div class="item item-avatar item-icon-left">
                             <i class="icon ion-ios-circle-outline"></i>
                             <div class="align-left">
-                                {{ item.bank_name }} {{ item.number }}
+                                {{ item.bank_name }}
+                                <p>{{ item.number }}</p>
                             </div>
                         </div>
                     </a>

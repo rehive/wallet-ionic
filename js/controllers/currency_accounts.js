@@ -1,10 +1,10 @@
-angular.module('generic-client.controllers.accounttokens', [])
+angular.module('generic-client.controllers.currency_accounts', [])
 
-    .controller('AccountTokensCtrl', function ($scope, $window, $ionicPopup, $ionicModal, $state, $stateParams, $ionicLoading, AccountTokens, Conversions) {
+    .controller('CurrencyAccountsCtrl', function ($scope, $window, $ionicPopup, $ionicModal, $state, $stateParams, $ionicLoading, CurrencyAccounts, Conversions) {
         'use strict';
 
         $scope.listData = function () {
-            AccountTokens.list().success(
+            CurrencyAccounts.list().success(
                 function (res) {
                     var items = [];
 
@@ -29,7 +29,7 @@ angular.module('generic-client.controllers.accounttokens', [])
             console.log(account_reference)
             console.log(account_currency)
 
-            AccountTokens.set(account_reference, account_currency).then(function (res) {
+            CurrencyAccounts.set(account_reference, account_currency).then(function (res) {
                 if (res.status === 200) {
                     $ionicLoading.hide();
                     $scope.listData();

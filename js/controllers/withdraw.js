@@ -81,11 +81,12 @@ angular.module('generic-client.controllers.withdraw', [])
         };
     })
 
-    .controller('WithdrawConfirmCtrl', function ($scope, $state, $stateParams, $ionicLoading, $ionicPopup, Withdrawal, Conversions) {
+    .controller('WithdrawConfirmCtrl', function ($scope, $state, $window, $stateParams, $ionicLoading, $ionicPopup, Withdrawal, Conversions) {
         'use strict';
         $scope.data = {};
         $scope.amount = $stateParams.amount;
         $scope.account = $stateParams.account;
+        $scope.currency = JSON.parse($window.localStorage.getItem('myCurrency'));
 
         $scope.submit = function (amount, account) {
             $ionicLoading.show({
@@ -110,8 +111,9 @@ angular.module('generic-client.controllers.withdraw', [])
         };
     })
 
-    .controller('WithdrawSuccessCtrl', function ($scope, $state, $stateParams) {
+    .controller('WithdrawSuccessCtrl', function ($scope, $state, $window, $stateParams) {
         'use strict';
         $scope.data = {};
         $scope.amount = $stateParams.amount;
+        $scope.currency = JSON.parse($window.localStorage.getItem('myCurrency'));
     });

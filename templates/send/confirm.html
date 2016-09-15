@@ -1,14 +1,14 @@
-<ion--view view-title="Confirm Payment">
-    <ion-content class="padding">
-        <div class="row">
-            <div class="col text-center">
-                <h4>You are sending {{ currency.symbol }} {{ amount }} to {{ to }}.</h4>
-            </div>
+<ion-view view-title="">
+    <div class="custom-header">
+        <div class="col text-center">
+            <h2>You are sending {{ currency.symbol }} {{ amount }} to {{ to }}.</h2>
         </div>
+    </div>
 
-        <div class="row" ng-if="note">
-            <div class="col text-center">
-                <p>Note: {{ note }}</p>
+    <ion-content class="custom-header-margin">
+        <div class="custom-body">
+            <div class="container-note text-center" ng-if="note">
+                {{note}}
             </div>
         </div>
     </ion-content>
@@ -21,4 +21,4 @@
             <h1 class="title">Confirm</h1>
         </button>
     </div>
-</ion--view>
+</ion-view>

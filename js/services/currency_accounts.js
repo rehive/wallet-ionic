@@ -1,7 +1,7 @@
 /*global Firebase, console, angular */
-angular.module('generic-client.services.accounttokens', [])
+angular.module('generic-client.services.currency_accounts', [])
 
-    .service('AccountTokens', function ($http, API) {
+    .service('CurrencyAccounts', function ($http, API) {
         'use strict';
         var self = this;
 
