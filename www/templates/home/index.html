@@ -1,6 +1,6 @@
 <ion-view view-title="">
 
-    <div class="dashboard-balance">
+    <div class="custom-header">
         <div class="col text-center">
             <span class="span1">
                 <h2>{{ currency.symbol }}</h2>
@@ -11,8 +11,8 @@
         </div>
     </div>
 
-    <ion-content class="dashboard-home">
-        <div class="dashboard-tx">
+    <ion-content class="custom-header-margin">
+        <div class="custom-body">
             <div ng-include src="'templates/transactions/index.html'"></div>
         </div>
     </ion-content>

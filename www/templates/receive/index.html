@@ -1,13 +1,11 @@
 <ion--view view-title="Receive">
-    <ion-content class="top padding">
+    <ion-content class="container-body" class="top padding">
         <div class="row text-center">
             <div class="col col-100">
-                <h4>Provide QR code address to the sender.</h4>
-                <p>The QR code is your public address for accepting payments.</p>
-
-                <br>
-
-                <img src="http://i.imgur.com/eKuC91q.png" style="width:200px; height: auto;">
+                <div class="container-default">The QR code is your public address for accepting payments.</div>
+                <div class="container-qr">
+                    <img ng-src="{{ myAddress }}" alt="Receive Address" height="250" width="250">
+                </div>
             </div>
         </div>
     </ion-content>

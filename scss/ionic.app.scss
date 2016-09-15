@@ -43,15 +43,17 @@ $background: #F6F6F6;
 // Notification colors
 $notify: #5EA5CF;
 //Default: #56C1ED;
-$error: #dd2c00;
+$error: #dd4b39;
 //Default: #dd2c00;
-$cancel: #dd2c00;
+$cancel: #dd4b39;
 //Default: #dd2c00;
-$warning: #dd2c00;
+$warning: #dd4b39;
 //Default: #dd2c00;
+$success: #38C87F;
 
 // General colors
 $black: #000;
+$white: #FFF;
 
 //------------------------------------------
 
@@ -67,6 +69,10 @@ $black: #000;
 
 .no-margin {
   margin: 0;
+}
+
+.capital-letter {
+  text-transform: uppercase;
 }
 
 .center {
@@ -153,7 +159,7 @@ $black: #000;
   }
 }
 
-// Custom navbar
+// Navbar
 .bar {
   border-color: darken($primary, 0%);
   background-color: $primary;
@@ -243,7 +249,7 @@ $black: #000;
 }
 
 // List
-.list-transactions {
+.list-default {
   margin-bottom: 5px !important;
   margin-top: 0 !important;
 
@@ -293,6 +299,7 @@ $black: #000;
   }
 }
 
+// Form error
 .form-error {
   padding: 6px 0 6px 0px;
   font-size: 12px;
@@ -314,30 +321,31 @@ input.ng-invalid, input.ng-dirty {
   box-shadow: none;
 }
 
-// Home
-.dashboard-home {
-  background-color: $primary;
-  margin-top: 100px!important;
-}
-
-.dashboard-balance {
-  margin-top:44px;
+// Header
+.custom-header {
+  margin-top: 44px;
   height: 100px !important;
-  width:100%;
+  width: 100%;
   padding-top: 8px;
   padding-bottom: 0;
   background-color: $primary;
-  position:absolute;
-  text-align:center;
+  position: absolute;
+  text-align: center;
 
   h1 {
     font-size: 40px;
-    font-weight: 700;
+    font-weight: 500;
     color: white;
     display: inline;
   }
   h2 {
     font-size: 20px;
+    font-weight: 300;
+    color: white;
+    display: inline;
+  }
+  h4 {
+    font-size: 16px;
     font-weight: 300;
     color: white;
     display: inline;
@@ -355,18 +363,70 @@ input.ng-invalid, input.ng-dirty {
   }
 }
 
-.platform-webview.platform-ios.platform-cordova .dashboard-balance {
-  margin-top:63px;
+.platform-webview.platform-ios.platform-cordova .header-custom {
+  margin-top: 63px;
 }
 
-.dashboard-tx {
+.custom-header-margin {
+  background-color: $primary;
+  margin-top: 100px !important;
+}
+
+// Body
+.custom-body {
   height: 1000px;
   background-color: $background;
 }
 
-// Containers
+// Container
+.container-body {
+  margin-top: 10px;
+}
 
-.card-container {
+.company-logo {
+  img {
+    margin: 50px;
+  }
+}
+
+.container-default {
+  padding: 10px;
+}
+
+.container-default-background {
+  background-color: $background;
+  padding: 10px;
+}
+
+.container-deposit-reference {
+  h4 {
+    color: $white;
+  }
+  background-color: $success;
+  padding: 10px;
+}
+
+.container-success {
+  h2 {
+    font-size: 20px;
+    font-weight: 300;
+    color: white;
+    display: inline;
+  }
+  background-color: $success;
+  padding: 44px;
+}
+
+.container-note {
+  background-color: darken($background, 10%);
+  padding: 20px;
+}
+
+.container-qr {
+  margin: 0;
+}
+
+.container-card {
   padding-top: 1px;
   .card .item {
     h2 {
@@ -381,9 +441,17 @@ input.ng-invalid, input.ng-dirty {
 // Footer
 .high-footer {
   height: 55px !important;
+  .title {
+    top: 5px;
+    font-weight: 400;
+  }
 }
 
-.bar.bar-footer .title {
-  top: 5px;
-  font-weight: 400;
+// Header
+.bar.bar-header {
+  height: 55px !important;
+  .title {
+    font-weight: 400;
+    top: 5px;
+  }
 }

@@ -3,8 +3,6 @@ angular.module('generic-client.controllers.transactions', [])
     .controller('TransactionsCtrl', function ($scope, $state, $http, $window, $ionicModal, $ionicLoading, Transaction, Balance, Conversions) {
         'use strict';
 
-        console.log('entering controller')
-
         $scope.refreshData = function () {
             var getBalance = Balance.get();
 
@@ -14,7 +12,7 @@ angular.module('generic-client.controllers.transactions', [])
                     $scope.balance = Conversions.from_cents(res.data.balance);
                     $scope.currency = res.data.currency;
 
-                    var getTransactions = Transaction.list()
+                    var getTransactions = Transaction.list();
 
                     getTransactions.success(
                         function (res) {

@@ -9,14 +9,15 @@ angular.module('generic-client.services.settings', [])
             return $http.get(API + '/accounts/users/');
         };
 
-        self.create = function (first_name, last_name, email, id_number, nationality) {
+        self.create = function (first_name, last_name, email, id_number, nationality, metadata) {
 
             return $http.put(API + '/accounts/users/', {
                 first_name: first_name,
                 last_name: last_name,
                 email: email,
                 id_number: id_number,
-                nationality: nationality
+                nationality: nationality,
+                metadata: metadata
             });
         };
     })

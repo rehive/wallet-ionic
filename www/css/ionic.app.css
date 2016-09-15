@@ -9741,6 +9741,9 @@ a.button {
 .no-margin {
   margin: 0; }
 
+.capital-letter {
+  text-transform: uppercase; }
+
 .center {
   display: -webkit-box;
   display: -moz-box;
@@ -9816,8 +9819,8 @@ a.button {
   .bar .title {
     color: #fff; }
   .bar.cancel {
-    border-color: #dd2c00;
-    background-color: #dd2c00;
+    border-color: #dd4b39;
+    background-color: #dd4b39;
     background-image: none;
     color: #fff; }
     .bar.cancel .title {
@@ -9862,31 +9865,31 @@ a.button {
         background-color: #2070A0;
         border-color: transparent; }
 
-.list-transactions {
+.list-default {
   margin-bottom: 5px !important;
   margin-top: 0 !important; }
-  .list-transactions .block:nth-child(odd) .item {
+  .list-default .block:nth-child(odd) .item {
     background: #F6F6F6; }
-  .list-transactions .block .item .icon {
+  .list-default .block .item .icon {
     font-size: 45px;
     padding-left: 3px;
     padding-right: 3px; }
-  .list-transactions .block .item .align-right {
+  .list-default .block .item .align-right {
     padding-top: 0; }
-  .list-transactions .block .item h2 {
+  .list-default .block .item h2 {
     font-size: 14px;
     font-weight: 200;
     color: #000; }
-  .list-transactions .block .item h3 {
+  .list-default .block .item h3 {
     font-size: 20px;
     font-weight: 200;
     color: #000; }
-  .list-transactions .block .item h4 {
+  .list-default .block .item h4 {
     font-size: 11px;
     font-weight: 400;
     color: #777777;
     padding-top: 2px; }
-  .list-transactions .block .item h5 {
+  .list-default .block .item h5 {
     font-size: 11px;
     font-weight: 400;
     color: #777777; }
@@ -9894,8 +9897,8 @@ a.button {
 .form-error {
   padding: 6px 0 6px 0px;
   font-size: 12px;
-  color: #dd2c00;
-  border-top: 2px solid #dd2c00;
+  color: #dd4b39;
+  border-top: 2px solid #dd4b39;
   margin-right: 15px; }
 
 input.ng-pristine ~ div .form-error {
@@ -9908,11 +9911,7 @@ input.ng-invalid, input.ng-dirty {
 input.ng-invalid, input.ng-dirty {
   box-shadow: none; }
 
-.dashboard-home {
-  background-color: #3D8AB8;
-  margin-top: 100px !important; }
-
-.dashboard-balance {
+.custom-header {
   margin-top: 44px;
   height: 100px !important;
   width: 100%;
@@ -9921,34 +9920,78 @@ input.ng-invalid, input.ng-dirty {
   background-color: #3D8AB8;
   position: absolute;
   text-align: center; }
-  .dashboard-balance h1 {
+  .custom-header h1 {
     font-size: 40px;
-    font-weight: 700;
+    font-weight: 500;
     color: white;
     display: inline; }
-  .dashboard-balance h2 {
+  .custom-header h2 {
     font-size: 20px;
     font-weight: 300;
     color: white;
     display: inline; }
-  .dashboard-balance .span1 {
+  .custom-header h4 {
+    font-size: 16px;
+    font-weight: 300;
+    color: white;
+    display: inline; }
+  .custom-header .span1 {
     display: inline-block;
     vertical-align: top; }
-  .dashboard-balance .span2 {
+  .custom-header .span2 {
     display: inline-block;
     vertical-align: top;
     margin-top: -8px; }
 
-.platform-webview.platform-ios.platform-cordova .dashboard-balance {
+.platform-webview.platform-ios.platform-cordova .header-custom {
   margin-top: 63px; }
 
-.dashboard-tx {
+.custom-header-margin {
+  background-color: #3D8AB8;
+  margin-top: 100px !important; }
+
+.custom-body {
   height: 1000px;
   background-color: #F6F6F6; }
 
-.card-container {
+.container-body {
+  margin-top: 10px; }
+
+.company-logo img {
+  margin: 50px; }
+
+.container-default {
+  padding: 10px; }
+
+.container-default-background {
+  background-color: #F6F6F6;
+  padding: 10px; }
+
+.container-deposit-reference {
+  background-color: #38C87F;
+  padding: 10px; }
+  .container-deposit-reference h4 {
+    color: #FFF; }
+
+.container-success {
+  background-color: #38C87F;
+  padding: 44px; }
+  .container-success h2 {
+    font-size: 20px;
+    font-weight: 300;
+    color: white;
+    display: inline; }
+
+.container-note {
+  background-color: #dddddd;
+  padding: 20px; }
+
+.container-qr {
+  margin: 0; }
+
+.container-card {
   padding-top: 1px; }
-  .card-container .card .item h2 {
+  .container-card .card .item h2 {
     font-size: 20px;
     font-weight: 300;
     color: black;
@@ -9956,7 +9999,12 @@ input.ng-invalid, input.ng-dirty {
 
 .high-footer {
   height: 55px !important; }
+  .high-footer .title {
+    top: 5px;
+    font-weight: 400; }
 
-.bar.bar-footer .title {
-  top: 5px;
-  font-weight: 400; }
+.bar.bar-header {
+  height: 55px !important; }
+  .bar.bar-header .title {
+    font-weight: 400;
+    top: 5px; }

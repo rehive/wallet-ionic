@@ -6,15 +6,9 @@ angular.module('generic-client.controllers.notifications', [])
         $scope.notifications = [
             {
                 "id": 1,
-                "title": "New updates",
-                "from": "ZapGo developers",
-                "notification": "Download our latest app."
-            },
-            {
-                "id": 2,
-                "title": "Checkout our promotion",
-                "from": "Barclays SA",
-                "notification": "Go to the website for more information."
+                "title": "Updates",
+                "from": "Rehive",
+                "notification": "This feature is under development."
             }
         ]
     });

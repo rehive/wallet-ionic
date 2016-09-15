@@ -1,28 +1,21 @@
 <ion-view view-title="Notifications">
 
-    <ion-content class="dashboard">
+    <ion-content class="container-body" class="dashboard">
 
         <ion-refresher pulling-text="pull to refresh" on-refresh="listRefresh()"></ion-refresher>
 
-        <div class="list-transactions">
-            <div ng-repeat="notification in notifications">
-                <div class="item item-avatar item-icon-left item-alt" ng-if="notification.id%2==0">
-                    <i class="icon ion-android-notifications"></i>
+        <div class="custom-body">
+            <div class="list-default">
+                <div class="block">
+                    <div ng-repeat="notification in notifications">
+                        <div class="item item-avatar item-icon-left">
+                            <i class="icon ion-ios-circle-outline"></i>
 
-                    <div class="align-left">
-                        <h2>{{ notification.title }}</h2>
-                        <h4>{{ notification.from }}</h4>
-                        <h5>{{ notification.notification }}</h5>
-                    </div>
-                </div>
-
-                <div class="item item-avatar item-icon-left" ng-if="notification.id%2==1">
-                    <i class="icon ion-android-notifications"></i>
-
-                    <div class="align-left">
-                        <h2>{{ notification.title }}</h2>
-                        <h4>{{ notification.from }}</h4>
-                        <h5>{{ notification.notification }}</h5>
+                            <div class="align-left">
+                                <h2><b>{{ notification.title }}</b> from <i>{{ notification.from }}</i></h2>
+                                <h4>{{ notification.notification }}</h4>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
