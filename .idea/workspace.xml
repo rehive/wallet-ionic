@@ -2,72 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="afbd21e6-7fa8-4a23-8ed8-faafd4ada2f5" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scss/ionic_styled.app.scss" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/www/js/controllers/accounttokens.js" afterPath="$PROJECT_DIR$/www/js/controllers/currency_accounts.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/www/js/services/accounttokens.js" afterPath="$PROJECT_DIR$/www/js/services/currency_accounts.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/www/templates/account_tokens/index.html" afterPath="$PROJECT_DIR$/www/templates/currency_accounts/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/services/accounts.js" afterPath="$PROJECT_DIR$/www/js/services/accounts.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/settings/add_address.html" afterPath="$PROJECT_DIR$/www/templates/settings/add_address.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/settings/add_bank_account.html" afterPath="$PROJECT_DIR$/www/templates/settings/add_bank_account.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/settings/add_bitcoin_withdrawal_account.html" afterPath="$PROJECT_DIR$/www/templates/settings/add_bitcoin_withdrawal_account.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/withdraw/amount.html" afterPath="$PROJECT_DIR$/www/templates/withdraw/amount.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/app.js" afterPath="$PROJECT_DIR$/www/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/fica/camera_upload.html" afterPath="$PROJECT_DIR$/www/templates/fica/camera_upload.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/settings/change_password.html" afterPath="$PROJECT_DIR$/www/templates/settings/change_password.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/promotions/code.html" afterPath="$PROJECT_DIR$/www/templates/promotions/code.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/request/confirm.html" afterPath="$PROJECT_DIR$/www/templates/request/confirm.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/send/confirm.html" afterPath="$PROJECT_DIR$/www/templates/send/confirm.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/withdraw/confirm.html" afterPath="$PROJECT_DIR$/www/templates/withdraw/confirm.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/settings/email_address.html" afterPath="$PROJECT_DIR$/www/templates/settings/email_address.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/accounts/forgot.html" afterPath="$PROJECT_DIR$/www/templates/accounts/forgot.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/request/from.html" afterPath="$PROJECT_DIR$/www/templates/request/from.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/about/index.html" afterPath="$PROJECT_DIR$/www/templates/about/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/deposit/index.html" afterPath="$PROJECT_DIR$/www/templates/deposit/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/help/index.html" afterPath="$PROJECT_DIR$/www/templates/help/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/home/index.html" afterPath="$PROJECT_DIR$/www/templates/home/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/notifications/index.html" afterPath="$PROJECT_DIR$/www/templates/notifications/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/receive/index.html" afterPath="$PROJECT_DIR$/www/templates/receive/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/request/index.html" afterPath="$PROJECT_DIR$/www/templates/request/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/send/index.html" afterPath="$PROJECT_DIR$/www/templates/send/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/settings/index.html" afterPath="$PROJECT_DIR$/www/templates/settings/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/transactions/index.html" afterPath="$PROJECT_DIR$/www/templates/transactions/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/fica/instructions_id.html" afterPath="$PROJECT_DIR$/www/templates/fica/instructions_id.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/fica/instructions_id_selfie.html" afterPath="$PROJECT_DIR$/www/templates/fica/instructions_id_selfie.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/fica/instructions_proof_of_address.html" afterPath="$PROJECT_DIR$/www/templates/fica/instructions_proof_of_address.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/ionic.app.css" afterPath="$PROJECT_DIR$/www/css/ionic.app.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/ionic.app.min.css" afterPath="$PROJECT_DIR$/www/css/ionic.app.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scss/ionic.app.scss" afterPath="$PROJECT_DIR$/scss/ionic.app.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/settings/list_bank_accounts.html" afterPath="$PROJECT_DIR$/www/templates/settings/list_bank_accounts.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/settings/list_bitcoin_withdrawal_accounts.html" afterPath="$PROJECT_DIR$/www/templates/settings/list_bitcoin_withdrawal_accounts.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/elements/loading.html" afterPath="$PROJECT_DIR$/www/templates/elements/loading.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/accounts/login.html" afterPath="$PROJECT_DIR$/www/templates/accounts/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/elements/menu.html" afterPath="$PROJECT_DIR$/www/templates/elements/menu.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/settings/mobile_number.html" afterPath="$PROJECT_DIR$/www/templates/settings/mobile_number.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/settings/nationality.html" afterPath="$PROJECT_DIR$/www/templates/settings/nationality.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controllers/notifications.js" afterPath="$PROJECT_DIR$/www/js/controllers/notifications.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/settings/passport_id.html" afterPath="$PROJECT_DIR$/www/templates/settings/passport_id.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/settings/personal_details.html" afterPath="$PROJECT_DIR$/www/templates/settings/personal_details.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/settings/pin.html" afterPath="$PROJECT_DIR$/www/templates/settings/pin.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controllers/receive.js" afterPath="$PROJECT_DIR$/www/js/controllers/receive.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/promotions/redeem.html" afterPath="$PROJECT_DIR$/www/templates/promotions/redeem.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/fica/requirements.html" afterPath="$PROJECT_DIR$/www/templates/fica/requirements.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/settings/security.html" afterPath="$PROJECT_DIR$/www/templates/settings/security.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controllers/send.js" afterPath="$PROJECT_DIR$/www/js/controllers/send.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controllers/settings.js" afterPath="$PROJECT_DIR$/www/js/controllers/settings.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/services/settings.js" afterPath="$PROJECT_DIR$/www/js/services/settings.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/accounts/signup.html" afterPath="$PROJECT_DIR$/www/templates/accounts/signup.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/promotions/success.html" afterPath="$PROJECT_DIR$/www/templates/promotions/success.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/request/success.html" afterPath="$PROJECT_DIR$/www/templates/request/success.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/send/success.html" afterPath="$PROJECT_DIR$/www/templates/send/success.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/withdraw/success.html" afterPath="$PROJECT_DIR$/www/templates/withdraw/success.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/send/to.html" afterPath="$PROJECT_DIR$/www/templates/send/to.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/withdraw/to.html" afterPath="$PROJECT_DIR$/www/templates/withdraw/to.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/withdraw/to_bank_account.html" afterPath="$PROJECT_DIR$/www/templates/withdraw/to_bank_account.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/withdraw/to_bitcoin_account.html" afterPath="$PROJECT_DIR$/www/templates/withdraw/to_bitcoin_account.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controllers/transactions.js" afterPath="$PROJECT_DIR$/www/js/controllers/transactions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/settings/two_factor_instructions.html" afterPath="$PROJECT_DIR$/www/templates/settings/two_factor_instructions.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controllers/withdraw.js" afterPath="$PROJECT_DIR$/www/js/controllers/withdraw.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="generic-client.iws" />
@@ -89,7 +24,18 @@
     <favorites_list name="generic-client" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="change_password.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/www/templates/settings/change_password.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.20348836">
+              <caret line="7" column="112" selection-start-line="7" selection-start-column="112" selection-end-line="7" selection-end-column="112" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -106,7 +52,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/platforms/android/assets/www/css/ionic.app.min.css" />
         <option value="$PROJECT_DIR$/platforms/android/assets/www/templates/notifications/index.html" />
         <option value="$PROJECT_DIR$/platforms/android/assets/www/templates/settings/list_bank_accounts.html" />
         <option value="$PROJECT_DIR$/platforms/android/assets/www/templates/settings/list_bitcoin_withdrawal_accounts.html" />
@@ -157,6 +102,7 @@
         <option value="$PROJECT_DIR$/www/templates/settings/two_factor_instructions.html" />
         <option value="$PROJECT_DIR$/www/templates/about/index.html" />
         <option value="$PROJECT_DIR$/scss/ionic.app.scss" />
+        <option value="$PROJECT_DIR$/www/templates/settings/change_password.html" />
       </list>
     </option>
   </component>
@@ -242,6 +188,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wallet-ionic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wallet-ionic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="settings" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -496,7 +464,13 @@
       <option name="project" value="LOCAL" />
       <updated>1473803375552</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Cleanup and improve UI.">
+      <created>1473978073035</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1473978073035</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -560,7 +534,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Merge" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge" />
+    <MESSAGE value="Cleanup and improve UI." />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleanup and improve UI." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -575,14 +550,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/templates/settings/list_bitcoin_withdrawal_accounts.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.875">
-          <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/templates/transactions/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3803419">
@@ -979,6 +946,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6686047">
           <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/settings/change_password.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20348836">
+          <caret line="7" column="112" selection-start-line="7" selection-start-column="112" selection-end-line="7" selection-end-column="112" />
           <folding />
         </state>
       </provider>
