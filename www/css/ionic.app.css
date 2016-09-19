@@ -9913,7 +9913,7 @@ input.ng-invalid, input.ng-dirty {
 
 .custom-header {
   margin-top: 44px;
-  height: 100px !important;
+  height: 1000px !important;
   width: 100%;
   padding-top: 8px;
   padding-bottom: 0;
@@ -9943,7 +9943,7 @@ input.ng-invalid, input.ng-dirty {
     vertical-align: top;
     margin-top: -8px; }
 
-.platform-webview.platform-ios.platform-cordova .header-custom {
+.platform-webview.platform-ios.platform-cordova .custom-header {
   margin-top: 63px; }
 
 .custom-header-margin {
@@ -9953,12 +9953,6 @@ input.ng-invalid, input.ng-dirty {
 .custom-body {
   height: 1000px;
   background-color: #F6F6F6; }
-
-.container-body {
-  margin-top: 10px; }
-
-.company-logo img {
-  margin: 50px; }
 
 .container-default {
   padding: 10px; }
@@ -10003,8 +9997,10 @@ input.ng-invalid, input.ng-dirty {
     top: 5px;
     font-weight: 400; }
 
-.bar.bar-header {
-  height: 55px !important; }
-  .bar.bar-header .title {
-    font-weight: 400;
-    top: 5px; }
+.company-logo img {
+  margin: 50px; }
+
+.company-logo-menu {
+  padding: 15px; }
+  .company-logo-menu img {
+    width: 150px; }
