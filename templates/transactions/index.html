@@ -17,18 +17,21 @@
     <div class="list-default">
         <div class="block">
             <div ng-repeat="item in items">
-                <div class="item item-avatar item-icon-left">
+                <div class="item item-avatar item-icon-left no-padding">
                     <i class="icon ion-ios-circle-outline"></i>
 
-                    <div class="align-left">
-                        <h2>{{ item.description }}</h2>
-                        <h4>{{ item.note }}</h4>
+                    <div class="row default-top">
+                        <div class="col col-50 align-left">
+                            <h2>{{ item.description }}</h2>
+                            <h4>{{ item.note }}</h4>
+                        </div>
+
+                        <div class="col align-right">
+                            <h3>{{ item.currency.symbol }} {{ item.amount }}</h3>
+                            <h5>{{ item.created | date:'d MMM yyyy' }} | {{ item.status }}</h5>
+                        </div>
                     </div>
 
-                    <div class="align-right">
-                        <h3 class="align-right">{{ item.currency.symbol }} {{ item.amount }}</h3><br>
-                        <h5 class="align-right">{{ item.created | date:'d MMM yyyy' }} | {{ item.status }}</h5>
-                    </div>
                 </div>
             </div>
         </div>

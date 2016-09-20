@@ -4,19 +4,23 @@
         <div class="list-default">
             <div class="block">
                 <div ng-repeat="item in items">
-                    <a ui-sref="app.withdraw_to_bank_account({account: item.code})">
-                        <div class="item item-avatar item-icon-left">
+                    <div ui-sref="app.withdraw_to_bank_account({account: item.code})">
+                        <div class="item item-avatar item-icon-left no-padding">
                             <i class="icon ion-ios-circle-outline"></i>
-                            <div class="align-left">
-                                {{ item.bank_name }}
-                                <p>{{ item.number }}</p>
+
+                            <div class="row default-top">
+                                <div class="col col-50 align-left">
+                                    {{ item.bank_name }}
+                                    <p>{{ item.number }}</p>
+                                </div>
                             </div>
+
                         </div>
-                    </a>
+                    </div>
                 </div>
-                <a class="item" ui-sref="app.add_bank_account">
+                <div class="item" ui-sref="app.add_bank_account">
                     Add another bank account
-                </a>
+                </div>
             </div>
         </div>
     </ion-content>

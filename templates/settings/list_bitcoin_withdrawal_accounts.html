@@ -4,7 +4,7 @@
         <div class="list-default">
             <div class="block">
                 <div ng-repeat="item in items">
-                    <a ui-sref="app.edit_bitcoin_withdrawal_account({accId: item.id})">
+                    <div ui-sref="app.edit_bitcoin_withdrawal_account({accId: item.id})">
                         <div class="item item-avatar item-icon-left">
                             <i class="icon ion-ios-circle-outline"></i>
 
@@ -12,11 +12,11 @@
                                 {{ item.address }}
                             </div>
                         </div>
-                    </a>
+                    </div>
                 </div>
-                <a class="item" ui-sref="app.add_bitcoin_withdrawal_account">
+                <div class="item" ui-sref="app.add_bitcoin_withdrawal_account">
                     Add another bitcoin address
-                </a>
+                </div>
             </div>
         </div>
     </ion-content>
