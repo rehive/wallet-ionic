@@ -69,7 +69,7 @@ angular.module('generic-client.controllers.send', [])
             $scope.note = ''
         }
 
-        $scope.submit = function (amount, note, to) {
+        $scope.submit = function (amount, note, to, currency) {
             $ionicLoading.show({
                 template: 'Sending...'
             });
@@ -81,7 +81,7 @@ angular.module('generic-client.controllers.send', [])
                         amount: amount,
                         note: note,
                         to: to,
-                        currency: $scope.currency.code
+                        currency: currency
                     });
                 } else {
                     $ionicLoading.hide();

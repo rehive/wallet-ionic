@@ -9870,14 +9870,13 @@ a.button {
   margin-bottom: 5px !important;
   margin-top: 0 !important; }
   .list-default .withdraw-top {
-    padding-top: 11px; }
+    padding-top: 18px; }
   .list-default .default-top {
     padding-top: 12px; }
   .list-default .no-padding {
     padding-top: 1px;
-    padding-bottom: 1px; }
-  .list-default .button {
-    margin: 2px; }
+    padding-bottom: 1px;
+    padding-right: 2px; }
   .list-default .block:nth-child(odd) .item {
     background: #F6F6F6; }
   .list-default .block .item .icon {

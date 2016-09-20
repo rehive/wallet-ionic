@@ -1,4 +1,4 @@
-<ion--view view-title="Select Address">
+<ion-view view-title="Select Address">
     <ion-content class="container-body">
         <ion-refresher pulling-text="pull to refresh" on-refresh="refreshData()"></ion-refresher>
         <div class="list-default">
@@ -9,7 +9,7 @@
                             <i class="icon ion-ios-circle-outline"></i>
 
                             <div class="row withdraw-top">
-                                <div class="col col-50 align-left single-top">
+                                <div class="col col-50 align-left">
                                     {{ item.address.length > 30 ? item.address.slice(0, 10) + '...' + item.address.slice(item.address.length - 5, item.address.length) : item.address }}
                                 </div>
                             </div>
@@ -23,4 +23,4 @@
         </div>
     </ion-content>
     <ion-infinite-scroll on-infinite="loadMore()" distance="5%"></ion-infinite-scroll>
-</ion--view>
+</ion-view>
