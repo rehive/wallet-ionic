@@ -9736,7 +9736,8 @@ a.button {
   float: left; }
 
 .align-right {
-  float: right; }
+  float: right;
+  text-align: right; }
 
 .no-margin {
   margin: 0; }
@@ -9868,12 +9869,19 @@ a.button {
 .list-default {
   margin-bottom: 5px !important;
   margin-top: 0 !important; }
+  .list-default .withdraw-top {
+    padding-top: 11px; }
+  .list-default .default-top {
+    padding-top: 12px; }
+  .list-default .no-padding {
+    padding-top: 1px;
+    padding-bottom: 1px; }
+  .list-default .button {
+    margin: 2px; }
   .list-default .block:nth-child(odd) .item {
     background: #F6F6F6; }
   .list-default .block .item .icon {
-    font-size: 45px;
-    padding-left: 3px;
-    padding-right: 3px; }
+    font-size: 45px; }
   .list-default .block .item .align-right {
     padding-top: 0; }
   .list-default .block .item h2 {
@@ -9893,6 +9901,9 @@ a.button {
     font-size: 11px;
     font-weight: 400;
     color: #777777; }
+
+.item-avatar {
+  padding-left: 50px; }
 
 .form-error {
   padding: 6px 0 6px 0px;

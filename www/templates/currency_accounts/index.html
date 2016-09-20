@@ -4,23 +4,26 @@
         <div class="list-default">
             <div class="block">
                 <div ng-repeat="item in items">
-                    <div class="item item-avatar item-icon-left">
+                    <div class="item item-avatar item-icon-left no-padding">
                         <i class="icon ion-ios-circle-outline"></i>
 
-                        <div class="align-left">
-                            <h3>{{ item.currency.code }}</h3>
+                        <div class="row default-top">
+                            <div class="col col-50 align-left">
+                                <h2>{{ item.currency.code }}</h2>
 
-                            <p>{{ item.currency.symbol }} {{ item.balance }}</p>
-                        </div>
+                                <p>{{ item.currency.symbol }} {{ item.balance }}</p>
+                            </div>
 
-                        <div class="align-right">
-                            <button class="button" ng-if="item.status=='inactive'" keyboard-attach
-                                    ng-click="setToken(item.account.reference, item.currency.code)" linked="clickMe">
-                                Activate
-                            </button>
-                            <button class="button button-balanced" ng-if="item.status=='active'" disabled>
-                                Active
-                            </button>
+                            <div class="col align-right">
+                                <button class="button" ng-if="item.status=='inactive'" keyboard-attach
+                                        ng-click="setToken(item.account.reference, item.currency.code)"
+                                        linked="clickMe">
+                                    Activate
+                                </button>
+                                <button class="button button-balanced" ng-if="item.status=='active'" disabled>
+                                    Active
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>

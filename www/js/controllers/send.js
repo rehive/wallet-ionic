@@ -101,4 +101,5 @@ angular.module('generic-client.controllers.send', [])
         $scope.amount = $stateParams.amount;
         $scope.note = $stateParams.note;
         $scope.to = $stateParams.to;
+        $scope.currency = $stateParams.currency;
     });
