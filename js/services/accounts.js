@@ -8,7 +8,7 @@ angular.module('generic-client.services.accounts', [])
             request: function (config) {
                 var token = Auth.getToken();
 
-                if (token && config.url.indexOf(API) === 0 && token) {
+                if (token && config.url.indexOf(API) === 0) {
                     config.headers.Authorization = 'JWT ' + token;
                 }
 
@@ -18,7 +18,8 @@ angular.module('generic-client.services.accounts', [])
             // If a token was sent back, save it
             response: function (res) {
                 if (res.data) {
-                    if (res.config.url.indexOf(API) === 0 && res.data.token) {
+                    if (res.data.token && res.config.url.indexOf(API) === 0 &&
+                        typeof res.data.token != 'undefined') {
                         Auth.saveToken(res.data.token);
                         Auth.saveUser(res.data.user);
                     }
@@ -59,7 +60,14 @@ angular.module('generic-client.services.accounts', [])
         };
 
         self.getToken = function () {
-            return $window.localStorage.getItem('jwtToken');
+            var token = $window.localStorage.getItem('jwtToken');
+
+            // Check that not an undefined var and not an undefined string
+            if (typeof token != 'undefined' && token !== "undefined") {
+                return token;
+            }
+
+            return null;
         };
 
         self.getUser = function () {
@@ -98,8 +106,10 @@ angular.module('generic-client.services.accounts', [])
                 password1: password1,
                 password2: password2
             }).then(function (res) {
-                Auth.saveToken(res.data.token);
-                Auth.saveUser(res.data.user);
+                if (typeof res.data.token != 'undefined') {
+                    Auth.saveToken(res.data.token);
+                    Auth.saveUser(res.data.user);
+                }
                 return res;
             });
         };
