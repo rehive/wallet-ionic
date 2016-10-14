@@ -449,7 +449,6 @@ angular.module('generic-client', ['ionic',
                     }
                 },
                 params: {
-                    type: null,
                     file: null
                 }
             })

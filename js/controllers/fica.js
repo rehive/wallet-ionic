@@ -38,10 +38,12 @@ angular.module('generic-client.controllers.fica', [])
         };
     })
 
-    .controller('FicaCameraUploadCtrl', function ($scope, Upload) {
+    .controller('FicaCameraUploadCtrl', function ($scope, Upload, Auth) {
         'use strict';
-
         $scope.submit = function () {
+            console.log('uploading');
+            //console.log($scope.form.file.$valid);
+            console.log($scope.file);
             if ($scope.form.file.$valid && $scope.file) {
                 $scope.upload($scope.file);
             }
@@ -50,8 +52,9 @@ angular.module('generic-client.controllers.fica', [])
         // upload on file select or drop
         $scope.upload = function (file) {
             Upload.upload({
-                url: 'upload/url',
-                data: {file: file, document_category: "", document_type: ""}
+                url: 'https://rehive.com/api/2/users/document/',
+                data: {file: file, document_category: "", document_type: ""},
+                headers: {'Authorization': 'JWT ' + Auth.getToken()}
             }).then(function (resp) {
                 console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
             }, function (resp) {
