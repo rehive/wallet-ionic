@@ -8,6 +8,8 @@ angular.module('generic-client.controllers.currency_accounts', [])
                 function (res) {
                     var items = [];
 
+                    console.log(res.data);
+
                     for (var i = 0; i < res.data.length; i++) {
                         res.data[i].balance = Conversions.from_cents(res.data[i].balance);
                         items.push(res.data[i]);
@@ -21,15 +23,12 @@ angular.module('generic-client.controllers.currency_accounts', [])
             );
         };
 
-        $scope.setToken = function (account_reference, account_currency) {
+        $scope.setToken = function (currency, account, issuer) {
             $ionicLoading.show({
                 template: 'Switching Account Token...'
             });
 
-            console.log(account_reference)
-            console.log(account_currency)
-
-            CurrencyAccounts.set(account_reference, account_currency).then(function (res) {
+            CurrencyAccounts.set(currency, account, issuer).then(function (res) {
                 if (res.status === 200) {
                     $ionicLoading.hide();
                     $scope.listData();
@@ -45,4 +44,4 @@ angular.module('generic-client.controllers.currency_accounts', [])
         };
 
         $scope.listData();
-    })
+    });
