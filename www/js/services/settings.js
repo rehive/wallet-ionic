@@ -28,7 +28,7 @@ angular.module('generic-client.services.settings', [])
         var self = this;
 
         self.list = function () {
-            return [{code:'ZA', name:"South Africa"}]
+            return [{code: 'ZA', name: "South Africa"}]
         };
     })
 
@@ -146,5 +146,22 @@ angular.module('generic-client.services.settings', [])
                 new_password1: new_password,
                 new_password2: confirm_password
             });
+        };
+    })
+
+    .service('Document', function ($http, Auth) {
+        'use strict';
+        var self = this;
+
+        self.upload = function (file, document_type, document_category) {
+
+            var options = {
+                fileKey: 'image',
+                fileName: imagePath.substr(imagePath.lastIndexOf('/') + 1),
+                chunkedMode: true,
+                mimeType: 'image/jpg',
+                headers: {'Authorization': 'JWT ' + Auth.getToken(), 'Connection': 'close'}
+            };
+
         };
     });
