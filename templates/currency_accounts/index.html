@@ -1,4 +1,4 @@
-<ion-view view-title="Accounts" ng-controller="CurrencyAccountsCtrl">
+<ion--view view-title="Accounts" ng-controller="CurrencyAccountsCtrl">
     <ion-content class="container-body">
         <ion-refresher pulling-text="pull to refresh" on-refresh="refreshData()"></ion-refresher>
         <div class="list-default">
@@ -9,14 +9,14 @@
 
                         <div class="row default-top">
                             <div class="col col-50 align-left">
-                                <h2>{{ item.currency.code }}</h2>
+                                <h2>{{ item.token.code }}</h2>
 
-                                <p>{{ item.currency.symbol }} {{ item.balance }}</p>
+                                <p>{{ item.token.currency.symbol }} {{ item.balance }}</p>
                             </div>
 
                             <div class="col align-right">
                                 <button class="button" ng-if="item.status=='inactive'" keyboard-attach
-                                        ng-click="setToken(item.account.reference, item.currency.code)"
+                                        ng-click="setToken(item.token.code, item.token.account.reference, item.token.issuer.identifier)"
                                         linked="clickMe">
                                     Activate
                                 </button>
@@ -31,4 +31,4 @@
         </div>
     </ion-content>
     <ion-infinite-scroll on-infinite="loadMore()" distance="5%"></ion-infinite-scroll>
-</ion-view>
+</ion--view>
