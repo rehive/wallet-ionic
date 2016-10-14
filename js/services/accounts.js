@@ -148,7 +148,7 @@ angular.module('generic-client.services.accounts', [])
         };
 
         self.getInfo = function () {
-        	return $http.get(API + '/accounts/users/', {});
+            return $http.get(API + '/accounts/users/', {});
         }
     })
 

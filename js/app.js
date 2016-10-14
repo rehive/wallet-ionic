@@ -2,6 +2,7 @@
 angular.module('generic-client', ['ionic',
     'intlpnIonic',
     'ngMessages',
+    'ngFileUpload',
     'generic-client.controllers',
     'generic-client.controllers.accounts',
     'generic-client.controllers.transactions',
@@ -25,8 +26,8 @@ angular.module('generic-client', ['ionic',
     'generic-client.services.currency_accounts',
     'generic-client.filters.contacts'])
 
-    //.constant('API', 'http://localhost:2468/api/1')
-    .constant('API', 'https://rehive.com/api/1')
+    .constant('API', 'http://localhost:2468/api/1')
+    //.constant('API', 'https://rehive.com/api/1')
     .constant('REFRESH_INTERVAL', 3000)
 
     .config(function ($httpProvider, $ionicConfigProvider, $compileProvider) {
