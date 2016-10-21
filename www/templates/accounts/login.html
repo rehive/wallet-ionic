@@ -8,11 +8,10 @@
             <div class="list card padding">
                 <form name="loginForm" method="post" novalidate>
                     <label class="item item-input item-stacked-label">
-                        <span class="input-label">Email</span>
-                        <input type="email" name="email" ng-model="user.email" placeholder="Email" required>
-                        <div ng-messages="loginForm.email.$error" role="alert" ng-show='loginForm.$submitted || loginForm.email.$dirty'>
-                            <div ng-message="required" class="form-error">Please enter an email address.</div>
-                            <div ng-message="email" class="form-error">Please enter a valid email address.</div>
+                        <span class="input-label">Identifier</span>
+                        <input type="text" name="identifier" ng-model="user.identifier" placeholder="Email, mobile number" required>
+                        <div ng-messages="loginForm.identifier.$error" role="alert" ng-show='loginForm.$submitted || loginForm.identifier.$dirty'>
+                            <div ng-message="required" class="form-error">Please enter an identifier.</div>
                         </div>
                     </label>
                     <label class="item item-input item-stacked-label">
