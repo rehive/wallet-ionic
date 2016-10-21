@@ -97,10 +97,11 @@ angular.module('generic-client.services.accounts', [])
         var self = this;
 
         // add authentication methods here
-        self.register = function (first_name, email, company_id, password1, password2) {
+        self.register = function (first_name, email, mobile_number, company_id, password1, password2) {
             return $http.post(API + '/auth/register/', {
                 first_name: first_name,
                 email: email,
+                mobile_number: mobile_number,
                 company_id: company_id,
                 password1: password1,
                 password2: password2
@@ -113,9 +114,9 @@ angular.module('generic-client.services.accounts', [])
             });
         };
 
-        self.login = function (email, company_id, password) {
+        self.login = function (identifier, company_id, password) {
             return $http.post(API + '/auth/login/', {
-                identifier: email,
+                identifier: identifier,
                 company_id: company_id,
                 password: password
             })
@@ -129,15 +130,15 @@ angular.module('generic-client.services.accounts', [])
         };
 
         self.partialUpdate = function (jsonUpdate) {
-            return $http.patch(API + '/user/', jsonUpdate)
+            return $http.patch(API + '/users/profile/', jsonUpdate)
         };
 
-        self.sendOtp = function () {
-            return $http.post(API + '/send_otp/', {});
-        };
+        // self.sendOtp = function () {
+        //     return $http.post(API + '/send_otp/', {});
+        // };
 
-        self.verifyMobile = function (otp) {
-            return $http.post(API + '/verify_mobile/', {
+        self.verify = function (otp) {
+            return $http.post(API + '/auth/mobile/verify/', {
                 'otp': otp
             });
         };
@@ -147,7 +148,7 @@ angular.module('generic-client.services.accounts', [])
         };
 
         self.getInfo = function () {
-            return $http.get(API + '/accounts/users/', {});
+            return $http.get(API + '/users/profile/', {});
         }
     })
 
@@ -156,6 +157,6 @@ angular.module('generic-client.services.accounts', [])
         var self = this;
 
         self.get = function () {
-            return $http.get(API + '/account/company_info/');
+            return $http.get(API + '/users/company/');
         };
     });

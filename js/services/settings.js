@@ -9,15 +9,12 @@ angular.module('generic-client.services.settings', [])
             return $http.get(API + '/users/profile/');
         };
 
-        self.create = function (first_name, last_name, email, id_number, nationality, metadata) {
-
+        self.create = function (first_name, last_name, id_number, nationality) {
             return $http.put(API + '/users/profile/', {
                 first_name: first_name,
                 last_name: last_name,
-                email: email,
                 id_number: id_number,
-                nationality: nationality,
-                metadata: metadata
+                nationality: nationality
             });
         };
     })
@@ -37,12 +34,12 @@ angular.module('generic-client.services.settings', [])
         var self = this;
 
         self.get = function () {
-            return $http.get(API + '/accounts/user_address/');
+            return $http.get(API + '/users/address/');
         };
 
         self.create = function (line_1, line_2, city, state_province, country, code) {
 
-            return $http.put(API + '/accounts/user_address/', {
+            return $http.put(API + '/users/address/', {
                 line_1: line_1,
                 line_2: line_2,
                 city: city,
@@ -100,24 +97,24 @@ angular.module('generic-client.services.settings', [])
         var self = this;
 
         self.list = function () {
-            console.log($http.get(API + '/accounts/bitcoin_withdrawal_account/'));
-            return $http.get(API + '/accounts/bitcoin_withdrawal_account/');
+            console.log($http.get(API + '/users/bank_accounts/'));
+            return $http.get(API + '/users/bank_accounts/');
         };
 
         self.get = function (accId) {
-            return $http.get(API + '/accounts/bitcoin_withdrawal_account/' + accId + '/');
+            return $http.get(API + '/users/bank_accounts/' + accId + '/');
         };
 
         self.update = function (accId, address) {
 
-            return $http.put(API + '/accounts/bitcoin_withdrawal_account/' + accId + '/', {
+            return $http.put(API + '/users/bank_accounts/' + accId + '/', {
                 address: address
             });
         };
 
         self.create = function (address) {
 
-            return $http.post(API + '/accounts/bitcoin_withdrawal_account/', {
+            return $http.post(API + '/users/bank_accounts/', {
                 address: address
             });
         };
@@ -129,7 +126,7 @@ angular.module('generic-client.services.settings', [])
         var self = this;
 
         self.get = function () {
-            return $http.get(API + '/accounts/token_info/');
+            return $http.get(API + '/accounts/currency/');
         };
 
     })
@@ -140,7 +137,7 @@ angular.module('generic-client.services.settings', [])
         var self = this;
 
         self.update = function (old_password, new_password, confirm_password) {
-            return $http.post(API + '/accounts/password/change/', {
+            return $http.post(API + '/auth/password/change/', {
                 old_password: old_password,
                 new_password1: new_password,
                 new_password2: confirm_password
