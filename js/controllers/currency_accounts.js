@@ -8,8 +8,6 @@ angular.module('generic-client.controllers.currency_accounts', [])
                 function (res) {
                     var items = [];
 
-                    console.log(res.data);
-
                     for (var i = 0; i < res.data.length; i++) {
                         res.data[i].balance = Conversions.from_cents(res.data[i].balance);
                         items.push(res.data[i]);

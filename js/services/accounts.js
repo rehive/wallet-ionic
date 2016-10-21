@@ -98,8 +98,7 @@ angular.module('generic-client.services.accounts', [])
 
         // add authentication methods here
         self.register = function (first_name, email, company_id, password1, password2) {
-            console.log(company_id)
-            return $http.post(API + '/accounts/register/', {
+            return $http.post(API + '/auth/register/', {
                 first_name: first_name,
                 email: email,
                 company_id: company_id,
@@ -115,15 +114,15 @@ angular.module('generic-client.services.accounts', [])
         };
 
         self.login = function (email, company_id, password) {
-            return $http.post(API + '/accounts/login/', {
-                email: email,
+            return $http.post(API + '/auth/login/', {
+                identifier: email,
                 company_id: company_id,
                 password: password
             })
         };
 
         self.resetPassword = function (email, company_id) {
-            return $http.post(API + '/accounts/password/reset/', {
+            return $http.post(API + '/auth/password/reset/', {
                 email: email,
                 company_id: company_id
             })
@@ -157,6 +156,6 @@ angular.module('generic-client.services.accounts', [])
         var self = this;
 
         self.get = function () {
-            return $http.get(API + '/accounts/company_info/');
+            return $http.get(API + '/account/company_info/');
         };
     });
