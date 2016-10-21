@@ -6,12 +6,12 @@ angular.module('generic-client.services.settings', [])
         var self = this;
 
         self.get = function () {
-            return $http.get(API + '/accounts/users/');
+            return $http.get(API + '/users/profile/');
         };
 
         self.create = function (first_name, last_name, email, id_number, nationality, metadata) {
 
-            return $http.put(API + '/accounts/users/', {
+            return $http.put(API + '/users/profile/', {
                 first_name: first_name,
                 last_name: last_name,
                 email: email,
@@ -58,17 +58,16 @@ angular.module('generic-client.services.settings', [])
         var self = this;
 
         self.list = function () {
-            console.log($http.get(API + '/accounts/user_bank_account/'));
-            return $http.get(API + '/accounts/user_bank_account/');
+            return $http.get(API + '/users/bank_accounts/');
         };
 
         self.get = function (accId) {
-            return $http.get(API + '/accounts/user_bank_account/' + accId + '/');
+            return $http.get(API + '/users/bank_accounts/' + accId + '/');
         };
 
         self.update = function (accId, name, number, type, bank_name, branch_code, swift, iban, bic) {
 
-            return $http.put(API + '/accounts/user_bank_account/' + accId + '/', {
+            return $http.put(API + '/users/bank_accounts/' + accId + '/', {
                 name: name,
                 number: number,
                 type: type,
@@ -82,7 +81,7 @@ angular.module('generic-client.services.settings', [])
 
         self.create = function (name, number, type, bank_name, branch_code, swift, iban, bic) {
 
-            return $http.post(API + '/accounts/user_bank_account/', {
+            return $http.post(API + '/users/bank_accounts/', {
                 name: name,
                 number: number,
                 type: type,
