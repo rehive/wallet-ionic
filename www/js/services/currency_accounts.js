@@ -18,7 +18,7 @@ angular.module('generic-client.services.currency_accounts', [])
         };
 
         self.create = function (code, issuer) {
-            return $http.post(API + '/accounts/currencies/external/add', {
+            return $http.post(API + '/accounts/currencies/external/add/', {
                 code: code,
                 issuer: issuer
             });
