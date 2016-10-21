@@ -16,6 +16,13 @@
                     </div>
                 </label>
                 <label class="item item-input item-stacked-label">
+                    <span class="input-label">Mobile</span>
+                    <input ng-model="user.mobile_number" type="text" name="mobile_number" placeholder="Mobile Number" required>
+                    <div ng-messages="signupForm.mobile_number.$error" role="alert" ng-show='signupForm.$submitted || signupForm.mobile_number.$dirty'>
+                        <div ng-message="required" class="form-error">Please enter a mobile number.</div>
+                    </div>
+                </label>
+                <label class="item item-input item-stacked-label">
                     <span class="input-label">First name</span>
                     <input ng-model="user.first_name" type="text" name="first_name" placeholder="First Name" required>
                     <div ng-messages="signupForm.first_name.$error" role="alert" ng-show='signupForm.$submitted || signupForm.first_name.$dirty'>

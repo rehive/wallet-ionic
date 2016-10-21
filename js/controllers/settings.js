@@ -26,10 +26,8 @@ angular.module('generic-client.controllers.settings', [])
                     $scope.data = {
                         "first_name": res.data.first_name,
                         "last_name": res.data.last_name,
-                        "email_address": res.data.email,
                         "id_number": res.data.id_number,
-                        "nationality": nationality,
-                        "metadata": res.data.metadata
+                        "nationality": nationality
                     };
 
                     $scope.countries = Countries.list();
@@ -58,7 +56,6 @@ angular.module('generic-client.controllers.settings', [])
 
                 PersonalDetails.create(form.first_name.$viewValue,
                     form.last_name.$viewValue,
-                    form.email_address.$viewValue,
                     form.id_number.$viewValue,
                     nationality).then(function (res) {
 
