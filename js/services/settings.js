@@ -97,29 +97,45 @@ angular.module('generic-client.services.settings', [])
         var self = this;
 
         self.list = function () {
-            console.log($http.get(API + '/users/bank_accounts/'));
-            return $http.get(API + '/users/bank_accounts/');
+            console.log($http.get(API + '/users/bitcoin_accounts/'));
+            return $http.get(API + '/users/bitcoin_accounts/');
         };
 
         self.get = function (accId) {
-            return $http.get(API + '/users/bank_accounts/' + accId + '/');
+            return $http.get(API + '/users/bitcoin_accounts/' + accId + '/');
         };
 
         self.update = function (accId, address) {
 
-            return $http.put(API + '/users/bank_accounts/' + accId + '/', {
+            return $http.put(API + '/users/bitcoin_accounts/' + accId + '/', {
                 address: address
             });
         };
 
         self.create = function (address) {
 
-            return $http.post(API + '/users/bank_accounts/', {
+            return $http.post(API + '/users/bitcoin_accounts/', {
                 address: address
             });
         };
     })
 
+
+    .service('Mobile', function ($http, API) {
+        'use strict';
+        var self = this;
+
+        self.get = function () {
+            return $http.get(API + '/users/mobiles/');
+        };
+
+        self.create = function (mobile_number) {
+            return $http.post(API + '/users/mobiles/', {
+                number: mobile_number,
+                primary: true
+            });
+        };
+    })
 
     .service('TokenInfo', function ($http, API) {
         'use strict';

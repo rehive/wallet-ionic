@@ -351,6 +351,80 @@ angular.module('generic-client.controllers.settings', [])
         $scope.listData();
     })
 
+    .controller('MobileCtrl', function ($scope, $ionicPopup, $ionicModal, $state, $ionicLoading, Mobile) {
+        'use strict';
+
+        $scope.refreshData = function () {
+            var getMobile = Mobile.get();
+
+            getMobile.success(
+                function (res) {
+                    $scope.items = res.data;
+                }
+            );
+
+            getMobile.catch(function (error) {
+
+            });
+        };
+
+        $scope.submit = function (form) {
+            $ionicLoading.show({
+                template: 'Saving number...'
+            });
+
+            if (form.$valid) {
+
+                Mobile.create(form.mobile_number.$viewValue).then(function (res) {
+
+                    if (res.status === 200) {
+                        $ionicLoading.hide();
+                    } else {
+                        $ionicLoading.hide();
+                        $ionicPopup.alert({title: "Error", template: res.message});
+                    }
+                }).catch(function (error) {
+                    $ionicPopup.alert({title: 'Authentication failed', template: error.message});
+                    $ionicLoading.hide();
+                });
+
+                $scope.refreshData();
+            }
+        };
+        $scope.refreshData();
+    })
+
+
+    .controller('VerifyMobileCtrl', function ($scope, $ionicPopup, $ionicModal, $state, $ionicLoading, User) {
+        'use strict';
+
+        console.log('Hello');
+
+
+        $scope.submit = function (form) {
+            $ionicLoading.show({
+                template: 'Verifying...'
+            });
+
+            if (form.$valid) {
+                console.log('Form submit');
+                User.verify(form.otp.$viewValue).then(function (res) {
+                    if (res.status === 200) {
+                        $ionicLoading.hide();
+                        $state.go('app.mobile_numbers', {});
+                    } else {
+                        $ionicLoading.hide();
+                        $ionicPopup.alert({title: "Error", template: res.message});
+                    }
+                }).catch(function (error) {
+                    $ionicPopup.alert({title: 'Authentication failed', template: error.message});
+                    $ionicLoading.hide();
+                });
+            }
+        };
+    })
+
+
     .controller('SecurityCtrl', function ($scope) {
         'use strict';
         $scope.data = {};
@@ -368,18 +442,18 @@ angular.module('generic-client.controllers.settings', [])
                     form.new_password.$viewValue,
                     form.confirm_password.$viewValue).then(function (res) {
 
-                    if (res.status === 200) {
+                        if (res.status === 200) {
+                            $ionicLoading.hide();
+                            $ionicPopup.alert({title: "Success", template: "Password was successfully changed."});
+                            $state.go('app.security', {});
+                        } else {
+                            $ionicLoading.hide();
+                            $ionicPopup.alert({title: "Error", template: res.data.message});
+                        }
+                    }).catch(function (error) {
+                        $ionicPopup.alert({title: 'Authentication failed', template: error.message});
                         $ionicLoading.hide();
-                        $ionicPopup.alert({title: "Password Changes", template: "Password was successfully changed."});
-                        $state.go('app.security', {});
-                    } else {
-                        $ionicLoading.hide();
-                        $ionicPopup.alert({title: "Error", template: "Invalid password."});
-                    }
-                }).catch(function (error) {
-                    $ionicPopup.alert({title: 'Authentication failed', template: error.message});
-                    $ionicLoading.hide();
-                });
+                    });
             }
         };
     })
