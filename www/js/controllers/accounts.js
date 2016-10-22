@@ -131,7 +131,7 @@ angular.module('generic-client.controllers.accounts', [])
         $scope.resetPassword = function (form) {
             if (form.$valid) {
                 $ionicLoading.show({
-                    template: 'Sending email..'
+                    template: 'Resetting...'
                 });
 
                 $scope.CloseModalForgot();

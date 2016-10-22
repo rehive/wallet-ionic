@@ -1,0 +1,30 @@
+<ion-view view-title="Verify Mobile">
+    <div ng-controller="VerifyMobileCtrl">
+
+        <ion-content class="container-body" class="container-body" class="padding">
+            <form name="verifyForm" method="post" novalidate>
+                <div class="list">
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">OTP</span>
+                        <input type="text" name="otp" ng-model="user.otp" placeholder="12345" required>
+
+                        <div ng-messages="verifyForm.otp.$error" role="alert"
+                             ng-show='verifyForm.$submitted || verifyForm.otp.$dirty'>
+                            <div ng-message="required" class="form-error">Please enter an OTP.</div>
+                        </div>
+                    </label>
+                </div>
+
+
+                <!-- Footer bar hack to get layout right -->
+                <ion-footer-bar class="high-footer bar-dark">
+                </ion-footer-bar>
+
+                <button keyboard-attach class="high-footer bar bar-footer" ng-click="submit(verifyForm)"
+                        linked="clickMe">
+                    <h1 class="title">Save</h1>
+                </button>
+            </form>
+        </ion-content>
+    </div>
+</ion-view>
