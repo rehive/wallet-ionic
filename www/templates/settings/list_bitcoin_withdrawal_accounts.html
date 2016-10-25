@@ -5,12 +5,15 @@
             <div class="block">
                 <div ng-repeat="item in items">
                     <div ui-sref="app.edit_bitcoin_withdrawal_account({accId: item.id})">
-                        <div class="item item-avatar item-icon-left">
+                        <div class="item item-avatar item-icon-left no-padding">
                             <i class="icon ion-ios-circle-outline"></i>
 
-                            <div class="align-left">
-                                {{ item.address }}
+                            <div class="row default-top">
+                                <div class="col col-50 align-left" style="padding-top: 12px;">
+                                    {{ item.address.length > 30 ? item.address.slice(0, 10) + '...' + item.address.slice(item.address.length - 5, item.address.length) : item.address }}
+                                </div>
                             </div>
+
                         </div>
                     </div>
                 </div>

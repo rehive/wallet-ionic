@@ -38,12 +38,10 @@ angular.module('generic-client.controllers.fica', [])
         };
     })
 
-    .controller('FicaCameraUploadCtrl', function ($scope, Upload, Auth) {
+    .controller('FicaCameraUploadCtrl', function ($scope, Upload, Auth, API, $ionicLoading, $ionicPopup) {
         'use strict';
         $scope.submit = function () {
-            console.log('uploading');
             //console.log($scope.form.file.$valid);
-            console.log($scope.file);
             if ($scope.form.file.$valid && $scope.file) {
                 $scope.upload($scope.file);
             }
@@ -51,18 +49,23 @@ angular.module('generic-client.controllers.fica', [])
 
         // upload on file select or drop
         $scope.upload = function (file) {
+            $ionicLoading.show({
+                template: 'Uploading...'
+            });
             Upload.upload({
-                url: 'https://rehive.com/api/2/users/document/',
+                url: API + "/users/document/",
                 data: {file: file, document_category: "", document_type: ""},
                 headers: {'Authorization': 'JWT ' + Auth.getToken()}
             }).then(function (resp) {
+                $ionicLoading.hide();
+                $ionicPopup.alert({title: "Success", template: "Upload complete."});
                 console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
             }, function (resp) {
                 console.log('Error status: ' + resp.status);
             }, function (evt) {
+                $ionicLoading.hide();
                 var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
                 console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
             });
         };
-
     });

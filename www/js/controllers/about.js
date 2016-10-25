@@ -4,7 +4,7 @@ angular.module('generic-client.controllers.about', [])
         'use strict';
         $scope.data = {};
 
-        var getCompanyDetails = CompanyDetails.get()
+        var getCompanyDetails = CompanyDetails.get();
 
         getCompanyDetails.success(
             function (res) {

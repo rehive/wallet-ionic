@@ -5,13 +5,16 @@
             <div class="block">
                 <div ng-repeat="item in items">
                     <div ui-sref="app.edit_bank_account({accId: item.id})">
-                        <div class="item item-avatar item-icon-left">
+                        <div class="item item-avatar item-icon-left no-padding">
                             <i class="icon ion-ios-circle-outline"></i>
 
-                            <div class="align-left">
-                                {{ item.bank_name }}
-                                <h4>{{ item.number }}</h4>
+                            <div class="row default-top">
+                                <div class="col col-50 align-left">
+                                    {{ item.bank_name }}
+                                    <p>{{ item.number }}</p>
+                                </div>
                             </div>
+
                         </div>
                     </div>
                 </div>

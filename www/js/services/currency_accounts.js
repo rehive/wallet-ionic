@@ -10,7 +10,7 @@ angular.module('generic-client.services.currency_accounts', [])
         };
 
         self.set = function (currency, account, issuer) {
-            return $http.post(API + '/accounts/currencies/set/', {
+            return $http.post(API + '/accounts/currency/set/', {
                 currency: currency,
                 account: account,
                 issuer: issuer
