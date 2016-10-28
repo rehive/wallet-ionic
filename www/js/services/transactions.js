@@ -52,7 +52,7 @@ angular.module('generic-client.services.transactions', [])
         var self = this;
 
         self.get = function () {
-            return $http.get(API + '/transactions/deposit_details/');
+            return $http.get(API + '/accounts/deposits/bank/');
         };
     })
 

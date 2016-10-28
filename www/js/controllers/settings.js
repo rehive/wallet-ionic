@@ -26,10 +26,8 @@ angular.module('generic-client.controllers.settings', [])
                     $scope.data = {
                         "first_name": res.data.first_name,
                         "last_name": res.data.last_name,
-                        "email_address": res.data.email,
                         "id_number": res.data.id_number,
-                        "nationality": nationality,
-                        "metadata": res.data.metadata
+                        "nationality": nationality
                     };
 
                     $scope.countries = Countries.list();
@@ -58,7 +56,6 @@ angular.module('generic-client.controllers.settings', [])
 
                 PersonalDetails.create(form.first_name.$viewValue,
                     form.last_name.$viewValue,
-                    form.email_address.$viewValue,
                     form.id_number.$viewValue,
                     nationality).then(function (res) {
 
@@ -354,6 +351,76 @@ angular.module('generic-client.controllers.settings', [])
         $scope.listData();
     })
 
+    .controller('MobileCtrl', function ($scope, $ionicPopup, $ionicModal, $state, $ionicLoading, Mobile) {
+        'use strict';
+
+        $scope.refreshData = function () {
+            var getMobile = Mobile.get();
+
+            getMobile.success(
+                function (res) {
+                    $scope.items = res.data;
+                }
+            );
+
+            getMobile.catch(function (error) {
+
+            });
+        };
+
+        $scope.submit = function (form) {
+            $ionicLoading.show({
+                template: 'Saving number...'
+            });
+
+            if (form.$valid) {
+
+                Mobile.create(form.mobile_number.$viewValue).then(function (res) {
+
+                    if (res.status === 200) {
+                        $ionicLoading.hide();
+                    } else {
+                        $ionicLoading.hide();
+                        $ionicPopup.alert({title: "Error", template: res.message});
+                    }
+                }).catch(function (error) {
+                    $ionicPopup.alert({title: 'Authentication failed', template: error.message});
+                    $ionicLoading.hide();
+                });
+
+                $scope.refreshData();
+            }
+        };
+        $scope.refreshData();
+    })
+
+
+    .controller('VerifyMobileCtrl', function ($scope, $ionicPopup, $ionicModal, $state, $ionicLoading, User) {
+        'use strict';
+
+        $scope.submit = function (form) {
+            $ionicLoading.show({
+                template: 'Verifying...'
+            });
+
+            if (form.$valid) {
+                User.verify(form.otp.$viewValue).then(function (res) {
+                    if (res.status === 200) {
+                        $ionicLoading.hide();
+                        $state.go('app.mobile_numbers', {});
+                    } else {
+                        $ionicLoading.hide();
+                        $ionicPopup.alert({title: "Error", template: res.message});
+                    }
+                }).catch(function (error) {
+                    $ionicPopup.alert({title: 'Authentication failed', template: error.message});
+                    $ionicLoading.hide();
+                });
+            }
+        };
+    })
+
+
     .controller('SecurityCtrl', function ($scope) {
         'use strict';
         $scope.data = {};
@@ -371,18 +438,18 @@ angular.module('generic-client.controllers.settings', [])
                     form.new_password.$viewValue,
                     form.confirm_password.$viewValue).then(function (res) {
 
-                    if (res.status === 200) {
+                        if (res.status === 200) {
+                            $ionicLoading.hide();
+                            $ionicPopup.alert({title: "Success", template: "Password was successfully changed."});
+                            $state.go('app.security', {});
+                        } else {
+                            $ionicLoading.hide();
+                            $ionicPopup.alert({title: "Error", template: res.data.message});
+                        }
+                    }).catch(function (error) {
+                        $ionicPopup.alert({title: 'Authentication failed', template: error.message});
                         $ionicLoading.hide();
-                        $ionicPopup.alert({title: "Password Changes", template: "Password was successfully changed."});
-                        $state.go('app.security', {});
-                    } else {
-                        $ionicLoading.hide();
-                        $ionicPopup.alert({title: "Error", template: "Invalid password."});
-                    }
-                }).catch(function (error) {
-                    $ionicPopup.alert({title: 'Authentication failed', template: error.message});
-                    $ionicLoading.hide();
-                });
+                    });
             }
         };
     })

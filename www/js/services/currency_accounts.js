@@ -6,11 +6,11 @@ angular.module('generic-client.services.currency_accounts', [])
         var self = this;
 
         self.list = function () {
-            return $http.get(API + '/accounts/tokens/');
+            return $http.get(API + '/accounts/currencies/');
         };
 
         self.set = function (currency, account, issuer) {
-            return $http.post(API + '/accounts/tokens/set/', {
+            return $http.post(API + '/accounts/currency/set/', {
                 currency: currency,
                 account: account,
                 issuer: issuer
@@ -18,7 +18,7 @@ angular.module('generic-client.services.currency_accounts', [])
         };
 
         self.create = function (code, issuer) {
-            return $http.post(API + '/accounts/currencies/external/add', {
+            return $http.post(API + '/accounts/currencies/external/add/', {
                 code: code,
                 issuer: issuer
             });

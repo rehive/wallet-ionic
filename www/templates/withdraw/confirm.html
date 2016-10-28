@@ -1,9 +1,17 @@
 <ion-view view-title="">
     <div class="custom-header">
         <div class="col text-center">
-            <h2>You are about to withdraw {{ currency.symbol }} {{ amount }}.</h2>
+            <h2>You are about to withdraw {{ currency.symbol }} {{ amount }}.
+            </h2>
         </div>
     </div>
+
+    <ion-content class="custom-header-margin">
+        <div class="custom-body">
+            <div class="container-note text-center" ng-if="">
+            </div>
+        </div>
+    </ion-content>
 
     <div class="row">
         <a class="col col-50 bar bar-footer high-footer cancel" menu-close href="#/app/dashboard">

@@ -26,8 +26,10 @@ angular.module('generic-client', ['ionic',
     'generic-client.services.currency_accounts',
     'generic-client.filters.contacts'])
 
-    //.constant('API', 'http://localhost:2468/api/1')
-    .constant('API', 'https://rehive.com/api/1')
+    .constant('API', 'http://localhost:2468/api/2')
+    //.constant('API', 'https://rehive.com/api/2')
+    //.constant('API', 'https://staging.rehive.com/api/2')
+
     .constant('REFRESH_INTERVAL', 3000)
 
     .config(function ($httpProvider, $ionicConfigProvider, $compileProvider) {
@@ -508,7 +510,7 @@ angular.module('generic-client', ['ionic',
                 },
                 params: {
                     first_name: null,
-                    last_name: null,
+                    last_name: null
                 }
             })
 
@@ -522,19 +524,6 @@ angular.module('generic-client', ['ionic',
                 },
                 params: {
                     email_address: null
-                }
-            })
-
-            .state('app.mobile_number', {
-                url: '/mobile_number',
-                views: {
-                    'menuContent': {
-                        templateUrl: 'templates/settings/mobile_number.html',
-                        controller: 'MobileNumberCtrl'
-                    }
-                },
-                params: {
-                    mobile_number: null
                 }
             })
 
@@ -611,6 +600,25 @@ angular.module('generic-client', ['ionic',
                 }
             })
 
+            .state('app.add_mobile', {
+                url: '/add_mobile',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/settings/add_mobile.html',
+                        controller: 'MobileCtrl'
+                    }
+                }
+            })
+
+            .state('app.verify_mobile', {
+                url: '/verify_mobile',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/settings/verify_mobile.html',
+                        controller: 'VerifyMobileCtrl'
+                    }
+                }
+            })
 
             .state('app.security', {
                 url: '/security',

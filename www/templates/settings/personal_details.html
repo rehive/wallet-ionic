@@ -7,7 +7,6 @@
                         <span class="input-label">First name</span>
                         <input ng-model="data.first_name" name="first_name" type="text" placeholder="Your name"
                                value="{{ data.first_name }}">
-
                     </label>
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">Last name</span>
@@ -15,13 +14,8 @@
                                value="{{ data.last_name }}">
                     </label>
                     <label class="item item-input item-stacked-label">
-                        <span class="input-label">Email</span>
-                        <input ng-model="data.email_address" name="email_address" type="text" placeholder="Your email"
-                               value="{{ data.email_address }}">
-                    </label>
-                    <label class="item item-input item-stacked-label">
                         <span class="input-label">Identity Number</span>
-                        <input ng-model="data.id_number" name="id_number" type="text" placeholder="Your nationality"
+                        <input ng-model="data.id_number" name="id_number" type="text" placeholder="Your ID number"
                                value="{{ data.id_number }}">
                     </label>
                     <label class="item item-input item-select">
@@ -31,7 +25,6 @@
                             <option ng-repeat="country in countries">{{ country.name }}</option>
                         </select>
                     </label>
-                    <input ng-model="data.metadata" name="metadata" type="text" hidden value="{{ data.metadata }}">
                 </div>
             </ion-content>
 
