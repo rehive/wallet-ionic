@@ -398,16 +398,12 @@ angular.module('generic-client.controllers.settings', [])
     .controller('VerifyMobileCtrl', function ($scope, $ionicPopup, $ionicModal, $state, $ionicLoading, User) {
         'use strict';
 
-        console.log('Hello');
-
-
         $scope.submit = function (form) {
             $ionicLoading.show({
                 template: 'Verifying...'
             });
 
             if (form.$valid) {
-                console.log('Form submit');
                 User.verify(form.otp.$viewValue).then(function (res) {
                     if (res.status === 200) {
                         $ionicLoading.hide();
