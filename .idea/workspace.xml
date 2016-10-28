@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="afbd21e6-7fa8-4a23-8ed8-faafd4ada2f5" name="Default" comment="">
 <<<<<<< HEAD
 =======
@@ -8,6 +9,24 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controllers/settings.js" afterPath="$PROJECT_DIR$/www/js/controllers/settings.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/settings/verify_mobile.html" afterPath="$PROJECT_DIR$/www/templates/settings/verify_mobile.html" />
 >>>>>>> link-api-1
+=======
+    <list default="true" id="afbd21e6-7fa8-4a23-8ed8-faafd4ada2f5" name="Default" comment="Merge branch 'master' into link-api-1&#10;&#10;* master:&#10;  Fixed URL for verifications&#10;  Converted to v2 endpoints, added OTP verification after registration&#10;&#10;# Conflicts:&#10;#&#9;www/js/app.js&#10;#&#9;www/js/services/accounts.js&#10;#&#9;www/js/services/currency_accounts.js&#10;#&#9;www/js/services/settings.js&#10;">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/templates/settings/add_mobile.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/templates/settings/verify_mobile.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/templates/settings/mobile_number.html" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controllers/about.js" afterPath="$PROJECT_DIR$/www/js/controllers/about.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controllers/accounts.js" afterPath="$PROJECT_DIR$/www/js/controllers/accounts.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/app.js" afterPath="$PROJECT_DIR$/www/js/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/fica/camera_upload.html" afterPath="$PROJECT_DIR$/www/templates/fica/camera_upload.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/withdraw/confirm.html" afterPath="$PROJECT_DIR$/www/templates/withdraw/confirm.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controllers/fica.js" afterPath="$PROJECT_DIR$/www/js/controllers/fica.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/settings/index.html" afterPath="$PROJECT_DIR$/www/templates/settings/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/settings/list_bitcoin_withdrawal_accounts.html" afterPath="$PROJECT_DIR$/www/templates/settings/list_bitcoin_withdrawal_accounts.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/settings/personal_details.html" afterPath="$PROJECT_DIR$/www/templates/settings/personal_details.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controllers/settings.js" afterPath="$PROJECT_DIR$/www/js/controllers/settings.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/services/settings.js" afterPath="$PROJECT_DIR$/www/js/services/settings.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/withdraw/to_bitcoin_account.html" afterPath="$PROJECT_DIR$/www/templates/withdraw/to_bitcoin_account.html" />
+>>>>>>> ac6aebc51623e1c765537e1e86afd01f7082e444
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="generic-client.iws" />
@@ -30,8 +49,11 @@
   </component>
   <component name="FileEditorManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <leaf />
 =======
+=======
+>>>>>>> ac6aebc51623e1c765537e1e86afd01f7082e444
     <leaf>
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/js/app.js">
@@ -109,7 +131,10 @@
         </entry>
       </file>
     </leaf>
+<<<<<<< HEAD
 >>>>>>> link-api-1
+=======
+>>>>>>> ac6aebc51623e1c765537e1e86afd01f7082e444
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -188,9 +213,8 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="873" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -215,11 +239,15 @@
       <sortByType />
     </navigator>
     <panes>
+<<<<<<< HEAD
       <pane id="Scratches" />
 <<<<<<< HEAD
 =======
       <pane id="Scope" />
 >>>>>>> link-api-1
+=======
+      <pane id="Scope" />
+>>>>>>> ac6aebc51623e1c765537e1e86afd01f7082e444
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -239,10 +267,13 @@
             </PATH_ELEMENT>
           </PATH>
 <<<<<<< HEAD
+<<<<<<< HEAD
         </subPane>
       </pane>
       <pane id="Scope" />
 =======
+=======
+>>>>>>> ac6aebc51623e1c765537e1e86afd01f7082e444
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="wallet-ionic" />
@@ -299,7 +330,11 @@
           </PATH>
         </subPane>
       </pane>
+<<<<<<< HEAD
 >>>>>>> link-api-1
+=======
+      <pane id="Scratches" />
+>>>>>>> ac6aebc51623e1c765537e1e86afd01f7082e444
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -594,6 +629,7 @@
   </component>
   <component name="ToolWindowManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <frame x="0" y="23" width="1440" height="873" extended-state="0" />
     <editor active="false" />
     <layout>
@@ -605,15 +641,25 @@
     <layout>
       <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.49565217" sideWeight="0.48352435" order="7" side_tool="false" content_ui="tabs" />
 >>>>>>> link-api-1
+=======
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5771144" sideWeight="0.48352435" order="7" side_tool="false" content_ui="tabs" />
+>>>>>>> ac6aebc51623e1c765537e1e86afd01f7082e444
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2299427" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
 =======
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24426934" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
 >>>>>>> link-api-1
+=======
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24068768" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+>>>>>>> ac6aebc51623e1c765537e1e86afd01f7082e444
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980132" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24635762" sideWeight="0.5164756" order="8" side_tool="true" content_ui="tabs" />
@@ -623,6 +669,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.49426934" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -646,9 +693,9 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19842407" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980132" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980132" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980132" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -955,6 +1002,7 @@
     <entry file="file://$PROJECT_DIR$/www/templates/transactions/index.html">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.0">
           <caret line="164" column="0" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
           <folding>
@@ -964,11 +1012,17 @@
         <state vertical-scroll-proportion="-7.5">
           <caret line="12" column="29" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="29" />
 >>>>>>> link-api-1
+=======
+        <state vertical-scroll-proportion="-7.5">
+          <caret line="12" column="29" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="29" />
+          <folding />
+>>>>>>> ac6aebc51623e1c765537e1e86afd01f7082e444
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/withdraw/to_bitcoin_account.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
 <<<<<<< HEAD
         <state vertical-scroll-proportion="0.0">
           <caret line="36" column="25" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
@@ -976,6 +1030,11 @@
         <state vertical-scroll-proportion="-1.875">
           <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="4" selection-end-column="31" />
 >>>>>>> link-api-1
+=======
+        <state vertical-scroll-proportion="-1.875">
+          <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="4" selection-end-column="31" />
+          <folding />
+>>>>>>> ac6aebc51623e1c765537e1e86afd01f7082e444
         </state>
       </provider>
     </entry>
@@ -994,8 +1053,11 @@
       </provider>
     </entry>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/www/js/controllers/send.js">
 =======
+=======
+>>>>>>> ac6aebc51623e1c765537e1e86afd01f7082e444
     <entry file="file://$PROJECT_DIR$/www/templates/settings/list_bitcoin_withdrawal_accounts.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4177215">
@@ -1004,7 +1066,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/controllers/accounts.js">
+<<<<<<< HEAD
 >>>>>>> link-api-1
+=======
+>>>>>>> ac6aebc51623e1c765537e1e86afd01f7082e444
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="2.8614008">
           <caret line="128" column="10" selection-start-line="109" selection-start-column="8" selection-end-line="128" selection-end-column="10" />
@@ -1021,12 +1086,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.0">
 <<<<<<< HEAD
           <caret line="33" column="12" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
 =======
           <caret line="514" column="14" selection-start-line="514" selection-start-column="14" selection-end-line="514" selection-end-column="14" />
 >>>>>>> link-api-1
+=======
+        <state vertical-scroll-proportion="44.107143">
+          <caret line="514" column="14" selection-start-line="514" selection-start-column="14" selection-end-line="514" selection-end-column="14" />
+>>>>>>> ac6aebc51623e1c765537e1e86afd01f7082e444
           <folding />
         </state>
       </provider>
@@ -1036,7 +1106,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="137" column="6" selection-start-line="137" selection-start-column="6" selection-end-line="137" selection-end-column="6" />
           <folding>
-            <element signature="n#!!doc" expanded="false" />
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1051,12 +1121,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/controllers/settings.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.0">
 <<<<<<< HEAD
           <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
 =======
           <caret line="405" column="30" selection-start-line="405" selection-start-column="30" selection-end-line="405" selection-end-column="30" />
 >>>>>>> link-api-1
+=======
+        <state vertical-scroll-proportion="-15.0">
+          <caret line="139" column="19" selection-start-line="139" selection-start-column="13" selection-end-line="139" selection-end-column="19" />
+>>>>>>> ac6aebc51623e1c765537e1e86afd01f7082e444
           <folding />
         </state>
       </provider>
@@ -1075,6 +1150,7 @@
     <entry file="file://$PROJECT_DIR$/www/templates/settings/verify_mobile.html">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.6504065">
           <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
           <folding />
@@ -1089,6 +1165,10 @@
         <state vertical-scroll-proportion="0.8073654">
           <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
 >>>>>>> link-api-1
+=======
+        <state vertical-scroll-proportion="1.0530035">
+          <caret line="415" column="40" selection-start-line="415" selection-start-column="40" selection-end-line="415" selection-end-column="40" />
+>>>>>>> ac6aebc51623e1c765537e1e86afd01f7082e444
           <folding />
         </state>
       </provider>

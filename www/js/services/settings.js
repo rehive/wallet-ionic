@@ -161,6 +161,27 @@ angular.module('generic-client.services.settings', [])
         };
     })
 
+    .service('Notification', function ($http, API) {
+        'use strict';
+        var self = this;
+
+        self.list = function () {
+            return $http.get(API + '/users/notifications/');
+        };
+
+        self.set = function (notification, email_enabled, sms_enabled) {
+
+            console.log(email_enabled)
+            console.log(sms_enabled)
+
+            return $http.put(API + '/users/notifications/'+ notification + '/', {
+                email_enabled: email_enabled,
+                sms_enabled: sms_enabled
+            });
+        };
+
+    })
+
     .service('Document', function ($http, Auth) {
         'use strict';
         var self = this;

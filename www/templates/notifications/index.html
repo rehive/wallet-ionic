@@ -1,28 +1,46 @@
-<ion-view view-title="Notifications">
+<ion--view view-title="Notifications" ng-controller="NotificationsCtrl">
+    <ion-content class="container-body">
+        <ion-refresher pulling-text="pull to refresh" on-refresh="refreshData()"></ion-refresher>
+        <div class="list-default">
+            <div class="block">
+                <div ng-repeat="notification in notifications">
+                    <div class="item item-avatar item-icon-left no-padding">
+                        <i class="icon ion-share"></i>
 
-    <ion-content class="container-body" class="dashboard">
+                        <div class="row default-top">
+                            <div class="col col-50 align-left">
+                                <h2>{{ notification.description }}</h2>
+                            </div>
 
-        <ion-refresher pulling-text="pull to refresh" on-refresh="listRefresh()"></ion-refresher>
-
-        <div class="custom-body">
-            <div class="list-default">
-                <div class="block">
-                    <div ng-repeat="notification in notifications">
-                        <div class="item item-avatar item-icon-left no-padding">
-                            <i class="icon ion-ios-circle-outline"></i>
-
-                            <div class="row default-top">
-                                <div class="col col-50 align-left">
-                                    <h2><b>{{ notification.title }}</b> from <i>{{ notification.from }}</i></h2>
-                                    <h4>{{ notification.notification }}</h4>
-                                </div>
+                            <div class="col align-right">
+                                <button class="button" ng-if="notification.email_enabled== true" keyboard-attach
+                                        ng-click="update(notification.id, false, notification.sms_enabled)"
+                                        linked="clickMe">
+                                    Email
+                                </button>
+                                <button class="button button-light" ng-if="notification.email_enabled== false" keyboard-attach
+                                        ng-click="update(notification.id, true, notification.sms_enabled)"
+                                        linked="clickMe">
+                                    Email
+                                </button>
+                            </div>
+                            <div class="col align-right">
+                                <button class="button" ng-if="notification.sms_enabled== true" keyboard-attach
+                                        ng-click="update(notification.id, notification.email_enabled, false)"
+                                        linked="clickMe">
+                                    SMS
+                                </button>
+                                <button class="button button-light" ng-if="notification.sms_enabled== false" keyboard-attach
+                                        ng-click="update(notification.id, notification.email_enabled, true)"
+                                        linked="clickMe">
+                                    SMS
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </ion-content>
-
-</ion-view>
+    <ion-infinite-scroll on-infinite="loadMore()" distance="5%"></ion-infinite-scroll>
+</ion--view>
