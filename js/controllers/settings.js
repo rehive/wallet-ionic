@@ -76,28 +76,6 @@ angular.module('generic-client.controllers.settings', [])
         $scope.refreshData();
     })
 
-    .controller('MobileNumberCtrl', function ($scope, $state) {
-        'use strict';
-        $scope.data = {"mobile_number": "+27842490903"};
-
-        $scope.submit = function (mobile_number) {
-            $state.go('app.profile', {
-                mobile_number: $scope.data.mobile_number
-            });
-        };
-    })
-
-    .controller('EmailAddressCtrl', function ($scope, $state) {
-        'use strict';
-        $scope.data = {"email_address": "helghardt@gmail.com"};
-
-        $scope.submit = function (email_address) {
-            $state.go('app.profile', {
-                email_address: $scope.data.email_address
-            });
-        };
-    })
-
     .controller('AddressCtrl', function ($scope, $ionicPopup, $ionicModal, $state, $ionicLoading, Address) {
         'use strict';
 
@@ -351,49 +329,203 @@ angular.module('generic-client.controllers.settings', [])
         $scope.listData();
     })
 
-    .controller('MobileCtrl', function ($scope, $ionicPopup, $ionicModal, $state, $ionicLoading, Mobile) {
+    .controller('EmailCtrl', function ($scope, $ionicPopup, $ionicModal, $state, $ionicLoading, Email, CompanyDetails) {
         'use strict';
 
-        $scope.refreshData = function () {
-            var getMobile = Mobile.get();
-
-            getMobile.success(
+        $scope.list = function () {
+            Email.list().success(
                 function (res) {
-                    $scope.items = res.data;
+                    $scope.emails = res.data;
                 }
             );
-
-            getMobile.catch(function (error) {
-
-            });
         };
 
-        $scope.submit = function (form) {
+        $scope.create = function (form) {
             $ionicLoading.show({
-                template: 'Saving number...'
+                template: 'Adding...'
             });
 
             if (form.$valid) {
-
-                Mobile.create(form.mobile_number.$viewValue).then(function (res) {
-
-                    if (res.status === 200) {
+                Email.create(form.email_address.$viewValue, false).then(function (res) {
+                    if (res.status === 201) {
                         $ionicLoading.hide();
+                        $ionicPopup.alert({title: "Verification sent", template: "A verification email has been sent, please check your email inbox."});
+                        $scope.list();
                     } else {
                         $ionicLoading.hide();
-                        $ionicPopup.alert({title: "Error", template: res.message});
+                        $ionicPopup.alert({title: "Error", template: res.data.message});
                     }
                 }).catch(function (error) {
                     $ionicPopup.alert({title: 'Authentication failed', template: error.message});
                     $ionicLoading.hide();
                 });
-
-                $scope.refreshData();
             }
         };
-        $scope.refreshData();
+
+        $scope.update = function (email_id, primary) {
+            $ionicLoading.show({
+                template: 'Updating...'
+            });
+
+            Email.update(email_id, primary).then(function (res) {
+                if (res.status === 200) {
+                    $ionicLoading.hide();
+                    $scope.list();
+                } else {
+                    $ionicLoading.hide();
+                    $ionicPopup.alert({title: "Error", template: res.data.message});
+                }
+            }).catch(function (error) {
+                $ionicPopup.alert({title: 'Authentication failed', template: error.message});
+                $ionicLoading.hide();
+            });
+        };
+
+        $scope.delete = function (email_id) {
+            $ionicLoading.show({
+                template: 'Updating...'
+            });
+
+            Email.delete(email_id).then(function (res) {
+                if (res.status === 200) {
+                    $ionicLoading.hide();
+                    $scope.list();
+                } else {
+                    $ionicLoading.hide();
+                    $ionicPopup.alert({title: "Error", template: res.data.message});
+                }
+            }).catch(function (error) {
+                $ionicPopup.alert({title: 'Authentication failed', template: error.message});
+                $ionicLoading.hide();
+            });
+        };
+
+        $scope.resendVerification = function (email_address) {
+            $ionicLoading.show({
+                template: 'Sending...'
+            });
+
+            CompanyDetails.get().then(function (res) {
+                Email.resendVerification(email_address, res.data.data.identifier).then(function (res) {
+                    if (res.status === 200) {
+                        $ionicLoading.hide();
+                        $ionicPopup.alert({title: "Verification sent", template: "A verification email has been sent, please check your email inbox."});
+                        $scope.list();
+                    } else {
+                        $ionicLoading.hide();
+                        $ionicPopup.alert({title: "Error", template: res.data.message});
+                    }
+                }).catch(function (error) {
+                    $ionicPopup.alert({title: 'Authentication failed', template: error.message});
+                    $ionicLoading.hide();
+                });
+            }).catch(function (error) {
+                $ionicPopup.alert({title: 'Authentication failed', template: error.message});
+                $ionicLoading.hide();
+            });
+        };
+
+        $scope.list();
     })
 
+    .controller('MobileCtrl', function ($scope, $ionicPopup, $ionicModal, $state, $ionicLoading, Mobile, CompanyDetails) {
+        'use strict';
+
+        $scope.list = function () {
+            Mobile.list().success(
+                function (res) {
+                    $scope.mobiles = res.data;
+                }
+            );
+        };
+
+        $scope.create = function (form) {
+            $ionicLoading.show({
+                template: 'Adding...'
+            });
+
+            if (form.$valid) {
+                Mobile.create(form.mobile_number.$viewValue, false).then(function (res) {
+                    if (res.status === 201) {
+                        $ionicLoading.hide();
+                        $state.go('app.verify_mobile', {});
+                    } else {
+                        $ionicLoading.hide();
+                        $ionicPopup.alert({title: "Error", template: res.data.message});
+                    }
+                }).catch(function (error) {
+                    $ionicPopup.alert({title: 'Authentication failed', template: error.message});
+                    $ionicLoading.hide();
+                });
+            }
+        };
+
+        $scope.update = function (mobile_id, primary) {
+            $ionicLoading.show({
+                template: 'Updating...'
+            });
+
+            Mobile.update(mobile_id, primary).then(function (res) {
+                if (res.status === 200) {
+                    $ionicLoading.hide();
+                    $scope.list();
+                } else {
+                    $ionicLoading.hide();
+                    $ionicPopup.alert({title: "Error", template: res.data.message});
+                }
+            }).catch(function (error) {
+                $ionicPopup.alert({title: 'Authentication failed', template: error.message});
+                $ionicLoading.hide();
+            });
+        };
+
+        $scope.delete = function (mobile_id) {
+            $ionicLoading.show({
+                template: 'Updating...'
+            });
+
+            Mobile.delete(mobile_id).then(function (res) {
+                if (res.status === 200) {
+                    $ionicLoading.hide();
+                    $scope.list();
+                } else {
+                    $ionicLoading.hide();
+                    $ionicPopup.alert({title: "Error", template: res.data.message});
+                }
+            }).catch(function (error) {
+                $ionicPopup.alert({title: 'Authentication failed', template: error.message});
+                $ionicLoading.hide();
+            });
+        };
+
+        $scope.resendVerification = function (mobile_number) {
+            $ionicLoading.show({
+                template: 'Sending...'
+            });
+
+            CompanyDetails.get().then(function (res) {
+                 Mobile.resendVerification(mobile_number, res.data.data.identifier).then(function (res) {
+                    if (res.status === 200) {
+                        $ionicLoading.hide();
+                        $state.go('app.verify_mobile', {});
+                    } else {
+                        $ionicLoading.hide();
+                        $ionicPopup.alert({title: "Error", template: res.data.message});
+                    }
+                }).catch(function (error) {
+                    $ionicPopup.alert({title: 'Authentication failed', template: error.message});
+                    $ionicLoading.hide();
+                });
+            }).catch(function (error) {
+                $ionicPopup.alert({title: 'Authentication failed', template: error.message});
+                $ionicLoading.hide();
+            });
+
+
+        };
+
+        $scope.list();
+    })
 
     .controller('VerifyMobileCtrl', function ($scope, $ionicPopup, $ionicModal, $state, $ionicLoading, User) {
         'use strict';
@@ -407,10 +539,10 @@ angular.module('generic-client.controllers.settings', [])
                 User.verify(form.otp.$viewValue).then(function (res) {
                     if (res.status === 200) {
                         $ionicLoading.hide();
-                        $state.go('app.mobile_numbers', {});
+                        $state.go('app.mobiles', {});
                     } else {
                         $ionicLoading.hide();
-                        $ionicPopup.alert({title: "Error", template: res.message});
+                        $ionicPopup.alert({title: "Error", template: res.data.message});
                     }
                 }).catch(function (error) {
                     $ionicPopup.alert({title: 'Authentication failed', template: error.message});
@@ -419,7 +551,6 @@ angular.module('generic-client.controllers.settings', [])
             }
         };
     })
-
 
     .controller('SecurityCtrl', function ($scope) {
         'use strict';

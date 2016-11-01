@@ -1,0 +1,63 @@
+<ion-view view-title="Email addresses">
+    <div ng-controller="EmailCtrl">
+        <form name="EmailForm" method="post" novalidate>
+            <ion-content class="container-body">
+                <div class="list-default">
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Add email</span>
+                        <input ng-model="data.email_address" name="email_address" type="text"
+                               placeholder="e.g. test@zapgo.co"
+                               value="{{ data.email_address }}">
+                    </label>
+
+                    <div class="block">
+                        <div ng-repeat="email in emails">
+                            <div ng-if="email">
+                                <div class="item item-avatar item-icon-left no-padding">
+                                    <i class="icon ion-ios-circle-outline"></i>
+
+                                    <div class="row default-top">
+                                        <div class="col col-50 align-left" style="padding-top: 12px;">
+                                            {{email.email}}
+                                            <div ng-if="email.verified">
+                                                <p>Verified</p>
+                                            </div>
+                                        </div>
+                                        <div class="col col-50 align-right">
+                                            <button class="button" ng-if="email.verified == false" keyboard-attach
+                                                    ng-click="resendVerification(email.email)"
+                                                    linked="clickMe">
+                                                Verify
+                                            </button>
+                                            <button class="button" ng-if="email.primary == false" keyboard-attach
+                                                    ng-click="update(email.id, true)"
+                                                    linked="clickMe">
+                                                Make Primary
+                                            </button>
+                                            <button class="button button-assertive" ng-if="email.primary == false" keyboard-attach
+                                                    ng-click="delete(email.id)"
+                                                    linked="clickMe">
+                                                <i class="icon ion-trash-a"></i>
+                                            </button>
+                                            <button class="button button-balanced" disabled ng-if="email.primary == true">
+                                                Primary
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ion-content>
+
+            <!-- Footer bar hack to get layout right -->
+            <ion-footer-bar class="high-footer bar-dark">
+            </ion-footer-bar>
+
+            <button keyboard-attach class="high-footer bar bar-footer" ng-click="create(EmailForm)" linked="clickMe">
+                <h1 class="title">Save</h1>
+            </button>
+        </form>
+    </div>
+</ion-view>

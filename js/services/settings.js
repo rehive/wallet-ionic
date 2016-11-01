@@ -120,19 +120,68 @@ angular.module('generic-client.services.settings', [])
         };
     })
 
+    .service('Email', function ($http, API) {
+        'use strict';
+        var self = this;
+
+        self.list = function () {
+            return $http.get(API + '/users/emails/');
+        };
+
+        self.create = function (email_address, primary) {
+            return $http.post(API + '/users/emails/', {
+                email: email_address,
+                primary: primary
+            });
+        };
+
+        self.update = function (email_id, primary) {
+            return $http.patch(API + '/users/emails/'+ email_id + '/', {
+                primary: primary
+            })
+        };
+
+        self.delete = function (email_id) {
+            return $http.delete(API + '/users/emails/'+ email_id + '/');
+        };
+
+        self.resendVerification = function (email_address, company_id) {
+            return $http.post(API + '/auth/email/verify/resend/', {
+                identifier: email_address,
+                company_id: company_id
+            });
+        };
+    })
 
     .service('Mobile', function ($http, API) {
         'use strict';
         var self = this;
 
-        self.get = function () {
+        self.list = function () {
             return $http.get(API + '/users/mobiles/');
         };
 
-        self.create = function (mobile_number) {
+        self.create = function (mobile_number, primary) {
             return $http.post(API + '/users/mobiles/', {
                 number: mobile_number,
-                primary: true
+                primary: primary
+            });
+        };
+
+        self.update = function (mobile_id, primary) {
+            return $http.patch(API + '/users/mobiles/'+ mobile_id + '/', {
+                primary: primary
+            })
+        };
+
+        self.delete = function (mobile_id) {
+            return $http.delete(API + '/users/mobiles/'+ mobile_id + '/');
+        };
+
+        self.resendVerification = function (mobile_number, company_id) {
+            return $http.post(API + '/auth/mobile/verify/resend/', {
+                identifier: mobile_number,
+                company_id: company_id
             });
         };
     })
@@ -146,7 +195,6 @@ angular.module('generic-client.services.settings', [])
         };
 
     })
-
 
     .service('Password', function ($http, API) {
         'use strict';

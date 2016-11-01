@@ -1,0 +1,63 @@
+<ion-view view-title="Mobile numbers">
+    <div ng-controller="MobileCtrl">
+        <form name="MobileForm" method="post" novalidate>
+            <ion-content class="container-body">
+                <div class="list-default">
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Add mobile</span>
+                        <input ng-model="data.mobile_number" name="mobile_number" type="text"
+                               placeholder="e.g. +16509882744"
+                               value="{{ data.mobile_number }}">
+                    </label>
+
+                    <div class="block">
+                        <div ng-repeat="mobile in mobiles">
+                            <div ng-if="mobile">
+                                <div class="item item-avatar item-icon-left no-padding">
+                                    <i class="icon ion-ios-circle-outline"></i>
+
+                                    <div class="row default-top">
+                                        <div class="col col-50 align-left" style="padding-top: 12px;">
+                                            {{mobile.number}}
+                                            <div ng-if="mobile.verified">
+                                                <p>Verified</p>
+                                            </div>
+                                        </div>
+                                        <div class="col col-50 align-right">
+                                            <button class="button" ng-if="mobile.verified == false" keyboard-attach
+                                                    ng-click="resendVerification(mobile.number)"
+                                                    linked="clickMe">
+                                                Verify
+                                            </button>
+                                            <button class="button" ng-if="mobile.primary == false" keyboard-attach
+                                                    ng-click="update(mobile.id, true)"
+                                                    linked="clickMe">
+                                                Make Primary
+                                            </button>
+                                            <button class="button button-assertive" ng-if="mobile.primary == false" keyboard-attach
+                                                    ng-click="delete(mobile.id)"
+                                                    linked="clickMe">
+                                                <i class="icon ion-trash-a"></i>
+                                            </button>
+                                            <button class="button button-balanced" disabled ng-if="mobile.primary == true">
+                                                Primary
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ion-content>
+
+            <!-- Footer bar hack to get layout right -->
+            <ion-footer-bar class="high-footer bar-dark">
+            </ion-footer-bar>
+
+            <button keyboard-attach class="high-footer bar bar-footer" ng-click="create(MobileForm)" linked="clickMe">
+                <h1 class="title">Save</h1>
+            </button>
+        </form>
+    </div>
+</ion-view>

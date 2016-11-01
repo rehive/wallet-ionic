@@ -10,16 +10,7 @@ angular.module('generic-client.controllers.notifications', [])
         $scope.list = function () {
             Notification.list().success(
                 function (res) {
-                    // var items = [];
-
-                    // for (var i = 0; i < res.data.length; i++) {
-                    //     items.push(res.data[i]);
-                    //     console.log(res.data[i])
-                    // }
-
                     $scope.notifications = res.data;
-                    // $window.localStorage.setItem('myBitcoinWithdrawalAccounts', JSON.stringify(items));
-                    // $scope.$broadcast('scroll.refreshComplete');
                 }
             );
         };
