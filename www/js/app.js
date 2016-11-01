@@ -514,16 +514,39 @@ angular.module('generic-client', ['ionic',
                 }
             })
 
-            .state('app.email_address', {
-                url: '/email_address',
+            .state('app.emails', {
+                url: '/emails',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/settings/email_address.html',
-                        controller: 'EmailAddressCtrl'
+                        templateUrl: 'templates/settings/emails.html',
+                        controller: 'EmailCtrl'
                     }
                 },
                 params: {
                     email_address: null
+                }
+            })
+
+            .state('app.mobiles', {
+                url: '/mobiles',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/settings/mobiles.html',
+                        controller: 'MobileCtrl'
+                    }
+                },
+                params: {
+                    mobile_number: null
+                }
+            })
+
+            .state('app.verify_mobile', {
+                url: '/verify_mobile',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/settings/verify_mobile.html',
+                        controller: 'VerifyMobileCtrl'
+                    }
                 }
             })
 
@@ -596,26 +619,6 @@ angular.module('generic-client', ['ionic',
                     'menuContent': {
                         templateUrl: 'templates/settings/add_bitcoin_withdrawal_account.html',
                         controller: 'BitcoinWithdrawalAccountCtrl'
-                    }
-                }
-            })
-
-            .state('app.add_mobile', {
-                url: '/add_mobile',
-                views: {
-                    'menuContent': {
-                        templateUrl: 'templates/settings/add_mobile.html',
-                        controller: 'MobileCtrl'
-                    }
-                }
-            })
-
-            .state('app.verify_mobile', {
-                url: '/verify_mobile',
-                views: {
-                    'menuContent': {
-                        templateUrl: 'templates/settings/verify_mobile.html',
-                        controller: 'VerifyMobileCtrl'
                     }
                 }
             })
