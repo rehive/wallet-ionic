@@ -55,9 +55,7 @@ angular.module('generic-client.controllers.fica', [])
             Upload.upload({
                 url: API + "/users/document/",
                 data: {file: file, document_category: "", document_type: ""},
-                headers: {'Authorization': 'JWT ' + Auth.getToken()},
-                fileName: 'image.jpeg',
-                fileFormDataName: 'image'
+                headers: {'Authorization': 'JWT ' + Auth.getToken()}
             }).then(function (resp) {
                 $ionicLoading.hide();
                 $ionicPopup.alert({title: "Success", template: "Upload complete."});
