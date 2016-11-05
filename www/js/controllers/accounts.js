@@ -27,32 +27,32 @@ angular.module('generic-client.controllers.accounts', [])
 
         $scope.ShowModalSignup = function (){
             $scope.ModalSignup.show()
-        }
+        };
 
         $scope.ShowModalForgot = function (){
             $scope.ModalForgot.show()
-        }
+        };
 
         $scope.ShowModalVerify = function (){
             $scope.ModalVerify.show()
-        }
+        };
 
         $scope.CloseModalSignup = function (){
             $scope.ModalSignup.hide()
-        }
+        };
 
         $scope.CloseModalForgot = function (){
             $scope.ModalForgot.hide()
-        }
+        };
 
         $scope.CloseModalVerify = function (){
             $scope.ModalVerify.hide()
-        }
+        };
 
         $scope.cancelVerify = function (){
             $scope.CloseModalVerify();
             $state.go('app.home');
-        }
+        };
 
         $scope.registerUser = function (form) {
             if (form.$valid) {
