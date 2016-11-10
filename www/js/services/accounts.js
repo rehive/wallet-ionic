@@ -122,9 +122,9 @@ angular.module('generic-client.services.accounts', [])
             })
         };
 
-        self.resetPassword = function (email, company_id) {
+        self.resetPassword = function (identifier, company_id) {
             return $http.post(API + '/auth/password/reset/', {
-                email: email,
+                identifier: identifier,
                 company_id: company_id
             })
         };
