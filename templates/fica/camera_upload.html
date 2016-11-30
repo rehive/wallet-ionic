@@ -5,9 +5,15 @@
     <div class="row">
       <div class="col col-100">
 
-        <button class="button button-block" ngf-select="upload($file)" ngf-max-size="5MB">
+        <!-- Main upload button -->
+        <button class="button button-block" ng-click="getFile()">
           Upload or Take a Picture
         </button>
+        <!-- Hidden button for PC uploads -->
+        <button id="upload" class="hide button button-block" ngf-select="upload($file)" ngf-max-size="10MB">
+          Upload File
+        </button>
+
         <!--Select and then upload version:-->
         <!--<form ng-controller="FicaCameraUploadCtrl" name="form">
             Single Image with validations
@@ -19,7 +25,6 @@
 
       </div>
     </div>
-
 
   </ion-content>
 
