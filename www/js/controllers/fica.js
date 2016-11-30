@@ -40,33 +40,40 @@ angular.module('generic-client.controllers.fica', [])
 
     .controller('FicaCameraUploadCtrl', function ($scope, Upload, Auth, API, $ionicLoading, $ionicPopup) {
         'use strict';
-        $scope.submit = function () {
-            //console.log($scope.form.file.$valid);
-            if ($scope.form.file.$valid && $scope.file) {
-                $scope.upload($scope.file);
+
+        $scope.getFile = function () {
+            'use strict';
+            if (ionic.Platform.isIOS()) {
+                document.addEventListener("deviceready", function () {
+                    // Do iOS image/camera transfer
+                }, false);
+            } else if (ionic.Platform.isAndroid()) {
+                document.addEventListener("deviceready", function () {
+                    // Do Android image/camera transfer
+                }, false);
+            } else {
+                document.getElementById('upload').click();
             }
         };
 
-        // upload on file select or drop
+
+        // PC upload
         $scope.upload = function (file) {
-            $ionicLoading.show({
-                template: 'Uploading...'
-            });
             Upload.upload({
                 url: API + "/users/document/",
                 data: {file: file, document_category: "", document_type: ""},
                 headers: {'Authorization': 'JWT ' + Auth.getToken()}
-            }).then(function (resp) {
+            }).then(function (res) {
                 $ionicLoading.hide();
                 $ionicPopup.alert({title: "Success", template: "Upload complete."});
-                console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
-            }, function (resp) {
-                console.log('Error status: ' + resp.status);
-            }, function (evt) {
+            }, function (res) {
                 $ionicLoading.hide();
+                $ionicPopup.alert({title: "Success", template: res.status});
+            }, function (evt) {
+                $ionicLoading.show({
+                    template: 'Uploading...'
+                });
                 var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-                console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
             });
         };
-
     });
