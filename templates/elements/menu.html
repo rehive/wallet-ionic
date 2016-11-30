@@ -18,6 +18,13 @@
 
     <ion-side-menu side="left" class="app-side-menu">
         <ion-content class="container-body">
+            <div class="row app-side-menu-profile center">
+                <div class="col col-80">
+                    <div class="row center">
+                        <img class="circle-base profile-image" ng-src="{{ user.profile || 'img/profile.png' }}"/>
+                    </div>
+                </div>
+            </div>
             <ion-list class="app-side-menu-list">
                 <ion-item menu-close ui-sref="app.home">
                     Home

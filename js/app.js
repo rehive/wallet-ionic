@@ -3,6 +3,7 @@ angular.module('generic-client', ['ionic',
     'intlpnIonic',
     'ngMessages',
     'ngFileUpload',
+    'ngCordova',
     'generic-client.controllers',
     'generic-client.controllers.accounts',
     'generic-client.controllers.transactions',
@@ -26,8 +27,8 @@ angular.module('generic-client', ['ionic',
     'generic-client.services.currency_accounts',
     'generic-client.filters.contacts'])
 
-    .constant('API', 'http://localhost:8080/api/2')
-    //.constant('API', 'https://rehive.com/api/2')
+    //.constant('API', 'http://localhost:8080/api/2')
+    .constant('API', 'https://rehive.com/api/2')
     //.constant('API', 'https://staging.rehive.com/api/2')
 
     .constant('REFRESH_INTERVAL', 3000)
@@ -42,7 +43,7 @@ angular.module('generic-client', ['ionic',
         $httpProvider.interceptors.push('authInterceptor');
     })
 
-    .run(function ($ionicPlatform, $rootScope, Auth, $state) {
+    .run(function ($window, $ionicPlatform, $rootScope, Auth, $state) {
         $ionicPlatform.ready(function () {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -57,6 +58,10 @@ angular.module('generic-client', ['ionic',
                 StatusBar.show();
             }
         });
+
+        if ($window.localStorage.getItem('user')) {
+            $rootScope.user = JSON.parse($window.localStorage.getItem('user'));
+        }
 
         $rootScope.logout = function () {
             Auth.logout();
@@ -496,6 +501,16 @@ angular.module('generic-client', ['ionic',
                     'menuContent': {
                         templateUrl: 'templates/settings/index.html',
                         controller: 'SettingsCtrl'
+                    }
+                }
+            })
+
+            .state('app.profile_image', {
+                url: '/profile_image',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/settings/profile_image.html',
+                        controller: 'ProfileImageCtrl'
                     }
                 }
             })

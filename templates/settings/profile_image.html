@@ -1,0 +1,27 @@
+<ion-view view-title="Profile image">
+    <div ng-controller="ProfileImageCtrl">
+        <ion-content class="container-body">
+            <center>
+                <div class="col col-40">
+                    <img class="circle-base profile-image" ng-src="{{ user.profile || 'img/profile.png' }}"/>
+                </div>
+                <!-- Main upload button -->
+                <button class="button" ng-click="getFile()">
+                  Upload or take a photo
+                </button>
+                <!-- Hidden button for PC uploads -->
+                <button id="upload" class="hide button button-block" ngf-select="upload($file, $invalidFiles)" ngf-max-size="10MB">
+                  Upload File
+                </button>
+            </center>
+        </ion-content>
+
+        <!-- Footer bar hack to get layout right -->
+        <ion-footer-bar class="high-footer bar-dark">
+        </ion-footer-bar>
+
+        <a class="high-footer bar bar-footer cancel" menu-close href="#/app/settings">
+            <h1 class="title">Cancel</h1>
+        </a>
+    </div>
+</ion-view>
