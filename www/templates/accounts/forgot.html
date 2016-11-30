@@ -8,11 +8,10 @@
         <form name="forgotForm" method="post" novalidate>
             <div class="list">
                 <label class="item item-input item-stacked-label">
-                    <span class="input-label">Email</span>
-                    <input ng-model="user.email" type="email" name="email" placeholder="Email Address" required>
-                    <div ng-messages="forgotForm.email.$error" role="alert" ng-show='forgotForm.$submitted || forgotForm.email.$dirty'>
-                        <div ng-message="required" class="form-error">Please enter an email address.</div>
-                        <div ng-message="email" class="form-error">Please enter a valid email address.</div>
+                    <span class="input-label">Identifier</span>
+                    <input ng-model="user.identifier" type="text" name="identifier" placeholder="Email, mobile number" required>
+                    <div ng-messages="forgotForm.identifier.$error" role="alert" ng-show='forgotForm.$submitted || forgotForm.identifier.$dirty'>
+                        <div ng-message="required" class="form-error">Please enter an email address or mobile number.</div>
                     </div>
                 </label>
                 <label class="item item-input item-stacked-label">

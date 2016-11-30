@@ -13,33 +13,38 @@
                     <div class="block">
                         <div ng-repeat="mobile in mobiles">
                             <div ng-if="mobile">
-                                <div class="item item-avatar item-icon-left no-padding">
-                                    <i class="icon ion-ios-circle-outline"></i>
-
+                                <div class="item no-padding-2">
                                     <div class="row default-top">
-                                        <div class="col col-50 align-left" style="padding-top: 12px;">
+                                        <div class="col align-left">
                                             {{mobile.number}}
                                             <div ng-if="mobile.verified">
                                                 <p>Verified</p>
                                             </div>
                                         </div>
-                                        <div class="col col-50 align-right">
-                                            <button class="button" ng-if="mobile.verified == false" keyboard-attach
+                                    </div>
+                                    <div class="row item-padding">
+                                        <div class="col align-left">
+                                            <button class="button button-small" ng-if="mobile.verified == false"
+                                                    keyboard-attach
                                                     ng-click="resendVerification(mobile.number)"
                                                     linked="clickMe">
                                                 Verify
                                             </button>
-                                            <button class="button" ng-if="mobile.primary == false" keyboard-attach
+                                            <button class="button button-small" ng-if="mobile.primary == false"
+                                                    keyboard-attach
                                                     ng-click="update(mobile.id, true)"
                                                     linked="clickMe">
                                                 Make Primary
                                             </button>
-                                            <button class="button button-assertive" ng-if="mobile.primary == false" keyboard-attach
+                                            <button class="button button-small button-assertive"
+                                                    ng-if="mobile.primary == false"
+                                                    keyboard-attach
                                                     ng-click="delete(mobile.id)"
                                                     linked="clickMe">
-                                                <i class="icon ion-trash-a"></i>
+                                                Delete
                                             </button>
-                                            <button class="button button-balanced" disabled ng-if="mobile.primary == true">
+                                            <button class="button button-small button-balanced" disabled
+                                                    ng-if="mobile.primary == true">
                                                 Primary
                                             </button>
                                         </div>
