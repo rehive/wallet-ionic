@@ -9851,6 +9851,9 @@ a.button {
   .app-side-menu .item {
     cursor: pointer; }
 
+.app-side-menu-profile {
+padding-top: 30px; }
+
 .app-side-menu-list {
   position: relative; }
   .app-side-menu-list .item {
@@ -10012,5 +10015,13 @@ input.ng-invalid, input.ng-dirty {
 
 .company-logo-menu {
   padding: 15px; }
-  .company-logo-menu img {
-    width: 150px; }
+
+.company-logo-menu img {
+  width: 150px; }
+
+.circle-base {
+  border-radius: 50%; }
+
+.profile-image {
+  max-width: 100%;
+max-height: 100%; }
