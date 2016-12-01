@@ -1,42 +1,47 @@
-<div ng-if="items.length == 0">
-    <div class="container-card">
-        <div class="card">
-            <div class="item item-body">
-                <h2>Welcome to Rehive</h2>
-
-                <p>Please verify your email address to redeem any unclaimed transactions. Pull to refresh your balance.
-                </p>
-            </div>
-        </div>
-    </div>
-</div>
-<div ng-if="items.length >= 0">
-
+<ion-content class="custom-header-margin">
     <ion-refresher on-refresh="refreshData()" spinner="none" on-pulling="none" pulling-icon="none"></ion-refresher>
 
-    <div class="list-default">
-        <div class="block">
-            <div ng-repeat="item in items">
-                <div class="item item-avatar item-icon-left no-padding">
-                    <i class="icon ion-ios-circle-outline"></i>
+    <div class="custom-body">
+        <div ng-if="items.length == 0">
+            <div class="container-card">
+                <div class="card">
+                    <div class="item item-body">
+                        <h2>Welcome to Rehive</h2>
 
-                    <div class="row default-top">
-                        <div class="col col-50 align-left">
-                            <h2>{{ item.description }}</h2>
-                            <h4>{{ item.note }}</h4>
-                        </div>
+                        <p>Please verify your email address to redeem any unclaimed transactions. Pull to refresh your balance.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-if="items.length >= 0">
+            <div class="list-default">
+                <div class="block">
+                    <div ng-repeat="item in items">
+                        <div class="item item-avatar item-icon-left no-padding">
+                            <i class="icon ion-ios-circle-outline"></i>
 
-                        <div class="col align-right">
-                            <h3>{{ item.currency.symbol }} {{ item.amount }}</h3>
-                            <h5>{{ item.created | date:'d MMM yyyy' }} | {{ item.status }}</h5>
+                            <div class="row default-top">
+                                <div class="col col-50 align-left">
+                                    <h2>{{ item.description }}</h2>
+                                    <h4>{{ item.note }}</h4>
+                                </div>
+
+                                <div class="col align-right">
+                                    <h3>{{ item.currency.symbol }} {{ item.amount }}</h3>
+                                    <h5>{{ item.created | date:'d MMM yyyy' }} | {{ item.status }}</h5>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
 
     <ion-infinite-scroll on-infinite="loadMore()" distance="1%"></ion-infinite-scroll>
-</div>
+</ion-content>
+
+
 
