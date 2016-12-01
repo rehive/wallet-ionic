@@ -3,15 +3,14 @@
         <ion-content class="container-body">
             <center>
                 <div class="col col-40">
-                    <img class="circle-base profile-image" ng-src="{{ user.profile || 'img/profile.png' }}"/>
+                    <div class="row center">
+                        <img class="circle-base profile-image-edit" ng-src="{{ user.profile || 'img/profile.png' }}" ng-click="getFile()"/>
+                    </div>
                 </div>
-                <!-- Main upload button -->
-                <button class="button" ng-click="getFile()">
-                  Upload or take a photo
-                </button>
                 <!-- Hidden button for PC uploads -->
-                <button id="upload" class="hide button button-block" ngf-select="upload($file, $invalidFiles)" ngf-max-size="10MB">
-                  Upload File
+                <button id="upload" class="hide button button-block" ngf-select="upload($file)"
+                        ngf-max-size="10MB">
+                    Upload File
                 </button>
             </center>
         </ion-content>

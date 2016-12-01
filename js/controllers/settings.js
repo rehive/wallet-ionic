@@ -5,13 +5,13 @@ angular.module('generic-client.controllers.settings', [])
         $scope.data = {};
     })
 
-    .controller('ProfileImageCtrl', function ($state, $rootScope, $scope, Upload, Auth, API, $ionicLoading, $ionicPopup, $cordovaFileTransfer, $cordovaCamera) {
+    .controller('ProfileImageCtrl', function ($state, $window, $rootScope, $scope, Upload, Auth, API, $ionicLoading, $ionicPopup, $cordovaFileTransfer, $cordovaCamera) {
         'use strict';
 
         $scope.getFile = function () {
             'use strict';
-            if (ionic.Platform.isIOS() || ionic.Platform.isAndroid()) {
-                document.addEventListener("deviceready", function () {
+            if (ionic.Platform.isWebView()) {
+                ionic.Platform.ready(function(){
                     var cameraOptions = {
                         quality: 75,
                         destinationType: Camera.DestinationType.DATA_URL,
@@ -25,7 +25,7 @@ angular.module('generic-client.controllers.settings', [])
                     $cordovaCamera.getPicture(cameraOptions).then(function (file) {
                         $scope.upload(file)
                     });
-                }, false);
+                });
             } else {
                 document.getElementById('upload').click();
             }
@@ -40,6 +40,7 @@ angular.module('generic-client.controllers.settings', [])
                     method: "PUT"
                 }).then(function (res) {
                     $rootScope.user.profile = res.data.data.profile;
+                    $window.localStorage.setItem('user', JSON.stringify($rootScope.user));
                     $ionicLoading.hide();
                     $ionicPopup.alert({title: "Success", template: "Upload complete."});
                 }, function (res) {
