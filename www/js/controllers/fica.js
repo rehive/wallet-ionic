@@ -43,8 +43,8 @@ angular.module('generic-client.controllers.fica', [])
 
         $scope.getFile = function () {
             'use strict';
-            if (ionic.Platform.isIOS() || ionic.Platform.isAndroid()) {
-                document.addEventListener("deviceready", function () {
+            if (ionic.Platform.isWebView()) {
+                ionic.Platform.ready(function(){
                     var cameraOptions = {
                         quality: 75,
                         destinationType: Camera.DestinationType.DATA_URL,
@@ -58,7 +58,7 @@ angular.module('generic-client.controllers.fica', [])
                     $cordovaCamera.getPicture(cameraOptions).then(function (file) {
                         $scope.upload(file)
                     });
-                }, false);
+                });
             } else {
                 document.getElementById('upload').click();
             }

@@ -64,8 +64,8 @@ angular.module('generic-client.controllers.accounts', [])
                     .then(function (res) {
                     if (res.status === 201) {
                         $ionicLoading.hide();
+                        $rootScope.user = JSON.parse($window.localStorage.getItem('user'));
 
-                        console.log(res.data)
                         // Check if a mobile number was used for registration
                         if (typeof res.data.user.mobile_number != 'undefined' &&
                             res.data.user.mobile_number != '') {
@@ -94,6 +94,7 @@ angular.module('generic-client.controllers.accounts', [])
 
                 User.login(form.identifier.$viewValue, form.company_id.$viewValue, form.password.$viewValue).then(function (res) {
                     $ionicLoading.hide();
+                    $rootScope.user = JSON.parse($window.localStorage.getItem('user'));
 
                     if (res.status === 200) {
                         $state.go('app.home');
