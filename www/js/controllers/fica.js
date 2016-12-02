@@ -60,7 +60,7 @@ angular.module('generic-client.controllers.fica', [])
                         document_type: ""
                     },
                     headers: {'Authorization': 'JWT ' + Auth.getToken()},
-                    method: "PUT"
+                    method: "POST"
                 }).then(function (res) {
                     // Set user root scope
                     $rootScope.user.profile = res.data.data.profile;
