@@ -1,0 +1,21 @@
+<ion-view view-title="Profile image">
+    <div ng-controller="ProfileImageUploadCtrl">
+        <ion-content class="container-body">
+            <div class="row row-center">
+                <div class="col col-center">
+                    <div class="crop-area">
+                        <img-crop image="image.fileData" result-image="image.croppedFileData"></img-crop>
+                    </div>
+                </div>
+            </div>
+        </ion-content>
+
+        <!-- Footer bar hack to get layout right -->
+        <ion-footer-bar class="high-footer bar-dark">
+        </ion-footer-bar>
+
+        <button keyboard-attach class="high-footer bar bar-footer" ng-click="upload()" linked="clickMe">
+            <h1 class="title">Upload</h1>
+        </button>
+    </div>
+</ion-view>

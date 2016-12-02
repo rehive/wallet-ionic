@@ -5,8 +5,69 @@ angular.module('generic-client.controllers.settings', [])
         $scope.data = {};
     })
 
-    .controller('ProfileImageCtrl', function ($state, $window, $rootScope, $scope, Upload, Auth, API, $ionicLoading, $ionicPopup, $cordovaFileTransfer, $cordovaCamera) {
+    .controller('ProfileImageUploadCtrl', function ($state, $stateParams, $window, $rootScope, $scope, Upload, Auth, API, $ionicLoading, $ionicPopup) {
         'use strict';
+
+        $scope.image = {
+           fileData: $stateParams.fileData,
+           croppedFileData: ''
+        };
+
+        $ionicLoading.hide();
+
+        $scope.upload = function () {
+            if ($scope.image.fileData) {
+                // Convert data URL to blob file
+                var file = Upload.dataUrltoBlob(($scope.image.croppedFileData || $scope.image.fileData), "file")
+
+                Upload.upload({
+                    url: API + "/users/profile/",
+                    data: {
+                        profile: file
+                    },
+                    headers: {'Authorization': 'JWT ' + Auth.getToken()},
+                    method: "PUT"
+                }).then(function (res) {
+                    // Set user root scope
+                    $rootScope.user.profile = res.data.data.profile;
+                    $window.localStorage.setItem('user', JSON.stringify($rootScope.user));
+
+                    $ionicLoading.hide();
+                    $ionicPopup.alert({title: "Success", template: "Upload complete."});
+                    $state.go('app.profile_image');
+                }, function (res) {
+                    $ionicLoading.hide();
+                    $ionicPopup.alert({title: "Error", template: "There was an error uploading the file."});
+                    $state.go('app.profile_image');
+                }, function (evt) {
+                    $ionicLoading.show({
+                        template: 'Uploading...'
+                    });
+                    var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+                });
+            }
+        };
+    })
+
+    .controller('ProfileImageCtrl', function ($state, $scope, $ionicLoading, $ionicPopup, $cordovaFileTransfer, $cordovaCamera) {
+        'use strict';
+
+        $scope.upload = function (file) {
+            if (file) {
+                $ionicLoading.show({
+                    template: 'Processing...'
+                });
+
+                // Convert to Data URL
+                var reader = new FileReader();
+                reader.onload = function (evt) {
+                    $state.go('app.profile_image_upload', {
+                        fileData: evt.target.result
+                    });
+                };
+                reader.readAsDataURL(file);
+            }
+        }
 
         $scope.getFile = function () {
             'use strict';
@@ -28,30 +89,6 @@ angular.module('generic-client.controllers.settings', [])
                 });
             } else {
                 document.getElementById('upload').click();
-            }
-        };
-
-        $scope.upload = function (file) {
-            if (file) {
-                Upload.upload({
-                    url: API + "/users/profile/",
-                    data: {profile: file},
-                    headers: {'Authorization': 'JWT ' + Auth.getToken()},
-                    method: "PUT"
-                }).then(function (res) {
-                    $rootScope.user.profile = res.data.data.profile;
-                    $window.localStorage.setItem('user', JSON.stringify($rootScope.user));
-                    $ionicLoading.hide();
-                    $ionicPopup.alert({title: "Success", template: "Upload complete."});
-                }, function (res) {
-                    $ionicLoading.hide();
-                    $ionicPopup.alert({title: "Error", template: "There was an error uploading the file."});
-                }, function (evt) {
-                    $ionicLoading.show({
-                        template: 'Uploading...'
-                    });
-                    var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-                });
             }
         };
     })
