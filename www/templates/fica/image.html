@@ -1,0 +1,27 @@
+<ion-view view-title="File Upload">
+    <div ng-controller="FicaImageCtrl">
+        <ion-content class="container-body">
+          <div class="row row-center">
+            <div class="col col-center">
+                <button class="button button-block" ng-click="getFile()">
+                  Upload or take a photo
+                </button>
+
+                <!-- Hidden button for PC uploads-->
+                <button id="upload" class="hide button button-block" ngf-select="upload($file)"
+                        ngf-max-size="10MB">
+                    Upload File
+                </button>
+            </div>
+          </div>
+        </ion-content>
+
+        <!-- Footer bar hack to get layout right -->
+        <ion-footer-bar class="high-footer bar-dark">
+        </ion-footer-bar>
+
+        <a class="high-footer bar bar-footer cancel" menu-close href="#/app/settings">
+            <h1 class="title">Cancel</h1>
+        </a>
+    </div>
+</ion-view>

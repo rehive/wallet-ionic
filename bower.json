@@ -3,6 +3,7 @@
   "private": "true",
   "devDependencies": {
     "ngCordova": "",
+    "ngImgCrop": "",
     "ionic": "driftyco/ionic-bower#1.2.4",
     "angular-messages": "^1.5.6",
     "jquery": "^2.2.4"
