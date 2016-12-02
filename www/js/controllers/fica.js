@@ -62,17 +62,13 @@ angular.module('generic-client.controllers.fica', [])
                     headers: {'Authorization': 'JWT ' + Auth.getToken()},
                     method: "POST"
                 }).then(function (res) {
-                    // Set user root scope
-                    $rootScope.user.profile = res.data.data.profile;
-                    $window.localStorage.setItem('user', JSON.stringify($rootScope.user));
-
                     $ionicLoading.hide();
                     $ionicPopup.alert({title: "Success", template: "Upload complete."});
-                    $state.go('app.profile_image');
+                    $state.go('app.fica');
                 }, function (res) {
                     $ionicLoading.hide();
                     $ionicPopup.alert({title: "Error", template: "There was an error uploading the file."});
-                    $state.go('app.profile_image');
+                    $state.go('app.fica');
                 }, function (evt) {
                     $ionicLoading.show({
                         template: 'Uploading...'
