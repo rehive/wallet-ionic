@@ -74,7 +74,7 @@ angular.module('generic-client.controllers.settings', [])
             if (ionic.Platform.isWebView()) {
                 ionic.Platform.ready(function(){
                     var cameraOptions = {
-                        quality: 100,
+                        quality: 75,
                         destinationType: Camera.DestinationType.DATA_URL,
                         sourceType: Camera.PictureSourceType.CAMERA,
                         allowEdit: true,
