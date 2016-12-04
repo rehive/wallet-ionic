@@ -288,6 +288,10 @@ $white: #FFF;
     padding-right: 2px;
   }
 
+  .no-padding-2 {
+    padding: 1px 2px 1px 0;
+  }
+
   .block {
     &:nth-child(odd) {
       .item {
@@ -334,7 +338,11 @@ $white: #FFF;
 }
 
 .item-avatar {
-  padding-left: 50px;
+  padding-left: 60px;
+}
+
+.item-profile {
+  padding-left: 0;
 }
 
 // Form error
