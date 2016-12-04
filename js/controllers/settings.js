@@ -67,7 +67,7 @@ angular.module('generic-client.controllers.settings', [])
                 };
                 reader.readAsDataURL(file);
             }
-        }
+        };
 
         $scope.getFile = function () {
             'use strict';
@@ -76,7 +76,7 @@ angular.module('generic-client.controllers.settings', [])
                     var cameraOptions = {
                         quality: 75,
                         destinationType: Camera.DestinationType.DATA_URL,
-                        sourceType: Camera.PictureSourceType.CAMERA,
+                        sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
                         allowEdit: true,
                         encodingType: Camera.EncodingType.JPEG,
                         popoverOptions: CameraPopoverOptions,
