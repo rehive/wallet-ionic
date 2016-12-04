@@ -55,7 +55,7 @@ angular.module('generic-client.controllers.fica', [])
                 Upload.upload({
                     url: API + "/users/document/",
                     data: {
-                        profile: file,
+                        file: file,
                         document_category: "",
                         document_type: ""
                     },
