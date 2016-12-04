@@ -9889,6 +9889,8 @@ a.button {
     padding-top: 1px;
     padding-bottom: 1px;
     padding-right: 2px; }
+  .list-default .no-padding-2 {
+    padding: 1px 2px 1px 0; }
   .list-default .block:nth-child(odd) .item {
     background: #F6F6F6; }
   .list-default .block .item .icon {
@@ -9914,7 +9916,10 @@ a.button {
     color: #777777; }
 
 .item-avatar {
-  padding-left: 50px; }
+  padding-left: 60px; }
+
+.item-profile {
+  padding-left: 0; }
 
 .form-error {
   padding: 6px 0 6px 0px;
