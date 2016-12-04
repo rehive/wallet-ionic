@@ -10046,5 +10046,4 @@ input.ng-invalid, input.ng-dirty {
   position: relative; }
 
 img-crop {
-  position: absolute;
-  width: 100%; }
+  position: absolute; }
