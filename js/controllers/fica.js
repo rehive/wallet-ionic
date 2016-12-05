@@ -77,7 +77,7 @@ angular.module('generic-client.controllers.fica', [])
         };
     })
 
-    .controller('FicaImageCtrl', function ($state, $scope, $ionicLoading, $ionicPopup, $cordovaFileTransfer, $cordovaCamera) {
+    .controller('FicaImageCtrl', function ($state, $scope, $ionicLoading, $ionicPopup, $cordovaFileTransfer, $cordovaCamera, $timeout) {
         'use strict';
 
         $scope.upload = function (file) {

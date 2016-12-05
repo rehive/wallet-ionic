@@ -47,7 +47,7 @@ angular.module('generic-client.controllers.settings', [])
         };
     })
 
-    .controller('ProfileImageCtrl', function ($state, $scope, $ionicLoading, $ionicPopup, $cordovaFileTransfer, $cordovaCamera) {
+    .controller('ProfileImageCtrl', function ($state, $scope, $ionicLoading, $ionicPopup, $cordovaFileTransfer, $cordovaCamera, $timeout) {
         'use strict';
 
         $scope.upload = function (file) {
