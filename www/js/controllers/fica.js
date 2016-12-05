@@ -45,35 +45,33 @@ angular.module('generic-client.controllers.fica', [])
            fileData: $stateParams.fileData,
         };
 
-        $ionicLoading.hide();
-
         $scope.upload = function () {
             if ($scope.image.fileData) {
                 // Convert data URL to blob file
-                var file = Upload.dataUrltoBlob($scope.image.fileData, "file")
-
-                Upload.upload({
-                    url: API + "/users/document/",
-                    data: {
-                        file: file,
-                        document_category: "",
-                        document_type: ""
-                    },
-                    headers: {'Authorization': 'JWT ' + Auth.getToken()},
-                    method: "POST"
-                }).then(function (res) {
-                    $ionicLoading.hide();
-                    $ionicPopup.alert({title: "Success", template: "Upload complete."});
-                    $state.go('app.fica');
-                }, function (res) {
-                    $ionicLoading.hide();
-                    $ionicPopup.alert({title: "Error", template: "There was an error uploading the file."});
-                    $state.go('app.fica');
-                }, function (evt) {
-                    $ionicLoading.show({
-                        template: 'Uploading...'
+                Promise.resolve(Upload.dataUrltoBlob($scope.image.fileData, "file")).then(function(file) {
+                    Upload.upload({
+                        url: API + "/users/document/",
+                        data: {
+                            file: file,
+                            document_category: "",
+                            document_type: ""
+                        },
+                        headers: {'Authorization': 'JWT ' + Auth.getToken()},
+                        method: "POST"
+                    }).then(function (res) {
+                        $ionicLoading.hide();
+                        $ionicPopup.alert({title: "Success", template: "Upload complete."});
+                        $state.go('app.fica');
+                    }, function (res) {
+                        $ionicLoading.hide();
+                        $ionicPopup.alert({title: "Error", template: "There was an error uploading the file."});
+                        $state.go('app.fica');
+                    }, function (evt) {
+                        $ionicLoading.show({
+                            template: 'Uploading...'
+                        });
+                        var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
                     });
-                    var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
                 });
             }
         };
@@ -90,7 +88,8 @@ angular.module('generic-client.controllers.fica', [])
 
                 // Convert to Data URL
                 var reader = new FileReader();
-                reader.onload = function (evt) {
+                reader.onloadend = function (evt) {
+                    $ionicLoading.hide();
                     $state.go('app.fica_image_upload', {
                         fileData: evt.target.result
                     });
