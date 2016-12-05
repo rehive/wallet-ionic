@@ -173,14 +173,7 @@ angular.module('generic-client.controllers.settings', [])
 
             getAddress.success(
                 function (res) {
-                    $scope.data = {
-                        "line_1": res.data.line_1,
-                        "line_2": res.data.line_2,
-                        "city": res.data.city,
-                        "state_province": res.data.state_province,
-                        "country": res.data.country,
-                        "code": res.data.postal_code
-                    };
+                    $scope.data = res.data;
                 }
             );
 
@@ -195,28 +188,26 @@ angular.module('generic-client.controllers.settings', [])
             });
 
             if (form.$valid) {
-
                 Address.create(form.line_1.$viewValue,
                     form.line_2.$viewValue,
                     form.city.$viewValue,
                     form.state_province.$viewValue,
                     form.country.$viewValue,
-                    form.code.$viewValue).then(function (res) {
+                    form.postal_code.$viewValue).then(function (res) {
 
-                        if (res.status === 200) {
-                            $ionicLoading.hide();
-                        } else {
-                            $ionicLoading.hide();
-                            $ionicPopup.alert({title: "Error", template: res.message});
-                        }
-                    }).catch(function (error) {
-                        $ionicPopup.alert({title: 'Authentication failed', template: error.message});
+                    if (res.status === 200) {
                         $ionicLoading.hide();
-                    });
-
-                $scope.refreshData();
+                    } else {
+                        $ionicLoading.hide();
+                        $ionicPopup.alert({title: "Error", template: res.message});
+                    }
+                }).catch(function (error) {
+                    $ionicPopup.alert({title: 'Authentication failed', template: error.message});
+                    $ionicLoading.hide();
+                });
             }
         };
+
         $scope.refreshData();
     })
 
