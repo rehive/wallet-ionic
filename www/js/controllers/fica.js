@@ -89,10 +89,12 @@ angular.module('generic-client.controllers.fica', [])
                 // Convert to Data URL
                 var reader = new FileReader();
                 reader.onloadend = function (evt) {
-                    $state.go('app.fica_image_upload', {
-                        fileData: evt.target.result
-                    }).then(function() {
-                        $ionicLoading.hide();
+                    $timeout(function() {
+                        $state.go('app.fica_image_upload', {
+                            fileData: evt.target.result
+                        }).then(function() {
+                            $ionicLoading.hide();
+                        });
                     });
                 };
                 reader.readAsDataURL(file);
