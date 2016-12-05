@@ -222,9 +222,27 @@ $white: #FFF;
   background-color: $sidebar;
   color: $secondary;
 
+  h1 {
+    font-size: 16px;
+    color: white;
+  }
+
   .item {
     cursor: pointer;
   }
+}
+
+.app-side-menu-profile {
+  padding-top: 20px;
+
+  h4 {
+    font-size: 12px;
+    color: white;
+  }
+}
+
+.app-side-menu-details {
+  padding: 10px 0 0 30px;
 }
 
 .app-side-menu-list {
@@ -241,7 +259,7 @@ $white: #FFF;
     a {
       color: $secondary;
       background-color: $sidebar;
-      padding: 15px;
+      padding: 12px;
 
       &.activated {
         background-color: $sidebar;
@@ -268,6 +286,10 @@ $white: #FFF;
     padding-top: 1px;
     padding-bottom: 1px;
     padding-right: 2px;
+  }
+
+  .no-padding-2 {
+    padding: 1px 2px 1px 0;
   }
 
   .block {
@@ -316,7 +338,11 @@ $white: #FFF;
 }
 
 .item-avatar {
-  padding-left: 50px;
+  padding-left: 60px;
+}
+
+.item-profile {
+  padding-left: 0;
 }
 
 // Form error
@@ -481,4 +507,31 @@ input.ng-invalid, input.ng-dirty {
   img {
     width: 150px;
   }
+}
+
+//Profile image
+.circle-base {
+  border-radius: 50%;
+}
+
+.profile-image {
+  max-width: 60px;
+  max-height: 60px;
+}
+
+.profile-image-edit {
+  max-width: 200px;
+  max-height: 200px;
+  cursor: pointer;
+}
+
+.crop-area {
+  overflow: hidden;
+  width: 100%;
+  height: 450px;
+  position: relative;
+}
+
+img-crop {
+  position: absolute;
 }
