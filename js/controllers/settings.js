@@ -13,37 +13,35 @@ angular.module('generic-client.controllers.settings', [])
            croppedFileData: ''
         };
 
-        $ionicLoading.hide();
-
         $scope.upload = function () {
             if ($scope.image.fileData) {
                 // Convert data URL to blob file
-                var file = Upload.dataUrltoBlob(($scope.image.croppedFileData || $scope.image.fileData), "file")
+                Promise.resolve(Upload.dataUrltoBlob(($scope.image.croppedFileData || $scope.image.fileData), "file")).then(function(file) {
+                    Upload.upload({
+                        url: API + "/users/profile/",
+                        data: {
+                            profile: file
+                        },
+                        headers: {'Authorization': 'JWT ' + Auth.getToken()},
+                        method: "PUT"
+                    }).then(function (res) {
+                        // Set user root scope
+                        $rootScope.user.profile = res.data.data.profile;
+                        $window.localStorage.setItem('user', JSON.stringify($rootScope.user));
 
-                Upload.upload({
-                    url: API + "/users/profile/",
-                    data: {
-                        profile: file
-                    },
-                    headers: {'Authorization': 'JWT ' + Auth.getToken()},
-                    method: "PUT"
-                }).then(function (res) {
-                    // Set user root scope
-                    $rootScope.user.profile = res.data.data.profile;
-                    $window.localStorage.setItem('user', JSON.stringify($rootScope.user));
-
-                    $ionicLoading.hide();
-                    $ionicPopup.alert({title: "Success", template: "Upload complete."});
-                    $state.go('app.profile_image');
-                }, function (res) {
-                    $ionicLoading.hide();
-                    $ionicPopup.alert({title: "Error", template: "There was an error uploading the file."});
-                    $state.go('app.profile_image');
-                }, function (evt) {
-                    $ionicLoading.show({
-                        template: 'Uploading...'
+                        $ionicLoading.hide();
+                        $ionicPopup.alert({title: "Success", template: "Upload complete."});
+                        $state.go('app.profile_image');
+                    }, function (res) {
+                        $ionicLoading.hide();
+                        $ionicPopup.alert({title: "Error", template: "There was an error uploading the file."});
+                        $state.go('app.profile_image');
+                    }, function (evt) {
+                        $ionicLoading.show({
+                            template: 'Uploading...'
+                        });
+                        var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
                     });
-                    var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
                 });
             }
         };
@@ -60,7 +58,8 @@ angular.module('generic-client.controllers.settings', [])
 
                 // Convert to Data URL
                 var reader = new FileReader();
-                reader.onload = function (evt) {
+                reader.onloadend = function (evt) {
+                    $ionicLoading.hide();
                     $state.go('app.profile_image_upload', {
                         fileData: evt.target.result
                     });
@@ -72,6 +71,9 @@ angular.module('generic-client.controllers.settings', [])
         $scope.getFile = function () {
             'use strict';
             if (ionic.Platform.isWebView()) {
+
+                console.log("In web view!")
+
                 ionic.Platform.ready(function(){
                     var cameraOptions = {
                         quality: 75,
@@ -88,6 +90,9 @@ angular.module('generic-client.controllers.settings', [])
                     });
                 });
             } else {
+
+                console.log("In everything else!")
+
                 document.getElementById('upload').click();
             }
         };
