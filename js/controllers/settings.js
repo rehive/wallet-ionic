@@ -8,11 +8,6 @@ angular.module('generic-client.controllers.settings', [])
     .controller('ProfileImageUploadCtrl', function ($state, $stateParams, $window, $rootScope, $scope, Upload, Auth, API, $ionicLoading, $ionicPopup) {
         'use strict';
 
-        $scope.image = {
-           fileData: $stateParams.fileData,
-           croppedFileData: ''
-        };
-
         $scope.upload = function () {
             if ($scope.image.fileData) {
                 // Convert data URL to blob file
@@ -35,7 +30,7 @@ angular.module('generic-client.controllers.settings', [])
                     }, function (res) {
                         $ionicLoading.hide();
                         $ionicPopup.alert({title: "Error", template: "There was an error uploading the file."});
-                        $state.go('app.profile_image');
+                        $state.go('APIp.profile_image');
                     }, function (evt) {
                         $ionicLoading.show({
                             template: 'Uploading...'
@@ -45,6 +40,21 @@ angular.module('generic-client.controllers.settings', [])
                 });
             }
         };
+
+        function getImage() {
+            return {
+               fileData: $stateParams.fileData,
+               croppedFileData: ''
+            };
+        }
+
+        Promise.resolve(getImage()).then( function(image) {
+            $scope.image = image;
+            $ionicLoading.hide();
+        }, function(err) {
+            console.log("Get image error.")
+            $ionicLoading.hide();
+        });
     })
 
     .controller('ProfileImageCtrl', function ($state, $scope, $ionicLoading, $ionicPopup, $cordovaFileTransfer, $cordovaCamera) {
@@ -59,7 +69,7 @@ angular.module('generic-client.controllers.settings', [])
                 // Convert to Data URL
                 var reader = new FileReader();
                 reader.onloadend = function (evt) {
-                    $ionicLoading.hide();
+                    console.log("happening now");
                     $state.go('app.profile_image_upload', {
                         fileData: evt.target.result
                     });
