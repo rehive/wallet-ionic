@@ -59,6 +59,7 @@ angular.module('generic-client.controllers.settings', [])
                 // Convert to Data URL
                 var reader = new FileReader();
                 reader.onloadend = function (evt) {
+                    console.log("Taking time")
                     $ionicLoading.hide();
                     $state.go('app.profile_image_upload', {
                         fileData: evt.target.result
@@ -71,9 +72,6 @@ angular.module('generic-client.controllers.settings', [])
         $scope.getFile = function () {
             'use strict';
             if (ionic.Platform.isWebView()) {
-
-                console.log("In web view!")
-
                 ionic.Platform.ready(function(){
                     var cameraOptions = {
                         quality: 75,
@@ -90,9 +88,6 @@ angular.module('generic-client.controllers.settings', [])
                     });
                 });
             } else {
-
-                console.log("In everything else!")
-
                 document.getElementById('upload').click();
             }
         };
