@@ -18,10 +18,16 @@
 
     <ion-side-menu side="left" class="app-side-menu">
         <ion-content class="container-body">
-            <div class="row app-side-menu-profile center">
-                <div class="col col-80">
-                    <div class="row center">
-                        <img class="circle-base profile-image" ng-src="{{ user.profile || 'img/profile.png' }}"/>
+            <div class="row app-side-menu-profile">
+                <div class="col-20">
+                    <div class="row">
+                        <img class="circle-base profile-image" ng-src="{{ user.profile || 'img/profile_1.png' }}"/>
+                    </div>
+                </div>
+                <div class="col-80">
+                    <div class="app-side-menu-details">
+                        <h1>{{ user.first_name }} {{ user.last_name }}</h1>
+                        <h4>{{ user.email }}</h4>
                     </div>
                 </div>
             </div>

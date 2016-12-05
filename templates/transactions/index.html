@@ -19,20 +19,20 @@
                 <div class="block">
                     <div ng-repeat="item in items">
                         <div class="item item-avatar item-icon-left no-padding">
-                            <i class="icon ion-ios-circle-outline"></i>
-
+                            <img class="circle-base profile-teller" ng-src="{{ item.counterparty.profile || 'img/profile_2.png' }}"/>
                             <div class="row default-top">
                                 <div class="col col-50 align-left">
                                     <h2>{{ item.description }}</h2>
+                                    <h5 ng-if="item.metadata.fee > 0">{{ item.currency.symbol }} {{ item.metadata.fee }} Earnings</h5>
+                                    <h5 ng-if="item.metadata.rate > 0">{{ item.metadata.from_currency }} {{ item.metadata.from_amount }} to {{ item.metadata.to_currency }} {{ item.metadata.to_amount }}</h5>
                                     <h4>{{ item.note }}</h4>
                                 </div>
-
                                 <div class="col align-right">
                                     <h3>{{ item.currency.symbol }} {{ item.amount }}</h3>
+                                    <h5 ng-if="item.fee > 0">{{ item.currency.symbol }} {{ item.fee }} Fee</h5>
                                     <h5>{{ item.created | date:'d MMM yyyy' }} | {{ item.status }}</h5>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
