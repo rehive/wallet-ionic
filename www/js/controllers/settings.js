@@ -59,7 +59,6 @@ angular.module('generic-client.controllers.settings', [])
                 // Convert to Data URL
                 var reader = new FileReader();
                 reader.onloadend = function (evt) {
-                    console.log("Taking time")
                     $ionicLoading.hide();
                     $state.go('app.profile_image_upload', {
                         fileData: evt.target.result
