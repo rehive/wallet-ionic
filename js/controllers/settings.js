@@ -13,6 +13,22 @@ angular.module('generic-client.controllers.settings', [])
            croppedFileData: ''
         };
 
+        $scope.renderBegin = function() {
+            $ionicLoading.show({
+                template: 'Rendering...'
+            });
+        };
+
+        $scope.renderDone = function() {
+            $ionicLoading.hide();
+        };
+
+        $scope.renderError = function() {
+            $ionicLoading.hide();
+            $ionicPopup.alert({title: "Error", template: "Unable to render image."});
+            $state.go('app.profile_image');
+        };
+
         $scope.upload = function () {
             if ($scope.image.fileData) {
                 // Convert data URL to blob file

@@ -4,7 +4,12 @@
             <div class="row row-center">
                 <div class="col col-center">
                     <div class="crop-area">
-                        <img-crop image="image.fileData" result-image="image.croppedFileData"></img-crop>
+                        <img-crop image="image.fileData"
+                            result-image="image.croppedFileData"
+                            on-load-begin="renderBegin()"
+                            on-load-done="renderDone()"
+                            on-load-error="renderError()">
+                        </img-crop>
                     </div>
                 </div>
             </div>
