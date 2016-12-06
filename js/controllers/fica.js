@@ -38,17 +38,17 @@ angular.module('generic-client.controllers.fica', [])
         };
     })
 
-    .controller('FicaImageUploadCtrl', function ($state, $stateParams, $window, $rootScope, $scope, Upload, Auth, API, $ionicLoading, $ionicPopup) {
+    .controller('FicaImageUploadCtrl', function ($state,  $ionicHistory, $stateParams, $window, $rootScope, $scope, Upload, Auth, API, $ionicLoading, $ionicPopup) {
         'use strict';
 
         $scope.image = {
-           fileData: $stateParams.fileData,
+            fileData: $stateParams.fileData,
         };
 
         $scope.upload = function () {
             if ($scope.image.fileData) {
                 // Convert data URL to blob file
-                Promise.resolve(Upload.dataUrltoBlob($scope.image.fileData, "file")).then(function(file) {
+                Promise.resolve(Upload.dataUrltoBlob($scope.image.fileData, "file")).then(function (file) {
                     Upload.upload({
                         url: API + "/users/document/",
                         data: {
@@ -61,6 +61,12 @@ angular.module('generic-client.controllers.fica', [])
                     }).then(function (res) {
                         $ionicLoading.hide();
                         $ionicPopup.alert({title: "Success", template: "Upload complete."});
+
+                        $ionicHistory.nextViewOptions({
+                            disableAnimate: true,
+                            disableBack: true
+                        });
+
                         $state.go('app.fica');
                     }, function (res) {
                         $ionicLoading.hide();
@@ -89,10 +95,10 @@ angular.module('generic-client.controllers.fica', [])
                 // Convert to Data URL
                 var reader = new FileReader();
                 reader.onloadend = function (evt) {
-                    $timeout(function() {
+                    $timeout(function () {
                         $state.go('app.fica_image_upload', {
                             fileData: evt.target.result
-                        }).then(function() {
+                        }).then(function () {
                             $ionicLoading.hide();
                         });
                     });
@@ -104,7 +110,7 @@ angular.module('generic-client.controllers.fica', [])
         $scope.getFile = function () {
             'use strict';
             if (ionic.Platform.isWebView()) {
-                ionic.Platform.ready(function(){
+                ionic.Platform.ready(function () {
                     var cameraOptions = {
                         quality: 75,
                         destinationType: Camera.DestinationType.DATA_URL,
