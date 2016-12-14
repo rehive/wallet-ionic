@@ -5,6 +5,8 @@
                 <div class="col col-center">
                     <div class="crop-area">
                         <img-crop image="image.fileData"
+                            on-load-done="loadDone()"
+                            on-load-error="loadError()"
                             result-image="image.croppedFileData"
                         </img-crop>
                     </div>
