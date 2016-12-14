@@ -89,6 +89,10 @@ angular.module('generic-client.services.accounts', [])
             $window.localStorage.removeItem('user');
             $window.localStorage.removeItem('myTransactions');
             $window.localStorage.removeItem('wiCode');
+
+            if (typeof window.cookies != 'undefined') {
+                window.cookies.clear();
+            }
         };
     })
 

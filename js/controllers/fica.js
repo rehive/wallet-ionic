@@ -47,8 +47,7 @@ angular.module('generic-client.controllers.fica', [])
 
         $scope.upload = function () {
             if ($scope.image.fileData) {
-                // Convert data URL to blob file
-                Promise.resolve(Upload.dataUrltoBlob($scope.image.fileData, "file")).then(function (file) {
+                Promise.resolve(Upload.dataUrltoBlob($scope.image.fileData, "file")).then(function(file) {
                     Upload.upload({
                         url: API + "/users/document/",
                         data: {
@@ -86,26 +85,24 @@ angular.module('generic-client.controllers.fica', [])
     .controller('FicaImageCtrl', function ($state, $scope, $ionicLoading, $ionicPopup, $cordovaFileTransfer, $cordovaCamera, $timeout) {
         'use strict';
 
-        $scope.upload = function (file) {
-            if (file) {
-                $ionicLoading.show({
-                    template: 'Processing...'
-                });
+        $scope.getFromFiles = function (file) {
+            $ionicLoading.show({
+                template: 'Processing...'
+            });
 
-                // Convert to Data URL
-                var reader = new FileReader();
-                reader.onloadend = function (evt) {
-                    $timeout(function () {
-                        $state.go('app.fica_image_upload', {
-                            fileData: evt.target.result
-                        }).then(function () {
-                            $ionicLoading.hide();
-                        });
+            // Convert to Data URL
+            var reader = new FileReader();
+            reader.onloadend = function (evt) {
+                $timeout(function() {
+                    $state.go('app.fica_image_upload', {
+                        fileData: evt.target.result
+                    }).then(function() {
+                        $ionicLoading.hide();
                     });
-                };
-                reader.readAsDataURL(file);
-            }
-        }
+                });
+            };
+            reader.readAsDataURL(file);
+        };
 
         $scope.getFile = function () {
             'use strict';
@@ -113,16 +110,19 @@ angular.module('generic-client.controllers.fica', [])
                 ionic.Platform.ready(function () {
                     var cameraOptions = {
                         quality: 75,
+                        allowEdit: false,
                         destinationType: Camera.DestinationType.DATA_URL,
-                        sourceType: Camera.PictureSourceType.CAMERA,
-                        allowEdit: true,
-                        encodingType: Camera.EncodingType.JPEG,
-                        popoverOptions: CameraPopoverOptions,
-                        saveToPhotoAlbum: true
+                        correctOrientation: true
                     };
 
-                    $cordovaCamera.getPicture(cameraOptions).then(function (file) {
-                        $scope.upload(file)
+                    $cordovaCamera.getPicture(cameraOptions).then(function (imageData) {
+                        var file = "data:image/jpeg;base64," + imageData.replace(/(\r\n|\n|\r)/gm, '');
+
+                        $state.go('app.fica_image_upload', {
+                            fileData: file
+                        }).then(function() {
+                            $ionicLoading.hide();
+                        });
                     });
                 });
             } else {

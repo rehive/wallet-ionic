@@ -13,6 +13,15 @@ angular.module('generic-client.controllers.settings', [])
            croppedFileData: ''
         };
 
+        $scope.loadDone = function () {
+            $ionicLoading.hide();
+        };
+
+        $scope.loadError = function () {
+            $ionicLoading.hide();
+            $ionicPopup.alert({title: "Error", template: "There was an error rendering the file."});
+        };
+
         $scope.upload = function () {
             if ($scope.image.fileData) {
                 // Convert data URL to blob file
@@ -30,7 +39,6 @@ angular.module('generic-client.controllers.settings', [])
                         $window.localStorage.setItem('user', JSON.stringify($rootScope.user));
 
                         $ionicLoading.hide();
-                        $ionicPopup.alert({title: "Success", template: "Upload complete."});
                         $state.go('app.profile_image');
                     }, function (res) {
                         $ionicLoading.hide();
@@ -50,25 +58,21 @@ angular.module('generic-client.controllers.settings', [])
     .controller('ProfileImageCtrl', function ($state, $scope, $ionicLoading, $ionicPopup, $cordovaFileTransfer, $cordovaCamera, $timeout) {
         'use strict';
 
-        $scope.upload = function (file) {
-            if (file) {
-                $ionicLoading.show({
-                    template: 'Processing...'
-                });
+        $scope.getFromFiles = function (file) {
+            $ionicLoading.show({
+                template: 'Processing...'
+            });
 
-                // Convert to Data URL
-                var reader = new FileReader();
-                reader.onloadend = function (evt) {
-                    $timeout(function() {
-                        $state.go('app.profile_image_upload', {
-                            fileData: evt.target.result
-                        }).then(function() {
-                            $ionicLoading.hide();
-                        });
+            // Convert to Data URL
+            var reader = new FileReader();
+            reader.onloadend = function (evt) {
+                $timeout(function() {
+                    $state.go('app.profile_image_upload', {
+                        fileData: evt.target.result
                     });
-                };
-                reader.readAsDataURL(file);
-            }
+                });
+            };
+            reader.readAsDataURL(file);
         };
 
         $scope.getFile = function () {
@@ -77,16 +81,17 @@ angular.module('generic-client.controllers.settings', [])
                 ionic.Platform.ready(function(){
                     var cameraOptions = {
                         quality: 75,
+                        allowEdit: false,
                         destinationType: Camera.DestinationType.DATA_URL,
-                        sourceType: Camera.PictureSourceType.CAMERA,
-                        allowEdit: true,
-                        encodingType: Camera.EncodingType.JPEG,
-                        popoverOptions: CameraPopoverOptions,
-                        saveToPhotoAlbum: true
+                        correctOrientation: true
                     };
 
-                    $cordovaCamera.getPicture(cameraOptions).then(function (file) {
-                        $scope.upload(file)
+                    $cordovaCamera.getPicture(cameraOptions).then(function (imageData) {
+                        var file = "data:image/jpeg;base64," + imageData.replace(/(\r\n|\n|\r)/gm, '');
+
+                        $state.go('app.profile_image_upload', {
+                            fileData: file
+                        });
                     });
                 });
             } else {
