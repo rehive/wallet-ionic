@@ -1457,7 +1457,10 @@ crop.factory('cropHost', ['$document', 'cropAreaCircle', 'cropAreaSquare', 'crop
           canvasDims[1]=minCanvasDims[1];
           canvasDims[0]=canvasDims[1]*imageRatio;
         }
-        elCanvas.prop('width',canvasDims[0]).prop('height',canvasDims[1]).css({'margin-left': -canvasDims[0]/2+'px', 'margin-top': -canvasDims[1]/2+'px'});
+        // Removed due to bug in iOS when portrait images are used.
+        //elCanvas.prop('width',canvasDims[0]).prop('height',canvasDims[1]).css({'margin-left': -canvasDims[0]/2+'px', 'margin-top': -canvasDims[1]/2+'px'});
+        // Replacement for portrait image fix on iOS
+        elCanvas.prop('width',canvasDims[0]*1.5).prop('height',canvasDims[1]*1.5).css({'margin-left': '0px', 'margin-top': '0px'});
 
         theArea.setX(ctx.canvas.width/2);
         theArea.setY(ctx.canvas.height/2);
@@ -1637,7 +1640,10 @@ crop.factory('cropHost', ['$document', 'cropAreaCircle', 'cropAreaSquare', 'crop
           canvasDims[1]=minCanvasDims[1];
           canvasDims[0]=canvasDims[1]*imageRatio;
         }
-        elCanvas.prop('width',canvasDims[0]).prop('height',canvasDims[1]).css({'margin-left': -canvasDims[0]/2+'px', 'margin-top': -canvasDims[1]/2+'px'});
+        // Removed due to bug in iOS when portrait images are used.
+        //elCanvas.prop('width',canvasDims[0]).prop('height',canvasDims[1]).css({'margin-left': -canvasDims[0]/2+'px', 'margin-top': -canvasDims[1]/2+'px'});
+        // Replacement for portrait image fix on iOS
+        elCanvas.prop('width',canvasDims[0]*1.5).prop('height',canvasDims[1]*1.5).css({'margin-left': '0px', 'margin-top': '0px'});
 
         var ratioNewCurWidth=ctx.canvas.width/curWidth,
             ratioNewCurHeight=ctx.canvas.height/curHeight,
