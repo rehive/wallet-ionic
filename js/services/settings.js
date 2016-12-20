@@ -9,16 +9,30 @@ angular.module('generic-client.services.settings', [])
             return $http.get(API + '/users/profile/');
         };
 
-        self.create = function (first_name, last_name, id_number, nationality) {
+        self.create = function (first_name, last_name, id_number, nationality, language) {
+            console.log(nationality);
+
             return $http.put(API + '/users/profile/', {
                 first_name: first_name,
                 last_name: last_name,
                 id_number: id_number,
-                nationality: nationality
+                nationality: nationality,
+                language: language
             });
         };
     })
 
+    .service('Languages', function () {
+        'use strict';
+        var self = this;
+
+        self.list = function () {
+            return [
+                        {code: 'en', name: "English"},
+                        {code: 'af', name: "Afrikaans"}
+                    ]
+        };
+    })
 
     .service('Countries', function () {
         'use strict';

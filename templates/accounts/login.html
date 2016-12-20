@@ -1,6 +1,6 @@
 <ion-view view-title="Login">
     <ion-header-bar class="bar bar-header">
-        <h1 class="title">Login</h1>
+        <h1 class="title" translate="LOGIN"></h1>
     </ion-header-bar>
 
     <div ng-controller="LoginCtrl" >
@@ -28,9 +28,7 @@
                             <div ng-message="required" class="form-error">Please enter a password.</div>
                         </div>
                     </label>
-                    <button ng-click="logIn(loginForm)" class="button button-block">
-                        Log In
-                    </button>
+                    <button ng-click="logIn(loginForm)" class="button button-block" translate="LOGIN"></button>
                 </form>
                 <button ng-click="ShowModalForgot()"
                         class="button button-clear button-block">
@@ -44,7 +42,6 @@
                     Create New Account
                 </button>
             </div>
-
         </ion-content>
     </div>
 </ion-view>

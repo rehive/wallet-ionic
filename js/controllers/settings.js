@@ -100,31 +100,24 @@ angular.module('generic-client.controllers.settings', [])
         };
     })
 
-    .controller('PersonalDetailsCtrl', function ($scope, $ionicPopup, $ionicModal, $state, $ionicLoading, PersonalDetails, Countries) {
+    .controller('PersonalDetailsCtrl', function ($scope, $ionicPopup, $ionicModal, $state, $ionicLoading, PersonalDetails, Countries, Languages) {
         'use strict';
+
+        $scope.countries = Countries.list();
+        $scope.languages = Languages.list();
 
         $scope.refreshData = function () {
             var getPersonalDetails = PersonalDetails.get();
 
             getPersonalDetails.success(
                 function (res) {
-
-                    var country = Countries.list();
-
-                    for (var i = 0; i < country.length; i++) {
-                        if (country[i].code == res.data.nationality) {
-                            var nationality = country[i].name;
-                        }
-                    }
-
                     $scope.data = {
                         "first_name": res.data.first_name,
                         "last_name": res.data.last_name,
                         "id_number": res.data.id_number,
-                        "nationality": nationality
+                        "nationality": res.data.nationality,
+                        "language": res.data.language
                     };
-
-                    $scope.countries = Countries.list();
                 }
             );
 
@@ -139,20 +132,11 @@ angular.module('generic-client.controllers.settings', [])
             });
 
             if (form.$valid) {
-
-                var country = Countries.list();
-
-                for (var i = 0; i < country.length; i++) {
-                    if (country[i].name == form.nationality.$viewValue) {
-                        var nationality = country[i].code;
-                    }
-                }
-
                 PersonalDetails.create(form.first_name.$viewValue,
                     form.last_name.$viewValue,
                     form.id_number.$viewValue,
-                    nationality).then(function (res) {
-
+                    form.nationality.$viewValue,
+                    form.language.$viewValue).then(function (res) {
                         if (res.status === 200) {
                             $ionicLoading.hide();
                         } else {

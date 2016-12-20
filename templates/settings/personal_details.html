@@ -21,8 +21,13 @@
                     <label class="item item-input item-select">
                         <span class="input-label">Nationality</span>
                         <select ng-model="data.nationality" name="nationality">
-                            <option selected>{{ data.nationality }}</option>
-                            <option ng-repeat="country in countries">{{ country.name }}</option>
+                            <option ng-repeat="country in countries" value="{{ country.code }}" ng-selected="country.code === data.nationality">{{ country.name }}</option>
+                        </select>
+                    </label>
+                    <label class="item item-input item-select">
+                        <span class="input-label">Language</span>
+                        <select ng-model="data.language" name="language">
+                            <option ng-repeat="language in languages" value="{{ language.code }}" ng-selected="language.code === data.language">{{ language.name }}</option>
                         </select>
                     </label>
                 </div>
