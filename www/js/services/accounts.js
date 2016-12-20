@@ -15,7 +15,7 @@ angular.module('generic-client.services.accounts', [])
                 var language = Auth.getLanguage();
 
                 if (language) {
-                    config.headers.common["Accept-Language"] = language;
+                    config.headers["Accept-Language"] = language;
                 }
 
                 return config;
@@ -28,6 +28,7 @@ angular.module('generic-client.services.accounts', [])
                         typeof res.data.token != 'undefined') {
                         Auth.saveToken(res.data.token);
                         Auth.saveUser(res.data.user);
+                        Auth.saveLanguage(res.data.user);
                     }
                 }
 
