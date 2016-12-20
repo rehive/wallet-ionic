@@ -10,8 +10,6 @@ angular.module('generic-client.services.settings', [])
         };
 
         self.create = function (first_name, last_name, id_number, nationality, language) {
-            console.log(nationality);
-
             return $http.put(API + '/users/profile/', {
                 first_name: first_name,
                 last_name: last_name,
