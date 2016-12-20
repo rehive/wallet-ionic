@@ -4,12 +4,18 @@ angular.module('generic-client.services.accounts', [])
     .factory('authInterceptor', function (API, Auth, $location) {
         'use strict';
         return {
-            // automatically attach Authorization header
+            // Automatically attach headers
             request: function (config) {
                 var token = Auth.getToken();
 
                 if (token && config.url.indexOf(API) === 0) {
                     config.headers.Authorization = 'JWT ' + token;
+                }
+
+                var language = Auth.getLanguage();
+
+                if (language) {
+                    config.headers.common["Accept-Language"] = language;
                 }
 
                 return config;
@@ -27,7 +33,7 @@ angular.module('generic-client.services.accounts', [])
 
                 return res;
             },
-            //Redirect to login if unauthorised
+            // Redirect to login if unauthorised
             responseError: function (res) {
                 if (res.status === 401 || res.status === 403) {
                     Auth.logout();
@@ -59,6 +65,10 @@ angular.module('generic-client.services.accounts', [])
             $window.localStorage.setItem('user', JSON.stringify(user));
         };
 
+        self.saveLanguage = function (user) {
+            $window.localStorage.setItem('language', user.language);
+        };
+
         self.getToken = function () {
             var token = $window.localStorage.getItem('jwtToken');
 
@@ -72,6 +82,10 @@ angular.module('generic-client.services.accounts', [])
 
         self.getUser = function () {
             return JSON.parse($window.localStorage.getItem('user'));
+        };
+
+        self.getLanguage = function () {
+            return $window.localStorage.getItem('language');
         };
 
         self.isAuthed = function () {
@@ -113,6 +127,7 @@ angular.module('generic-client.services.accounts', [])
                 if (typeof res.data.token != 'undefined') {
                     Auth.saveToken(res.data.token);
                     Auth.saveUser(res.data.user);
+                    Auth.saveLanguage(res.data.user);
                 }
                 return res;
             });
