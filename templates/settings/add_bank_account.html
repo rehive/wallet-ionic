@@ -1,48 +1,46 @@
-
-<ion-view view-title="Add Bank Account">
+<ion-view view-title="{{'ADD_BANK_ACCOUNT' | translate}}">
     <div ng-controller="BankAccountCtrl">
         <form name="BankAccountForm" method="post" novalidate>
             <ion-content class="container-body">
                 <div class="list">
                     <label class="item item-input item-stacked-label">
-                        <span class="input-label">Account holder</span>
+                        <span class="input-label" translate="ACCOUNT_HOLDER"></span>
                         <input ng-model="data.name" name="name" type="text"
-                               placeholder="What is the account holder's name?">
+                               placeholder="{{'ACCOUNT_HOLDER' | translate}}">
                     </label>
                     <label class="item item-input item-stacked-label">
-                        <span class="input-label">Account number</span>
+                        <span class="input-label" translate="ACCOUNT_NUMBER"></span>
                         <input ng-model="data.number" name="number" type="text"
-                               placeholder="What is your account number?">
+                               placeholder="{{'ACCOUNT_NUMBER' | translate}}">
                     </label>
                     <label class="item item-input item-stacked-label">
-                        <span class="input-label">Account type</span>
-                        <input ng-model="data.type" name="type" type="text" placeholder="What is the account type?">
+                        <span class="input-label" translate="ACCOUNT_TYPE"></span>
+                        <input ng-model="data.type" name="type" type="text" placeholder="{{'ACCOUNT_TYPE' | translate}}">
                     </label>
                     <label class="item item-input item-stacked-label">
-                        <span class="input-label">Bank name</span>
+                        <span class="input-label" translate="BANK_NAME"></span>
                         <input ng-model="data.bank_name" name="bank_name" type="text"
-                               placeholder="What is your bank's name?">
+                               placeholder="{{'BANK_NAME' | translate}}">
                     </label>
                     <label class="item item-input item-stacked-label">
-                        <span class="input-label">Branch code</span>
+                        <span class="input-label" translate="BRANCH_CODE"></span>
                         <input ng-model="data.branch_code" name="branch_code" type="text"
-                               placeholder="What is your bank's branch code?">
+                               placeholder="{{'BRANCH_CODE' | translate}}">
                     </label>
                     <label class="item item-input item-stacked-label">
-                        <span class="input-label">SWIFT code</span>
+                        <span class="input-label" translate="SWIFT_CODE"></span>
                         <input ng-model="data.swift" name="swift" type="text"
-                               placeholder="What is your bank's SWIFT code?">
+                               placeholder="{{'SWIFT_CODE' | translate}}">
                     </label>
                     <label class="item item-input item-stacked-label">
-                        <span class="input-label">IBAN</span>
+                        <span class="input-label" translate="IBAN_NUMBER"></span>
                         <input ng-model="data.iban" name="iban" type="text"
-                               placeholder="What is your bank's IBAN number?">
+                               placeholder="{{'IBAN_NUMBER' | translate}}">
                     </label>
                     <label class="item item-input item-stacked-label">
-                        <span class="input-label">BIC</span>
-                        <input ng-model="data.bic" name="bic" type="text" placeholder="What is your bank's BIC code?">
+                        <span class="input-label" translate="BIC_NUMBER"></span>
+                        <input ng-model="data.bic" name="bic" type="text" placeholder="{{'BIC_NUMBER' | translate}}">
                     </label>
-
                 </div>
             </ion-content>
 
@@ -52,7 +50,7 @@
 
             <button keyboard-attach class="high-footer bar bar-footer" ng-click="submit(BankAccountForm)"
                     linked="clickMe">
-                <h1 class="title">Save</h1>
+                <h1 class="title" translate="SAVE"></h1>
             </button>
         </form>
     </div>

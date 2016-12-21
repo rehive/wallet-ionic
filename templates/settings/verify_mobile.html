@@ -1,14 +1,14 @@
-<ion-view view-title="Verify Mobile">
+<ion-view view-title="{{'VERIFY_MOBILE' | translate}}">
     <div ng-controller="VerifyMobileCtrl">
         <form name="verifyForm" method="post" novalidate>
             <ion-content class="container-body padding">
                 <div class="list">
                     <label class="item item-input item-stacked-label">
-                        <span class="input-label">OTP</span>
-                        <input type="text" name="otp" ng-model="user.otp" placeholder="12345" required>
+                        <span class="input-label" translate="OTP"></span>
+                        <input type="text" name="otp" ng-model="user.otp" placeholder="{{'OTP_PLACEHOLDER' | translate}}" required>
                         <div ng-messages="verifyForm.otp.$error" role="alert"
                              ng-show='verifyForm.$submitted || verifyForm.otp.$dirty'>
-                            <div ng-message="required" class="form-error">Please enter an OTP.</div>
+                            <div ng-message="required" class="form-error" translate="OTP_REQUIRED_MESSAGE"></div>
                         </div>
                     </label>
                 </div>
@@ -20,7 +20,7 @@
 
             <button keyboard-attach class="high-footer bar bar-footer" ng-click="submit(verifyForm)"
                     linked="clickMe">
-                <h1 class="title">Save</h1>
+                <h1 class="title" translate="SAVE"></h1>
             </button>
         </form>
     </div>

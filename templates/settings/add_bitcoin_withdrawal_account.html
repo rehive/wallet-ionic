@@ -1,15 +1,13 @@
-
-<ion-view view-title="Add Bitcoin Address">
+<ion-view view-title="{'ADD_BITCOIN_ADDRESS' | translate}">
     <div ng-controller="BitcoinWithdrawalAccountCtrl">
         <form name="BitcoinWithdrawalAccountForm" method="post" novalidate>
             <ion-content class="container-body">
                 <div class="list">
                     <label class="item item-input item-stacked-label">
-                        <span class="input-label">Bitcoin withdrawal address</span>
+                        <span class="input-label" translate="BITCOIN_ADDRESS"></span>
                         <input ng-model="data.address" name="address" type="text"
-                               placeholder="e.g. 1L7m9D8gCS4DMCdzB8Sd9kk9X9yxG4nKUT">
+                               placeholder="{{'BITCOIN_ADDRESS_PLACEHOLDER' | translate}}">
                     </label>
-
                 </div>
             </ion-content>
 
@@ -19,7 +17,7 @@
 
             <button keyboard-attach class="high-footer bar bar-footer" ng-click="submit(BitcoinWithdrawalAccountForm)"
                     linked="clickMe">
-                <h1 class="title">Save</h1>
+                <h1 class="title" translate="SAVE"></h1>
             </button>
         </form>
     </div>

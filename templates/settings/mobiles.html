@@ -1,12 +1,12 @@
-<ion-view view-title="Mobile numbers">
+<ion-view view-title="{{'MOBILE_NUMBERS' | translate}}">
     <div ng-controller="MobileCtrl">
         <form name="MobileForm" method="post" novalidate>
             <ion-content class="container-body">
                 <div class="list-default">
                     <label class="item item-input item-stacked-label">
-                        <span class="input-label">Add mobile</span>
+                        <span class="input-label" translate="MOBILE"></span>
                         <input ng-model="data.mobile_number" name="mobile_number" type="text"
-                               placeholder="e.g. +16509882744"
+                               placeholder="{{'MOBILE_PLACEHOLDER' | translate}}"
                                value="{{ data.mobile_number }}">
                     </label>
 
@@ -18,7 +18,7 @@
                                         <div class="col align-left">
                                             {{mobile.number}}
                                             <div ng-if="mobile.verified">
-                                                <p>Verified</p>
+                                                <p translate="VERIFIED"></p>
                                             </div>
                                         </div>
                                     </div>
@@ -27,25 +27,25 @@
                                             <button class="button button-small" ng-if="mobile.verified == false"
                                                     keyboard-attach
                                                     ng-click="resendVerification(mobile.number)"
-                                                    linked="clickMe">
-                                                Verify
+                                                    linked="clickMe"
+                                                    translate="VERIFY">
                                             </button>
                                             <button class="button button-small" ng-if="mobile.primary == false"
                                                     keyboard-attach
                                                     ng-click="update(mobile.id, true)"
-                                                    linked="clickMe">
-                                                Make Primary
+                                                    linked="clickMe"
+                                                    translate="MAKE_PRIMARY">
                                             </button>
                                             <button class="button button-small button-assertive"
                                                     ng-if="mobile.primary == false"
                                                     keyboard-attach
                                                     ng-click="delete(mobile.id)"
-                                                    linked="clickMe">
-                                                Delete
+                                                    linked="clickMe"
+                                                    translate="DELETE">
                                             </button>
                                             <button class="button button-small button-balanced" disabled
-                                                    ng-if="mobile.primary == true">
-                                                Primary
+                                                    ng-if="mobile.primary == true"
+                                                    translate="PRIMARY">
                                             </button>
                                         </div>
                                     </div>
@@ -61,7 +61,7 @@
             </ion-footer-bar>
 
             <button keyboard-attach class="high-footer bar bar-footer" ng-click="create(MobileForm)" linked="clickMe">
-                <h1 class="title">Save</h1>
+                <h1 class="title" tranlsate="SAVE"></h1>
             </button>
         </form>
     </div>
