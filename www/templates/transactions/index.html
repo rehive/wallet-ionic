@@ -6,10 +6,8 @@
             <div class="container-card">
                 <div class="card">
                     <div class="item item-body">
-                        <h2>Welcome to Rehive</h2>
-
-                        <p>Please verify your email address to redeem any unclaimed transactions. Pull to refresh your balance.
-                        </p>
+                        <h2 translate="WELCOME_TEXT"></h2>
+                        <p translate="TRANSACTIONS_TEXT"></p>
                     </div>
                 </div>
             </div>
@@ -23,13 +21,17 @@
                             <div class="row default-top">
                                 <div class="col col-50 align-left">
                                     <h2>{{ item.description }}</h2>
-                                    <h5 ng-if="item.metadata.fee > 0">{{ item.currency.symbol }} {{ item.metadata.fee }} Earnings</h5>
-                                    <h5 ng-if="item.metadata.rate > 0">{{ item.metadata.from_currency }} {{ item.metadata.from_amount }} to {{ item.metadata.to_currency }} {{ item.metadata.to_amount }}</h5>
+                                    <h5 ng-if="item.metadata.fee > 0"
+                                        translate="TRANSACTION_FEE"
+                                        translate-values="{ currency: item.currency.symbol, fee: item.metadata.fee}"></h5>
+                                    <h5 ng-if="item.metadata.rate > 0"
+                                        translate="TRANSACTION_RATE"
+                                        translate-values="{ from_currency: item.metadata.from_currency, from_amount: item.metadata.from_amount, to_currency: item.metadata.to_currency, to_amount: item.metadata.to_amount }"></h5>
                                     <h4>{{ item.note }}</h4>
                                 </div>
                                 <div class="col align-right">
                                     <h3>{{ item.currency.symbol }} {{ item.amount }}</h3>
-                                    <h5 ng-if="item.fee > 0">{{ item.currency.symbol }} {{ item.fee }} Fee</h5>
+                                    <h5 ng-if="item.fee > 0">{{ item.currency.symbol }} {{ item.fee }} {{'FEE' | translate}}</h5>
                                     <h5>{{ item.created | date:'d MMM yyyy' }} | {{ item.status }}</h5>
                                 </div>
                             </div>

@@ -1,14 +1,13 @@
-<ion-view view-title="ID Selfie">
-
+<ion-view view-title="{{'ID_SELFIE' | translate}}">
     <ion-content class="container-body">
         <div class="container-default-background">
             <div class="row">
                 <div class="col col-100">
                     <div class="row">
-                        <h4>Instructions</h4>
+                        <h4 translate="INSTRUCTIONS"></h4>
                     </div>
                     <div class="row">
-                        <p>Instructions of why and how to take an ID Selfie.</p>
+                        <p translate="ID_SELFIE_INSTRUCTIONS"></p>
                     </div>
                 </div>
             </div>
@@ -20,7 +19,6 @@
     </ion-footer-bar>
 
     <button class="high-footer bar bar-footer" ng-click="submit(data.type)">
-        <h1 class="title">Next</h1>
+        <h1 class="title" translate="NEXT"></h1>
     </button>
-
 </ion-view>

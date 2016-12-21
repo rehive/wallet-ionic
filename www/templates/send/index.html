@@ -1,20 +1,20 @@
-<ion-view view-title="Amount">
+<ion-view view-title="{{'AMOUNT' | translate}}">
     <div ng-controller="SendCtrl" >
         <form name="sendForm" method="post" novalidate>
             <ion-content class="container-body">
                 <div class="list">
                     <label class="item item-input item-stacked-label">
-                        <span class="input-label">Amount</span>
-                        <input name="amount" ng-model="data.amount" type="number" placeholder="Amount you want to pay" required>
+                        <span class="input-label" translate="AMOUNT"></span>
+                        <input name="amount" ng-model="data.amount" type="number" placeholder="{{'AMOUNT_PLACEHOLDER' | translate}}" required>
                         <div ng-messages="sendForm.amount.$error" role="alert" ng-show='sendForm.$submitted || sendForm.amount.$dirty'>
-                            <div ng-message="required" class="form-error">Please enter an amount.</div>
-                            <div ng-message="number" class="form-error">Please enter valid number.</div>
+                            <div ng-message="required" class="form-error" translate="AMOUNT_REQUIRED_MESSAGE"></div>
+                            <div ng-message="number" class="form-error" translate="AMOUNT_VALID_MESSAGE"></div>
                         </div>
                     </label>
 
                     <label class="item item-input item-stacked-label">
-                        <span class="input-label">Note</span>
-                        <input name="note" ng-model="data.note" type="text" placeholder="Add a short note">
+                        <span class="input-label" translate="NOTE"></span>
+                        <input name="note" ng-model="data.note" type="text" placeholder="{{'NOTE' | translate}}">
                     </label>
                 </div>
             </ion-content>
@@ -24,7 +24,7 @@
             </ion-footer-bar>
 
             <button keyboard-attach class="high-footer bar bar-footer" ng-click="submit(sendForm)" linked="clickMe">
-                <h1 class="title">Next</h1>
+                <h1 class="title" translate="NEXT"></h1>
             </button>
         </form>
     </div>

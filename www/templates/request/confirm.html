@@ -1,28 +1,25 @@
-<ion-view view-title="Confirm Request">
+<ion-view view-title="{{'REQUEST' | translate}}">
     <ion-content class="container-body" class="padding">
-
         <div class="row">
             <div class="col text-center">
-                <h4>You are requesting R {{ amount }} from {{ from }}.</h4>
+                <h4 translate="REQUEST_CONFIRM_MESSAGE"
+                    translate-values="{ amount: amount, from: from}"></h4>
             </div>
         </div>
 
         <div class="row">
             <div class="col text-center">
-                <p>Note: "{{ note }}"</p>
+                <p>{{'NOTE' | translate}}: "{{ note }}"</p>
             </div>
         </div>
-
-
     </ion-content>
 
     <div class="row">
         <a class="col col-50 high-footer bar bar-footer cancel" menu-close href="#/app/dashboard">
-            <h1 class="title">Cancel</h1>
+            <h1 class="title" translate="CANCEL"></h1>
         </a>
         <button class="col col-50 col-offset-50 high-footer bar bar-footer" ng-click="submit(amount, note, from)">
-            <h1 class="title">Confirm</h1>
+            <h1 class="title" translate="CONFIRM"></h1>
         </button>
     </div>
-
 </ion-view>

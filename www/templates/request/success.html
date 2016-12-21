@@ -1,15 +1,15 @@
-<ion-view view-title="Success">
+<ion-view view-title="{{'SUCCESS' | translate}}">
     <ion-content class="container-body" class="top padding">
         <div class="row text-center">
             <div class="col col-100">
-                <h2>Success</h2>
-                <h4>You have requested R {{ amount }} from {{ from }}.</h4>
+                <h2 tranlsate="SUCCESS"></h2>
+                <h4 translate="REQUEST_SUCCESS_MESSAGE"
+                    translate-values="{ amount: amount, from: from}"></h4>
             </div>
         </div>
     </ion-content>
 
-
     <a class="high-footer bar bar-footer" menu-close href="#/app/dashboard">
-        <h1 class="title">Done</h1>
+        <h1 class="title" translate="DONE"></h1>
     </a>
 </ion-view>

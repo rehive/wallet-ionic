@@ -1,8 +1,8 @@
-<ion-view view-title="">
+<ion-view view-title="{{'WITHDRAW' | translate}}">
     <div class="custom-header">
         <div class="col text-center">
-            <h2>You are about to withdraw {{ currency.symbol }} {{ amount }}.
-            </h2>
+            <h2 tralsate="WITHDRAW_CONFIRM_MESSAGE"
+                translate-values="{ currency: currency.symbol, amount: amount }"></h2>
         </div>
     </div>
 
@@ -15,10 +15,10 @@
 
     <div class="row">
         <a class="col col-50 bar bar-footer high-footer cancel" menu-close href="#/app/dashboard">
-            <h1 class="title">Cancel</h1>
+            <h1 class="title" translate="CANCEL"></h1>
         </a>
         <button class="col col-50 col-offset-50 bar bar-footer high-footer" ng-click="submit(amount, account)">
-            <h1 class="title">Confirm</h1>
+            <h1 class="title" translate="CONFIRM"></h1>
         </button>
     </div>
 

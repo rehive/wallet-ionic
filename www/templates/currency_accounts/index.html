@@ -1,4 +1,4 @@
-<ion--view view-title="Accounts" ng-controller="CurrencyAccountsCtrl">
+<ion--view view-title="{{'ACCOUNTS' | translate}}" ng-controller="CurrencyAccountsCtrl">
     <ion-content class="container-body">
         <ion-refresher pulling-text="pull to refresh" on-refresh="refreshData()"></ion-refresher>
         <div class="list-default">
@@ -17,11 +17,10 @@
                             <div class="col align-right">
                                 <button class="button" ng-if="item.status=='inactive'" keyboard-attach
                                         ng-click="setToken(item.token.code, item.token.account.reference, item.token.issuer.identifier)"
-                                        linked="clickMe">
-                                    Activate
+                                        linked="clickMe"
+                                        translate="ACTIVATE">
                                 </button>
-                                <button class="button button-balanced" ng-if="item.status=='active'" disabled>
-                                    Active
+                                <button class="button button-balanced" ng-if="item.status=='active'" disabled translate="ACTIVE">
                                 </button>
                             </div>
                         </div>

@@ -1,4 +1,4 @@
-<ion-view view-title="Select Address">
+<ion-view view-title="{{'SELECT_BITCOIN_ADDRESS' | translate}}">
     <ion-content class="container-body">
         <ion-refresher pulling-text="pull to refresh" on-refresh="refreshData()"></ion-refresher>
         <div class="list-default">
@@ -13,13 +13,10 @@
                                     {{ item.address.length > 30 ? item.address.slice(0, 10) + '...' + item.address.slice(item.address.length - 5, item.address.length) : item.address }}
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
-                <div class="item" ui-sref="app.add_bitcoin_withdrawal_account">
-                    Add another bitcoin address
-                </div>
+                <div class="item" ui-sref="app.add_bitcoin_withdrawal_account" translate="ADD_BITCOIN_ADDRESS"></div>
             </div>
         </div>
     </ion-content>

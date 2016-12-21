@@ -1,11 +1,10 @@
-<ion--view view-title="Notifications" ng-controller="NotificationsCtrl">
+<ion--view view-title="{{'NOTIFICATIONS' | translate}}" ng-controller="NotificationsCtrl">
     <ion-content class="container-body">
         <ion-refresher pulling-text="pull to refresh" on-refresh="refreshData()"></ion-refresher>
         <div class="list-default">
             <div class="block">
                 <div ng-repeat="notification in notifications">
                     <div class="item no-padding-2">
-
                         <div class="row default-top">
                             <div class="col col-50 align-left">
                                 {{ notification.description }}
@@ -15,25 +14,25 @@
                             <div class="col align-right">
                                 <button class="button button-small" ng-if="notification.email_enabled== true" keyboard-attach
                                         ng-click="update(notification.id, false, notification.sms_enabled)"
-                                        linked="clickMe">
-                                    Email
+                                        linked="clickMe"
+                                        translate="EMAIL">
                                 </button>
                                 <button class="button button-small button-light" ng-if="notification.email_enabled== false"
                                         keyboard-attach
                                         ng-click="update(notification.id, true, notification.sms_enabled)"
-                                        linked="clickMe">
-                                    Email
+                                        linked="clickMe"
+                                        translate="EMAIL">
                                 </button>
                                 <button class="button button-small" ng-if="notification.sms_enabled== true" keyboard-attach
                                         ng-click="update(notification.id, notification.email_enabled, false)"
-                                        linked="clickMe">
-                                    SMS
+                                        linked="clickMe"
+                                        translate="SMS">
                                 </button>
                                 <button class="button button-small button-light" ng-if="notification.sms_enabled== false"
                                         keyboard-attach
                                         ng-click="update(notification.id, notification.email_enabled, true)"
-                                        linked="clickMe">
-                                    SMS
+                                        linked="clickMe"
+                                        translate="SMS">
                                 </button>
                             </div>
                         </div>

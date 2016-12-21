@@ -1,4 +1,4 @@
-<ion-view view-title="Select Account">
+<ion-view view-title="{{'SELECT_BANK_ACCOUNT' | translate}}">
     <ion-content class="container-body">
         <ion-refresher pulling-text="pull to refresh" on-refresh="refreshData()"></ion-refresher>
         <div class="list-default">
@@ -14,13 +14,10 @@
                                     <p>{{ item.number }}</p>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
-                <div class="item" ui-sref="app.add_bank_account">
-                    Add another bank account
-                </div>
+                <div class="item" ui-sref="app.add_bank_account" translate="ADD_BANK_ACCOUNT"></div>
             </div>
         </div>
     </ion-content>
