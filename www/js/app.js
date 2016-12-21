@@ -52,6 +52,7 @@ angular.module('generic-client', ['ionic',
             suffix: '.json'
         })
         .preferredLanguage('en')
+        .fallbackLanguage('en')
         .useMissingTranslationHandlerLog()
         .useSanitizeValueStrategy('sanitize');
     }])
