@@ -38,7 +38,7 @@ angular.module('generic-client.controllers.fica', [])
         };
     })
 
-    .controller('FicaImageUploadCtrl', function ($state,  $ionicHistory, $stateParams, $window, $rootScope, $scope, Upload, Auth, API, $ionicLoading, $ionicPopup) {
+    .controller('FicaImageUploadCtrl', function ($state,  $ionicHistory, $stateParams, $window, $rootScope, $scope, $translate, Upload, Auth, API, $ionicLoading, $ionicPopup) {
         'use strict';
 
         $scope.image = {
@@ -59,7 +59,7 @@ angular.module('generic-client.controllers.fica', [])
                         method: "POST"
                     }).then(function (res) {
                         $ionicLoading.hide();
-                        $ionicPopup.alert({title: "Success", template: "Upload complete."});
+                        $ionicPopup.alert({title: $translate.instant("SUCCESS"), template: $translate.instant("UPLOAD_COMPLETE")});
 
                         $ionicHistory.nextViewOptions({
                             disableAnimate: true,
@@ -69,11 +69,11 @@ angular.module('generic-client.controllers.fica', [])
                         $state.go('app.fica');
                     }, function (res) {
                         $ionicLoading.hide();
-                        $ionicPopup.alert({title: "Error", template: "There was an error uploading the file."});
+                        $ionicPopup.alert({title: $translate.instant("ERROR"), template:  $translate.instant("UPLOAD_ERROR")});
                         $state.go('app.fica');
                     }, function (evt) {
                         $ionicLoading.show({
-                            template: 'Uploading...'
+                            template: $translate.instant("LOADER_UPLOADING")
                         });
                         var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
                     });
@@ -82,12 +82,12 @@ angular.module('generic-client.controllers.fica', [])
         };
     })
 
-    .controller('FicaImageCtrl', function ($state, $scope, $ionicLoading, $ionicPopup, $cordovaFileTransfer, $cordovaCamera, $timeout) {
+    .controller('FicaImageCtrl', function ($state, $scope, $ionicLoading, $ionicPopup, $cordovaFileTransfer, $cordovaCamera, $timeout, $translate) {
         'use strict';
 
         $scope.getFromFiles = function (file) {
             $ionicLoading.show({
-                template: 'Processing...'
+                template: $translate.instant("LOADER_PROCESSING")
             });
 
             // Convert to Data URL

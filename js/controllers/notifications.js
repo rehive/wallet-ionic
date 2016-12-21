@@ -2,7 +2,7 @@ angular.module('generic-client.controllers.notifications', [])
 
 
 
-    .controller('NotificationsCtrl', function ($scope, $ionicPopup, $ionicModal, $state, $ionicLoading, Notification) {
+    .controller('NotificationsCtrl', function ($scope, $ionicPopup, $ionicModal, $state, $ionicLoading, $translate, Notification) {
         'use strict';
         $scope.data = {};
 
@@ -17,7 +17,7 @@ angular.module('generic-client.controllers.notifications', [])
 
         $scope.update = function (notification, email_enabled, sms_enabled) {
             $ionicLoading.show({
-                template: 'Changing preferences...'
+                template: $translate.instant("LOADER_CHANGING_PREFERNCES")
             });
 
             Notification.set(notification, email_enabled, sms_enabled).then(function (res) {
@@ -26,10 +26,10 @@ angular.module('generic-client.controllers.notifications', [])
                     $scope.list();
                 } else {
                     $ionicLoading.hide();
-                    $ionicPopup.alert({title: "Error", template: res.message});
+                    $ionicPopup.alert({title: $translate.instant("ERROR"), template: res.message});
                 }
             }).catch(function (error) {
-                $ionicPopup.alert({title: 'Authentication failed', template: error.message});
+                $ionicPopup.alert({title: $translate.instant("AUTHENTICATION_ERROR"), template: error.message});
                 $ionicLoading.hide();
             });
         };

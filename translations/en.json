@@ -9,6 +9,7 @@
   "DONE": "Done",
   "CONFIRM": "Confirm",
   "SUCCESS": "Success",
+  "ERROR": "Error",
   "ACTIVATE": "Activate",
   "ACTIVE": "Active",
   "INSTRUCTIONS": "Instructions",
@@ -184,5 +185,30 @@
 
   "ABOUT": "About",
 
-  "LOGOUT": "Logout"
+  "LOGOUT": "Logout",
+
+  "PASSWORD_RESET_ERROR": "Password Reset Error",
+  "AUTHENTICATION_ERROR": "Authentication failed",
+  "UPLOAD_ERROR": "There was an error uploading the file.",
+  "INCOMPLETE_ERROR": "Incomplete feature.",
+  "RENDER_ERROR": "There was an error rendering the file.",
+
+  "VERIFICATION_SENT": "A verification email has been sent, please check your email inbox.",
+  "PASSWORD_CHANGED": "Password was successfully changed.",
+  "UPLOAD_COMPLETE": "Upload complete.",
+  "COMING_SOON": "Coming soon.",
+
+  "LOADER_SIGNING_UP": "Signing Up...",
+  "LOADER_SENDING": "Sending...",
+  "LOADER_LOGGING_IN": "Logging In...",
+  "LOADER_VERIFYING": "Verifying...",
+  "LOADER_UPLOADING": "Uploading...",
+  "LOADER_UPDATING": "Updating...",
+  "LOADER_PROCESSING": "Processing...",
+  "LOADER_RESETTING": "Resetting...",
+  "LOADER_SAVING": "Saving...",
+  "LOADER_ADDING": "Adding...",
+  "LOADER_CHANGING_PREFERENCES": "Changing preferences...",
+  "LOADER_SWITCHING_ACCOUNT_TOKEN": "Switching Account Token..."
+
 }

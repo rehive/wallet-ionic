@@ -20,5 +20,4 @@ angular.module('generic-client.controllers.receive', [])
             $scope.myAddress = myAddress;
             $window.localStorage.setItem('myAddress', JSON.stringify(myAddress));
         };
-
     });

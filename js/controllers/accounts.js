@@ -1,6 +1,6 @@
 angular.module('generic-client.controllers.accounts', [])
 
-    .controller('LoginCtrl', function ($scope, $window, $ionicModal, $state, $ionicLoading, $rootScope, User, $ionicPopup) {
+    .controller('LoginCtrl', function ($scope, $window, $ionicModal, $state, $ionicLoading, $rootScope, $translate, User, $ionicPopup) {
         'use strict';
 
         $ionicModal.fromTemplateUrl('templates/accounts/signup.html', {
@@ -57,7 +57,7 @@ angular.module('generic-client.controllers.accounts', [])
         $scope.registerUser = function (form) {
             if (form.$valid) {
                 $ionicLoading.show({
-                    template: 'Signing Up...'
+                    template: $translate.instant("LOADER_SIGNING_UP")
                 });
 
                 User.register(form.first_name.$viewValue, form.email.$viewValue, form.mobile_number.$viewValue, form.company_id.$viewValue, form.password1.$viewValue, form.password2.$viewValue)
@@ -74,13 +74,13 @@ angular.module('generic-client.controllers.accounts', [])
                             $state.go('app.home');
                         }
                     } else {
-                        $ionicPopup.alert({title: "Error", template: res.data.message});
+                        $ionicPopup.alert({title: $translate.instant("ERROR"), template: res.data.message});
                     }
 
                     $ionicLoading.hide();
                     $scope.CloseModalSignup();
                 }).catch(function (error) {
-                    $ionicPopup.alert({title: "Error", template: error});
+                    $ionicPopup.alert({title: $translate.instant("ERROR"), template: error});
                     $ionicLoading.hide();
                 });
             }
@@ -89,7 +89,7 @@ angular.module('generic-client.controllers.accounts', [])
         $scope.logIn = function (form) {
             if (form.$valid) {
                 $ionicLoading.show({
-                    template: 'Logging In...'
+                    template: $translate.instant("LOADER_LOGGING_IN")
                 });
 
                 User.login(form.identifier.$viewValue, form.company_id.$viewValue, form.password.$viewValue).then(function (res) {
@@ -99,10 +99,10 @@ angular.module('generic-client.controllers.accounts', [])
                     if (res.status === 200) {
                         $state.go('app.home');
                     } else {
-                        $ionicPopup.alert({title: "Error", template: res.data.message});
+                        $ionicPopup.alert({title: $translate.instant("ERROR"), template: res.data.message});
                     }
                 }).catch(function (error) {
-                    $ionicPopup.alert({title: 'Authentication failed', template: error.data.message});
+                    $ionicPopup.alert({title: $translate.instant("AUTHENTICATION_ERROR"), template: error.data.message});
                     $ionicLoading.hide();
                 });
             }
@@ -111,7 +111,7 @@ angular.module('generic-client.controllers.accounts', [])
         $scope.verify = function (form) {
             if (form.$valid) {
                 $ionicLoading.show({
-                    template: 'Verifying...'
+                    template: $translate.instant("LOADER_VERIFYING")
                 });
 
                 User.verify(form.otp.$viewValue).then(function (res) {
@@ -120,10 +120,10 @@ angular.module('generic-client.controllers.accounts', [])
                     if (res.status === 200) {
                         $scope.cancelVerify();
                     } else {
-                        $ionicPopup.alert({title: "Error", template: res.data.message});
+                        $ionicPopup.alert({title: $translate.instant("ERROR"), template: res.data.message});
                     }
                 }).catch(function (error) {
-                    $ionicPopup.alert({title: 'Authentication failed', template: error.data.message});
+                    $ionicPopup.alert({title: $translate.instant("AUTHENTICATION_ERROR"), template: error.data.message});
                     $ionicLoading.hide();
                 });
             }
@@ -132,7 +132,7 @@ angular.module('generic-client.controllers.accounts', [])
         $scope.resetPassword = function (form) {
             if (form.$valid) {
                 $ionicLoading.show({
-                    template: 'Resetting...'
+                    template: $translate.instant("LOADER_RESETTING")
                 });
 
                 $scope.CloseModalForgot();
@@ -141,12 +141,12 @@ angular.module('generic-client.controllers.accounts', [])
                     $ionicLoading.hide();
 
                     if (res.status === 200) {
-                        $ionicPopup.alert({title: "Sent!", template: "Please check your inbox and follow the directions received in the email."});
+                        $ionicPopup.alert({title: $translate.instant("SUCCESS"), template: "Please check your inbox and follow the directions received in the email."});
                     } else {
-                        $ionicPopup.alert({title: "Error", template: res.data.message});
+                        $ionicPopup.alert({title: $translate.instant("ERROR"), template: res.data.message});
                     }
                 }).catch(function (error) {
-                    $ionicPopup.alert({title: 'Password Reset Error', template: error.data.message});
+                    $ionicPopup.alert({title: $translate.instant("PASSWORD_RESET_ERROR"), template: error.data.message});
                     $ionicLoading.hide();
                 });
             }
