@@ -1,31 +1,31 @@
-<ion-view view-title="Personal details">
+<ion-view view-title="{{'PERSONAL_DETAILS' | translate}}">
     <div ng-controller="PersonalDetailsCtrl">
         <form name="personalDetailsForm" method="post" novalidate>
             <ion-content class="container-body">
                 <div class="list">
                     <label class="item item-input item-stacked-label">
-                        <span class="input-label">First name</span>
-                        <input ng-model="data.first_name" name="first_name" type="text" placeholder="Your name"
+                        <span class="input-label" translate="FIRST_NAME"></span>
+                        <input ng-model="data.first_name" name="first_name" type="text" placeholder="{{'FIRST_NAME_PLACEHOLDER' | translate}}"
                                value="{{ data.first_name }}">
                     </label>
                     <label class="item item-input item-stacked-label">
-                        <span class="input-label">Last name</span>
-                        <input ng-model="data.last_name" name="last_name" type="text" placeholder="Your surname"
+                        <span class="input-label" translate="LAST_NAME"></span>
+                        <input ng-model="data.last_name" name="last_name" type="text" placeholder="{{'LAST_NAME_PLACEHOLDER' | translate}}"
                                value="{{ data.last_name }}">
                     </label>
                     <label class="item item-input item-stacked-label">
-                        <span class="input-label">Identity Number</span>
-                        <input ng-model="data.id_number" name="id_number" type="text" placeholder="Your ID number"
+                        <span class="input-label" translate="ID_NUMBER"></span>
+                        <input ng-model="data.id_number" name="id_number" type="text" placeholder="{{'ID_NUMBER_PLACEHOLDER' | translate}}"
                                value="{{ data.id_number }}">
                     </label>
                     <label class="item item-input item-select">
-                        <span class="input-label">Nationality</span>
+                        <span class="input-label" translate="COUNTRY"></span>
                         <select ng-model="data.nationality" name="nationality">
                             <option ng-repeat="country in countries" value="{{ country.code }}" ng-selected="country.code === data.nationality">{{ country.name }}</option>
                         </select>
                     </label>
                     <label class="item item-input item-select">
-                        <span class="input-label">Language</span>
+                        <span class="input-label" translate="LANGUAGE">Language</span>
                         <select ng-model="data.language" name="language">
                             <option ng-repeat="language in languages" value="{{ language.code }}" ng-selected="language.code === data.language">{{ language.name }}</option>
                         </select>
@@ -39,7 +39,7 @@
 
             <button keyboard-attach class="high-footer bar bar-footer" ng-click="submit(personalDetailsForm)"
                     linked="clickMe">
-                <h1 class="title">Save</h1>
+                <h1 class="title" translate="SAVE"></h1>
             </button>
         </form>
     </div>

@@ -1,4 +1,4 @@
-<ion-view view-title="Profile image">
+<ion-view view-title="{{'PROFILE_IMAGE' | translate}}">
     <div ng-controller="ProfileImageUploadCtrl">
         <ion-content class="container-body">
             <div class="row row-center">
@@ -19,7 +19,7 @@
         </ion-footer-bar>
 
         <button keyboard-attach class="high-footer bar bar-footer" ng-click="upload()" linked="clickMe">
-            <h1 class="title">Upload</h1>
+            <h1 class="title" translate="UPLOAD"></h1>
         </button>
     </div>
 </ion-view>

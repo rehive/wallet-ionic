@@ -1,12 +1,12 @@
-<ion-view view-title="Email addresses">
+<ion-view view-title="{{'EMAIL_ADDRESSES' | translate}}">
     <div ng-controller="EmailCtrl">
         <form name="EmailForm" method="post" novalidate>
             <ion-content class="container-body">
                 <div class="list-default">
                     <label class="item item-input item-stacked-label">
-                        <span class="input-label">Add email</span>
+                        <span class="input-label" translate="EMAIL"></span>
                         <input ng-model="data.email_address" name="email_address" type="text"
-                               placeholder="e.g. test@zapgo.co"
+                               placeholder="{{'EMAIL_PLACEHOLDER' | translate}}"
                                value="{{ data.email_address }}">
                     </label>
 
@@ -18,7 +18,7 @@
                                         <div class="col align-left">
                                             {{email.email}}
                                             <div ng-if="email.verified">
-                                                <p>Verified</p>
+                                                <p translate="VERIFIED"></p>
                                             </div>
                                         </div>
                                     </div>
@@ -27,24 +27,24 @@
                                             <button class="button button-small" ng-if="email.verified == false"
                                                     keyboard-attach
                                                     ng-click="resendVerification(email.email)"
-                                                    linked="clickMe">
-                                                Verify
+                                                    linked="clickMe"
+                                                    translate="VERIFY">
                                             </button>
                                             <button class="button button-small" ng-if="email.primary == false"
                                                     keyboard-attach
                                                     ng-click="update(email.id, true)"
-                                                    linked="clickMe">
-                                                Make Primary
+                                                    linked="clickMe"
+                                                    translate="MAKE_PRIMARY">
                                             </button>
                                             <button class="button button-assertive button-small"
                                                     ng-if="email.primary == false" keyboard-attach
                                                     ng-click="delete(email.id)"
-                                                    linked="clickMe">
-                                                Delete
+                                                    linked="clickMe"
+                                                    translate="DELETE">
                                             </button>
                                             <button class="button button-balanced button-small" disabled
-                                                    ng-if="email.primary == true">
-                                                Primary
+                                                    ng-if="email.primary == true"
+                                                    translate="PRIMARY">
                                             </button>
                                         </div>
                                     </div>
@@ -60,7 +60,7 @@
             </ion-footer-bar>
 
             <button keyboard-attach class="high-footer bar bar-footer" ng-click="create(EmailForm)" linked="clickMe">
-                <h1 class="title">Save</h1>
+                <h1 class="title" translate="SAVE"></h1>
             </button>
         </form>
     </div>

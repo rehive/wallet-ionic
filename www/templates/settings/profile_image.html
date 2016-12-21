@@ -1,4 +1,4 @@
-<ion-view view-title="Profile image">
+<ion-view view-title="{{'PROFILE_IMAGE' | translate}}">
     <div ng-controller="ProfileImageCtrl">
         <ion-content class="container-body">
             <div class="row row-center">
@@ -10,8 +10,8 @@
                     <!-- Hidden button for PC uploads-->
                     <button id="upload" class="hide button button-block" accept=".jpg, .png" ngf-select="getFromFiles($file)"
                             ngf-max-size="10MB"
-                            ngf-fix-orientation="true">
-                        Upload File
+                            ngf-fix-orientation="true"
+                            translate="UPLOAD">
                     </button>
                 </div>
             </div>

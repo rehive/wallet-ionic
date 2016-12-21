@@ -1,34 +1,34 @@
-<ion-view view-title="Address">
+<ion-view view-title="{{'ADDRESS': translate}}">
     <div ng-controller="AddressCtrl">
         <form name="AddressForm" method="post" novalidate>
             <ion-content class="container-body">
                 <div class="list">
                     <label class="item item-input item-stacked-label">
-                        <span class="input-label">Address line 1</span>
-                        <input ng-model="data.line_1" name="line_1" type="text" placeholder="e.g. East building, 3rd floor."
+                        <span class="input-label" translate="ADDRESS_LINE_1"></span>
+                        <input ng-model="data.line_1" name="line_1" type="text" placeholder="{{'ADDRESS_LINE_1' | translate}}"
                                value="{{ data.line_1 }}">
                     </label>
                     <label class="item item-input item-stacked-label">
-                        <span class="input-label">Address line 2</span>
-                        <input ng-model="data.line_2" name="line_2" type="text" placeholder="e.g. 14 Back rd."
+                        <span class="input-label" translate="ADDRESS_LINE_2"></span>
+                        <input ng-model="data.line_2" name="line_2" type="text" placeholder="{{'ADDRESS_LINE_2' | translate}}"
                                value="{{ data.line_2 }}">
                     </label>
                     <label class="item item-input item-stacked-label">
-                        <span class="input-label">City</span>
-                        <input ng-model="data.city" name="city" type="text" placeholder="e.g. Cape Town" value="{{ data.city }}">
+                        <span class="input-label" translate="CITY"></span>
+                        <input ng-model="data.city" name="city" type="text" placeholder="{{'CITY' | translate}}" value="{{ data.city }}">
                     </label>
                     <label class="item item-input item-stacked-label">
-                        <span class="input-label">Province/State</span>
-                        <input ng-model="data.state_province" name="state_province" type="text" placeholder="e.g. Western Cape"
+                        <span class="input-label" translate="PROVINCE_STATE"></span>
+                        <input ng-model="data.state_province" name="state_province" type="text" placeholder="{{'PROVINCE_STATE_PLACEHOLDER' | translate}}"
                                value="{{ data.state_province }}">
                     </label>
                     <label class="item item-input item-stacked-label">
-                        <span class="input-label">Country</span>
-                        <input ng-model="data.country" name="country" type="text" placeholder="e.g. South Africa" value="{{ data.country }}">
+                        <span class="input-label" translate="COUNTRY"></span>
+                        <input ng-model="data.country" name="country" type="text" placeholder="{{'COUNTRY_PLACEHOLDER' | translate}}" value="{{ data.country }}">
                     </label>
                     <label class="item item-input item-stacked-label">
-                        <span class="input-label">ZIP/Postal code</span>
-                        <input ng-model="data.postal_code" name="postal_code" type="text" placeholder="e.g. 8100" value="{{ data.postal_code }}">
+                        <span class="input-label" translate="POSTAL_CODE"></span>
+                        <input ng-model="data.postal_code" name="postal_code" type="text" placeholder="{{'POSTAL_CODE' | translate}}" value="{{ data.postal_code }}">
                     </label>
                 </div>
             </ion-content>
@@ -38,7 +38,7 @@
             </ion-footer-bar>
 
             <button keyboard-attach class="high-footer bar bar-footer" ng-click="submit(AddressForm)" linked="clickMe">
-                <h1 class="title">Save</h1>
+                <h1 class="title" translate="SAVE"></h1>
             </button>
         </form>
     </div>
