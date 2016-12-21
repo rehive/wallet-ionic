@@ -139,7 +139,7 @@ angular.module('generic-client.controllers.settings', [])
                     form.language.$viewValue).then(function (res) {
                         if (res.status === 200) {
                             $ionicLoading.hide();
-                            $translate.use(res.data.language);
+                            $translate.use(res.data.data.language);
                         } else {
                             $ionicLoading.hide();
                             $ionicPopup.alert({title: "Error", template: res.message});
