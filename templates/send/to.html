@@ -1,17 +1,17 @@
-<ion-view view-title="To" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+<ion-view view-title="{{'TO' | translate}}" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
            xmlns="http://www.w3.org/1999/html">
     <div ng-controller="SendToCtrl" >
         <form name="sendToForm" method="post" novalidate>
             <ion-content class="container-body">
                 <div class="item item-input item-stacked-label">
-                    <span class="input-label">Send money to</span>
+                    <span class="input-label" translate="SEND_TO"></span>
                     <input name="to" type="search" ng-model="data.to" required
                            ng-keyup="getValue()"
-                           placeholder="Enter name, email, mobile">
+                           placeholder="{{'SEND_TO_PLACEHOLDER' | translate}}">
                     </input>
 
                     <div ng-messages="sendToForm.to.$error" role="alert" ng-show='sendToForm.$submitted || sendToForm.to.$dirty'>
-                        <div ng-message="required" class="form-error">Please enter a recipient.</div>
+                        <div ng-message="required" class="form-error" translate="SEND_TO_REQUIRED_MESSAGE"></div>
                     </div>
 
                     <button class="button button-icon ion-android-close search-button"
@@ -38,7 +38,7 @@
             </ion-footer-bar>
 
             <button keyboard-attach class="high-footer bar bar-footer" ng-click="submit(sendToForm)">
-                <h1 class="title">Next</h1>
+                <h1 class="title" translate="NEXT"></h1>
             </button>
         </form>
     </div>

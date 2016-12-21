@@ -1,27 +1,27 @@
 <ion-modal-view>
     <ion-header-bar class="bar bar-header">
-        <h1 class="title">Change Password</h1>
-        <button class="button button-clear button-primary" ng-click="CloseModalForgot()">Cancel</button>
+        <h1 class="title" translate="CHANGE_PASSWORD"></h1>
+        <button class="button button-clear button-primary" ng-click="CloseModalForgot()" translate="CANCEL"></button>
     </ion-header-bar>
 
     <ion-content class="container-body" class="container-body" class="padding">
         <form name="forgotForm" method="post" novalidate>
             <div class="list">
                 <label class="item item-input item-stacked-label">
-                    <span class="input-label">Identifier</span>
-                    <input ng-model="user.identifier" type="text" name="identifier" placeholder="Email, mobile number" required>
+                    <span class="input-label" translate="IDENTIFIER"></span>
+                    <input ng-model="user.identifier" type="text" name="identifier" placeholder="{{'IDENTIFIER_PLACEHOLDER' | translate}}" required>
                     <div ng-messages="forgotForm.identifier.$error" role="alert" ng-show='forgotForm.$submitted || forgotForm.identifier.$dirty'>
-                        <div ng-message="required" class="form-error">Please enter an email address or mobile number.</div>
+                        <div ng-message="required" class="form-error" translate="IDENTIFIER_REQUIRED_MESSAGE"></div>
                     </div>
                 </label>
                 <label class="item item-input item-stacked-label">
-                    <span class="input-label">Company</span>
-                    <input ng-model="user.company_id" type="text" name="company_id" placeholder="Company ID" required>
+                    <span class="input-label" translate="COMPANY"></span>
+                    <input ng-model="user.company_id" type="text" name="company_id" placeholder="{{'COMPANY_PLACEHOLDER' | translate}}" required>
                     <div ng-messages="forgotForm.company_id.$error" role="alert" ng-show='forgotForm.$submitted || forgotForm.company_id.$dirty'>
-                        <div ng-message="required" class="form-error">Please enter a Company ID.</div>
+                        <div ng-message="required" class="form-error" translate="COMPANY_REQUIRED_MESSAGE"></div>
                     </div>
                 </label>
-                <button class="button button-full" ng-click="resetPassword(forgotForm)">Reset Email</button>
+                <button class="button button-full" ng-click="resetPassword(forgotForm)" translate="RESET_EMAIL"></button>
             </div>
         </form>
     </ion-content>

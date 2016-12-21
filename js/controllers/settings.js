@@ -100,7 +100,7 @@ angular.module('generic-client.controllers.settings', [])
         };
     })
 
-    .controller('PersonalDetailsCtrl', function ($scope, $ionicPopup, $ionicModal, $state, $ionicLoading, PersonalDetails, Countries, Languages) {
+    .controller('PersonalDetailsCtrl', function ($scope, $ionicPopup, $ionicModal, $state, $ionicLoading, $translate, PersonalDetails, Countries, Languages) {
         'use strict';
 
         $scope.countries = Countries.list();
@@ -139,6 +139,7 @@ angular.module('generic-client.controllers.settings', [])
                     form.language.$viewValue).then(function (res) {
                         if (res.status === 200) {
                             $ionicLoading.hide();
+                            $translate.use(res.data.language);
                         } else {
                             $ionicLoading.hide();
                             $ionicPopup.alert({title: "Error", template: res.message});

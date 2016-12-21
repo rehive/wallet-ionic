@@ -1,12 +1,11 @@
-<ion-view view-title="Deposit">
-
+<ion-view view-title="{{'DEPOSIT' | translate}}">
     <ion-content class="container-body">
         <div class="container-default-background text-center">
             <div class="row">
                 <div class="col col-100 ">
                     <div class="row">
-                        <p>Fund your account by transferring <b>{{ token.currency.code }}</b> to the unique reference
-                            number below.
+                        <p translate="DESPOSIT_INSTRUCTIONS"
+                           translate-values="{ currency_code: token.currency.code }">
                         </p>
                     </div>
                 </div>
@@ -18,39 +17,39 @@
         <div class="container-default">
             <div ng-repeat="item in items" style="font-size: 12px;">
                 <div class="row">
-                    <div class="col" ng-if="item.bank_account.bank_name"><b>Bank</b></div>
+                    <div class="col" ng-if="item.bank_account.bank_name"><b translate="BANK"></b></div>
                     <div class="col text-right">{{ item.bank_account.bank_name }}</div>
                 </div>
                 <div class="row">
-                    <div class="col" ng-if="item.bank_account.name"><b>Account Holder</b></div>
+                    <div class="col" ng-if="item.bank_account.name"><b translate="ACCOUNT_HOLDER"></b></div>
                     <div class="col text-right">{{ item.bank_account.name }}</div>
                 </div>
                 <div class="row">
-                    <div class="col" ng-if="item.bank_account.number"><b>Account Number</b></div>
+                    <div class="col" ng-if="item.bank_account.number"><b translate="ACCOUNT_NUMBER"></b></div>
                     <div class="col text-right">{{ item.bank_account.number }}</div>
                 </div>
                 <div class="row">
-                    <div class="col" ng-if="item.bank_account.type"><b>Account Type</b></div>
+                    <div class="col" ng-if="item.bank_account.type"><b translate="ACCOUNT_TYPE"></b></div>
                     <div class="col text-right">{{ item.bank_account.type }}</div>
                 </div>
                 <div class="row">
-                    <div class="col" ng-if="item.bank_account.bank_code"><b>Bank Code</b></div>
+                    <div class="col" ng-if="item.bank_account.bank_code"><b translate="BANK_CODE"></b></div>
                     <div class="col text-right">{{ item.bank_account.bank_code }}</div>
                 </div>
                 <div class="row">
-                    <div class="col" ng-if="item.bank_account.branch_code"><b>Branch Code</b></div>
+                    <div class="col" ng-if="item.bank_account.branch_code"><b translate="BRANCH_CODE"></b></div>
                     <div class="col text-right">{{ item.bank_account.branch_code }}</div>
                 </div>
                 <div class="row">
-                    <div class="col" ng-if="item.bank_account.swift"><b>Swift Code</b></div>
+                    <div class="col" ng-if="item.bank_account.swift"><b translate="SWIFT_CODE"></b></div>
                     <div class="col text-right">{{ item.bank_account.swift }}</div>
                 </div>
                 <div class="row">
-                    <div class="col" ng-if="item.bank_account.iban"><b>IBAN Number</b></div>
+                    <div class="col" ng-if="item.bank_account.iban"><b translate="IBAN_NUMBER"></b></div>
                     <div class="col text-right">{{ item.bank_account.iban }}</div>
                 </div>
                 <div class="row">
-                    <div class="col" ng-if="item.bank_account.bic"><b>BIC Number</b></div>
+                    <div class="col" ng-if="item.bank_account.bic"><b translate="BIC_NUMBER"></b></div>
                     <div class="col text-right">{{ item.bank_account.bic }}</div>
                 </div>
             </div>

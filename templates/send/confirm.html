@@ -1,7 +1,8 @@
-<ion-view view-title="">
+<ion-view view-title="{{'SEND' | translate}}">
     <div class="custom-header">
         <div class="col text-center">
-            <h2>You are sending {{ currency.symbol }} {{ amount }} to {{to.length > 20 ? to.slice(0, 10) + '...' + to.slice(to.length - 5, to.length) : to }}.
+            <h2 translate="SEND_CONFIRM_MESSAGE"
+                translate-values="{ currency: currency.symbol, amount: amount, to: to}">
             </h2>
         </div>
     </div>
@@ -16,10 +17,10 @@
 
     <div class="row">
         <a class="col col-50 high-footer bar bar-footer cancel" menu-close href="#/app/dashboard">
-            <h1 class="title">Cancel</h1>
+            <h1 class="title" translate="CANCEL"></h1>
         </a>
         <button class="col col-50 col-offset-50 high-footer bar bar-footer" ng-click="submit(amount, note, to, currency.symbol)">
-            <h1 class="title">Confirm</h1>
+            <h1 class="title" translate="CONFIRM"></h1>
         </button>
     </div>
 </ion-view>

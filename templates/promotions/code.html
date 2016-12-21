@@ -1,13 +1,12 @@
-<ion-view view-title="Promotions">
-
+<ion-view view-title="{{'PROMOTIONS' | translate}}">
     <ion-content class="container-body">
         <div class="container-default-background">
             <div class="row">
                 <div class="col col-100">
                     <div class="row center">
                         <br>
-                        <p>Your referral code is XYZ.
-                        </p>
+                        <p translate="PROMOTIONS_INSTRUCTIONS"
+                           translate-values="{ referral_code: 'XYZ' }"></p>
                     </div>
                 </div>
             </div>
@@ -19,8 +18,7 @@
 
     <div class="row">
         <div class="col col-100 high-footer bar bar-footer" ui-sref="app.promotion_redeem">
-            <h1 class="title">Redeem</h1>
+            <h1 class="title" translate="REDEEM"></h1>
         </div>
     </div>
-
 </ion-view>

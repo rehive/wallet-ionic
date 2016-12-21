@@ -1,14 +1,14 @@
-<ion-view view-title="Withdraw">
+<ion-view view-title="{{'WITHDRAW' | translate}}">
     <div ng-controller="WithdrawAmountCtrl" >
         <form name="withdrawForm" method="post" novalidate>
             <ion-content class="container-body">
                 <div class="list">
                     <label class="item item-input item-stacked-label">
-                        <span class="input-label">Amount</span>
-                        <input ng-model="data.amount" name="amount" type="number" placeholder="Amount you want to withdraw" required>
+                        <span class="input-label" translate="AMOUNT">Amount</span>
+                        <input ng-model="data.amount" name="amount" type="number" placeholder="{{'AMOUNT_PLACEHOLDER' | translate}}" required>
                         <div ng-messages="withdrawForm.amount.$error" role="alert" ng-show='withdrawForm.$submitted || withdrawForm.amount.$dirty'>
-                            <div ng-message="required" class="form-error">Please enter an amount.</div>
-                            <div ng-message="number" class="form-error">Please enter valid number.</div>
+                            <div ng-message="required" class="form-error" translate="AMOUNT_REQUIRED_MESSAGE"></div>
+                            <div ng-message="number" class="form-error" translate="AMOUNT_VALID_MESSAGE"></div>
                         </div>
                     </label>
                 </div>
@@ -19,7 +19,7 @@
             </ion-footer-bar>
 
             <button keyboard-attach class="bar bar-footer high-footer" ng-click="submit(withdrawForm)">
-                <h1 class="title">Next</h1>
+                <h1 class="title" translate="NEXT"></h1>
             </button>
         </form>
     </div>

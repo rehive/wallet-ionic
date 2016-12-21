@@ -1,4 +1,4 @@
-<ion-view view-title="Login">
+<ion-view view-title="{{'LOGIN' | translate}}">
     <ion-header-bar class="bar bar-header">
         <h1 class="title" translate="LOGIN"></h1>
     </ion-header-bar>
@@ -8,38 +8,37 @@
             <div class="list card padding">
                 <form name="loginForm" method="post" novalidate>
                     <label class="item item-input item-stacked-label">
-                        <span class="input-label">Identifier</span>
-                        <input type="text" name="identifier" ng-model="user.email" placeholder="Email, mobile number" required>
+                        <span class="input-label" translate="IDENTIFIER"></span>
+                        <input type="text" name="identifier" ng-model="user.email" placeholder="{{'IDENTIFIER_PLACEHOLDER' | translate}}" required>
                         <div ng-messages="loginForm.identifier.$error" role="alert" ng-show='loginForm.$submitted || loginForm.identifier.$dirty'>
-                            <div ng-message="required" class="form-error">Please enter an identifier.</div>
+                            <div ng-message="required" class="form-error" translate="IDENTIFIER_REQUIRED_MESSAGE"></div>
                         </div>
                     </label>
                     <label class="item item-input item-stacked-label">
-                        <span class="input-label">Company</span>
-                        <input type="text" name="company_id" ng-model="user.company_id" placeholder="Company ID" required>
+                        <span class="input-label" translate="COMPANY"></span>
+                        <input type="text" name="company_id" ng-model="user.company_id" placeholder="{{'COMPANY_PLACEHOLDER' | translate}}" required>
                         <div ng-messages="loginForm.company_id.$error" role="alert" ng-show='loginForm.$submitted || loginForm.company_id.$dirty'>
-                            <div ng-message="required" class="form-error">Please enter a company ID.</div>
+                            <div ng-message="required" class="form-error" translate="COMPANY_REQUIRED_MESSAGE"></div>
                         </div>
                     </label>
                     <label class="item item-input item-stacked-label">
-                        <span class="input-label">Password</span>
-                        <input type="password" name="password" ng-model="user.password" placeholder="Password" required>
+                        <span class="input-label" translate="PASSWORD"></span>
+                        <input type="password" name="password" ng-model="user.password" placeholder="{{'PASSWORD_PLACEHOLDER' | translate}}" required>
                         <div ng-messages="loginForm.password.$error" role="alert" ng-show='loginForm.$submitted || loginForm.password.$dirty'>
-                            <div ng-message="required" class="form-error">Please enter a password.</div>
+                            <div ng-message="required" class="form-error" translate="PASSWORD_REQUIRED_MESSAGE"></div>
                         </div>
                     </label>
                     <button ng-click="logIn(loginForm)" class="button button-block" translate="LOGIN"></button>
                 </form>
                 <button ng-click="ShowModalForgot()"
                         class="button button-clear button-block">
-                    <small>Forgot password?</small>
+                    <small translate="FORGOT_PASSWORD"></small>
                 </button>
             </div>
 
             <div class="list text-center">
                 <button ng-click="ShowModalSignup()"
-                        class="button button-small button-outline icon-left ion-person-add">
-                    Create New Account
+                        class="button button-small button-outline icon-left ion-person-add" translate="CREATE_ACCOUNT">
                 </button>
             </div>
         </ion-content>

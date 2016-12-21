@@ -1,13 +1,15 @@
-<ion-view view-title="" hide-back-button="true" hide-nav-bar="true">
+<ion-view view-title="{{'SEND' | translate}}" hide-back-button="true" hide-nav-bar="true">
     <ion-content>
         <div class="container-success row text-center">
             <div class="col col-100">
-                <h2>You have sent {{ currency }} {{ amount }} to {{to.length > 20 ? to.slice(0, 10) + '...' + to.slice(to.length - 5, to.length) : to }}.</h2>
+                <h2 translate="SEND_SUCCESS_MESSAGE"
+                    translate-values="{ currency_symbol: currency, amount: amount, to: to}">
+                </h2>
             </div>
         </div>
     </ion-content>
 
     <a class="high-footer bar bar-footer" menu-close href="#/app/dashboard">
-        <h1 class="title">Done</h1>
+        <h1 class="title" translate="DONE"></h1>
     </a>
 </ion-view>

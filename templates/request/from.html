@@ -1,17 +1,17 @@
-<ion-view view-title="From" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+<ion-view view-title="{{'FROM' | translate}}" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
            xmlns="http://www.w3.org/1999/html">
     <div ng-controller="RequestFromCtrl" >
         <form name="RequestFromForm" method="post" novalidate>
             <ion-content class="container-body">
                 <div class="item item-input item-stacked-label">
-                    <span class="input-label">Request money from</span>
+                    <span class="input-label" tanslate="REQUEST_FROM"></span>
                     <input name="from" type="search" ng-model="data.from" required
                            ng-keyup="getValue()"
-                           placeholder="Enter name, email, mobile">
+                           placeholder="{{'REQUEST_FROM_PLACEHOLDER' | translate}}">
                     </input>
 
                     <div ng-messages="RequestFromForm.from.$error" role="alert" ng-show='RequestFromForm.$submitted || RequestFromForm.from.$dirty'>
-                        <div ng-message="required" class="form-error">Please enter a recipient.</div>
+                        <div ng-message="required" class="form-error" translate="REQUEST_FROM_REQUIRED_MESSAGE"></div>
                     </div>
 
                     <button class="button button-icon ion-android-close search-button"
@@ -38,7 +38,7 @@
             </ion-footer-bar>
 
             <button keyboard-attach class="high-footer bar bar-footer" ng-click="submit(RequestFromForm)">
-                <h1 class="title">Next</h1>
+                <h1 class="title" tranlste="NEXT"></h1>
             </button>
         </form>
     </div>

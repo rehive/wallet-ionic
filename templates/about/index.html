@@ -1,4 +1,4 @@
-<ion-view view-title="About">
+<ion-view view-title="{{'ABOUT' | translate}}">
     <ion-content class="container-body">
         <div class="container-default-background">
             <div class="row">
@@ -17,7 +17,6 @@
         </div>
         <div class="row text-center">
             <div class="col col-100">
-
                 <div class="company-logo">
                     <img ng-show="companyDetails.logo" ng-src="{{ companyDetails.logo }}"
                          onError="angular.element(this).scope().companyDetails.logo = false"/>
