@@ -15,7 +15,6 @@ angular.module('generic-client.controllers.deposit', [])
             getDepositDetails.catch(function (error) {
 
             });
-
         };
 
         $scope.refreshTokenInfo = function () {
@@ -30,7 +29,6 @@ angular.module('generic-client.controllers.deposit', [])
             getTokenInfo.catch(function (error) {
 
             });
-
         };
 
         $scope.$on('$ionicView.afterEnter', function () {

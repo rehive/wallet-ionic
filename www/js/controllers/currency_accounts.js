@@ -1,6 +1,6 @@
 angular.module('generic-client.controllers.currency_accounts', [])
 
-    .controller('CurrencyAccountsCtrl', function ($scope, $window, $ionicPopup, $ionicModal, $state, $stateParams, $ionicLoading, CurrencyAccounts, Conversions) {
+    .controller('CurrencyAccountsCtrl', function ($scope, $window, $ionicPopup, $ionicModal, $state, $stateParams, $ionicLoading, $translate, CurrencyAccounts, Conversions) {
         'use strict';
 
         $scope.listData = function () {
@@ -23,7 +23,7 @@ angular.module('generic-client.controllers.currency_accounts', [])
 
         $scope.setToken = function (currency, account, issuer) {
             $ionicLoading.show({
-                template: 'Switching Account Token...'
+                template: $translate.instant("LOADER_SWITCHING_ACCOUNT_TOKEN")
             });
 
             CurrencyAccounts.set(currency, account, issuer).then(function (res) {
@@ -32,13 +32,12 @@ angular.module('generic-client.controllers.currency_accounts', [])
                     $scope.listData();
                 } else {
                     $ionicLoading.hide();
-                    $ionicPopup.alert({title: "Error", template: res.message});
+                    $ionicPopup.alert({title: $translate.instant("ERROR"), template: res.message});
                 }
             }).catch(function (error) {
-                $ionicPopup.alert({title: 'Authentication failed', template: error.message});
+                $ionicPopup.alert({title: $translate.instant("AUTHENTICATION_ERROR"), template: error.message});
                 $ionicLoading.hide();
             });
-
         };
 
         $scope.listData();

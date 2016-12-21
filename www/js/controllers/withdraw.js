@@ -81,7 +81,7 @@ angular.module('generic-client.controllers.withdraw', [])
         };
     })
 
-    .controller('WithdrawConfirmCtrl', function ($scope, $state, $window, $stateParams, $ionicLoading, $ionicPopup, Withdrawal, Conversions) {
+    .controller('WithdrawConfirmCtrl', function ($scope, $state, $window, $stateParams, $ionicLoading, $ionicPopup, $translate, Withdrawal, Conversions) {
         'use strict';
         $scope.data = {};
         $scope.amount = $stateParams.amount;
@@ -90,7 +90,7 @@ angular.module('generic-client.controllers.withdraw', [])
 
         $scope.submit = function (amount, account) {
             $ionicLoading.show({
-                template: 'Processing...'
+                template: $translate.instant("LOADER_PROCESSING")
             });
 
             Withdrawal.create(Conversions.to_cents(amount), account).then(function (res) {
@@ -102,10 +102,10 @@ angular.module('generic-client.controllers.withdraw', [])
                     });
                 } else {
                     $ionicLoading.hide();
-                    $ionicPopup.alert({title: "Error", template: res.data.message});
+                    $ionicPopup.alert({title: $translate.instant("ERROR"), template: res.data.message});
                 }
             }).catch(function (error) {
-                $ionicPopup.alert({title: 'Authentication failed', template: error.message});
+                $ionicPopup.alert({title: $translate.instant("AUTHENTICATION_ERROR"), template: error.message});
                 $ionicLoading.hide();
             });
         };

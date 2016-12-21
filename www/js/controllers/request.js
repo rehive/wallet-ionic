@@ -15,7 +15,7 @@ angular.module('generic-client.controllers.request', [])
         };
     })
 
-    .controller('RequestFromCtrl', function ($scope, $state, $stateParams, ContactsService) {
+    .controller('RequestFromCtrl', function ($scope, $state, $stateParams, $translate, ContactsService) {
         'use strict';
         $scope.data = {};
         $scope.amount = $stateParams.amount;
@@ -26,7 +26,7 @@ angular.module('generic-client.controllers.request', [])
         }
 
         function onError() {
-            alert('Error!');
+            alert($translate.instant("ERROR"));
         }
 
         $scope.getValue = function () {
@@ -53,7 +53,7 @@ angular.module('generic-client.controllers.request', [])
         };
     })
 
-    .controller('RequestConfirmCtrl', function ($scope, $state, $stateParams, $ionicLoading, Transaction, $ionicPopup) {
+    .controller('RequestConfirmCtrl', function ($scope, $state, $stateParams, $ionicLoading, $translate, Transaction, $ionicPopup) {
         'use strict';
         $scope.data = {};
         $scope.amount = $stateParams.amount;
@@ -62,12 +62,12 @@ angular.module('generic-client.controllers.request', [])
 
         $scope.submit = function (amount, note, from) {
             $ionicLoading.show({
-                template: 'Logging In...'
+                template: $translate.instant("LOADER_LOGGING_IN")
             });
 
             $ionicLoading.hide();
 
-            $ionicPopup.alert({title: 'Nothing', template: 'Incomplete, need to confirm endpoints'});
+            $ionicPopup.alert({title: $translate.instant("ERROR"), template: $translate.instant("INCOMPLETE_ERROR")});
 
             // Transaction.create(amount, note, from).then(function (res) {
             //     if (res.status === 201) {
