@@ -128,11 +128,11 @@
 
   "SEND": "Send",
   "SEND_CONFIRM_MESSAGE": "You are sending {{ currency }} {{ amount }} to {{to.length > 20 ? to.slice(0, 10) + '...' + to.slice(to.length - 5, to.length) : to }}.",
-  "SEND_SUCCESS_MESSAGE": "You have requested {{ amount }} from {{ from }}.",
+  "SEND_SUCCESS_MESSAGE": "You have sent {{ currency }} {{ amount }} to {{to.length > 20 ? to.slice(0, 10) + '...' + to.slice(to.length - 5, to.length) : to }}.",
 
   "REQUEST": "Request",
   "REQUEST_CONFIRM_MESSAGE": "You are requesting {{ amount }} from {{ from }}.",
-  "REQUEST_SUCCESS_MESSAGE": "You have sent {{ currency }} {{ amount }} to {{to.length > 20 ? to.slice(0, 10) + '...' + to.slice(to.length - 5, to.length) : to }}.",
+  "REQUEST_SUCCESS_MESSAGE": "You have requested {{ amount }} from {{ from }}.",
 
   "DEPOSIT": "Deposit",
   "DEPOSIT_INSTRUCTIONS": "Fund your account by transferring {{ currency_code }} to the unique reference number below.",
