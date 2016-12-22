@@ -48,7 +48,7 @@ angular.module('generic-client', ['ionic',
     .config(['$translateProvider', function($translateProvider) {
         $translateProvider
         .useStaticFilesLoader({
-            prefix: '/translations/',
+            prefix: 'translations/',
             suffix: '.json'
         })
         .preferredLanguage('en')
