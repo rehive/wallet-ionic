@@ -29,7 +29,7 @@
                                         translate-values="{ from_currency: item.metadata.from_currency, from_amount: item.metadata.from_amount, to_currency: item.metadata.to_currency, to_amount: item.metadata.to_amount }"></h5>
                                     <h4>{{ item.note }}</h4>
                                 </div>
-                                <div class="col align-right">
+                                <div class="col col-50 align-right">
                                     <h3>{{ item.currency.symbol }} {{ item.amount }}</h3>
                                     <h5 ng-if="item.fee > 0">{{ item.currency.symbol }} {{ item.fee }} {{'FEE' | translate}}</h5>
                                     <h5>{{ item.created | date:'d MMM yyyy' }} | {{ item.status }}</h5>
