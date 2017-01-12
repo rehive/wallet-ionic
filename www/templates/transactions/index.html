@@ -32,7 +32,7 @@
                                 <div class="col col-50 align-right">
                                     <h3>{{ item.currency.symbol }} {{ item.amount }}</h3>
                                     <h5 ng-if="item.fee > 0">{{ item.currency.symbol }} {{ item.fee }} {{'FEE' | translate}}</h5>
-                                    <h5>{{ item.created | date:'d MMM yyyy' }} | {{ item.status }}</h5>
+                                    <h5>{{ item.created | date:'d MMM' }} | {{ item.status }}</h5>
                                 </div>
                             </div>
                         </div>
