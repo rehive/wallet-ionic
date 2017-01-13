@@ -2,16 +2,18 @@
     <ion-content class="container-body">
         <div class="container-default-background text-center">
             <div class="row">
-                <div class="col col-100 ">
+                <div class="col col-100">
                     <div class="row">
-                        <p translate="DEPOSIT_INSTRUCTIONS"
+                        <p ng-if="items.length > 0" translate="DEPOSIT_INSTRUCTIONS"
                            translate-values="{ currency_code: token.currency.code }">
+                        </p>
+                        <p ng-if="items.length == 0" translate="DEPOSIT_NO_INSTRUCTIONS">
                         </p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container-deposit-reference text-center">
+        <div ng-if="reference" class="container-deposit-reference text-center">
             <h4 class="capital-letter">{{ reference }}</h4>
         </div>
         <div class="container-default">

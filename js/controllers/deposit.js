@@ -5,6 +5,8 @@ angular.module('generic-client.controllers.deposit', [])
         $scope.refreshDepositData = function () {
             var getDepositDetails = DepositDetails.get();
 
+            $scope.items = [];
+
             getDepositDetails.success(
                 function (res) {
                     $scope.items = res.data;
