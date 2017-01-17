@@ -25,8 +25,8 @@
   "PIN": "Pin",
   "UPLOAD": "Upload",
 
-  "IDENTIFIER": "Identifier",
-  "IDENTIFIER_PLACEHOLDER": "Email, mobile number",
+  "IDENTIFIER": "Email or mobile number",
+  "IDENTIFIER_PLACEHOLDER": "e.g hello@rehive.com",
   "IDENTIFIER_REQUIRED_MESSAGE": "Please enter an identifier.",
   "COMPANY": "Company",
   "COMPANY_PLACEHOLDER": "Company ID.",
