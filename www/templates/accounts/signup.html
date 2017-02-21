@@ -1,57 +1,85 @@
 <ion-modal-view>
     <ion-header-bar class="bar bar-header">
         <h1 class="title" translate="CREATE_ACCOUNT"></h1>
-        <button class="button button-clear button-primary" ng-click="CloseModalSignup()" transalet="CANCEL"></button>
+        <button class="button button-clear button-primary" ng-click="CloseModalSignup()" translate="CANCEL"></button>
     </ion-header-bar>
 
-    <ion-content class="container-body" class="container-body" class="padding">
-        <form name="signupForm" method="post" novalidate>
+
+    <form name="signupForm" method="post" novalidate>
+        <ion-content class="container-body" class="padding">
             <div class="list">
                 <label class="item item-input item-stacked-label">
                     <span class="input-label" translate="EMAIL"></span>
-                    <input ng-model="user.email" type="email" name="email" placeholder="{{'EMAIL_PLACEHOLDER' | translate}}" required>
-                    <div ng-messages="signupForm.email.$error" role="alert" ng-show='signupForm.$submitted || signupForm.email.$dirty'>
+                    <input ng-model="user.email" type="email" name="email"
+                           placeholder="{{'EMAIL_PLACEHOLDER' | translate}}" required>
+
+                    <div ng-messages="signupForm.email.$error" role="alert"
+                         ng-show='signupForm.$submitted || signupForm.email.$dirty'>
                         <div ng-message="required" class="form-error" translate="EMAIL_REQUIRED_MESSAGE"></div>
                         <div ng-message="email" class="form-error" translate="EMAIL_VALID_MESSAGE"></div>
                     </div>
                 </label>
                 <label class="item item-input item-stacked-label">
                     <span class="input-label" translate="MOBILE"></span>
-                    <input ng-model="user.mobile_number" type="text" name="mobile_number" placeholder="{{'MOBILE_PLACEHOLDER' | translate}}" required>
-                    <div ng-messages="signupForm.mobile_number.$error" role="alert" ng-show='signupForm.$submitted || signupForm.mobile_number.$dirty'>
+                    <input ng-model="user.mobile_number" type="text" name="mobile_number"
+                           placeholder="{{'MOBILE_PLACEHOLDER' | translate}}" required>
+
+                    <div ng-messages="signupForm.mobile_number.$error" role="alert"
+                         ng-show='signupForm.$submitted || signupForm.mobile_number.$dirty'>
                         <div ng-message="required" class="form-error" translate="MOBILE_REQUIRED_MESSAGE"></div>
                     </div>
                 </label>
                 <label class="item item-input item-stacked-label">
                     <span class="input-label" translate="FIRST_NAME"></span>
-                    <input ng-model="user.first_name" type="text" name="first_name" placeholder="{{'FIRST_NAME_PLACEHOLDER' | translate}}" required>
-                    <div ng-messages="signupForm.first_name.$error" role="alert" ng-show='signupForm.$submitted || signupForm.first_name.$dirty'>
+                    <input ng-model="user.first_name" type="text" name="first_name"
+                           placeholder="{{'FIRST_NAME_PLACEHOLDER' | translate}}" required>
+
+                    <div ng-messages="signupForm.first_name.$error" role="alert"
+                         ng-show='signupForm.$submitted || signupForm.first_name.$dirty'>
                         <div ng-message="required" class="form-error" translate="FIRST_NAME_REQUIRED_MESSAGE"></div>
                     </div>
                 </label>
                 <label class="item item-input item-stacked-label">
                     <span class="input-label" translate="COMPANY"></span>
-                    <input ng-model="user.company_id" type="text" name="company_id" placeholder="{{'COMPANY_PLACEHOLDER' | translate}}" required>
-                    <div ng-messages="signupForm.company_id.$error" role="alert" ng-show='signupForm.$submitted || signupForm.company_id.$dirty'>
+                    <input ng-model="user.company_id" type="text" name="company_id"
+                           placeholder="{{'COMPANY_PLACEHOLDER' | translate}}" required>
+
+                    <div ng-messages="signupForm.company_id.$error" role="alert"
+                         ng-show='signupForm.$submitted || signupForm.company_id.$dirty'>
                         <div ng-message="required" class="form-error" translate="COMPANY_REQUIRED_MESSAGE"></div>
                     </div>
                 </label>
                 <label class="item item-input item-stacked-label">
                     <span class="input-label" translate="PASSWORD"></span>
-                    <input ng-model="user.password1" type="password" name="password1" placeholder="{{'PASSWORD_PLACEHOLDER' | translate}}" required>
-                    <div ng-messages="signupForm.password1.$error" role="alert" ng-show='signupForm.$submitted || signupForm.password1.$dirty'>
+                    <input ng-model="user.password1" type="password" name="password1"
+                           placeholder="{{'PASSWORD_PLACEHOLDER' | translate}}" required>
+
+                    <div ng-messages="signupForm.password1.$error" role="alert"
+                         ng-show='signupForm.$submitted || signupForm.password1.$dirty'>
                         <div ng-message="required" class="form-error" translate="PASSWORD_REQUIRED_MESSAGE"></div>
                     </div>
                 </label>
                 <label class="item item-input item-stacked-label">
                     <span class="input-label" translate="CONFIRM_PASSWORD"></span>
-                    <input ng-model="user.password2" type="password" name="password2" placeholder="{{'CONFIRM_PASSWORD_PLACEHOLDER' | translate}}" required>
-                    <div ng-messages="signupForm.password2.$error" role="alert" ng-show='signupForm.$submitted || signupForm.password2.$dirty'>
-                        <div ng-message="required" class="form-error" translate="CONFIRM_PASSWORD_REQUIRED_MESSAGE"></div>
+                    <input ng-model="user.password2" type="password" name="password2"
+                           placeholder="{{'CONFIRM_PASSWORD_PLACEHOLDER' | translate}}" required>
+
+                    <div ng-messages="signupForm.password2.$error" role="alert"
+                         ng-show='signupForm.$submitted || signupForm.password2.$dirty'>
+                        <div ng-message="required" class="form-error"
+                             translate="CONFIRM_PASSWORD_REQUIRED_MESSAGE"></div>
                     </div>
                 </label>
-                <button class="button button-full" ng-click="registerUser(signupForm)" translate="CREATE"></button>
+                <!--<button class="button button-full" ng-click="registerUser(signupForm)" translate="CREATE"></button>-->
+                <!-- Footer bar hack to get layout right -->
             </div>
-        </form>
-    </ion-content>
+        </ion-content>
+        <ion-footer-bar class="high-footer bar-dark">
+        </ion-footer-bar>
+
+        <button keyboard-attach class="high-footer bar bar-footer" ng-click="create(MobileForm)"
+                linked="clickMe">
+            <h1 class="title" translate="SAVE"></h1>
+        </button>
+    </form>
 </ion-modal-view>
