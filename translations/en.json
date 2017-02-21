@@ -29,7 +29,7 @@
   "IDENTIFIER_PLACEHOLDER": "e.g hello@rehive.com",
   "IDENTIFIER_REQUIRED_MESSAGE": "Please enter an identifier.",
   "COMPANY": "Company",
-  "COMPANY_PLACEHOLDER": "Company ID.",
+  "COMPANY_PLACEHOLDER": "e.g. rehive",
   "COMPANY_REQUIRED_MESSAGE": "Please enter a company ID.",
   "PASSWORD": "Password",
   "PASSWORD_PLACEHOLDER": "Password",
