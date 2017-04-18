@@ -67,8 +67,8 @@ angular.module('generic-client.controllers.accounts', [])
                         $rootScope.user = JSON.parse($window.localStorage.getItem('user'));
 
                         // Check if a mobile number was used for registration
-                        if (typeof res.data.user.mobile_number != 'undefined' &&
-                            res.data.user.mobile_number != '') {
+                        if (typeof res.data.data.user.mobile_number != 'undefined' &&
+                            res.data.data.user.mobile_number != '') {
                             $scope.ShowModalVerify()
                         } else {
                             $state.go('app.home');

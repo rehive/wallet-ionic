@@ -6,11 +6,11 @@ angular.module('generic-client.services.settings', [])
         var self = this;
 
         self.get = function () {
-            return $http.get(API + '/users/profile/');
+            return $http.get(API + '/user/');
         };
 
         self.create = function (first_name, last_name, id_number, nationality, language) {
-            return $http.put(API + '/users/profile/', {
+            return $http.put(API + '/user/', {
                 first_name: first_name,
                 last_name: last_name,
                 id_number: id_number,
@@ -46,12 +46,12 @@ angular.module('generic-client.services.settings', [])
         var self = this;
 
         self.get = function () {
-            return $http.get(API + '/users/address/');
+            return $http.get(API + '/user/address/');
         };
 
         self.create = function (line_1, line_2, city, state_province, country, code) {
 
-            return $http.put(API + '/users/address/', {
+            return $http.put(API + '/user/address/', {
                 line_1: line_1,
                 line_2: line_2,
                 city: city,
@@ -67,16 +67,16 @@ angular.module('generic-client.services.settings', [])
         var self = this;
 
         self.list = function () {
-            return $http.get(API + '/users/bank_accounts/');
+            return $http.get(API + '/user/bank_accounts/');
         };
 
         self.get = function (accId) {
-            return $http.get(API + '/users/bank_accounts/' + accId + '/');
+            return $http.get(API + '/user/bank_accounts/' + accId + '/');
         };
 
         self.update = function (accId, name, number, type, bank_name, branch_code, swift, iban, bic) {
 
-            return $http.put(API + '/users/bank_accounts/' + accId + '/', {
+            return $http.put(API + '/user/bank_accounts/' + accId + '/', {
                 name: name,
                 number: number,
                 type: type,
@@ -90,7 +90,7 @@ angular.module('generic-client.services.settings', [])
 
         self.create = function (name, number, type, bank_name, branch_code, swift, iban, bic) {
 
-            return $http.post(API + '/users/bank_accounts/', {
+            return $http.post(API + '/user/bank_accounts/', {
                 name: name,
                 number: number,
                 type: type,
@@ -109,24 +109,24 @@ angular.module('generic-client.services.settings', [])
         var self = this;
 
         self.list = function () {
-            console.log($http.get(API + '/users/bitcoin_accounts/'));
-            return $http.get(API + '/users/bitcoin_accounts/');
+            console.log($http.get(API + '/user/bitcoin_accounts/'));
+            return $http.get(API + '/user/bitcoin_accounts/');
         };
 
         self.get = function (accId) {
-            return $http.get(API + '/users/bitcoin_accounts/' + accId + '/');
+            return $http.get(API + '/user/bitcoin_accounts/' + accId + '/');
         };
 
         self.update = function (accId, address) {
 
-            return $http.put(API + '/users/bitcoin_accounts/' + accId + '/', {
+            return $http.put(API + '/user/bitcoin_accounts/' + accId + '/', {
                 address: address
             });
         };
 
         self.create = function (address) {
 
-            return $http.post(API + '/users/bitcoin_accounts/', {
+            return $http.post(API + '/user/bitcoin_accounts/', {
                 address: address
             });
         };
@@ -137,24 +137,24 @@ angular.module('generic-client.services.settings', [])
         var self = this;
 
         self.list = function () {
-            return $http.get(API + '/users/emails/');
+            return $http.get(API + '/user/emails/');
         };
 
         self.create = function (email_address, primary) {
-            return $http.post(API + '/users/emails/', {
+            return $http.post(API + '/user/emails/', {
                 email: email_address,
                 primary: primary
             });
         };
 
         self.update = function (email_id, primary) {
-            return $http.patch(API + '/users/emails/'+ email_id + '/', {
+            return $http.patch(API + '/user/emails/'+ email_id + '/', {
                 primary: primary
             })
         };
 
         self.delete = function (email_id) {
-            return $http.delete(API + '/users/emails/'+ email_id + '/');
+            return $http.delete(API + '/user/emails/'+ email_id + '/');
         };
 
         self.resendVerification = function (email_address, company_id) {
@@ -170,24 +170,24 @@ angular.module('generic-client.services.settings', [])
         var self = this;
 
         self.list = function () {
-            return $http.get(API + '/users/mobiles/');
+            return $http.get(API + '/user/mobiles/');
         };
 
         self.create = function (mobile_number, primary) {
-            return $http.post(API + '/users/mobiles/', {
+            return $http.post(API + '/user/mobiles/', {
                 number: mobile_number,
                 primary: primary
             });
         };
 
         self.update = function (mobile_id, primary) {
-            return $http.patch(API + '/users/mobiles/'+ mobile_id + '/', {
+            return $http.patch(API + '/user/mobiles/'+ mobile_id + '/', {
                 primary: primary
             })
         };
 
         self.delete = function (mobile_id) {
-            return $http.delete(API + '/users/mobiles/'+ mobile_id + '/');
+            return $http.delete(API + '/user/mobiles/'+ mobile_id + '/');
         };
 
         self.resendVerification = function (mobile_number, company_id) {
@@ -226,7 +226,7 @@ angular.module('generic-client.services.settings', [])
         var self = this;
 
         self.list = function () {
-            return $http.get(API + '/users/notifications/');
+            return $http.get(API + '/user/notifications/');
         };
 
         self.set = function (notification, email_enabled, sms_enabled) {
@@ -234,7 +234,7 @@ angular.module('generic-client.services.settings', [])
             console.log(email_enabled)
             console.log(sms_enabled)
 
-            return $http.put(API + '/users/notifications/'+ notification + '/', {
+            return $http.put(API + '/user/notifications/'+ notification + '/', {
                 email_enabled: email_enabled,
                 sms_enabled: sms_enabled
             });
