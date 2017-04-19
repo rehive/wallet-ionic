@@ -27,11 +27,11 @@ angular.module('generic-client.controllers.settings', [])
                 // Convert data URL to blob file
                 Promise.resolve(Upload.dataUrltoBlob(($scope.image.croppedFileData || $scope.image.fileData), "file")).then(function(file) {
                     Upload.upload({
-                        url: API + "/users/profile/",
+                        url: API + "/user/",
                         data: {
                             profile: file
                         },
-                        headers: {'Authorization': 'JWT ' + Auth.getToken()},
+                        headers: {'Authorization': 'Token ' + Auth.getToken()},
                         method: "PUT"
                     }).then(function (res) {
                         // Set user root scope
