@@ -5,7 +5,7 @@ angular.module('generic-client.services.transactions', [])
         'use strict';
         var self = this;
         self.get = function () {
-            return $http.get(API + '/accounts/balance/');
+            return $http.get(API + '/accounts/Dt9OH6d1fz/currencies/ZAR/');
         }
     })
 
