@@ -9,6 +9,7 @@ angular.module('generic-client.controllers.transactions', [])
             getBalance.success(
                 function (res) {
                     $window.localStorage.setItem('myCurrency', JSON.stringify(res.data.currency));
+                    console.log($window.localStorage.getItem("myCurrency"));
                     $scope.balance = Conversions.from_cents(res.data.balance);
                     $scope.currency = res.data.currency;
 
