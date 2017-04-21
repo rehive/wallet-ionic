@@ -59,6 +59,7 @@ angular.module('generic-client.services.transactions', [])
 
     .service('Conversions', function ($window) {
         'use strict';
+        
         var self = this;
 
         self.from_cents = function (amount) {
