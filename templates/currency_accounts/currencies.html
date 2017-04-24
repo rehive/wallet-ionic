@@ -1,5 +1,9 @@
 <ion--view view-title="{{'Currencies' | translate}}" ng-controller="CurrenciesCtrl">
     <ion-content class="container-body">
+        <div class="container-deposit-reference text-center">
+            <h4 class="capital-letter">{{ accountName }}</h4>
+            <h5 class="capital-letter dark-blue">{{ reference }}</h5>
+        </div>
         <ion-refresher pulling-text="pull to refresh" on-refresh="refreshData()"></ion-refresher>
         <div class="list-default">
             <div class="block">
@@ -16,7 +20,7 @@
 
                             <div class="col align-right">
                                 <button class="button" ng-if="!checkActive(item)" keyboard-attach
-                                        ng-click="setToken(item.token.code, item.token.account.reference, item.token.issuer.identifier)"
+                                        ng-click="setActive(item.currency.code)"
                                         linked="clickMe"
                                         translate="ACTIVATE">
                                 </button>

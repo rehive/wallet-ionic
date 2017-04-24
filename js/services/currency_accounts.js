@@ -13,12 +13,12 @@ angular.module('generic-client.services.currency_accounts', [])
             return $http.get(API + '/accounts/'+ reference + "/currencies/");
         };
 
-        self.set = function (currency, account, issuer) {
-            return $http.post(API + '/accounts/currency/set/', {
-                currency: currency,
-                account: account,
-                issuer: issuer
-            });
+        self.set = function (reference, code) {
+            return $http({
+                    method : "PUT",
+                    url : API + '/accounts/'+ reference +'/currencies/' + code + '/',
+                    data : {active: true}
+                });
         };
 
         self.create = function (code, issuer) {

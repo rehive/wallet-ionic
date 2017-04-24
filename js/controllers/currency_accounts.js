@@ -3,10 +3,11 @@ angular.module('generic-client.controllers.currency_accounts', [])
     .controller('CurrenciesCtrl', function ($scope, $window, $ionicPopup, $ionicModal, $state, $stateParams, $ionicLoading, $translate, CurrencyAccounts, Conversions) {
         'use strict';
 
-        var reference = $stateParams.reference;
+        $scope.reference = $stateParams.reference;
+        $scope.accountName = $stateParams.name;
 
         $scope.listData = function () {
-            CurrencyAccounts.currenciesList(reference).success(
+            CurrencyAccounts.currenciesList($scope.reference).success(
                 function (res) {
                     var items = [];
 
@@ -26,12 +27,13 @@ angular.module('generic-client.controllers.currency_accounts', [])
         $scope.checkActive = function(item){
             return item.active==true;
         }
+
         $scope.setToken = function (code) {
             $ionicLoading.show({
                 template: $translate.instant("LOADER_SWITCHING_ACCOUNT")
             });
 
-            CurrencyAccounts.set(currency, account, issuer).then(function (res) {
+            CurrencyAccounts.set($scope.reference, code).then(function (res) {
                 if (res.status === 200) {
                     $ionicLoading.hide();
                     $scope.listData();
@@ -60,9 +62,10 @@ angular.module('generic-client.controllers.currency_accounts', [])
             );
         };
 
-        $scope.accountSelected = function(reference){
+        $scope.accountSelected = function(item){
             $state.go('app.currencies', {
-                    reference: reference
+                    reference: item.reference,
+                    name: item.name
                 });
         }
 

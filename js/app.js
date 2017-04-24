@@ -326,7 +326,8 @@ angular.module('generic-client', ['ionic',
                     }
                 },
                 params: {
-                    reference: null
+                    reference: null,
+                    name: null
                 }
             })
 
