@@ -6,7 +6,11 @@ angular.module('generic-client.services.currency_accounts', [])
         var self = this;
 
         self.list = function () {
-            return $http.get(API + '/accounts/currency/');
+            return $http.get(API + '/accounts/');
+        };
+
+        self.currenciesList = function (reference) {
+            return $http.get(API + '/accounts/'+ reference + "/currencies/");
         };
 
         self.set = function (currency, account, issuer) {
