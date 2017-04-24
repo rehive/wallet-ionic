@@ -1,0 +1,33 @@
+<ion--view view-title="{{'Currencies' | translate}}" ng-controller="CurrenciesCtrl">
+    <ion-content class="container-body">
+        <ion-refresher pulling-text="pull to refresh" on-refresh="refreshData()"></ion-refresher>
+        <div class="list-default">
+            <div class="block">
+                <div ng-repeat="item in items">
+                    <div class="item item-avatar item-icon-left no-padding">
+                        <i class="icon ion-ios-circle-outline"></i>
+
+                        <div class="row default-top">
+                            <div class="col col-50 align-left">
+                                <h2>{{ item.currency.code }}</h2>
+
+                                <p>{{ item.currency.symbol }} {{ item.balance }}</p>
+                            </div>
+
+                            <div class="col align-right">
+                                <button class="button" ng-if="!checkActive(item)" keyboard-attach
+                                        ng-click="setToken(item.token.code, item.token.account.reference, item.token.issuer.identifier)"
+                                        linked="clickMe"
+                                        translate="ACTIVATE">
+                                </button>
+                                <button class="button button-balanced" ng-if="checkActive(item)" disabled translate="ACTIVE">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+    <ion-infinite-scroll on-infinite="loadMore()" distance="5%"></ion-infinite-scroll>
+</ion--view>

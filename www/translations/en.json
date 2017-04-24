@@ -150,6 +150,7 @@
   "RECEIVE_INSTRUCTIONS": "The QR code is your public address for accepting payments.",
 
   "ACCOUNTS": "Accounts",
+  "Currencies": "Currencies",
 
   "PROMOTIONS": "Promotions",
   "PROMOTIONS_INSTRUCTIONS": "Your referral code is {{ referral_code }}.",

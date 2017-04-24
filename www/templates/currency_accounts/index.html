@@ -4,27 +4,10 @@
         <div class="list-default">
             <div class="block">
                 <div ng-repeat="item in items">
-                    <div class="item item-avatar item-icon-left no-padding">
-                        <i class="icon ion-ios-circle-outline"></i>
-
-                        <div class="row default-top">
-                            <div class="col col-50 align-left">
-                                <h2>{{ item.token.code }}</h2>
-
-                                <p>{{ item.token.currency.symbol }} {{ item.balance }}</p>
-                            </div>
-
-                            <div class="col align-right">
-                                <button class="button" ng-if="item.status=='inactive'" keyboard-attach
-                                        ng-click="setToken(item.token.code, item.token.account.reference, item.token.issuer.identifier)"
-                                        linked="clickMe"
-                                        translate="ACTIVATE">
-                                </button>
-                                <button class="button button-balanced" ng-if="item.status=='active'" disabled translate="ACTIVE">
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                    <a class="item item-icon-right" ng-click="accountSelected(item.reference)">
+                        <h3>{{ item.name }}</h3>
+                        <i class="icon ion-ios-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </div>
