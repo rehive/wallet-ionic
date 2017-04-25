@@ -22,7 +22,7 @@ angular.module('generic-client.services.transactions', [])
         };
 
         self.create = function (amount, note, to) {
-            return $http.post(API + '/transactions/send/', {
+            return $http.post(API + '/transactions/transfer/', {
                 amount: amount,
                 note: note,
                 recipient: to
