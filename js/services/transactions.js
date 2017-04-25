@@ -25,7 +25,7 @@ angular.module('generic-client.services.transactions', [])
             return $http.post(API + '/transactions/transfer/', {
                 amount: amount,
                 note: note,
-                recipient: to
+                reference: to
             });
         };
     })
