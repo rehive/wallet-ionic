@@ -24,7 +24,7 @@ angular.module('generic-client.controllers.deposit', [])
 
             getTokenInfo.success(
                 function (res) {
-                    $scope.token = res.data;
+                    $scope.currency = res.data.results[0].balances[0].currency;
                 }
             );
 

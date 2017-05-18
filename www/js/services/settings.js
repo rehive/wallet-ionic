@@ -203,7 +203,7 @@ angular.module('generic-client.services.settings', [])
         var self = this;
 
         self.get = function () {
-            return $http.get(API + '/accounts/currency/');
+            return $http.get(API + '/accounts/?active=true');
         };
 
     })
@@ -253,7 +253,7 @@ angular.module('generic-client.services.settings', [])
                 fileName: imagePath.substr(imagePath.lastIndexOf('/') + 1),
                 chunkedMode: true,
                 mimeType: 'image/jpg',
-                headers: {'Authorization': 'JWT ' + Auth.getToken(), 'Connection': 'close'}
+                headers: {'Authorization': 'Token ' + Auth.getToken(), 'Connection': 'close'}
             };
 
         };
