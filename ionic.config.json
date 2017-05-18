@@ -20,5 +20,7 @@
     "cordova-plugin-whitelist",
     "cordova-plugin-splashscreen"
   ],
-  "cordovaPlatforms": []
+  "cordovaPlatforms": [],
+  "app_id": "",
+  "type": "ionic1"
 }
