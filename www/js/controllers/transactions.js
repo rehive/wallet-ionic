@@ -8,7 +8,7 @@ angular.module('generic-client.controllers.transactions', [])
 
             getBalance.success(
                 function (res) {
-                    var data = res.data.results[0].balances[0];
+                    var data = res.data.results[0].currencies[0];
                     console.log(data)
                     $window.localStorage.setItem('myCurrency', JSON.stringify(data.currency));
                     console.log($window.localStorage.getItem("myCurrency"));

@@ -123,7 +123,7 @@ angular.module('generic-client.services.accounts', [])
                 first_name: first_name,
                 email: email,
                 mobile_number: mobile_number,
-                company_id: company_id,
+                company: company_id,
                 password1: password1,
                 password2: password2
             })
@@ -131,16 +131,16 @@ angular.module('generic-client.services.accounts', [])
 
         self.login = function (identifier, company_id, password) {
             return $http.post(API + '/auth/login/', {
-                identifier: identifier,
-                company_id: company_id,
+                user: identifier,
+                company: company_id,
                 password: password
             })
         };
 
         self.resetPassword = function (identifier, company_id) {
             return $http.post(API + '/auth/password/reset/', {
-                identifier: identifier,
-                company_id: company_id
+                user: identifier,
+                company: company_id
             })
         };
 

@@ -32,7 +32,7 @@ angular.module('generic-client.controllers.settings', [])
                             profile: file
                         },
                         headers: {'Authorization': 'Token ' + Auth.getToken()},
-                        method: "PUT"
+                        method: "PATCH"
                     }).then(function (res) {
                         // Set user root scope
                         $rootScope.user.profile = res.data.data.profile;
