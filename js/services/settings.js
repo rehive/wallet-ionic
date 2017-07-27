@@ -67,16 +67,16 @@ angular.module('generic-client.services.settings', [])
         var self = this;
 
         self.list = function () {
-            return $http.get(API + '/user/bank_accounts/');
+            return $http.get(API + '/user/bank-accounts/');
         };
 
         self.get = function (accId) {
-            return $http.get(API + '/user/bank_accounts/' + accId + '/');
+            return $http.get(API + '/user/bank-accounts/' + accId + '/');
         };
 
         self.update = function (accId, name, number, type, bank_name, branch_code, swift, iban, bic) {
 
-            return $http.put(API + '/user/bank_accounts/' + accId + '/', {
+            return $http.put(API + '/user/bank-accounts/' + accId + '/', {
                 name: name,
                 number: number,
                 type: type,
@@ -90,7 +90,7 @@ angular.module('generic-client.services.settings', [])
 
         self.create = function (name, number, type, bank_name, branch_code, swift, iban, bic) {
 
-            return $http.post(API + '/user/bank_accounts/', {
+            return $http.post(API + '/user/bank-accounts/', {
                 name: name,
                 number: number,
                 type: type,
@@ -109,24 +109,24 @@ angular.module('generic-client.services.settings', [])
         var self = this;
 
         self.list = function () {
-            console.log($http.get(API + '/user/bitcoin_accounts/'));
-            return $http.get(API + '/user/bitcoin_accounts/');
+            console.log($http.get(API + '/user/bitcoin-accounts/'));
+            return $http.get(API + '/user/bitcoin-accounts/');
         };
 
         self.get = function (accId) {
-            return $http.get(API + '/user/bitcoin_accounts/' + accId + '/');
+            return $http.get(API + '/user/bitcoin-accounts/' + accId + '/');
         };
 
         self.update = function (accId, address) {
 
-            return $http.put(API + '/user/bitcoin_accounts/' + accId + '/', {
+            return $http.put(API + '/user/bitcoin-accounts/' + accId + '/', {
                 address: address
             });
         };
 
         self.create = function (address) {
 
-            return $http.post(API + '/user/bitcoin_accounts/', {
+            return $http.post(API + '/user/bitcoin-accounts/', {
                 address: address
             });
         };
@@ -159,8 +159,8 @@ angular.module('generic-client.services.settings', [])
 
         self.resendVerification = function (email_address, company_id) {
             return $http.post(API + '/auth/email/verify/resend/', {
-                identifier: email_address,
-                company_id: company_id
+                email: email_address,
+                company: company_id
             });
         };
     })
@@ -192,8 +192,8 @@ angular.module('generic-client.services.settings', [])
 
         self.resendVerification = function (mobile_number, company_id) {
             return $http.post(API + '/auth/mobile/verify/resend/', {
-                identifier: mobile_number,
-                company_id: company_id
+                mobile: mobile_number,
+                company: company_id
             });
         };
     })
