@@ -73,6 +73,7 @@ angular.module('generic-client.controllers.withdraw', [])
 
         $scope.submit = function (form) {
             if (form.$valid) {
+                console.log(form.amount.$viewValue);
                 $state.go('app.withdraw_confirm', {
                     amount: form.amount.$viewValue,
                     account: $scope.account
