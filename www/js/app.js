@@ -30,7 +30,8 @@ angular.module('generic-client', ['ionic',
     'generic-client.filters.contacts'])
 
     //.constant('API', 'http://localhost:8080/api/2')
-    .constant('API', 'https://rehive.com/api/2')
+    //.constant('API', 'https://rehive.com/api/2')
+    .constant('API', 'https://rehive.com/api/3')
     //.constant('API', 'https://staging.rehive.com/api/2')
 
     .constant('REFRESH_INTERVAL', 3000)
@@ -306,13 +307,27 @@ angular.module('generic-client', ['ionic',
             })
 
             // Accounts
-            .state('app.currency_accounts', {
-                url: '/currency_accounts',
+            .state('app.accounts', {
+                url: '/accounts',
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/currency_accounts/index.html',
                         controller: 'CurrencyAccountsCtrl'
                     }
+                }
+            })
+            //Currencies
+            .state('app.currencies', {
+                url: '/currencies',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/currency_accounts/currencies.html',
+                        controller: 'CurrenciesCtrl'
+                    }
+                },
+                params: {
+                    reference: null,
+                    name: null
                 }
             })
 

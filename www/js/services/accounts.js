@@ -9,7 +9,7 @@ angular.module('generic-client.services.accounts', [])
                 var token = Auth.getToken();
 
                 if (token && config.url.indexOf(API) === 0) {
-                    config.headers.Authorization = 'JWT ' + token;
+                    config.headers.Authorization = 'Token ' + token;
                 }
 
                 var language = Auth.getLanguage();
@@ -23,12 +23,14 @@ angular.module('generic-client.services.accounts', [])
 
             // If a token was sent back, save it
             response: function (res) {
-                if (res.data) {
-                    if (res.data.token && res.config.url.indexOf(API) === 0 &&
-                        typeof res.data.token != 'undefined') {
-                        Auth.saveToken(res.data.token);
-                        Auth.saveUser(res.data.user);
-                        Auth.saveLanguage(res.data.user);
+                if(res.data){
+                    if (res.data.data) {
+                        if (res.data.data.token && res.config.url.indexOf(API) === 0 &&
+                            typeof res.data.data.token != 'undefined') {
+                            Auth.saveToken(res.data.data.token);
+                            Auth.saveUser(res.data.data.user);
+                            Auth.saveLanguage(res.data.data.user);
+                        }
                     }
                 }
 
@@ -121,36 +123,29 @@ angular.module('generic-client.services.accounts', [])
                 first_name: first_name,
                 email: email,
                 mobile_number: mobile_number,
-                company_id: company_id,
+                company: company_id,
                 password1: password1,
                 password2: password2
-            }).then(function (res) {
-                if (typeof res.data.token != 'undefined') {
-                    Auth.saveToken(res.data.token);
-                    Auth.saveUser(res.data.user);
-                    Auth.saveLanguage(res.data.user);
-                }
-                return res;
-            });
+            })
         };
 
         self.login = function (identifier, company_id, password) {
             return $http.post(API + '/auth/login/', {
-                identifier: identifier,
-                company_id: company_id,
+                user: identifier,
+                company: company_id,
                 password: password
             })
         };
 
         self.resetPassword = function (identifier, company_id) {
             return $http.post(API + '/auth/password/reset/', {
-                identifier: identifier,
-                company_id: company_id
+                user: identifier,
+                company: company_id
             })
         };
 
         self.partialUpdate = function (jsonUpdate) {
-            return $http.patch(API + '/users/profile/', jsonUpdate)
+            return $http.patch(API + '/user/', jsonUpdate)
         };
 
         // self.sendOtp = function () {
@@ -168,7 +163,7 @@ angular.module('generic-client.services.accounts', [])
         };
 
         self.getInfo = function () {
-            return $http.get(API + '/users/profile/', {});
+            return $http.get(API + '/user/', {});
         }
     })
 
@@ -177,6 +172,6 @@ angular.module('generic-client.services.accounts', [])
         var self = this;
 
         self.get = function () {
-            return $http.get(API + '/users/company/');
+            return $http.get(API + '/company/');
         };
     });

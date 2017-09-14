@@ -20,7 +20,7 @@
                             <img class="circle-base profile-teller" ng-src="{{ item.counterparty.profile || 'img/profile_2.png' }}"/>
                             <div class="row default-top">
                                 <div class="col col-50 align-left">
-                                    <h2>{{ item.description }}</h2>
+                                    <h2>{{ item.label }}</h2>
                                     <h5 ng-if="item.metadata.fee > 0"
                                         translate="TRANSACTION_FEE"
                                         translate-values="{ currency: item.currency.symbol, fee: item.metadata.fee}"></h5>

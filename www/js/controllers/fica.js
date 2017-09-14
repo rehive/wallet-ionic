@@ -49,13 +49,13 @@ angular.module('generic-client.controllers.fica', [])
             if ($scope.image.fileData) {
                 Promise.resolve(Upload.dataUrltoBlob($scope.image.fileData, "file")).then(function(file) {
                     Upload.upload({
-                        url: API + "/users/document/",
+                        url: API + "/user/documents/",
                         data: {
                             file: file,
-                            document_category: "",
-                            document_type: ""
+                            document_category: "other",
+                            document_type: "other"
                         },
-                        headers: {'Authorization': 'JWT ' + Auth.getToken()},
+                        headers: {'Authorization': 'Token ' + Auth.getToken()},
                         method: "POST"
                     }).then(function (res) {
                         $ionicLoading.hide();

@@ -5,7 +5,7 @@ angular.module('generic-client.services.transactions', [])
         'use strict';
         var self = this;
         self.get = function () {
-            return $http.post(API + '/accounts/balance/');
+            return $http.get(API + '/accounts/?active=true');
         }
     })
 
@@ -22,7 +22,7 @@ angular.module('generic-client.services.transactions', [])
         };
 
         self.create = function (amount, note, to) {
-            return $http.post(API + '/transactions/send/', {
+            return $http.post(API + '/transactions/transfer/', {
                 amount: amount,
                 note: note,
                 recipient: to
@@ -36,7 +36,7 @@ angular.module('generic-client.services.transactions', [])
         var self = this;
 
         self.create = function (amount, reference) {
-            return $http.post(API + '/transactions/withdraw/', {
+            return $http.post(API + '/transactions/debit/', {
                 amount: amount,
                 currency: '',
                 account: '',
@@ -52,13 +52,14 @@ angular.module('generic-client.services.transactions', [])
         var self = this;
 
         self.get = function () {
-            return $http.get(API + '/accounts/deposits/bank/');
+            return $http.get(API + '/company/bank-account/');
         };
     })
 
 
     .service('Conversions', function ($window) {
         'use strict';
+        
         var self = this;
 
         self.from_cents = function (amount) {

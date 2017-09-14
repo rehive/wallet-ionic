@@ -10052,3 +10052,7 @@ input.ng-invalid, input.ng-dirty {
 
 img-crop {
   position: absolute; }
+
+.dark-blue{
+  color: darkblue;
+}
