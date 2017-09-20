@@ -28,7 +28,7 @@ angular.module('generic-client.controllers.currency_accounts', [])
             return item.active==true;
         }
 
-        $scope.setToken = function (code) {
+        $scope.setActive = function (code) {
             $ionicLoading.show({
                 template: $translate.instant("LOADER_SWITCHING_ACCOUNT")
             });
